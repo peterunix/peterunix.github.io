@@ -1,7 +1,7 @@
 ---
-title: "Windows Server Setup Ssh Server"
-date: 2023-07-22T16:32:15-07:00
-draft: true
+date: 2023-07-22 16:32:15-07:00
+draft: false
+title: Windows Server Setup Ssh Server
 ---
 
 * Sources

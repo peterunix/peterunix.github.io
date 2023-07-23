@@ -241,16 +241,5 @@ Setting up our enviroment Here we&amp;#39;ll download the dependencies and the l
 sudo apt-get install linux-headers-$(uname -r) libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf bc fakeroot # Linux sources git clone --depth=1 https://gitlab.</description>
     </item>
     
-    <item>
-      <title>Workout Routine for Body Building</title>
-      <link>https://peterunix.github.io/posts/workout-routine/</link>
-      <pubDate>Sat, 22 Jul 2023 00:48:35 -0700</pubDate>
-      
-      <guid>https://peterunix.github.io/posts/workout-routine/</guid>
-      <description>Split Stuff goes here
-Diet more stuff
-History More stuff</description>
-    </item>
-    
   </channel>
 </rss>

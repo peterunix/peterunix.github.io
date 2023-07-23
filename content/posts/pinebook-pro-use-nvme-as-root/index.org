@@ -1,7 +1,7 @@
 ---
-title: "Pinebook Pro Use Nvme as Root"
-date: 2023-07-22T16:02:57-07:00
-draft: true
+date: 2023-07-22 16:02:57-07:00
+draft: false
+title: Pinebook Pro Use Nvme as Root
 ---
 
 * Preface
