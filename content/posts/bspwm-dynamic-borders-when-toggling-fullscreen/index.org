@@ -1,0 +1,47 @@
+---
+title: "Bspwm Dynamic Borders When Toggling Fullscreen"
+date: 2023-07-22T16:20:35-07:00
+draft: true
+---
+
+
+* Preface
+Dynamically change the border size when there is either a single node
+or multiple nodes on the focused desktop
+
+Add "/path/to/script &" to your BSPWMRC to make use of this script
+
+#+begin_src shell
+#!/bin/sh
+# Border size when there is one node on desktop and when there are multiple node
+s
+single_node="0"
+multi_node="3"
+
+# Create named pipe
+dynamicborder_fifo='/tmp/dynamic-border.fifo'
+[ -e "$dynamicborder_fifo" ] && rm "$dynamicborder_fifo"
+mkfifo "$dynamicborder_fifo"
+
+# Subscribe to bspc events
+bspc subscribe desktop > "$dynamicborder_fifo" &
+bspc subscribe node > "$dynamicborder_fifo" &
+
+# Change border size if there is one node or multiple nodes on focused desktop
+_DynamicBorder(){
+        focused=$(bspc query -D --names -d focused)
+        node=$(bspc query -N -d $focused | wc -l)
+        [ $node -eq 1 ] && bspc config border_width $single_node || bspc config border_width $multi_node
+}
+
+# Reading stdin from named pipe
+_Main(){
+        while read -r report; do
+                case $report in
+                        *) _DynamicBorder;;
+                esac
+        done
+}
+
+_Main < "$dynamicborder_fifo"
+#+end_src

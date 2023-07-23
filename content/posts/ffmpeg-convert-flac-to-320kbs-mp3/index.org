@@ -1,0 +1,33 @@
+---
+title: "Ffmpeg Convert Flac to 320kbs Mp3"
+date: 2023-07-22T16:23:15-07:00
+draft: true
+---
+
+
+* Preface
+The goal is to convert a flac file into a 320kb/s MP3 file whilst
+retaining all metadata.
+The only dependencies you need are "ffmpeg" and "id3v2".
+The ladder is used for embeding metadata.
+
+* Actually doing it
+Description of the commands listed below
+
+#+begin_src shell
+ffmpeg -i "input.flac" -codec:a libmp3lame -map_metadata 0 -id3v2_version 3 -write_id3v1 1 -map a:0 -b:a 320k "output.mp3"
+#+end_src
+
+"-i" Pass our input file
+
+"-codec:a" Passing our preffered audio codec
+
+"-map_metadata" This copies over metadata from our input file. "0"
+
+tells it to use the default options
+
+"-id3v2_version" These id3v options have something to do with metadata.
+
+"-map a:0" I think this makes it so ffmpeg ONLY outputs the audio streams to the mp3 file. Otherwise ffmpeg tries to copy the album art from the flac file, which MP3 files cannot handle. Errors will be thrown without this option.
+
+"-b:a 320k" This is our audio bitrate

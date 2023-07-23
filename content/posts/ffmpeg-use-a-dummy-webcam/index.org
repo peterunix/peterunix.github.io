@@ -1,0 +1,46 @@
+---
+title: "Ffmpeg Use a Dummy Webcam"
+date: 2023-07-22T16:22:07-07:00
+draft: true
+---
+
+* Preface
+I experienced my first proctored exam today.
+Being that I'm a technologist, I thought it'd be pretty fun to pre-record myself and have that recording output to a virtual webcam.
+Here's a not so descriptive guide on using ffmpeg with the v4l2loopback kernel module to create a virtual dummy webcam.
+
+* Installing v4l2loopback kernel module
+This module allows for the creation of virtual video devices.
+
+#+begin_src
+# Dependencies
+sudo apt install -y build-essential linux-headers-$(uname -r) v4l-utils help2man
+
+# Installation
+git clone https://github.com/umlaeute/v4l2loopback.git
+cd v4l2loopback
+make -j $(nproc)
+sudo make install
+sudo cp v4l2loopback.ko /lib/modules/$(uname -r)
+sudo depmod -a
+sudo modprobe v4l2loopback
+
+# Testing. You should see "Dummy video devices"
+v4l2-ctl --list-device
+#+end_src
+
+* Outputting a video/image to the dummy cam
+Subsitute /dev/video3 for whatever devices your dummy webcam is using.
+#+begin_src
+# For video
+ffmpeg -re -stream_loop -1 -i "video.mp4" -f v4l2 /dev/video3
+
+# For image
+ffmpeg -framerate 1 -loop 1 -re -i "image.png" -f v4l2 -vcodec rawvideo -pix_fmt yuv420p /dev/video3
+#+end_src
+
+* Outputting existing webcam to dummy cam
+Useful if your virtual machine can't install the drivers for your webcam.
+#+begin_src
+ffmpeg -i "/dev/video0" -f v4l2 -vcodec rawvideo  /dev/video2
+#+end_src

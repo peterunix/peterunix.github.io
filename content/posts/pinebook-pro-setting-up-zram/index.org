@@ -1,0 +1,46 @@
+---
+title: "Pinebook Pro Setting Up Zram"
+date: 2023-07-22T16:06:08-07:00
+draft: true
+---
+
+* Preface
+ZRAM is essentially compressed memory. Your system uses some of it's
+CPU cycles to compress redundant data into a reserved area of your ram.
+Think of it as swap space, but without writing to your drive.
+I've tested this on both Manjaro Arm and Archlinux Arm.
+
+
+* Checking if ZRAM is supported
+
+#+begin_src shell
+$ insmod | grep zram
+
+Output: zram    ????? ?
+#+end_src
+
+If you get similar results, zram should be supported.
+
+* Setting up ZRAM
+ 
+ #+begin_src shell
+ sudo modprobe zram && sudo zramctl -a lzo-rle -s 12G zram0
+ #+end_src
+ 
+ Here we are choosing the compression algorithm and size of the zram device.
+ Next we tell our system to use it as swap.
+ 
+ #+begin_src shell
+ sudo mkswap /dev/zram0 && sudo swapon /dev/zram0
+ #+end_src
+ 
+We should be good to go. Here's how you can verify zram is being used.
+
+ #+begin_src shell
+free -h
+ 
+total        used        free      shared  buff/cache   available
+Mem:         3.7Gi       429Mi     2.7Gi        30Mi       562Mi
+Swap:        11Gi          0B        11Gi
+ #+end_src
+

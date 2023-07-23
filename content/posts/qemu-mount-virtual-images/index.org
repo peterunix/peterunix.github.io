@@ -1,0 +1,19 @@
+---
+title: "Qemu Mount Virtual Images"
+date: 2023-07-22T16:11:57-07:00
+draft: true
+---
+
+* Mounting the image
+#+begin_src shell
+apt-get install -y libguestfs-tools
+
+# Mounting
+guestmount -a windows.qcow2 /mnt/
+
+# Mounting read-only mode
+guestmount -a windows.qcow2 /mnt/ --ro
+
+# Unmount
+guestunmount /mnt
+#+end_src
