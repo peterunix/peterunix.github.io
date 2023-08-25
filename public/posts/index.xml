@@ -6,7 +6,69 @@
     <description>Recent content in Posts on Peters Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Jul 2023 16:32:15 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Aug 2023 07:59:21 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Properly Migrate a Windows Server Domain</title>
+      <link>https://peterunix.github.io/posts/how-to-properly-migrate-a-windows-server-domain/</link>
+      <pubDate>Thu, 24 Aug 2023 07:59:21 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/how-to-properly-migrate-a-windows-server-domain/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Email Alerts With Fail2ban and Gmail</title>
+      <link>https://peterunix.github.io/posts/email-alerts-with-fail2ban-and-gmail/</link>
+      <pubDate>Fri, 18 Aug 2023 14:20:39 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/email-alerts-with-fail2ban-and-gmail/</guid>
+      <description> /etc/fail2ban/jail.local
+[DEFAULT] ignoreip = 127.0.0.0 findtime = 2m maxretry = 8 bantime = 10m destemail = DESTINATION@EXAMPLE.com sender = SENDER@EXAMPLE.com action = %(action_mwl)s [sshd] enabled = true port = 22 filter = sshd logpath = /var/log/auth.log actionban = printf %%b &amp;#34;Hi,\n The IP &amp;lt;ip&amp;gt; has just been banned by Fail2Ban after &amp;lt;failures&amp;gt; attempts against &amp;lt;name&amp;gt;.\n Regards,\n Fail2Ban&amp;#34; | mail -s &amp;#34;Subject: [Fail2Ban] &amp;lt;name&amp;gt;: banned &amp;lt;ip&amp;gt; from &amp;lt;fq-hostname&amp;gt; &amp;#34; </description>
+    </item>
+    
+    <item>
+      <title>Outlook Fix Godaddy Email Server Not Being Found</title>
+      <link>https://peterunix.github.io/posts/outlook-fix-godaddy-email-server-not-being-found/</link>
+      <pubDate>Thu, 17 Aug 2023 10:05:46 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/outlook-fix-godaddy-email-server-not-being-found/</guid>
+      <description>The Issue When adding a GoDaddy or Exchange account to outlook, sometimes you&amp;#39;ll get this error when outlook attempts to automatically add the email: &amp;#34;Something went wrong and outlook couldn&amp;#39;t setup your account&amp;#34;.
+Possible Cause Exchange uses an auto discover service to download configuration settings for setting up the email. Outlook grabs the domain from your email and constructs a URL that looks a little something like this.
+https://autodiscover.example.com/autodiscover/autodiscover.xml The server should respond back with email configuration data in that XML file.</description>
+    </item>
+    
+    <item>
+      <title>Mikrotik Creating a Client to Site Vpn With Wireguard</title>
+      <link>https://peterunix.github.io/posts/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</link>
+      <pubDate>Fri, 28 Jul 2023 13:00:51 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</guid>
+      <description>Server Setup Let&amp;#39;s add a new wireguard interface and give it the name &amp;#34;Wireguard1&amp;#34; The listening port is set to the default port number that the wireguard devs intended. The MTU value is default to what Mikrotik auto-fills
+/interface/wireguard/add listen-port=51820 mtu=1420 name=wireguard1 Now let&amp;#39;s print out the servers private and public keys. This will be used when creating the client configuration files.
+/interface/wireguard/print =====OUTPUT===== name=&amp;#34;wireguard1&amp;#34; mtu=1420 listen-port=51820 private-key=&amp;#34;AUTO-GENERATED-PRIV-KEY&amp;#34; public-key=&amp;#34;AUTO-GENERATED-PUB-KEY&amp;#34; We have our Wireguard interface setup.</description>
+    </item>
+    
+    <item>
+      <title>Mikrotik Securing Router With Firewall</title>
+      <link>https://peterunix.github.io/posts/mikrotik-securing-router-with-firewall/</link>
+      <pubDate>Fri, 28 Jul 2023 12:55:34 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/mikrotik-securing-router-with-firewall/</guid>
+      <description>Fresh Start Incase you mess up or want a fresh start, run these two commands to clear all firewall rules and address lists. Note that if you re-run the command to add a filter, it&amp;#39;ll either error out or duplicate if it already exists.
+/ip/firewall/filter remove [find dynamic=no] /ip/firewall/address-list remove [find dynamic=no] Default Firewall Rules These are the default IPv4 firewall filters suggested by Mikrotik. They work very well and prevent unwanted connections from the WAN interface.</description>
+    </item>
+    
+    <item>
+      <title>Mikrotik Setup Dynamically Changing IP With No-IP Api</title>
+      <link>https://peterunix.github.io/posts/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</link>
+      <pubDate>Fri, 28 Jul 2023 12:51:42 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</guid>
+      <description>Code Use the System&amp;gt;Scripts page and create a new script with this code. Change the variables under the Script Settings block. Also, to make things easier, set the name of the script to &amp;#34;NoIP&amp;#34;
+Source Page
+##############Script Settings################## :local NOIPUser &amp;#34;USERNAME&amp;#34; :local NOIPPass &amp;#34;PASSWORD&amp;#34; :local WANInter &amp;#34;ether1&amp;#34; :local NOIPDomain &amp;#34;NO-IP.DDNS.NET&amp;#34; ############################################### # Get the current IP on the interface :local currentIP [/ip address get [find interface=&amp;#34;$WANInter&amp;#34; disabled=no] address] # Strip the net mask off the IP address :for i from=( [:len $currentIP] - 1) to=0 do={ :if ( [:pick $currentIP $i] = &amp;#34;/&amp;#34;) do={ :set currentIP [:pick $currentIP 0 $i] } } :if ([:resolve $NOIPDomain] !</description>
+    </item>
+    
     <item>
       <title>Windows Server Setup Ssh Server</title>
       <link>https://peterunix.github.io/posts/windows-server-setup-ssh-server/</link>
@@ -239,6 +301,17 @@ Installtion # compile git clone https://github.com/jackhumbert/pinebook-pro-keyb
       <description>Preface Here&amp;#39;s how to compile tsys&amp;#39; mainline linux kernel for the Pinebook Pro. I&amp;#39;m using the &amp;#34;debian way&amp;#34; of installing the kernel. When compiling the kernel, we can tell &amp;#34;make&amp;#34; to package the binaries as multiple debian archive files (.deb). Afterward, we can simple run &amp;#34;dpkg -i .deb&amp;#34; to install it.
 Setting up our enviroment Here we&amp;#39;ll download the dependencies and the linux sources.
 sudo apt-get install linux-headers-$(uname -r) libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf bc fakeroot # Linux sources git clone --depth=1 https://gitlab.</description>
+    </item>
+    
+    <item>
+      <title>Workout Routine for Body Building</title>
+      <link>https://peterunix.github.io/posts/workout-routine/</link>
+      <pubDate>Sat, 22 Jul 2023 00:48:35 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/workout-routine/</guid>
+      <description>Split Stuff goes here
+Diet more stuff
+History More stuff</description>
     </item>
     
   </channel>

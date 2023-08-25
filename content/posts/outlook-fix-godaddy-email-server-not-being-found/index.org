@@ -1,0 +1,40 @@
+---
+title: "Outlook Fix Godaddy Email Server Not Being Found"
+date: 2023-08-17T10:05:46-07:00
+draft: false
+---
+
+* The Issue
+When adding a GoDaddy or Exchange account to outlook, sometimes you'll
+get this error when outlook attempts to automatically add the
+email: "Something went wrong and outlook couldn't setup your account".
+
+* Possible Cause
+
+Exchange uses an auto discover service to download configuration
+settings for setting up the email. Outlook grabs the domain from your
+email and constructs a URL that looks a little something like this.
+
+#+begin_src 
+https://autodiscover.example.com/autodiscover/autodiscover.xml
+#+end_src
+
+
+The server should respond back with email configuration data in that
+XML file. At that point you'll get a GoDaddy login window (OATH2.0)
+and can add your account. Sometimes it fucks up and Outlook isn't able
+to retrieve the email server configurations from that address. It then
+fallsback on the last known good autodiscover address and fails too.
+
+* Solution
+
+I don't know why this works, but if you add this registry key that
+tells Outlook to not use a fall back autodiscover URL, the issue is
+resolved. Maybe Outlook is defaulting to using the last known url
+by default? Who knows! 
+
+#+begin_src 
+Key: HKEY_CURRENT_USER:\SOFTWARE\Microsoft\Office\16.0\Outlook\AutoDiscover
+NAME: ExcludeLastKnownGoodUrl 
+VALUE: 1
+#+end_src

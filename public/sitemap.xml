@@ -3,10 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://peterunix.github.io/</loc>
-    <lastmod>2023-07-22T16:32:15-07:00</lastmod>
+    <lastmod>2023-08-24T07:59:21-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/how-to-properly-migrate-a-windows-server-domain/</loc>
+    <lastmod>2023-08-24T07:59:21-07:00</lastmod>
   </url><url>
     <loc>https://peterunix.github.io/posts/</loc>
-    <lastmod>2023-07-22T16:32:15-07:00</lastmod>
+    <lastmod>2023-08-24T07:59:21-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/email-alerts-with-fail2ban-and-gmail/</loc>
+    <lastmod>2023-08-18T14:20:39-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/outlook-fix-godaddy-email-server-not-being-found/</loc>
+    <lastmod>2023-08-17T10:05:46-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</loc>
+    <lastmod>2023-07-28T13:00:51-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/mikrotik-securing-router-with-firewall/</loc>
+    <lastmod>2023-07-28T12:55:34-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</loc>
+    <lastmod>2023-07-28T12:51:42-07:00</lastmod>
   </url><url>
     <loc>https://peterunix.github.io/posts/windows-server-setup-ssh-server/</loc>
     <lastmod>2023-07-22T16:32:15-07:00</lastmod>
@@ -73,6 +91,9 @@
   </url><url>
     <loc>https://peterunix.github.io/posts/pinebook-pro-custom-kernel/</loc>
     <lastmod>2023-07-22T15:57:39-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/workout-routine/</loc>
+    <lastmod>2023-07-22T00:48:35-07:00</lastmod>
   </url><url>
     <loc>https://peterunix.github.io/pages/about/</loc>
   </url><url>
