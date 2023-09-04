@@ -81,6 +81,7 @@ netdom query fsmo
 
 * Force Replication
 This should replicate the data from the old DC to the new DC automatically.
+
 #+begin_src powershell
 repadmin /syncall /AdeP
 #+end_src
@@ -100,6 +101,8 @@ migrated once before and the new DC was still thinking it was a
 replication target. Since the OG server was already decomissioned, the
 current DC thought it had stale data and refused to replicate to the
 new DC. I followed [[https://www.rmtechteam.com/blog/dfs-replication-dfsr-fix/#:~:text=To%20resume%20replication%20of%20this,members%20of%20the%20replication%20group][this tutorial]] to fix it.
+
+*Read the DFRS Event Log for in "Applications and Services Logs\DFS Replication"*
 
 #+begin_src powershell
 dcdiag.exe /v

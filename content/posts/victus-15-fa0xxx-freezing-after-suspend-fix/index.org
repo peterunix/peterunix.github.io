@@ -1,0 +1,161 @@
+---
+title: "Victus 15 Fa0xxx Freezing After Suspend Fix"
+date: 2023-09-03T19:19:40-07:00
+draft: false
+---
+
+* Preface
+*THIS DIDN'T ACTUALLY FIX IT FOR ME*
+
+I have a Victus 15 fa0xxx laptop that fails to wake up from
+suspend. When waking up, something happens with the Alder Lake
+Integrated GPU that causes the screen to flicker on and off and ALL
+graphics to be incredibly laggy.
+
+The DMESG log is flooded with these errors while the post-suspend
+lags happens:
+
+#+begin_src 
+[  340.318790] i915 0000:00:02.0: [drm] *ERROR* [ENCODER:235:DDI A/PHY A][DPRX] Failed to enable link training
+[  343.109774] i915 0000:00:02.0: [drm] *ERROR* Failed to read DPCD register 0x92
+[  347.748749] i915 0000:00:02.0: [drm] *ERROR* Failed to read DPCD register 0x92
+[  351.453727] i915 0000:00:02.0: [drm] *ERROR* Failed to read DPCD register 0x92
+[  356.114702] i915 0000:00:02.0: [drm] *ERROR* Failed to read DPCD register 0x92
+#+end_src
+
+And the journalctl log...
+
+#+begin_src 
+Sep 02 23:06:04 fedora kernel: i915 0000:00:02.0: [drm] *ERROR* Failed to read DPCD register 0x92
+Sep 02 23:06:05 fedora NetworkManager[1667]: <info>  [1693721165.5382] dhcp4 (wlp4s0): state changed new lease, address=192.168.81.105
+Sep 02 23:06:05 fedora systemd[1]: Starting NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service...
+Sep 02 23:06:05 fedora systemd[1]: Started NetworkManager-dispatcher.service - Network Manager Script Dispatcher Service.
+Sep 02 23:06:05 fedora audit[1]: SERVICE_START pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=NetworkManager-dispatcher comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Sep 02 23:06:08 fedora kernel: i915 0000:00:02.0: [drm] *ERROR* Failed to read DPCD register 0x92
+Sep 02 23:06:13 fedora kernel: i915 0000:00:02.0: [drm] *ERROR* Failed to read DPCD register 0x92
+Sep 02 23:06:15 fedora systemd[1]: NetworkManager-dispatcher.service: Deactivated successfully.
+Sep 02 23:06:15 fedora audit[1]: SERVICE_STOP pid=1 uid=0 auid=4294967295 ses=4294967295 subj=system_u:system_r:init_t:s0 msg='unit=NetworkManager-dispatcher comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+Sep 02 23:06:19 fedora kernel: i915 0000:00:02.0: [drm] *ERROR* Failed to write source OUI
+Sep 02 23:06:25 fedora kernel: i915 0000:00:02.0: [drm] *ERROR* [ENCODER:235:DDI A/PHY A][DPRX] Failed to enable link training
+Sep 02 23:06:28 fedora kernel: i915 0000:00:02.0: [drm] *ERROR* Failed to read DPCD register 0x92
+Sep 02 23:06:33 fedora kernel: i915 0000:00:02.0: [drm] *ERROR* Failed to read DPCD register 0x92
+Sep 02 23:06:38 fedora kernel: i915 0000:00:02.0: [drm] *ERROR* Failed to read DPCD register 0x92
+#+end_src
+
+I found a post on the Arch forums with someone reporting the same
+problem. I guess the Alder Lake IGPUs Video BIOS incorrectly reports which ports
+are connected to the GPU which causes Linux to freakout.
+
+[[https://wiki.archlinux.org/title/intel_graphics#Freeze_after_wake_from_sleep/suspend_with_Alder_Lake-P][Post]]
+
+The solution is to apply a patch to the Linux Kernel for the Intel
+Drivers. This post shows how to do that using Fedora.
+
+* Overview
+We're going to be downloading the packages needed to build RPM
+packages. After downloading the Linux sources from Fedora, we'll apply
+the patch and build the kernel into installable RPM files
+
+* Install Dependencies
+
+#+begin_src bash
+sudo dnf install fedpkg fedora-packager rpmdevtools ncurses-devel pesign
+#+end_src
+
+* RPM Build Folder
+This will create a template folder in ~$HOME/rpmbuild~ which sets up
+the directory structure needed when creating RPM packages. It'll have
+folders like BUILD, BUILDROOT, SPECS, SOURCES, etc.
+
+#+begin_src bash
+rpmdev-setuptree
+cd ~/rpmbuild
+#+end_src
+
+* Downloading kernel sources
+This will download the kernel sources for the same version of Linux
+you're currently running. The file will be saved locally to an RPM file
+
+#+begin_src bash
+cd $HOME
+koji download-build --arch=src kernel-$(uname -r | sed "s/\.$(arch)//").src.rpm
+#+end_src
+
+* Unpack the sources
+By default this will extract the files into our ~rpmbuild~ folder
+
+#+begin_src bash
+rpm -Uvh kernel-5.1.16-300.fc30.src.rpm
+#+end_src
+
+* Adding patch file
+In the rpmbuild/SOURCE folder, create a file named
+~intel_display.c.patch~. Paste the following in there.
+
+#+begin_src bash
+From: Email <email@email.com>
+Subject: [PATCH] Victus Suspend Fix
+
+--- a/drivers/gpu/drm/i915/display/intel_display.c
++++ b/drivers/gpu/drm/i915/display/intel_display.c
+@@ -8835,7 +8835,7 @@ static void intel_setup_outputs(struct drm_i915_private *dev_priv)
+                intel_ddi_init(dev_priv, PORT_TC1);
+        } else if (IS_ALDERLAKE_P(dev_priv)) {
+                intel_ddi_init(dev_priv, PORT_A);
+-               intel_ddi_init(dev_priv, PORT_B);
++               // intel_ddi_init(dev_priv, PORT_B);
+                intel_ddi_init(dev_priv, PORT_TC1);
+                intel_ddi_init(dev_priv, PORT_TC2);
+                intel_ddi_init(dev_priv, PORT_TC3);
+#+end_src
+
+* Editing Kernel Spec File
+The kernel.spec file contains metadata, build configurations, build
+dependencies, and other information for building the linux kernel. Its
+used by Fedora's build process specifically. In that file we can also
+specify which patches we want to apply.
+
+Navigate to the ~SPECS~ folder and run these commands
+
+#+begin_src bash
+cd ~/rpmbuild/SPECS/
+sudo dnf builddep kernel.spec
+#+end_src
+
+Edit the file and change the line
+
+#+begin_src
+# define buildid .local
+
+TO
+
+%define buildid .intel_display
+#+end_src
+
+Now just before the ~END OF PATCH DEFINITIONS~ line, add the following:
+#+begin_src
+Patch9001: intel_display.c.patch
+#+end_src
+
+* Building
+This will start compiling the kernel. For myself it took about 20
+minutes to complete. On my slower machines it can take well over an hour.
+
+#+begin_src bash
+rpmbuild -bb --without debug --target=x86_64 kernel.spec
+#+end_src
+
+* Installing the new kernel
+After your kernel has compiled you can install it by doing a couple of commands.
+
+#+begin_src bash
+cd ~/rpmbuild/RPMS/x86_64/
+sudo dnf install kernel*
+#+end_src
+
+* Updating Grub
+After everything is installed you need to update grub.
+
+#+begin_src bash
+sudo grub2-mkconfig -o /etc/grub2-efi.cfg
+#+end_src

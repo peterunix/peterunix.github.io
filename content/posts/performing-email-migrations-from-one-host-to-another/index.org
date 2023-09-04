@@ -1,0 +1,131 @@
+---
+title: "Performing Email Migrations From One Host to Another"
+date: 2023-09-01T07:41:49-07:00
+draft: true
+---
+
+* Scenario
+Say you're moving all the emails, contacts, calenders, autocompletes
+from one service to another. You want a way to do it with minimal
+downtime for emails and work for yourself. The office is using some
+random email host and you're migrating them to Office365.
+
+There's three different ways to do it:
+1. Manually
+2. Through Exchange Migration Tool
+3. Using a third party tool
+
+The manual method involves using Outlook to either export all of the
+emails to a PST file or to add the secondary email to Outlook and
+copy-paste the emails between folders. It's VERY time consuming
+depending on the amount of emails you're migrating to since you'll
+have to manually make sure you backup all of the calender items,
+contacts, and especially local Outlook autocompletes.
+
+The migration tool [PLACEHOLDER]
+
+The third party tool [PLACEHOLDER]
+
+* Preparations
+You need a list of all of the emails and passwords that will be
+migrated. Create all of those email accounts in Office365 or whichever
+mail host you're migrating to before proceeding.
+
+You'll also need the DNS records suggested by your new mailhost in
+preparation for the migration. This means you need access to the DNS
+for the Office's domain. Typically you can get the DNS records by
+googling them or searching through the email admin page.
+
+Check if they're relying on any Shared Mailboxes, Email Deligation,
+Public Folders, Distribution Groups, etc. Most the time an Office will
+just have plain old emails and some calenders. Double check the setup
+of everything on the old host since you'll want to replicate it on the
+new host.
+
+* Manual Method (Outlook Required)
+** Exporting the data
+Sign into Outlook on your local computer or connect to each machine
+that already has the emails added. Using the import/export wizard to
+export the entire user account to an offline PST file. To be safe, use
+the same import/export wizard to export the address book and
+calender.
+
+Make sure to also backup the
+~%LOCALAPPDATA%\Microsoft\Outlook\RoamCache\Stream_AutoComplete~ file
+that contains their autocompletes. There are multiple copies of that
+file so you can typically see which one they use by checking data
+modified stamps and file sizes. Larger file sizes mean more
+autocompletes are saved in the file.
+
+** Editing the DNS records
+Go into the DNS manager for the office's domain and input the DNS
+records suggested by the host. For Office365 this will be an MX, SPF,
+and AUTODISCOVER record. As soon as you change the MX record, all new
+emails that get sent to the clients email address will start going to the
+new mail server instead of the old one. 
+
+Change the DNS records and verify that the new email host is working
+by sending an email.
+
+** Adding the new email and importing data
+Create a new Outlook profile and add the new email account. Once
+added, either open your PST file and start manually moving the emails
+or try the "import from PST" option. The import from PST will be
+finicky if the email folder structure is different on the old host
+compared to Office365. For instance if their old host was using a
+"Sent Mail" folder and Office was using a "Sent" folder, you'd then
+get two different sent folders in your inbox.
+
+After all the emails are copied, import the calender and address
+books.
+
+To import the autocompletes, send yourself an email, close Outlook,
+re-open Outlook, then close Outlook again. In
+~%LOCALAPPDATA%\Microsoft\Outlook\RoamCache\~ there will be a newly
+created ~STREAM_AUTOCOMPLETE~ file that will correspond to the new
+autocomplete list for the email account. Copy the filename then rename
+it to "ORIGINAL_NAME.old". Copy over the backup of the autocomplete
+file you made and give the copied file the same name as the file we
+just renamed. When you re-open Outlook the autocomplete lists will be imported.
+
+Rinse and repeat for all of the computers in the office.
+
+** Extra Stuff
+If you had to create shared mailboxes or any other cosmetics, make
+sure those are all properly migrated too.
+
+* Automatic Method (Office365 IMAP TOOL)
+Get SOURCE IMAP
+
+Create CSV file with emails and passwords
+EmailAddress,UserName,Password
+email@email.com,email@email.com,password
+
+Go to Exchange>Migrations>Add Migration Batch
+
+"Select the mailbox migration path"
+Migrate to Exchange Online
+
+"Select Migration Type"
+Office365
+
+Create new migration endpoint
+
+* Automatic Method (Office365 Exchange)
+NEED ON PREMISES DOMAIN CREDS
+
+Get SOURCE IMAP
+
+Create CSV file with emails and passwords
+EmailAddress,UserName,Password
+email@email.com,email@email.com,password
+
+Go to Exchange>Migrations>Add Migration Batch
+
+"Select the mailbox migration path"
+Migrate to Exchange Online
+
+"Select Migration Type"
+Office365
+
+Create new migration endpoint
