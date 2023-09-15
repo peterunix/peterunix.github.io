@@ -6,14 +6,59 @@
     <description>Recent content in Posts on Peters Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Aug 2023 07:59:21 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 13 Sep 2023 15:51:09 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to Properly Migrate a Windows Server Domain</title>
-      <link>https://peterunix.github.io/posts/how-to-properly-migrate-a-windows-server-domain/</link>
+      <title>How to Clone a Drive to Disimilar Hardware From Bios to Uefi</title>
+      <link>https://peterunix.github.io/posts/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</link>
+      <pubDate>Wed, 13 Sep 2023 15:51:09 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</guid>
+      <description>FYI Use this as an overview for how to clone a drive. The methods I used for some of the steps can be simplified by using the right tools.
+Overview I had a clone an old Dell Machine to a new Dell Optiplex SFF 7010. The problem was the new computer had an NVME drive with storage controller drivers that weren&amp;#39;t even in the Windows 11 installation media. On top of that, the original computer was Windows 10 but was BIOS only, meaning it wouldn&amp;#39;t boot at all on the UEFI only machine.</description>
+    </item>
+    
+    <item>
+      <title>Victus 15 Fa0xxx Freezing After Suspend Fix</title>
+      <link>https://peterunix.github.io/posts/victus-15-fa0xxx-freezing-after-suspend-fix/</link>
+      <pubDate>Sun, 03 Sep 2023 19:19:40 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/victus-15-fa0xxx-freezing-after-suspend-fix/</guid>
+      <description>Preface THIS DIDN&amp;#39;T ACTUALLY FIX IT FOR ME
+I have a Victus 15 fa0xxx laptop that fails to wake up from suspend. When waking up, something happens with the Alder Lake Integrated GPU that causes the screen to flicker on and off and ALL graphics to be incredibly laggy.
+The DMESG log is flooded with these errors while the post-suspend lags happens:
+[ 340.318790] i915 0000:00:02.0: [drm] *ERROR* [ENCODER:235:DDI A/PHY A][DPRX] Failed to enable link training [ 343.</description>
+    </item>
+    
+    <item>
+      <title>Performing Email Migrations From One Host to Another</title>
+      <link>https://peterunix.github.io/posts/performing-email-migrations-from-one-host-to-another/</link>
+      <pubDate>Fri, 01 Sep 2023 07:41:49 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/performing-email-migrations-from-one-host-to-another/</guid>
+      <description>Scenario Say you&amp;#39;re moving all the emails, contacts, calenders, autocompletes from one service to another. You want a way to do it with minimal downtime for emails and work for yourself. The office is using some random email host and you&amp;#39;re migrating them to Office365.
+There&amp;#39;s three different ways to do it:
+Manually Through Exchange Migration Tool Using a third party tool The manual method involves using Outlook to either export all of the emails to a PST file or to add the secondary email to Outlook and copy-paste the emails between folders.</description>
+    </item>
+    
+    <item>
+      <title>How to Merge Hyper-V Snapshots With Powershell</title>
+      <link>https://peterunix.github.io/posts/how-to-merge-hyperv-snapshots-with-powershell/</link>
+      <pubDate>Fri, 25 Aug 2023 13:40:41 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/how-to-merge-hyperv-snapshots-with-powershell/</guid>
+      <description>Identify your child avhdx file Get-VM | Get-VMHardDiskDrive | Select VMName,Path VMName Path ------ ---- Domain Controller D:\VMs\Domain Controller_1023082130.avhdx Installing the Hyper-V Powershell CMDLETS Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Management-PowerShell Merge the AVHDX Make sure your VM is turned off. The Merge-VHD operation requires the avhdx file be offline.
+The destination path will be the snapshot or VHDX file that you want to merge into. This will automatically merge any of the parent snapshots in between the one you&amp;#39;re using and the one you&amp;#39;re merging into.</description>
+    </item>
+    
+    <item>
+      <title>How to Migrate a Windows Server Domain From One Server to Another</title>
+      <link>https://peterunix.github.io/posts/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</link>
       <pubDate>Thu, 24 Aug 2023 07:59:21 -0700</pubDate>
       
-      <guid>https://peterunix.github.io/posts/how-to-properly-migrate-a-windows-server-domain/</guid>
-      <description></description>
+      <guid>https://peterunix.github.io/posts/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</guid>
+      <description>Preface This guide assumes you&amp;#39;re migrating a domain controller to a new server then demoting the old DC.
+Check the DC Health On the old server, run a few reports and make sure the health of the domain controller is good. Fix any errors that arise prior to migrating anything.
+dcdiag.exe /v dcdiag.exe /test:dns repadmin.exe /replsummary Join New Server to Domain Make sure your DNS is pointing to the old DC before doing this.</description>
     </item>
     
     <item>
@@ -22,8 +67,8 @@
       <pubDate>Fri, 18 Aug 2023 14:20:39 -0700</pubDate>
       
       <guid>https://peterunix.github.io/posts/email-alerts-with-fail2ban-and-gmail/</guid>
-      <description> /etc/fail2ban/jail.local
-[DEFAULT] ignoreip = 127.0.0.0 findtime = 2m maxretry = 8 bantime = 10m destemail = DESTINATION@EXAMPLE.com sender = SENDER@EXAMPLE.com action = %(action_mwl)s [sshd] enabled = true port = 22 filter = sshd logpath = /var/log/auth.log actionban = printf %%b &amp;#34;Hi,\n The IP &amp;lt;ip&amp;gt; has just been banned by Fail2Ban after &amp;lt;failures&amp;gt; attempts against &amp;lt;name&amp;gt;.\n Regards,\n Fail2Ban&amp;#34; | mail -s &amp;#34;Subject: [Fail2Ban] &amp;lt;name&amp;gt;: banned &amp;lt;ip&amp;gt; from &amp;lt;fq-hostname&amp;gt; &amp;#34; </description>
+      <description>Preface Here&amp;#39;s how to setup Fail2ban to send email alerts through GMAIL when failed SSH authentications are made. I&amp;#39;m not going to be too detailed on this but I&amp;#39;ll provide the link to setting up Exim4 along with my jail.local config for SSH. Exim4 doesn&amp;#39;t have OAUTH2.0 support so you&amp;#39;ll have to use app passwords. You can probably write your own python program that can handle OATH2.0
+There are two parts to this:</description>
     </item>
     
     <item>

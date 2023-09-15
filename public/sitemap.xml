@@ -3,12 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://peterunix.github.io/</loc>
-    <lastmod>2023-08-24T07:59:21-07:00</lastmod>
+    <lastmod>2023-09-13T15:51:09-07:00</lastmod>
   </url><url>
-    <loc>https://peterunix.github.io/posts/how-to-properly-migrate-a-windows-server-domain/</loc>
-    <lastmod>2023-08-24T07:59:21-07:00</lastmod>
+    <loc>https://peterunix.github.io/posts/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</loc>
+    <lastmod>2023-09-13T15:51:09-07:00</lastmod>
   </url><url>
     <loc>https://peterunix.github.io/posts/</loc>
+    <lastmod>2023-09-13T15:51:09-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/victus-15-fa0xxx-freezing-after-suspend-fix/</loc>
+    <lastmod>2023-09-03T19:19:40-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/performing-email-migrations-from-one-host-to-another/</loc>
+    <lastmod>2023-09-01T07:41:49-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/how-to-merge-hyperv-snapshots-with-powershell/</loc>
+    <lastmod>2023-08-25T13:40:41-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</loc>
     <lastmod>2023-08-24T07:59:21-07:00</lastmod>
   </url><url>
     <loc>https://peterunix.github.io/posts/email-alerts-with-fail2ban-and-gmail/</loc>

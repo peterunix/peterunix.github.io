@@ -52,7 +52,7 @@
         },
         "datePublished": "2023-08-18",
         "description": "",
-        "wordCount":  68 ,
+        "wordCount":  196 ,
         "mainEntityOfPage": "True",
         "dateModified": "2023-08-18",
         "image": {
@@ -171,10 +171,57 @@ stroke-linejoin="round" class="feather feather-home">
             </header>
             <details class="toc">
                 <summary><b>Table of Contents</b></summary>
-                
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Preface</a>
+</li>
+<li><a href="#headline-2">Setup SMTP Client</a>
+</li>
+<li><a href="#headline-3">Fail2Ban Jail Config</a>
+</li>
+<li><a href="#headline-4">Done</a>
+</li>
+</ul>
+</nav>
             </details><div class="page-content">
-                <p>
-/etc/fail2ban/jail.local</p>
+                
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Preface
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>Here&#39;s how to setup Fail2ban to send email alerts through GMAIL when
+failed SSH authentications are made. I&#39;m not going to be too detailed
+on this but I&#39;ll provide the link to setting up Exim4 along with my
+jail.local config for SSH. Exim4 doesn&#39;t have OAUTH2.0 support so
+you&#39;ll have to use app passwords. You can probably write your own
+python program that can handle OATH2.0</p>
+<p>
+There are two parts to this:</p>
+<ol>
+<li>Setup something to send emails (exim4)</li>
+<li>Tell Fail2ban to run a command to send the email</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Setup SMTP Client
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>Follow this guide to setup EXIM4 with Gmail and App Passwords</p>
+<p>
+<a href="https://sites.google.com/view/chewkeanho/guides/linux-os/exim4/setup-gmail-send-only">Original Link</a></p>
+<p>
+<a href="https://web.archive.org/web/20230825225149/https://sites.google.com/view/chewkeanho/guides/linux-os/exim4/setup-gmail-send-only">Archived.org Link</a></p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Fail2Ban Jail Config
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>/etc/fail2ban/jail.local</p>
 <div class="src src-text">
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">[DEFAULT]
 </span></span><span class="line"><span class="cl">ignoreip = 127.0.0.0
@@ -195,6 +242,17 @@ stroke-linejoin="round" class="feather feather-home">
 </span></span><span class="line"><span class="cl">            &lt;failures&gt; attempts against &lt;name&gt;.\n
 </span></span><span class="line"><span class="cl">            Regards,\n
 </span></span><span class="line"><span class="cl">            Fail2Ban&#34; | mail -s &#34;Subject: [Fail2Ban] &lt;name&gt;: banned &lt;ip&gt; from &lt;fq-hostname&gt; &#34;</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Done
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>For troubleshooting make sure the &#34;mail&#34; command works on its own. You
+should be good to go.</p>
+</div>
 </div>
 
             </div>

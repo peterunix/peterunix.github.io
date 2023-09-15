@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en-us"><head><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">How to Migrate a Windows Server Domain From One Server to Another | Peters Website</title>
+<meta property="og:title" content="How to Migrate a Windows Server Domain From One Server to Another | Peters Website" />
+<meta name="twitter:title" content="How to Migrate a Windows Server Domain From One Server to Another | Peters Website" />
+<meta itemprop="name" content="How to Migrate a Windows Server Domain From One Server to Another | Peters Website" />
+<meta name="application-name" content="How to Migrate a Windows Server Domain From One Server to Another | Peters Website" />
+<meta property="og:site_name" content="Peter&#39;s blog" />
+
+<meta name="description" content="Random blog posts...some techy and some not">
+<meta itemprop="description" content="Random blog posts...some techy and some not" />
+<meta property="og:description" content="Random blog posts...some techy and some not" />
+<meta name="twitter:description" content="Random blog posts...some techy and some not" />
+
+<meta property="og:locale" content="en-us" />
+<meta name="language" content="en-us" />
+
+
+
+  <meta itemprop="image" content="https://peterunix.github.io/" />
+  <meta property="og:image" content="https://peterunix.github.io/" />
+  <meta name="twitter:image" content="https://peterunix.github.io/" />
+  <meta name="twitter:image:src" content="https://peterunix.github.io/" />
+
+
+
+
+    
+    
+    
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content=2023-08-24T07:59:21-0700 />
+    <meta property="article:published_time" content=2023-08-24T07:59:21-0700 />
+
+    
+
+    
+
+    <script defer type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Article",
+        "headline": "How to Migrate a Windows Server Domain From One Server to Another",
+        "author": {
+        "@type": "Person",
+        "name": ""
+        },
+        "datePublished": "2023-08-24",
+        "description": "",
+        "wordCount":  497 ,
+        "mainEntityOfPage": "True",
+        "dateModified": "2023-08-24",
+        "image": {
+        "@type": "imageObject",
+        "url": ""
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "Peters Website"
+        }
+    }
+    </script>
+
+
+<meta name="generator" content="Hugo 0.115.4">
+
+    
+
+    <link rel="canonical" href="https://peterunix.github.io/posts/how-to-migrate-a-windows-server-domain-from-one-server-to-another/">
+    <link href="/style.min.d16f523c36741e07697791cfe4bcb09b8c92c7034d5cbf85980df65d92a70e97.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="https://peterunix.github.io/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    </head>
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.min.8961c317c5b88b953fe27525839672c9343f1058ab044696ca225656c8ba2ab0.js" integrity="sha256-iWHDF8W4i5U/4nUlg5ZyyTQ/EFirBEaWyiJWVsi6KrA="></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="https://peterunix.github.io/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title>Home</title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">How to Migrate a Windows Server Domain From One Server to Another</h1>
+                
+                
+                <div class="post-meta">
+                    <time datetime="2023-08-24T07:59:21-07:00" itemprop="datePublished"> 24 Aug 2023 </time>
+                </div>
+                
+            </header>
+            <details class="toc">
+                <summary><b>Table of Contents</b></summary>
+                <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Preface</a>
+</li>
+<li><a href="#headline-2">Check the DC Health</a>
+</li>
+<li><a href="#headline-3">Join New Server to Domain</a>
+</li>
+<li><a href="#headline-4">Install AD Services Role</a>
+</li>
+<li><a href="#headline-5">Promote the Server to a Domain Controller</a>
+</li>
+<li><a href="#headline-6">Transfer FSMO Roles</a>
+</li>
+<li><a href="#headline-7">Force Replication</a>
+</li>
+<li><a href="#headline-8">Checking that everything works</a>
+</li>
+<li><a href="#headline-9">Demote the Domain</a>
+</li>
+<li><a href="#headline-10">Remove Static Addresses From Workstations</a>
+</li>
+</ul>
+</nav>
+            </details><div class="page-content">
+                
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Preface
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>This guide assumes you&#39;re migrating a domain controller to a new
+server then demoting the old DC.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Check the DC Health
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>On the old server, run a few reports and make sure the health of the
+domain controller is good. Fix any errors that arise prior to
+migrating anything.</p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">dcdiag</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">v</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dcdiag</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">test</span><span class="err">:</span><span class="n">dns</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">repadmin</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">replsummary</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Join New Server to Domain
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>Make sure your DNS is pointing to the old DC before doing this.</p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Add-Computer</span> <span class="n">-DomainName</span> <span class="n">DOMAINNAME</span><span class="p">.</span><span class="py">local</span> <span class="n">-Restart</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Install AD Services Role
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>This will install Active Directory and all that good stuff</p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Install-WindowsFeature</span> <span class="n">-Name</span> <span class="nb">AD-Domain</span><span class="n">-Services</span> <span class="n">-IncludeManagementTools</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Restart-Computer</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Promote the Server to a Domain Controller
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>Figured promoting the DC using a powershell command would be more
+fun : )</p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nv">$HashArguments</span> <span class="p">=</span> <span class="vm">@</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Credential</span> <span class="p">=</span> <span class="p">(</span><span class="nb">Get-Credential</span> <span class="s2">&#34;DOMAINNAME\Administrator&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">DomainName</span> <span class="p">=</span> <span class="s2">&#34;DOMAINNAME.local&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">InstallDns</span> <span class="p">=</span> <span class="vm">$true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Install-ADDSDomainController</span> <span class="nv">@HashArguments</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+Transfer FSMO Roles
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<p>Run these commands on the old server. This will transfer all the
+fancy pants FSMO rules to the new domain controller. Later we&#39;re going
+to decommission the old server so we want to make sure these roles are transferred.</p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">ntdsutil</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">C:</span><span class="p">\</span><span class="n">Windows</span><span class="p">\</span><span class="n">system32</span><span class="p">\</span><span class="n">ntdsutil</span><span class="p">.</span><span class="n">exe</span><span class="err">:</span> <span class="n">roles</span>
+</span></span><span class="line"><span class="cl"><span class="n">fsmo</span> <span class="n">maintenance</span><span class="err">:</span> <span class="n">connections</span>
+</span></span><span class="line"><span class="cl"><span class="n">server</span> <span class="n">connections</span><span class="err">:</span> <span class="n">connect</span> <span class="n">to</span> <span class="n">server</span> <span class="n">NEW_DC_NAME</span>
+</span></span><span class="line"><span class="cl"><span class="n">Binding</span> <span class="n">to</span> <span class="n">server</span><span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="n">Connected</span> <span class="n">to</span> <span class="n">server</span> <span class="n">using</span> <span class="n">credentials</span> <span class="n">of</span> <span class="n">locally</span> <span class="n">logged</span> <span class="n">on</span> <span class="n">user</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl"><span class="n">server</span> <span class="n">connections</span><span class="err">:</span> <span class="n">q</span>
+</span></span><span class="line"><span class="cl"><span class="n">fsmo</span> <span class="n">maintenance</span><span class="err">:</span> <span class="n">transfer</span> <span class="n">infrastructure</span> <span class="n">master</span>
+</span></span><span class="line"><span class="cl"><span class="n">fsmo</span> <span class="n">maintenance</span><span class="err">:</span> <span class="n">transfer</span> <span class="n">naming</span> <span class="n">master</span>
+</span></span><span class="line"><span class="cl"><span class="n">fsmo</span> <span class="n">maintenance</span><span class="err">:</span> <span class="n">transfer</span> <span class="n">pdc</span>
+</span></span><span class="line"><span class="cl"><span class="n">fsmo</span> <span class="n">maintenance</span><span class="err">:</span> <span class="n">transfer</span> <span class="n">rid</span> <span class="n">master</span>
+</span></span><span class="line"><span class="cl"><span class="n">fsmo</span> <span class="n">maintenance</span><span class="err">:</span> <span class="n">transfer</span> <span class="n">schema</span> <span class="n">master</span>
+</span></span><span class="line"><span class="cl"><span class="n">fsmo</span> <span class="n">maintenance</span><span class="err">:</span> <span class="n">q</span>
+</span></span><span class="line"><span class="cl"><span class="n">C:</span><span class="p">\</span><span class="n">Windows</span><span class="p">\</span><span class="n">system32</span><span class="p">\</span><span class="n">ntdsutil</span><span class="p">.</span><span class="n">exe</span><span class="err">:</span> <span class="n">q</span></span></span></code></pre></div>
+</div>
+<p>
+On the new server verify that the FSMO roles were transferred using
+this command</p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">netdom</span> <span class="n">query</span> <span class="n">fsmo</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+Force Replication
+</h2>
+<div id="outline-text-headline-7" class="outline-text-2">
+<p>This should replicate the data from the old DC to the new DC automatically.</p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">repadmin</span> <span class="p">/</span><span class="n">syncall</span> <span class="p">/</span><span class="n">AdeP</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-2">
+<h2 id="headline-8">
+Checking that everything works
+</h2>
+<div id="outline-text-headline-8" class="outline-text-2">
+<p>On the new domain controller, pull some reports and make sure there&#39;s
+no errors. Make sure that replication is working perfectly using repadmin.exe</p>
+<p>
+Your new server should also have the SYSVOL and NETLOGIN shares
+automatically created on it. Make sure those exist.</p>
+<p>
+If you&#39;re having problems with the replication succeeding but the
+SYSVOL and NETLOGIN shares not being created, it could be caused by
+the old domain controller still trying to replicate to an even older
+DC thats no longer in place. I had a problem where a server was
+migrated once before and the new DC was still thinking it was a
+replication target. Since the OG server was already decomissioned, the
+current DC thought it had stale data and refused to replicate to the
+new DC. I followed <a href="https://www.rmtechteam.com/blog/dfs-replication-dfsr-fix/#:~:text=To%20resume%20replication%20of%20this,members%20of%20the%20replication%20group">this tutorial</a> to fix it.</p>
+<p>
+<strong>Read the DFRS Event Log for in &#34;Applications and Services Logs\DFS Replication&#34;</strong></p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">dcdiag</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">v</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">dcdiag</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">test</span><span class="err">:</span><span class="n">dns</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">repadmin</span><span class="p">.</span><span class="py">exe</span> <span class="p">/</span><span class="n">replsummary</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-9" class="outline-2">
+<h2 id="headline-9">
+Demote the Domain
+</h2>
+<div id="outline-text-headline-9" class="outline-text-2">
+<p>When everything is looking good, you can demote the old domain
+controller. You should be good to go</p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">DCPROMO</span><span class="p">.</span><span class="n">EXE</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-2">
+<h2 id="headline-10">
+Remove Static Addresses From Workstations
+</h2>
+<div id="outline-text-headline-10" class="outline-text-2">
+<p>This powershell script will set all the network cards DNS to
+DHCP. Make sure you already configured your router with the IP of the
+new DNS server.</p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Get-NetAdapter</span> <span class="p">|</span> <span class="nb">Where-Object</span> <span class="p">{</span><span class="nv">$_</span><span class="p">.</span><span class="py">Status</span> <span class="o">-eq</span> <span class="s1">&#39;Up&#39;</span><span class="p">}</span> <span class="p">|</span> <span class="k">foreach</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nv">$InterfaceAlias</span> <span class="p">=</span> <span class="nv">$_</span><span class="p">.</span><span class="py">InterfaceAlias</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">Set-DnsClientServerAddress</span> <span class="n">-InterfaceAlias</span> <span class="nv">$InterfaceAlias</span> <span class="n">-ResetServerAddresses</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></div>
+</div>
+</div>
+</div>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/peterunix" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="index.xml" target="_blank" rel="noopener noreferrer me"
+    title="Rss">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 11a9 9 0 0 1 9 9" />
+    <path d="M4 4a16 16 0 0 1 16 16" />
+    <circle cx="5" cy="19" r="1" />
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2023 Peter T.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noreferrer noopener">Hugo blog awesome</a>
+        theme on
+        <a href="https://gohugo.io" target="_blank" rel="noreferrer noopener">Hugo</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script src="https://peterunix.github.io/js/main.min.35f435a5d8eac613c52daa28d8af544a4512337d3e95236e4a4978417b8dcb2f.js" integrity="sha256-NfQ1pdjqxhPFLaoo2K9USkUSM30&#43;lSNuSkl4QXuNyy8="></script>
+
+    
+
+</body>
+</html>
