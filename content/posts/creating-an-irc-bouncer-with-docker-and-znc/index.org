@@ -111,7 +111,7 @@ automatically be verified when loggin into the ZNC server.
 * Listen on HTTP and HTTPS
 Edit /var/lib/docker/volumes/znc-cfg/_data/configs/znc.conf
 
-Under add a new directive for another listener. It should look like this
+Add a new directive for another listener. It should look like this
 #+begin_src
   <Listener listener0>
         AllowIRC = true
