@@ -134,7 +134,7 @@ Add a new directive for another listener. It should look like this
 </Listener>
 #+end_src
 
-Now recreate your docker container with some additional portforwarding.
+Now recreate your docker container with some additional port forwarding.
 
 #+begin_src
 docker run --name znc -d --restart always -p 8080:8080 -p 8081:8081 -v znc-cfg:/znc-data znc
