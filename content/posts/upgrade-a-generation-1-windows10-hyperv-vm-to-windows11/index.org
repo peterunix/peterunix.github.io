@@ -1,0 +1,82 @@
+---
+title: "Upgrade a Generation 1 Windows10 Hyperv Vm to Windows11"
+date: 2023-11-15T13:17:46-08:00
+draft: false
+---
+
+** Overview
+You have a bunch of Gen1 VMs running Windows 10 using Legacy
+Bios. Your goal's to move upgrade them to Gen2 VMs and upgrade them to
+windows 11. How do you do that? It's simple
+
+1. Mount each VHD to the host OS
+2. Free some unallocated space on the drive
+3. Convert the drive to GPT. This creates the EFI partition
+
+** Cool thing to note
+With UEFI you can either create a FAT32 partition with EFI files or
+explicitly create an EFI partition (aka ESP - EFI System Partition) to
+store the EFI Files. The UEFI firmware is smart enough to see both
+methods of setting up the EFI partition and will boot from
+both. Explicitly creating an ESP is better since it conforms to the
+EFI specifications. More importantly, Windows 11 *wont* upgrade unless
+you have an ESP partition. Creating a normal FAT32 partition for EFI
+will work but the upgrade assistant will fail saying it "Sorry, We’re
+Having Trouble Determining If Your PC can Run Windows 11"
+
+ESP Partitions have a specific UUID
+
+** Mounting the VHD
+1. Turn off Virtual Machine
+2. Open diskmgmt.msc
+3. Click on Action>Attach VHD from the toolbar and mount the VHDX file
+4. Right-click the drive and click "online"
+
+** Creating an EFI Partition
+1. Open command prompt as administrator
+2. Run ~diskpart.exe~ and free up space on the drive with Windows
+
+#+begin_src
+DISKPART> list disk 
+  Disk ###  Status         Size     Free     Dyn  Gpt
+  --------  -------------  -------  -------  ---  ---
+  Disk 0    Online          238 GB  1024 KB        *
+  Disk 1    Online          465 GB  1024 KB        *
+  Disk 2    Online         7452 GB  1024 KB        *
+  Disk 3    Online 127 GB  1024 KB (THIS IS THE VHDX)
+
+DISKPART> select disk 3
+DISKPART> list partition
+Partition ###  Type              Size     Offset
+-------------  ----------------  -------  -------
+Partition 1    Primary             50 MB  1024 KB
+Partition 2    Primary            125 GB    51 MB (THIS IS THE WINDOWS DRIVE)
+Partition 3    Recovery           508 MB   126 GB
+
+DISKPART> select partition 2
+DISKPART> shrink desired=100
+DISKPART> exit
+#+end_src
+
+** Converting the drive to GPT
+We'll use mbr-to-gpt which should come with Windows 10 by
+default. This will convert the disk to gpt without wiping the data
+from the computer. When the conversion happens, it'll also create a
+EFI partition out of the free space we created earlier
+
+https://learn.microsoft.com/en-us/windows/deployment/mbr-to-gpt
+
+#+begin_src 
+# Validating that the conversion will work
+c:\windows\system32\mbr2gpt.exe /allowFullOS /validate /disk:3
+
+# Converting to GPT
+c:\windows\system32\mbr2gpt.exe /allowFullOS /convert /disk:3
+#+end_src
+
+** Recreating the VM
+Now your VHDX is properly formatted for UEFI and Windows 11. Delete
+your Hyper-V VM and recreated it as Gen2. Make sure Secure Boot and
+TPM is enabled in the Hyper-V VM settings.
+
+Take a minute to bask in your glory. Windows 11 will now be updating.

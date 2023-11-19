@@ -24,14 +24,14 @@ generate the configuration files.  You'll be prompted to set a port
 prompts select the option to *not* start the server.
 
 #+begin_src 
-docker run --name -it -v znc-cfg:/znc-data znc --makeconf
+docker run -it -v znc-cfg:/znc-data znc --makeconf
 #+end_src
 
 Now that the configuration files are created and your user account is
 setup, start the ZNC container for real this time.
 
 #+begin_src 
-docker run --name znc --restart unless-stopped -d -p 8080:8080 -v znc-cfg:/znc-data znc
+docker run --name znc -d --restart always -p 8080:8080 -v znc-cfg:/znc-data znc
 #+end_src
 
 * Logging into the web interface
@@ -96,7 +96,7 @@ In the "<network>" block for your IRC SERVER, add the ~LoadModule = nickserv~ li
 
 Now start the container again
 #+begin_src bash
-docker container stop znc
+docker container start znc
 #+end_src
 
 When the container starts back up, log into your znc irc server and
@@ -108,3 +108,34 @@ run this command once you're connected to the server.
 
 That's all you have to do. Now your nickserv identity will
 automatically be verified when loggin into the ZNC server.
+* Listen on HTTP and HTTPS
+Edit /var/lib/docker/volumes/znc-cfg/_data/configs/znc.conf
+
+Under add a new directive for another listener. It should look like this
+#+begin_src
+  <Listener listener0>
+        AllowIRC = true
+        AllowWeb = true
+        IPv4 = true
+        IPv6 = true
+        Port = 8080
+        SSL = true
+        URIPrefix = /
+</Listener>
+
+<Listener listener1>
+        AllowIRC = true
+        AllowWeb = false
+        IPv4 = true
+        IPv6 = true
+        Port = 8081
+        SSL = false
+        URIPrefix = /
+</Listener>
+#+end_src
+
+Now recreate your docker container with some additional portforwarding.
+
+#+begin_src
+docker run --name znc -d --restart always -p 8080:8080 -p 8081:8081 -v znc-cfg:/znc-data znc
+#+end_src
