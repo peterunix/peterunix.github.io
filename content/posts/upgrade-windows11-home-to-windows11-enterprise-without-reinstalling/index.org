@@ -1,0 +1,34 @@
+---
+title: "Upgrade Windows11 Home to Windows11 Enterprise Without Reinstalling"
+date: 2023-11-25T17:43:45-08:00
+draft: false
+---
+
+* Preface
+I didn't want to pay for a Windows 11 Pro product key and niether did
+I want to wipe windows to re-install Windows 11 Pro. The KMS
+activation keys I tried weren't working . After about 30 minutes
+googling, I found a guide that worked. Here it is!
+
+* Applying the generic license key
+Open CMD.exe as an administrator and run the following commands.
+
+#+begin_src 
+# Source https://superuser.com/questions/1734956/how-can-i-upgrade-a-brand-new-windows-11-home-to-pro-without-leaving-the-out-o
+slui.exe /upk
+changepk.exe /ProductKey VK7JG-NPHTM-C97JM-9MPGT-3V66T
+#+end_src
+
+Windows will automatically start upgrading to Windows 11 Enterprise
+after this. Note that this is a generic license key used for the
+upgrade and the actual OS won't be properly licensed.
+
+* Licensing Windows
+Now you can use Mass Gravel to license the software.
+
+https://github.com/massgravel/Microsoft-Activation-Scripts
+https://massgrave.dev/
+
+#+begin_src powershell
+  irm https://massgrave.dev/get | iex
+#+end_src
