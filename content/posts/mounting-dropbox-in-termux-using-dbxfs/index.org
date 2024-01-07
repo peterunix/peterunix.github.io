@@ -1,0 +1,84 @@
+---
+title: "Mounting Dropbox in Termux Using Dbxfs...almost"
+date: 2023-12-24T14:21:12-06:00
+draft: false
+---
+
+* Preface
+Here's how to install and run DBXFS to mount Dropbox. I'm using a rooted Samsung
+Galaxy A035M with Termux installed via FDroid. **This is only how to install
+DBXFS -- NOT having it mount your dropbox**. DBXFS will fail to automatically to
+mount Dropbox with the following error: /"Don't know how to automatically mount
+the file system on this platform. Run with --smb-no-mount"/.
+
+The --smb-no-mount flag will create a cifs share running on 127.0.0.1:PORT. I'm
+still figuring out how to get this to mount in Termux properly. This guide will
+get you to that point
+
+I had problems getting DBXFS to install/compile on Termux so I used Docker on my
+Windows 10 machine to emulate ARM64 and install DBXFS in a python virtual
+environment. The venv was then copied to Termux
+
+*This assumes you know a little about docker and read the DBXFS usage guide*
+
+* Creating the DBXFS virtual env
+Make sure you have docker installed already.
+
+Create a file named ~Dockerfile~ with the following content
+
+#+begin_src
+FROM arm64v8/python:3.8-buster
+CMD ["/bin/bash"]
+#+end_src
+
+Using the command prompt opened in the same folder as the Dockerfile, run this
+command to run the docker image.
+
+#+begin_src bash
+docker run -v .:/apps -it -w /apps arm64-python
+#+end_src
+
+Now your shell should have changed to bash. We're now running on ARM64! Run the
+following commands to create a virtual environment with DBXFS installed
+
+#+begin_src bash
+python3 -m venv venv
+source venv/bin/activate
+pip3 install cryptography argon2-cffi stone requests more-itertools zipp
+pip3 install dbxfs
+#+end_src
+
+Test that its working
+
+#+begin_src bash
+dbxfs --help
+#+end_src
+
+If that looks good, tar up the virtual env and then copy the file to your
+Android device.
+
+#+begin_src bash
+tar -cvf venv.tar venv
+exit
+#+end_src
+
+* Importing the Virtual Env to Termux
+Copy the venv.tar file to your Androids download folder then copy them to
+termux. I ran ~termux-setup-storage~ which lets me access my android files from
+the Termux session
+
+#+begin_src 
+cp ~/storage/downloads/venv.tar ~
+tar -xvf venv.tar
+#+end_src
+
+Now install the following dependencies before sourcing the environment
+
+#+begin_src 
+pkg install python-cryptography mount-utils samba
+source venv/bin/activate
+#+end_src
+
+* Mounting Dropbox
+This is where I'm leaving off. Running ~dbxfs --smb-no-mount~ will create a CIFS
+share on localhost. It's up to you to learn how to mount it :0

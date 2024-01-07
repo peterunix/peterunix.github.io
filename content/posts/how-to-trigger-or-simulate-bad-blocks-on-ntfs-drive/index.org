@@ -10,7 +10,7 @@ https://github.com/jamersonpro/ntfsmarkbad
 mkdir BadBlocktest
 cd BadBlockTest
 Invoke-WebRequest -Uri "https://github.com/jamersonpro/ntfsmarkbad/releases/download/v0.0.2/NtfsMarkBad.exe" -Outfile "NtfsMarkBad.exe" -UseBasicParsing
-New-VHD -Path "BadBlocks.vhd" -Fixed -SizeBytes 10MB
+New-VHD -Path "BadBlocks.vhd" -Fixed -SizeBytes 100MB
 Mount-VHD .\BadBlocks.vhd
 #+end_src
 
@@ -68,6 +68,26 @@ The NtfsMarkBad.exe software requires a range of sectors to mark as bad. Using t
 
 #+begin_src powershell
 Dismount-VHD -Path .\BadBlocks.vhd
+#+end_src
+
+
+GOOD OUTPUT
+#+begin_src
+PS F:\Programs\Forensics>   ./NtfsMarkBad.exe D: $StartingSector $EndingSector
+NTFSMARKBAD 0.0.2 x64     https://github.com/jamersonpro/ntfsmarkbad
+
+Scanning volume...
+First volume sector: 128
+Last volume sector: 200831
+Bytes per sector: 512
+Sectors per cluster: 8
+Total cluster count: 25087
+The number of clusters skipped since they already marked bad: 0
+The number of clusters skipped since they are in use: 1360
+The number of selected clusters: 108
+Adding 108 clusters to the Bad Clusters File...
+Completed.
+PS F:\Programs\Forensics>
 #+end_src
 
 PS C:\Users\Peter\Downloads>   ./NtfsMarkBad.exe G: $StartingSector $EndingSector
