@@ -6,370 +6,280 @@
     <description>Recent content in Home on Peters Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Sep 2023 15:51:09 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 24 Jan 2024 16:52:22 +0000</lastBuildDate>
+    <atom:link href="https://peterunix.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Termux Chroot Into Arch Linux</title>
+      <link>https://peterunix.github.io/posts/termux-chroot-into-arch-linux/</link>
+      <pubDate>Wed, 24 Jan 2024 16:52:22 +0000</pubDate>
+      <guid>https://peterunix.github.io/posts/termux-chroot-into-arch-linux/</guid>
+      <description>Preface Here&amp;#39;s how to chroot into an Arch Linux Arm installation from Termux. This will require a rooted android and a little bit of time&#xA;Why should I use chroot/proot instead of Termux natively Chrooting into an offical linux image will give you the same package support as any other distribution. You can install packages like qemu, not deal with broken termux dependencies, and properly follow guides on compiling software.</description>
+    </item>
+    <item>
+      <title>Mounting Dropbox in Termux Using Dbxfs...almost</title>
+      <link>https://peterunix.github.io/posts/mounting-dropbox-in-termux-using-dbxfs/</link>
+      <pubDate>Sun, 24 Dec 2023 14:21:12 -0600</pubDate>
+      <guid>https://peterunix.github.io/posts/mounting-dropbox-in-termux-using-dbxfs/</guid>
+      <description>Preface Here&amp;#39;s how to install and run DBXFS to mount Dropbox. I&amp;#39;m using a rooted Samsung Galaxy A035M with Termux installed via FDroid. This is only how to install DBXFS – NOT having it mount your dropbox. DBXFS will fail to automatically to mount Dropbox with the following error: &amp;#34;Don&amp;#39;t know how to automatically mount the file system on this platform. Run with –smb-no-mount&amp;#34;.&#xA;The –smb-no-mount flag will create a cifs share running on 127.</description>
+    </item>
+    <item>
+      <title>Getting the Default Wireless Password to TG1672G Routers</title>
+      <link>https://peterunix.github.io/posts/getting-the-default-wireless-password-to-tg1672g-routers/</link>
+      <pubDate>Sat, 16 Dec 2023 14:09:06 -0600</pubDate>
+      <guid>https://peterunix.github.io/posts/getting-the-default-wireless-password-to-tg1672g-routers/</guid>
+      <description>Preface Here in El Salvador, most houses that use TIGO as their ISP have the same ARRIS TG1672G router. This router has a seemingly random password, but it actually follows a pattern thats really easy to guess&#xA;The Pattern TG1672G&amp;lt;FIRST BYTE OF BSSID NIC SPECIFIC&amp;gt;&amp;lt;LAST FOUR OF SSID&amp;gt; Getting the password All we need is the BSSID of the WAP and the SSID. In my experience, its been the case that every home has the same model modem.</description>
+    </item>
+    <item>
+      <title>Upgrade Windows11 Home to Windows11 Enterprise Without Reinstalling</title>
+      <link>https://peterunix.github.io/posts/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</link>
+      <pubDate>Sat, 25 Nov 2023 17:43:45 -0800</pubDate>
+      <guid>https://peterunix.github.io/posts/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</guid>
+      <description>Preface I didn&amp;#39;t want to pay for a Windows 11 Pro product key and niether did I want to wipe windows to re-install Windows 11 Pro. The KMS activation keys I tried weren&amp;#39;t working . After about 30 minutes googling, I found a guide that worked. Here it is!&#xA;Applying the generic license key Open CMD.exe as an administrator and run the following commands.&#xA;# Source https://superuser.com/questions/1734956/how-can-i-upgrade-a-brand-new-windows-11-home-to-pro-without-leaving-the-out-o slui.exe /upk changepk.</description>
+    </item>
+    <item>
+      <title>Upgrade a Generation 1 Windows10 Hyperv Vm to Windows11</title>
+      <link>https://peterunix.github.io/posts/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/</link>
+      <pubDate>Wed, 15 Nov 2023 13:17:46 -0800</pubDate>
+      <guid>https://peterunix.github.io/posts/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/</guid>
+      <description>Overview You have a bunch of Gen1 VMs running Windows 10 using Legacy Bios. Your goal&amp;#39;s to move upgrade them to Gen2 VMs and upgrade them to windows 11. How do you do that? It&amp;#39;s simple&#xA;Mount each VHD to the host OS Free some unallocated space on the drive Convert the drive to GPT. This creates the EFI partition Cool thing to note With UEFI you can either create a FAT32 partition with EFI files or explicitly create an EFI partition (aka ESP - EFI System Partition) to store the EFI Files.</description>
+    </item>
+    <item>
+      <title>Creating an Irc Bouncer With Docker and Znc</title>
+      <link>https://peterunix.github.io/posts/creating-an-irc-bouncer-with-docker-and-znc/</link>
+      <pubDate>Sat, 11 Nov 2023 22:53:50 -0800</pubDate>
+      <guid>https://peterunix.github.io/posts/creating-an-irc-bouncer-with-docker-and-znc/</guid>
+      <description>Preface This is a half ass post on setting up ZNC to be your IRC bouncer and enable automatic login for nickserv required servers. Everything is going to be done through docker.&#xA;You&amp;#39;ll need a public facing server and about 15 minutes of time.&#xA;Dependencies sudo apt install docker docker-io sudo systemctl enable --now docker Creating the container The first command creates an interactive ZNC container that&amp;#39;s used to generate the configuration files.</description>
+    </item>
+    <item>
+      <title>Dell R720XD Lower Idrac7 Fan Speeds</title>
+      <link>https://peterunix.github.io/posts/dell-r720xd-idrac7-lower-fan-speeds/</link>
+      <pubDate>Sun, 15 Oct 2023 11:40:39 -0700</pubDate>
+      <guid>https://peterunix.github.io/posts/dell-r720xd-idrac7-lower-fan-speeds/</guid>
+      <description>Preface My rack server was destroying my eardrums with the fan speeds being too high. I plan to replace the fans with Noctua&amp;#39;s, but in the meantime this fix works great. It&amp;#39;s not silent, but much quieter.&#xA;Commands Run these commands inside of IDrac SSH&#xA;racadm set system.thermalsettings.FanSpeedOffset 255 racadm set system.thermalsettings.ThirdPartyPCIFanResponse 0 racadm set system.thermalsettings.ThermalProfile 2 That&amp;#39;s it! Still a little noisy but tolerable.</description>
+    </item>
     <item>
       <title>How to Clone a Drive to Disimilar Hardware From Bios to Uefi</title>
       <link>https://peterunix.github.io/posts/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</link>
       <pubDate>Wed, 13 Sep 2023 15:51:09 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</guid>
-      <description>FYI Use this as an overview for how to clone a drive. The methods I used for some of the steps can be simplified by using the right tools.
-Overview I had a clone an old Dell Machine to a new Dell Optiplex SFF 7010. The problem was the new computer had an NVME drive with storage controller drivers that weren&amp;#39;t even in the Windows 11 installation media. On top of that, the original computer was Windows 10 but was BIOS only, meaning it wouldn&amp;#39;t boot at all on the UEFI only machine.</description>
+      <description>FYI Use this as an overview for how to clone a drive. The methods I used for some of the steps can be simplified by using the right tools.&#xA;Overview I had a clone an old Dell Machine to a new Dell Optiplex SFF 7010. The problem was the new computer had an NVME drive with storage controller drivers that weren&amp;#39;t even in the Windows 11 installation media. On top of that, the original computer was Windows 10 but was BIOS only, meaning it wouldn&amp;#39;t boot at all on the UEFI only machine.</description>
     </item>
-    
     <item>
       <title>Victus 15 Fa0xxx Freezing After Suspend Fix</title>
       <link>https://peterunix.github.io/posts/victus-15-fa0xxx-freezing-after-suspend-fix/</link>
       <pubDate>Sun, 03 Sep 2023 19:19:40 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/victus-15-fa0xxx-freezing-after-suspend-fix/</guid>
-      <description>Preface THIS DIDN&amp;#39;T ACTUALLY FIX IT FOR ME
-I have a Victus 15 fa0xxx laptop that fails to wake up from suspend. When waking up, something happens with the Alder Lake Integrated GPU that causes the screen to flicker on and off and ALL graphics to be incredibly laggy.
-The DMESG log is flooded with these errors while the post-suspend lags happens:
-[ 340.318790] i915 0000:00:02.0: [drm] *ERROR* [ENCODER:235:DDI A/PHY A][DPRX] Failed to enable link training [ 343.</description>
+      <description>Preface THIS DIDN&amp;#39;T ACTUALLY FIX IT FOR ME&#xA;I have a Victus 15 fa0xxx laptop that fails to wake up from suspend. When waking up, something happens with the Alder Lake Integrated GPU that causes the screen to flicker on and off and ALL graphics to be incredibly laggy.&#xA;The DMESG log is flooded with these errors while the post-suspend lags happens:&#xA;[ 340.318790] i915 0000:00:02.0: [drm] *ERROR* [ENCODER:235:DDI A/PHY A][DPRX] Failed to enable link training [ 343.</description>
     </item>
-    
-    <item>
-      <title>Performing Email Migrations From One Host to Another</title>
-      <link>https://peterunix.github.io/posts/performing-email-migrations-from-one-host-to-another/</link>
-      <pubDate>Fri, 01 Sep 2023 07:41:49 -0700</pubDate>
-      
-      <guid>https://peterunix.github.io/posts/performing-email-migrations-from-one-host-to-another/</guid>
-      <description>Scenario Say you&amp;#39;re moving all the emails, contacts, calenders, autocompletes from one service to another. You want a way to do it with minimal downtime for emails and work for yourself. The office is using some random email host and you&amp;#39;re migrating them to Office365.
-There&amp;#39;s three different ways to do it:
-Manually Through Exchange Migration Tool Using a third party tool The manual method involves using Outlook to either export all of the emails to a PST file or to add the secondary email to Outlook and copy-paste the emails between folders.</description>
-    </item>
-    
     <item>
       <title>How to Merge Hyper-V Snapshots With Powershell</title>
       <link>https://peterunix.github.io/posts/how-to-merge-hyperv-snapshots-with-powershell/</link>
       <pubDate>Fri, 25 Aug 2023 13:40:41 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/how-to-merge-hyperv-snapshots-with-powershell/</guid>
-      <description>Identify your child avhdx file Get-VM | Get-VMHardDiskDrive | Select VMName,Path VMName Path ------ ---- Domain Controller D:\VMs\Domain Controller_1023082130.avhdx Installing the Hyper-V Powershell CMDLETS Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Management-PowerShell Merge the AVHDX Make sure your VM is turned off. The Merge-VHD operation requires the avhdx file be offline.
-The destination path will be the snapshot or VHDX file that you want to merge into. This will automatically merge any of the parent snapshots in between the one you&amp;#39;re using and the one you&amp;#39;re merging into.</description>
+      <description>Identify your child avhdx file Get-VM | Get-VMHardDiskDrive | Select VMName,Path VMName Path ------ ---- Domain Controller D:\VMs\Domain Controller_1023082130.avhdx Installing the Hyper-V Powershell CMDLETS Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Management-PowerShell Merge the AVHDX Make sure your VM is turned off. The Merge-VHD operation requires the avhdx file be offline.&#xA;The destination path will be the snapshot or VHDX file that you want to merge into. This will automatically merge any of the parent snapshots in between the one you&amp;#39;re using and the one you&amp;#39;re merging into.</description>
     </item>
-    
     <item>
       <title>How to Migrate a Windows Server Domain From One Server to Another</title>
       <link>https://peterunix.github.io/posts/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</link>
       <pubDate>Thu, 24 Aug 2023 07:59:21 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</guid>
-      <description>Preface This guide assumes you&amp;#39;re migrating a domain controller to a new server then demoting the old DC.
-Check the DC Health On the old server, run a few reports and make sure the health of the domain controller is good. Fix any errors that arise prior to migrating anything.
-dcdiag.exe /v dcdiag.exe /test:dns repadmin.exe /replsummary Join New Server to Domain Make sure your DNS is pointing to the old DC before doing this.</description>
+      <description>Preface This guide assumes you&amp;#39;re migrating a domain controller to a new server then demoting the old DC.&#xA;Check the DC Health On the old server, run a few reports and make sure the health of the domain controller is good. Fix any errors that arise prior to migrating anything.&#xA;dcdiag.exe /v dcdiag.exe /test:dns repadmin.exe /replsummary Join New Server to Domain Make sure your DNS is pointing to the old DC before doing this.</description>
     </item>
-    
     <item>
       <title>Email Alerts With Fail2ban and Gmail</title>
       <link>https://peterunix.github.io/posts/email-alerts-with-fail2ban-and-gmail/</link>
       <pubDate>Fri, 18 Aug 2023 14:20:39 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/email-alerts-with-fail2ban-and-gmail/</guid>
-      <description>Preface Here&amp;#39;s how to setup Fail2ban to send email alerts through GMAIL when failed SSH authentications are made. I&amp;#39;m not going to be too detailed on this but I&amp;#39;ll provide the link to setting up Exim4 along with my jail.local config for SSH. Exim4 doesn&amp;#39;t have OAUTH2.0 support so you&amp;#39;ll have to use app passwords. You can probably write your own python program that can handle OATH2.0
-There are two parts to this:</description>
+      <description>Preface Here&amp;#39;s how to setup Fail2ban to send email alerts through GMAIL when failed SSH authentications are made. I&amp;#39;m not going to be too detailed on this but I&amp;#39;ll provide the link to setting up Exim4 along with my jail.local config for SSH. Exim4 doesn&amp;#39;t have OAUTH2.0 support so you&amp;#39;ll have to use app passwords. You can probably write your own python program that can handle OATH2.0&#xA;There are two parts to this:</description>
     </item>
-    
     <item>
       <title>Outlook Fix Godaddy Email Server Not Being Found</title>
       <link>https://peterunix.github.io/posts/outlook-fix-godaddy-email-server-not-being-found/</link>
       <pubDate>Thu, 17 Aug 2023 10:05:46 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/outlook-fix-godaddy-email-server-not-being-found/</guid>
-      <description>The Issue When adding a GoDaddy or Exchange account to outlook, sometimes you&amp;#39;ll get this error when outlook attempts to automatically add the email: &amp;#34;Something went wrong and outlook couldn&amp;#39;t setup your account&amp;#34;.
-Possible Cause Exchange uses an auto discover service to download configuration settings for setting up the email. Outlook grabs the domain from your email and constructs a URL that looks a little something like this.
-https://autodiscover.example.com/autodiscover/autodiscover.xml The server should respond back with email configuration data in that XML file.</description>
+      <description>The Issue When adding a GoDaddy or Exchange account to outlook, sometimes you&amp;#39;ll get this error when outlook attempts to automatically add the email: &amp;#34;Something went wrong and outlook couldn&amp;#39;t setup your account&amp;#34;.&#xA;Possible Cause Exchange uses an auto discover service to download configuration settings for setting up the email. Outlook grabs the domain from your email and constructs a URL that looks a little something like this.&#xA;https://autodiscover.example.com/autodiscover/autodiscover.xml The server should respond back with email configuration data in that XML file.</description>
     </item>
-    
     <item>
       <title>Mikrotik Creating a Client to Site Vpn With Wireguard</title>
       <link>https://peterunix.github.io/posts/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</link>
       <pubDate>Fri, 28 Jul 2023 13:00:51 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</guid>
-      <description>Server Setup Let&amp;#39;s add a new wireguard interface and give it the name &amp;#34;Wireguard1&amp;#34; The listening port is set to the default port number that the wireguard devs intended. The MTU value is default to what Mikrotik auto-fills
-/interface/wireguard/add listen-port=51820 mtu=1420 name=wireguard1 Now let&amp;#39;s print out the servers private and public keys. This will be used when creating the client configuration files.
-/interface/wireguard/print =====OUTPUT===== name=&amp;#34;wireguard1&amp;#34; mtu=1420 listen-port=51820 private-key=&amp;#34;AUTO-GENERATED-PRIV-KEY&amp;#34; public-key=&amp;#34;AUTO-GENERATED-PUB-KEY&amp;#34; We have our Wireguard interface setup.</description>
+      <description>Server Setup Let&amp;#39;s add a new wireguard interface and give it the name &amp;#34;Wireguard1&amp;#34; The listening port is set to the default port number that the wireguard devs intended. The MTU value is default to what Mikrotik auto-fills&#xA;/interface/wireguard/add listen-port=51820 mtu=1420 name=wireguard1 Now let&amp;#39;s print out the servers private and public keys. This will be used when creating the client configuration files.&#xA;/interface/wireguard/print =====OUTPUT===== name=&amp;#34;wireguard1&amp;#34; mtu=1420 listen-port=51820 private-key=&amp;#34;AUTO-GENERATED-PRIV-KEY&amp;#34; public-key=&amp;#34;AUTO-GENERATED-PUB-KEY&amp;#34; We have our Wireguard interface setup.</description>
     </item>
-    
     <item>
       <title>Mikrotik Securing Router With Firewall</title>
       <link>https://peterunix.github.io/posts/mikrotik-securing-router-with-firewall/</link>
       <pubDate>Fri, 28 Jul 2023 12:55:34 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/mikrotik-securing-router-with-firewall/</guid>
-      <description>Fresh Start Incase you mess up or want a fresh start, run these two commands to clear all firewall rules and address lists. Note that if you re-run the command to add a filter, it&amp;#39;ll either error out or duplicate if it already exists.
-/ip/firewall/filter remove [find dynamic=no] /ip/firewall/address-list remove [find dynamic=no] Default Firewall Rules These are the default IPv4 firewall filters suggested by Mikrotik. They work very well and prevent unwanted connections from the WAN interface.</description>
+      <description>Fresh Start Incase you mess up or want a fresh start, run these two commands to clear all firewall rules and address lists. Note that if you re-run the command to add a filter, it&amp;#39;ll either error out or duplicate if it already exists.&#xA;/ip/firewall/filter remove [find dynamic=no] /ip/firewall/address-list remove [find dynamic=no] Default Firewall Rules These are the default IPv4 firewall filters suggested by Mikrotik. They work very well and prevent unwanted connections from the WAN interface.</description>
     </item>
-    
     <item>
       <title>Mikrotik Setup Dynamically Changing IP With No-IP Api</title>
       <link>https://peterunix.github.io/posts/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</link>
       <pubDate>Fri, 28 Jul 2023 12:51:42 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</guid>
-      <description>Code Use the System&amp;gt;Scripts page and create a new script with this code. Change the variables under the Script Settings block. Also, to make things easier, set the name of the script to &amp;#34;NoIP&amp;#34;
-Source Page
-##############Script Settings################## :local NOIPUser &amp;#34;USERNAME&amp;#34; :local NOIPPass &amp;#34;PASSWORD&amp;#34; :local WANInter &amp;#34;ether1&amp;#34; :local NOIPDomain &amp;#34;NO-IP.DDNS.NET&amp;#34; ############################################### # Get the current IP on the interface :local currentIP [/ip address get [find interface=&amp;#34;$WANInter&amp;#34; disabled=no] address] # Strip the net mask off the IP address :for i from=( [:len $currentIP] - 1) to=0 do={ :if ( [:pick $currentIP $i] = &amp;#34;/&amp;#34;) do={ :set currentIP [:pick $currentIP 0 $i] } } :if ([:resolve $NOIPDomain] !</description>
+      <description>Code Use the System&amp;gt;Scripts page and create a new script with this code. Change the variables under the Script Settings block. Also, to make things easier, set the name of the script to &amp;#34;NoIP&amp;#34;&#xA;Source Page&#xA;##############Script Settings################## :local NOIPUser &amp;#34;USERNAME&amp;#34; :local NOIPPass &amp;#34;PASSWORD&amp;#34; :local WANInter &amp;#34;ether1&amp;#34; :local NOIPDomain &amp;#34;NO-IP.DDNS.NET&amp;#34; ############################################### # Get the current IP on the interface :local currentIP [/ip address get [find interface=&amp;#34;$WANInter&amp;#34; disabled=no] address] # Strip the net mask off the IP address :for i from=( [:len $currentIP] - 1) to=0 do={ :if ( [:pick $currentIP $i] = &amp;#34;/&amp;#34;) do={ :set currentIP [:pick $currentIP 0 $i] } } :if ([:resolve $NOIPDomain] !</description>
     </item>
-    
     <item>
       <title>Windows Server Setup Ssh Server</title>
       <link>https://peterunix.github.io/posts/windows-server-setup-ssh-server/</link>
       <pubDate>Sat, 22 Jul 2023 16:32:15 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/windows-server-setup-ssh-server/</guid>
-      <description>Sources https://docs.microsoft.com/en-us/windows/terminal/tutorials/ssh https://superuser.com/questions/1501402/how-to-change-ssh-port-on-windows-10 https://www.concurrency.com/blog/may-2019/key-based-authentication-for-openssh-on-windows Installing the Server This will install the SSH server, start the service, and then whitelist the SSH port. Starting the service will automatically create all the SSH files in %ProgramData%/ssh.
-Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0 # Start the sshd service Start-Service sshd # OPTIONAL but recommended: Set-Service -Name sshd -StartupType &amp;#39;Automatic&amp;#39; # Confirm the Firewall rule is configured. It should be created automatically by setup. Run the following to verify if (!</description>
+      <description>Sources https://docs.microsoft.com/en-us/windows/terminal/tutorials/ssh https://superuser.com/questions/1501402/how-to-change-ssh-port-on-windows-10 https://www.concurrency.com/blog/may-2019/key-based-authentication-for-openssh-on-windows Installing the Server This will install the SSH server, start the service, and then whitelist the SSH port. Starting the service will automatically create all the SSH files in %ProgramData%/ssh.&#xA;Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0 # Start the sshd service Start-Service sshd # OPTIONAL but recommended: Set-Service -Name sshd -StartupType &amp;#39;Automatic&amp;#39; # Confirm the Firewall rule is configured. It should be created automatically by setup. Run the following to verify if (!</description>
     </item>
-    
     <item>
       <title>Windows Server Creating and Viewing a Storport Trace</title>
       <link>https://peterunix.github.io/posts/windows-server-creating-and-viewing-a-storport-trace/</link>
       <pubDate>Sat, 22 Jul 2023 16:24:55 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/windows-server-creating-and-viewing-a-storport-trace/</guid>
-      <description>Creating a StorPort trace using logman.exe LOGMAN.EXE is CLI utility for creating data collector sets. A data collector set can be thought of as a container for choosing which performance counters or trace events to log. All the logged data from the data collector will be stored in a single file.
-A performance counter provides high-level, numeric, metrics for system behavior. There are performance counters for CPU utilization, search indexing, disk utilization, processes, etc.</description>
+      <description>Creating a StorPort trace using logman.exe LOGMAN.EXE is CLI utility for creating data collector sets. A data collector set can be thought of as a container for choosing which performance counters or trace events to log. All the logged data from the data collector will be stored in a single file.&#xA;A performance counter provides high-level, numeric, metrics for system behavior. There are performance counters for CPU utilization, search indexing, disk utilization, processes, etc.</description>
     </item>
-    
     <item>
       <title>Ffmpeg Convert Flac to 320kbs Mp3</title>
       <link>https://peterunix.github.io/posts/ffmpeg-convert-flac-to-320kbs-mp3/</link>
       <pubDate>Sat, 22 Jul 2023 16:23:15 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/ffmpeg-convert-flac-to-320kbs-mp3/</guid>
-      <description>Preface The goal is to convert a flac file into a 320kb/s MP3 file whilst retaining all metadata. The only dependencies you need are &amp;#34;ffmpeg&amp;#34; and &amp;#34;id3v2&amp;#34;. The ladder is used for embeding metadata.
-Actually doing it Description of the commands listed below
-ffmpeg -i &amp;#34;input.flac&amp;#34; -codec:a libmp3lame -map_metadata 0 -id3v2_version 3 -write_id3v1 1 -map a:0 -b:a 320k &amp;#34;output.mp3&amp;#34; &amp;#34;-i&amp;#34; Pass our input file
-&amp;#34;-codec:a&amp;#34; Passing our preffered audio codec</description>
+      <description>Preface The goal is to convert a flac file into a 320kb/s MP3 file whilst retaining all metadata. The only dependencies you need are &amp;#34;ffmpeg&amp;#34; and &amp;#34;id3v2&amp;#34;. The ladder is used for embeding metadata.&#xA;Actually doing it Description of the commands listed below&#xA;ffmpeg -i &amp;#34;input.flac&amp;#34; -codec:a libmp3lame -map_metadata 0 -id3v2_version 3 -write_id3v1 1 -map a:0 -b:a 320k &amp;#34;output.mp3&amp;#34; &amp;#34;-i&amp;#34; Pass our input file&#xA;&amp;#34;-codec:a&amp;#34; Passing our preffered audio codec</description>
     </item>
-    
     <item>
       <title>Ffmpeg Record Selection of Screen</title>
       <link>https://peterunix.github.io/posts/ffmpeg-record-selection-of-screen/</link>
       <pubDate>Sat, 22 Jul 2023 16:22:37 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/ffmpeg-record-selection-of-screen/</guid>
-      <description>Preface Depends: slop ffmpeg
-Here&amp;#39;s a script I wrote that lets you select a window or portion of the screen and record it. It uses the ultrafast libx264 video codec to reduce resource consumption. Audio bitrate is capped at 128kb/s and the video is scaled to 720p to further conserve resourse usage.
-#!/bin/sh # Depends: slop ffmpeg # Records the selected part of the screen output=&amp;#34;$1&amp;#34; dimensions=$(slop 2&amp;gt;/dev/null) size=$(echo &amp;#34;$dimensions&amp;#34; | sed &amp;#39;s/+.</description>
+      <description>Preface Depends: slop ffmpeg&#xA;Here&amp;#39;s a script I wrote that lets you select a window or portion of the screen and record it. It uses the ultrafast libx264 video codec to reduce resource consumption. Audio bitrate is capped at 128kb/s and the video is scaled to 720p to further conserve resourse usage.&#xA;#!/bin/sh # Depends: slop ffmpeg # Records the selected part of the screen output=&amp;#34;$1&amp;#34; dimensions=$(slop 2&amp;gt;/dev/null) size=$(echo &amp;#34;$dimensions&amp;#34; | sed &amp;#39;s/+.</description>
     </item>
-    
     <item>
       <title>Ffmpeg Use a Dummy Webcam</title>
       <link>https://peterunix.github.io/posts/ffmpeg-use-a-dummy-webcam/</link>
       <pubDate>Sat, 22 Jul 2023 16:22:07 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/ffmpeg-use-a-dummy-webcam/</guid>
-      <description>Preface I experienced my first proctored exam today. Being that I&amp;#39;m a technologist, I thought it&amp;#39;d be pretty fun to pre-record myself and have that recording output to a virtual webcam. Here&amp;#39;s a not so descriptive guide on using ffmpeg with the v4l2loopback kernel module to create a virtual dummy webcam.
-Installing v4l2loopback kernel module This module allows for the creation of virtual video devices.
-# Dependencies sudo apt install -y build-essential linux-headers-$(uname -r) v4l-utils help2man # Installation git clone https://github.</description>
+      <description>Preface I experienced my first proctored exam today. Being that I&amp;#39;m a technologist, I thought it&amp;#39;d be pretty fun to pre-record myself and have that recording output to a virtual webcam. Here&amp;#39;s a not so descriptive guide on using ffmpeg with the v4l2loopback kernel module to create a virtual dummy webcam.&#xA;Installing v4l2loopback kernel module This module allows for the creation of virtual video devices.&#xA;# Dependencies sudo apt install -y build-essential linux-headers-$(uname -r) v4l-utils help2man # Installation git clone https://github.</description>
     </item>
-    
     <item>
       <title>Debian Set Custom Font in Tty</title>
       <link>https://peterunix.github.io/posts/debian-set-custom-font-in-tty/</link>
       <pubDate>Sat, 22 Jul 2023 16:21:13 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/debian-set-custom-font-in-tty/</guid>
-      <description>Preface Here&amp;#39;s how to setup a custom keymap for your TTY, as well as rebinding the caps key to CTRL.
-Custom keymap TTY The ConsoleData package contains a dozens of different keymaps. I&amp;#39;m copying the US Qwery kmap to a plain text file. From there we can modify which keycodes do which things.
-sudo apt install -y console-common console-data zcat /usr/share/keymaps/i386/qwerty/us.kmap.gz &amp;gt; us.kmap I used the showkey command to display the keycode for each key I press.</description>
+      <description>Preface Here&amp;#39;s how to setup a custom keymap for your TTY, as well as rebinding the caps key to CTRL.&#xA;Custom keymap TTY The ConsoleData package contains a dozens of different keymaps. I&amp;#39;m copying the US Qwery kmap to a plain text file. From there we can modify which keycodes do which things.&#xA;sudo apt install -y console-common console-data zcat /usr/share/keymaps/i386/qwerty/us.kmap.gz &amp;gt; us.kmap I used the showkey command to display the keycode for each key I press.</description>
     </item>
-    
     <item>
       <title>Bspwm Dynamic Borders When Toggling Fullscreen</title>
       <link>https://peterunix.github.io/posts/bspwm-dynamic-borders-when-toggling-fullscreen/</link>
       <pubDate>Sat, 22 Jul 2023 16:20:35 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/bspwm-dynamic-borders-when-toggling-fullscreen/</guid>
-      <description> Preface Dynamically change the border size when there is either a single node or multiple nodes on the focused desktop
-Add &amp;#34;/path/to/script &amp;amp;&amp;#34; to your BSPWMRC to make use of this script
-#!/bin/sh # Border size when there is one node on desktop and when there are multiple node s single_node=&amp;#34;0&amp;#34; multi_node=&amp;#34;3&amp;#34; # Create named pipe dynamicborder_fifo=&amp;#39;/tmp/dynamic-border.fifo&amp;#39; [ -e &amp;#34;$dynamicborder_fifo&amp;#34; ] &amp;amp;&amp;amp; rm &amp;#34;$dynamicborder_fifo&amp;#34; mkfifo &amp;#34;$dynamicborder_fifo&amp;#34; # Subscribe to bspc events bspc subscribe desktop &amp;gt; &amp;#34;$dynamicborder_fifo&amp;#34; &amp;amp; bspc subscribe node &amp;gt; &amp;#34;$dynamicborder_fifo&amp;#34; &amp;amp; # Change border size if there is one node or multiple nodes on focused desktop _DynamicBorder(){ focused=$(bspc query -D --names -d focused) node=$(bspc query -N -d $focused | wc -l) [ $node -eq 1 ] &amp;amp;&amp;amp; bspc config border_width $single_node || bspc config border_width $multi_node } # Reading stdin from named pipe _Main(){ while read -r report; do case $report in *) _DynamicBorder;; esac done } _Main &amp;lt; &amp;#34;$dynamicborder_fifo&amp;#34; </description>
+      <description> Preface Dynamically change the border size when there is either a single node or multiple nodes on the focused desktop&#xA;Add &amp;#34;/path/to/script &amp;amp;&amp;#34; to your BSPWMRC to make use of this script&#xA;#!/bin/sh # Border size when there is one node on desktop and when there are multiple node s single_node=&amp;#34;0&amp;#34; multi_node=&amp;#34;3&amp;#34; # Create named pipe dynamicborder_fifo=&amp;#39;/tmp/dynamic-border.fifo&amp;#39; [ -e &amp;#34;$dynamicborder_fifo&amp;#34; ] &amp;amp;&amp;amp; rm &amp;#34;$dynamicborder_fifo&amp;#34; mkfifo &amp;#34;$dynamicborder_fifo&amp;#34; # Subscribe to bspc events bspc subscribe desktop &amp;gt; &amp;#34;$dynamicborder_fifo&amp;#34; &amp;amp; bspc subscribe node &amp;gt; &amp;#34;$dynamicborder_fifo&amp;#34; &amp;amp; # Change border size if there is one node or multiple nodes on focused desktop _DynamicBorder(){ focused=$(bspc query -D --names -d focused) node=$(bspc query -N -d $focused | wc -l) [ $node -eq 1 ] &amp;amp;&amp;amp; bspc config border_width $single_node || bspc config border_width $multi_node } # Reading stdin from named pipe _Main(){ while read -r report; do case $report in *) _DynamicBorder;; esac done } _Main &amp;lt; &amp;#34;$dynamicborder_fifo&amp;#34; </description>
     </item>
-    
     <item>
       <title>Bspwm With Lembar Panel</title>
       <link>https://peterunix.github.io/posts/bspwm-with-lembar-panel/</link>
       <pubDate>Sat, 22 Jul 2023 16:18:10 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/bspwm-with-lembar-panel/</guid>
-      <description>Preface The Arch Wiki doesn&amp;#39;t provide any information on how to get lemonbar setup with workspace switching, window titles, etc. Most people have their custom bars run on a timer. We&amp;#39;re going to do them one better and have our script only update PARTS of our bar when necessary. This is going make things run much more efficiently and make displaying workspaces possible. I&amp;#39;m citing these two pages:
-Protesilaos MelonPanel Config</description>
+      <description>Preface The Arch Wiki doesn&amp;#39;t provide any information on how to get lemonbar setup with workspace switching, window titles, etc. Most people have their custom bars run on a timer. We&amp;#39;re going to do them one better and have our script only update PARTS of our bar when necessary. This is going make things run much more efficiently and make displaying workspaces possible. I&amp;#39;m citing these two pages:&#xA;Protesilaos MelonPanel Config</description>
     </item>
-    
     <item>
       <title>Bspwm Better Scratchpad</title>
       <link>https://peterunix.github.io/posts/bspwm-better-scratchpad/</link>
       <pubDate>Sat, 22 Jul 2023 16:17:38 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/bspwm-better-scratchpad/</guid>
-      <description>Better scratchpad bspwm Preface The scratchpad scripts I found for bspwm SUCK. Some either stop working if you kill the terminal or bug out when you manage your window states. Here&amp;#39;s a script I wrote that get&amp;#39;s the job done RIGHT!
-bspwm-scratch.png
-I&amp;#39;m running tmux if you were wondering.
-Setup stuff The &amp;#34;scratchy&amp;#34; script checks to see if a terminal with the classname &amp;#34;scratchy&amp;#34; exists. If it doesn&amp;#39;t exist, it creates it.</description>
+      <description>Better scratchpad bspwm Preface The scratchpad scripts I found for bspwm SUCK. Some either stop working if you kill the terminal or bug out when you manage your window states. Here&amp;#39;s a script I wrote that get&amp;#39;s the job done RIGHT!&#xA;bspwm-scratch.png&#xA;I&amp;#39;m running tmux if you were wondering.&#xA;Setup stuff The &amp;#34;scratchy&amp;#34; script checks to see if a terminal with the classname &amp;#34;scratchy&amp;#34; exists. If it doesn&amp;#39;t exist, it creates it.</description>
     </item>
-    
     <item>
       <title>Raspberry Pi Compile Neovim From Source</title>
       <link>https://peterunix.github.io/posts/raspberry-pi-compile-neovim-from-source/</link>
       <pubDate>Sat, 22 Jul 2023 16:15:28 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/raspberry-pi-compile-neovim-from-source/</guid>
-      <description> Preface The debian repositories that ship with raspbian come with an outdated version of neovim. Your best option is to compile neovim from github
-Compiling Neovim Don&amp;#39;t forget to uninstall neovim if you installed it through your package manager previously.
-sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl git wget git clone https://github.com/neovim/neovim cd neovim make CMAKE_BUILD_TYPE=Release sudo make install </description>
+      <description> Preface The debian repositories that ship with raspbian come with an outdated version of neovim. Your best option is to compile neovim from github&#xA;Compiling Neovim Don&amp;#39;t forget to uninstall neovim if you installed it through your package manager previously.&#xA;sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl git wget git clone https://github.com/neovim/neovim cd neovim make CMAKE_BUILD_TYPE=Release sudo make install </description>
     </item>
-    
     <item>
       <title>Qemu Windows Xp Fix Smb Not Working</title>
       <link>https://peterunix.github.io/posts/qemu-windows-xp-fix-smb-not-working/</link>
       <pubDate>Sat, 22 Jul 2023 16:14:46 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/qemu-windows-xp-fix-smb-not-working/</guid>
-      <description>Preface SMB 1.0 has to be enabled if you try to pass a local folder as an smb share to a WinXP Qemu VM. Qemu creates the temporary file /tmp/smb.conf that holds the configurations for samba. The values of this are hard coded and can only be modified after it&amp;#39;s automatically created by Qemu.
-Enabling NT1 support Add the &amp;#34;min protocol = NT1&amp;#34; line to the global section of tmp/smb.</description>
+      <description>Preface SMB 1.0 has to be enabled if you try to pass a local folder as an smb share to a WinXP Qemu VM. Qemu creates the temporary file /tmp/smb.conf that holds the configurations for samba. The values of this are hard coded and can only be modified after it&amp;#39;s automatically created by Qemu.&#xA;Enabling NT1 support Add the &amp;#34;min protocol = NT1&amp;#34; line to the global section of tmp/smb.</description>
     </item>
-    
     <item>
       <title>Qemu Windows Xp Installation</title>
       <link>https://peterunix.github.io/posts/qemu-windows-xp-installation/</link>
       <pubDate>Sat, 22 Jul 2023 16:13:48 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/qemu-windows-xp-installation/</guid>
-      <description>Dependencies Windows XP ISO (archive.org) Virtio Floppy Image (fedorapeople.org) qemu spice-gtk Installing Windows XP Product Key: MRX3F-47B9T-2487J-KWKMF-RPWBY
-Here&amp;#39;s the shell script to start the installation. Windows XP will automatically search through the virtio.vfd floppy image when locating the storage drivers. That floppy image has all the drivers your networking, virtual display, virtio, etc. Mouse input and networking won&amp;#39;t work until after you&amp;#39;re logged in.
-qemu-system-x86_64 \ -enable-kvm \ -cpu host -smp 4 \ -m 3G \ -boot d \ -cdrom &amp;#34;WINDOWSXP.</description>
+      <description>Dependencies Windows XP ISO (archive.org) Virtio Floppy Image (fedorapeople.org) qemu spice-gtk Installing Windows XP Product Key: MRX3F-47B9T-2487J-KWKMF-RPWBY&#xA;Here&amp;#39;s the shell script to start the installation. Windows XP will automatically search through the virtio.vfd floppy image when locating the storage drivers. That floppy image has all the drivers your networking, virtual display, virtio, etc. Mouse input and networking won&amp;#39;t work until after you&amp;#39;re logged in.&#xA;qemu-system-x86_64 \ -enable-kvm \ -cpu host -smp 4 \ -m 3G \ -boot d \ -cdrom &amp;#34;WINDOWSXP.</description>
     </item>
-    
     <item>
       <title>Qemu Mount Virtual Images</title>
       <link>https://peterunix.github.io/posts/qemu-mount-virtual-images/</link>
       <pubDate>Sat, 22 Jul 2023 16:11:57 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/qemu-mount-virtual-images/</guid>
       <description> Mounting the image apt-get install -y libguestfs-tools # Mounting guestmount -a windows.qcow2 /mnt/ # Mounting read-only mode guestmount -a windows.qcow2 /mnt/ --ro # Unmount guestunmount /mnt </description>
     </item>
-    
     <item>
       <title>Qemu Chroot Into an Img File</title>
       <link>https://peterunix.github.io/posts/qemu-chroot-into-an-img-file/</link>
       <pubDate>Sat, 22 Jul 2023 16:11:08 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/qemu-chroot-into-an-img-file/</guid>
-      <description>Preface Full disk images contain the bootloader and partition table. To mount an image file, view the contents of the file, then specify a byte offset that points to the beginning of our linux root partition. We&amp;#39;re essentially telling our mount command start reading the IMG file from somanybytes from the start.
-Mounting the image Run fdisk -l file.img.
-Here, you want to make note of the value under the &amp;#34;START&amp;#34; column.</description>
+      <description>Preface Full disk images contain the bootloader and partition table. To mount an image file, view the contents of the file, then specify a byte offset that points to the beginning of our linux root partition. We&amp;#39;re essentially telling our mount command start reading the IMG file from somanybytes from the start.&#xA;Mounting the image Run fdisk -l file.img.&#xA;Here, you want to make note of the value under the &amp;#34;START&amp;#34; column.</description>
     </item>
-    
     <item>
       <title>Qemu Chroot Into a Different Architecture</title>
       <link>https://peterunix.github.io/posts/qemu-chroot-into-a-different-architecture/</link>
       <pubDate>Sat, 22 Jul 2023 16:10:34 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/qemu-chroot-into-a-different-architecture/</guid>
-      <description>Chrooting into systems with different architectures
-Preface The qemu-user-static package provides several usermode emulation binaries. We can copy these over to our chroot environment to emulate programs from a different architecture.
-Dependencies The emulation binaries will be placed in /usr/bin/qemu-*-static. These are standalone applications don&amp;#39;t require dependencies. The arch-install-scripts provide the &amp;#34;arch-chroot&amp;#34; wrapper script. It handles mounting the psuedo filesystems (dev,proc,sys) so we don&amp;#39;t have to.
-apt install qemu-user-static arch-install-scripts Chrooting Here&amp;#39;s me chrooting into Raspbian ARM.</description>
+      <description>Chrooting into systems with different architectures&#xA;Preface The qemu-user-static package provides several usermode emulation binaries. We can copy these over to our chroot environment to emulate programs from a different architecture.&#xA;Dependencies The emulation binaries will be placed in /usr/bin/qemu-*-static. These are standalone applications don&amp;#39;t require dependencies. The arch-install-scripts provide the &amp;#34;arch-chroot&amp;#34; wrapper script. It handles mounting the psuedo filesystems (dev,proc,sys) so we don&amp;#39;t have to.&#xA;apt install qemu-user-static arch-install-scripts Chrooting Here&amp;#39;s me chrooting into Raspbian ARM.</description>
     </item>
-    
     <item>
       <title>Pinebook Pro Troubleshooting Common Issues</title>
       <link>https://peterunix.github.io/posts/pinebook-pro-troubleshooting-common-issues/</link>
       <pubDate>Sat, 22 Jul 2023 16:06:56 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/pinebook-pro-troubleshooting-common-issues/</guid>
-      <description>Preface I&amp;#39;m addressing common problem with the pbp more than anything. Go down the list until you find something that&amp;#39;s relevant to you.
-Powerkey shuts off machine The powerkey is not in the most ideal locations. Edit /etc/systemd/logind.conf and change &amp;#34;HandlePowerKey=poweroff&amp;#34; to &amp;#34;HandlePowerKey=ignore&amp;#34;
-Can&amp;#39;t boot at all after flashing EMMC You could either use an emmc to usb adapter to reflash your EMMC (LAME). You could use your official pine64 UART cable to see if you could fix the problem that way (EH).</description>
+      <description>Preface I&amp;#39;m addressing common problem with the pbp more than anything. Go down the list until you find something that&amp;#39;s relevant to you.&#xA;Powerkey shuts off machine The powerkey is not in the most ideal locations. Edit /etc/systemd/logind.conf and change &amp;#34;HandlePowerKey=poweroff&amp;#34; to &amp;#34;HandlePowerKey=ignore&amp;#34;&#xA;Can&amp;#39;t boot at all after flashing EMMC You could either use an emmc to usb adapter to reflash your EMMC (LAME). You could use your official pine64 UART cable to see if you could fix the problem that way (EH).</description>
     </item>
-    
     <item>
       <title>Pinebook Pro Setting Up Zram</title>
       <link>https://peterunix.github.io/posts/pinebook-pro-setting-up-zram/</link>
       <pubDate>Sat, 22 Jul 2023 16:06:08 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/pinebook-pro-setting-up-zram/</guid>
-      <description>Preface ZRAM is essentially compressed memory. Your system uses some of it&amp;#39;s CPU cycles to compress redundant data into a reserved area of your ram. Think of it as swap space, but without writing to your drive. I&amp;#39;ve tested this on both Manjaro Arm and Archlinux Arm.
-Checking if ZRAM is supported $ insmod | grep zram Output: zram ????? ? If you get similar results, zram should be supported.</description>
+      <description>Preface ZRAM is essentially compressed memory. Your system uses some of it&amp;#39;s CPU cycles to compress redundant data into a reserved area of your ram. Think of it as swap space, but without writing to your drive. I&amp;#39;ve tested this on both Manjaro Arm and Archlinux Arm.&#xA;Checking if ZRAM is supported $ insmod | grep zram Output: zram ????? ? If you get similar results, zram should be supported.</description>
     </item>
-    
     <item>
       <title>Pinebook Pro Write to Spi Flash</title>
       <link>https://peterunix.github.io/posts/pinebook-pro-write-to-spi-flash/</link>
       <pubDate>Sat, 22 Jul 2023 16:03:38 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/pinebook-pro-write-to-spi-flash/</guid>
-      <description>WARNING Be prepared to recover your broken SPI flash if an error occurs. When a binary is written to the SPI flash, the SPI flash will be what chooses which drives to boot from. Any problems when writing to the SPI can render your machine soft bricked. Learn about the SPI flash and recovery options here:
-https://wiki.pine64.org/index.php/Pinebook_Pro_SPI https://wiki.pine64.org/index.php/Pinebook_Pro#Using_the_SPI_flash_device Preface This guide is a simpler rewrite of pcm72&amp;#39;s forum post. I&amp;#39;d recommend reading that whole thread before proceeding.</description>
+      <description>WARNING Be prepared to recover your broken SPI flash if an error occurs. When a binary is written to the SPI flash, the SPI flash will be what chooses which drives to boot from. Any problems when writing to the SPI can render your machine soft bricked. Learn about the SPI flash and recovery options here:&#xA;https://wiki.pine64.org/index.php/Pinebook_Pro_SPI https://wiki.pine64.org/index.php/Pinebook_Pro#Using_the_SPI_flash_device Preface This guide is a simpler rewrite of pcm72&amp;#39;s forum post. I&amp;#39;d recommend reading that whole thread before proceeding.</description>
     </item>
-    
     <item>
       <title>Pinebook Pro Use Nvme as Root</title>
       <link>https://peterunix.github.io/posts/pinebook-pro-use-nvme-as-root/</link>
       <pubDate>Sat, 22 Jul 2023 16:02:57 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/pinebook-pro-use-nvme-as-root/</guid>
-      <description>Preface I assume that you have an nvme drive with a formatted ext4 partition present. I&amp;#39;m using Manjaro Arm. I&amp;#39;ve tested this on Alarm and I&amp;#39;d imagine it would work on debian aswell. We take advantage of /boot/extlinux/extlinux.conf to choose our root drive.
-Preparing our nvme mount /dev/nvme0n1p1 /mnt cd /mnt mkdir dev sys proc mnt Copying root files It&amp;#39;s important to exclude the psuedo filesystems and /mnt, when copying your root files.</description>
+      <description>Preface I assume that you have an nvme drive with a formatted ext4 partition present. I&amp;#39;m using Manjaro Arm. I&amp;#39;ve tested this on Alarm and I&amp;#39;d imagine it would work on debian aswell. We take advantage of /boot/extlinux/extlinux.conf to choose our root drive.&#xA;Preparing our nvme mount /dev/nvme0n1p1 /mnt cd /mnt mkdir dev sys proc mnt Copying root files It&amp;#39;s important to exclude the psuedo filesystems and /mnt, when copying your root files.</description>
     </item>
-    
     <item>
       <title>Pinebook Pro Netbsd Installation</title>
       <link>https://peterunix.github.io/posts/pinebook-pro-netbsd-installation/</link>
       <pubDate>Sat, 22 Jul 2023 16:00:37 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/pinebook-pro-netbsd-installation/</guid>
-      <description>Preface I&amp;#39;m going to assume that you&amp;#39;ve already copied the netbsd image to your device and have booted into your system. If you have problems booting from the microsd card, try disabling the emmc chip. It used to be the case that you were only able to boot from microsd if the chip was disabled. I&amp;#39;m not sure if this was fixed.
-Configuring Network There are two ways of doing this:</description>
+      <description>Preface I&amp;#39;m going to assume that you&amp;#39;ve already copied the netbsd image to your device and have booted into your system. If you have problems booting from the microsd card, try disabling the emmc chip. It used to be the case that you were only able to boot from microsd if the chip was disabled. I&amp;#39;m not sure if this was fixed.&#xA;Configuring Network There are two ways of doing this:</description>
     </item>
-    
     <item>
       <title>Pinebook Pro Keyboard Firmware Update</title>
       <link>https://peterunix.github.io/posts/pinebook-pro-keyboard-firmware-update/</link>
       <pubDate>Sat, 22 Jul 2023 15:59:12 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/pinebook-pro-keyboard-firmware-update/</guid>
-      <description>Preface This is a verbatim copy of the directions written on jackhumbert&amp;#39;s git.
-Installtion # compile git clone https://github.com/jackhumbert/pinebook-pro-keyboard-updater cd pinebook-pro-keyboard-updater sudo apt-get install build-essential libusb-1.0-0-dev xxd make # For ISO keyboard # step-1 sudo ./updater step-1 iso sudo reboot # after reboot, step-2 sudo ./updater step-2 iso sudo reboot # For ANSI keyboard # step-1 sudo ./updater step-1 ansi sudo reboot # after reboot, step-2 sudo ./updater step-2 ansi sudo reboot # updating to the revised ansi firmware after steps 1 and 2 sudo .</description>
+      <description>Preface This is a verbatim copy of the directions written on jackhumbert&amp;#39;s git.&#xA;Installtion # compile git clone https://github.com/jackhumbert/pinebook-pro-keyboard-updater cd pinebook-pro-keyboard-updater sudo apt-get install build-essential libusb-1.0-0-dev xxd make # For ISO keyboard # step-1 sudo ./updater step-1 iso sudo reboot # after reboot, step-2 sudo ./updater step-2 iso sudo reboot # For ANSI keyboard # step-1 sudo ./updater step-1 ansi sudo reboot # after reboot, step-2 sudo ./updater step-2 ansi sudo reboot # updating to the revised ansi firmware after steps 1 and 2 sudo .</description>
     </item>
-    
     <item>
       <title>Pinebook Pro Custom Kernel</title>
       <link>https://peterunix.github.io/posts/pinebook-pro-custom-kernel/</link>
       <pubDate>Sat, 22 Jul 2023 15:57:39 -0700</pubDate>
-      
       <guid>https://peterunix.github.io/posts/pinebook-pro-custom-kernel/</guid>
-      <description>Preface Here&amp;#39;s how to compile tsys&amp;#39; mainline linux kernel for the Pinebook Pro. I&amp;#39;m using the &amp;#34;debian way&amp;#34; of installing the kernel. When compiling the kernel, we can tell &amp;#34;make&amp;#34; to package the binaries as multiple debian archive files (.deb). Afterward, we can simple run &amp;#34;dpkg -i .deb&amp;#34; to install it.
-Setting up our enviroment Here we&amp;#39;ll download the dependencies and the linux sources.
-sudo apt-get install linux-headers-$(uname -r) libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf bc fakeroot # Linux sources git clone --depth=1 https://gitlab.</description>
+      <description>Preface Here&amp;#39;s how to compile tsys&amp;#39; mainline linux kernel for the Pinebook Pro. I&amp;#39;m using the &amp;#34;debian way&amp;#34; of installing the kernel. When compiling the kernel, we can tell &amp;#34;make&amp;#34; to package the binaries as multiple debian archive files (.deb). Afterward, we can simple run &amp;#34;dpkg -i .deb&amp;#34; to install it.&#xA;Setting up our enviroment Here we&amp;#39;ll download the dependencies and the linux sources.&#xA;sudo apt-get install linux-headers-$(uname -r) libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf bc fakeroot # Linux sources git clone --depth=1 https://gitlab.</description>
     </item>
-    
-    <item>
-      <title>Workout Routine for Body Building</title>
-      <link>https://peterunix.github.io/posts/workout-routine/</link>
-      <pubDate>Sat, 22 Jul 2023 00:48:35 -0700</pubDate>
-      
-      <guid>https://peterunix.github.io/posts/workout-routine/</guid>
-      <description>Split Stuff goes here
-Diet more stuff
-History More stuff</description>
-    </item>
-    
     <item>
       <title>About</title>
       <link>https://peterunix.github.io/pages/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://peterunix.github.io/pages/about/</guid>
-      <description>Stage 1 asldfj alsdkfj
-Heading 2 asldfj alsdkfj
-Stage 2 asldfj alsdkfj
-Stage 3 asldfj alsdkfj</description>
+      <description>Stage 1 asldfj alsdkfj&#xA;Heading 2 asldfj alsdkfj&#xA;Stage 2 asldfj alsdkfj&#xA;Stage 3 asldfj alsdkfj</description>
     </item>
-    
   </channel>
 </rss>

@@ -3,19 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://peterunix.github.io/</loc>
-    <lastmod>2023-09-13T15:51:09-07:00</lastmod>
+    <lastmod>2024-01-24T16:52:22+00:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/</loc>
+    <lastmod>2024-01-24T16:52:22+00:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/termux-chroot-into-arch-linux/</loc>
+    <lastmod>2024-01-24T16:52:22+00:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/mounting-dropbox-in-termux-using-dbxfs/</loc>
+    <lastmod>2023-12-24T14:21:12-06:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/getting-the-default-wireless-password-to-tg1672g-routers/</loc>
+    <lastmod>2023-12-16T14:09:06-06:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</loc>
+    <lastmod>2023-11-25T17:43:45-08:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/</loc>
+    <lastmod>2023-11-15T13:17:46-08:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/creating-an-irc-bouncer-with-docker-and-znc/</loc>
+    <lastmod>2023-11-11T22:53:50-08:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/dell-r720xd-idrac7-lower-fan-speeds/</loc>
+    <lastmod>2023-10-15T11:40:39-07:00</lastmod>
   </url><url>
     <loc>https://peterunix.github.io/posts/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</loc>
     <lastmod>2023-09-13T15:51:09-07:00</lastmod>
   </url><url>
-    <loc>https://peterunix.github.io/posts/</loc>
-    <lastmod>2023-09-13T15:51:09-07:00</lastmod>
-  </url><url>
     <loc>https://peterunix.github.io/posts/victus-15-fa0xxx-freezing-after-suspend-fix/</loc>
     <lastmod>2023-09-03T19:19:40-07:00</lastmod>
-  </url><url>
-    <loc>https://peterunix.github.io/posts/performing-email-migrations-from-one-host-to-another/</loc>
-    <lastmod>2023-09-01T07:41:49-07:00</lastmod>
   </url><url>
     <loc>https://peterunix.github.io/posts/how-to-merge-hyperv-snapshots-with-powershell/</loc>
     <lastmod>2023-08-25T13:40:41-07:00</lastmod>
@@ -103,9 +121,6 @@
   </url><url>
     <loc>https://peterunix.github.io/posts/pinebook-pro-custom-kernel/</loc>
     <lastmod>2023-07-22T15:57:39-07:00</lastmod>
-  </url><url>
-    <loc>https://peterunix.github.io/posts/workout-routine/</loc>
-    <lastmod>2023-07-22T00:48:35-07:00</lastmod>
   </url><url>
     <loc>https://peterunix.github.io/pages/about/</loc>
   </url><url>
