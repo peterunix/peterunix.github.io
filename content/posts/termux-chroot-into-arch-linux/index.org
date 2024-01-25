@@ -61,6 +61,7 @@ from termux and into the rootfs folder
 
 #+begin_src bash
 cp -f /data/data/com.termux/files/usr/etc/resolv.conf etc/resolv.conf
+chmod 0644 etc/resolv.conf
 #+end_src
 
 Now lets chroot! After chrooting we source the ~/etc/profile~ file so the PATH
