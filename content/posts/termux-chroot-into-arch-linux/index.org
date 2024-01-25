@@ -30,7 +30,7 @@ Android and want to avoid emulating other architectures to chroot
 
 #+begin_src bash
 mkdir Alarm ; cd Alarm
-wget https://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest-tar.gz
+wget http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz
 #+end_src
 
 ** Extracting the Tarball
@@ -41,7 +41,7 @@ as the sudo.
 #+begin_src bash
 pkg install bsdtar
 sudo su
-/data/data/com.termux/files/usr/bin/bsdtar -xpf ArchLinuxARM-aarch64-latest-tar.gz
+/data/data/com.termux/files/usr/bin/bsdtar -xpf ArchLinuxARM-aarch64-latest.tar.gz
 #+end_src
 
 When I extracted the file it had errors. I ignored these and it worked fine.
@@ -60,7 +60,7 @@ To make sure name resolution works in chroot, lets copy the resolve.conf file
 from termux and into the rootfs folder
 
 #+begin_src bash
-cp /data/data/com.termux/files/usr/etc/resolv.conf etc/resolv.conf
+cp -f /data/data/com.termux/files/usr/etc/resolv.conf etc/resolv.conf
 #+end_src
 
 Now lets chroot! After chrooting we source the ~/etc/profile~ file so the PATH
