@@ -1,0 +1,22 @@
+---
+title: "Self Hosting Frog Find on Debian"
+date: 2024-04-12T14:02:52-07:00
+draft: false
+---
+
+* Frog Find
+Frog find is a search engine used for old computers. Anything you search and any
+link you click gets converted into HTML. A demo can be found on
+[[https://search.unixfandom.com]].
+
+* Installation
+Here's how to install it. I'll show both the orginal link and my fork that
+includes some custom CSS for margins.
+
+#+begin_src 
+apt install php php-xml composer git
+git clone https://github.com/peterunix/FrogFind.git
+cd FrogFind
+composer update
+php -S localhost:8000
+#+end_src
