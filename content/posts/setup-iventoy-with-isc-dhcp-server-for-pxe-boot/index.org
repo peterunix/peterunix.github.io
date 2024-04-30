@@ -14,7 +14,7 @@ folder of Ventoy.
 
 * Setting up IVentoy PXE server
 Download and extract the latest iventoy from [[https://github.com/ventoy/PXE/releases][the IVentoy Github Releases]]. I
-placed the files in /opt/ventoy/
+placed the files in ~/opt/ventoy/~
 
 Start the Ventoy server and load the web interface. Enter the settings and set
 the DHCP mode to "External". Also make sure that the right network/ip range is
@@ -65,8 +65,9 @@ Now enable and start the service.
 
 * Setting up the DHCP Server
 *Important note*: Make sure DHCP is disabled on your router after setting this
-up. If you have any errors saying "No subnet declaration for INTERFACE", the
-problem is either that you dont have your interface specified in
+up. If you have any errors saying "No subnet declaration for INTERFACE" when
+running ~journalctl -u isc-dhcp-server~, the
+problem is that you either dont have your interface specified in
 ~/etc/default/isc-dhcp-server~ or there is a syntax error in the
 dhcpd.conf. In my experience the error logging has been amibigious and not user
 friendly.
@@ -78,8 +79,7 @@ Okay, with that out of the way, lets install it!
 #+end_src
 
 Add the line ~INTERFACE=YOUR_INTERFACE~ to /etc/default/isc-dhcp-server. Uncomment the
-lines at the bottom named ~INTERFACES~. This will bind the DHCP server to that
-NIC.
+lines at the bottom named ~INTERFACES~.
 
 #+begin_src
   # Defaults for isc-dhcp-server (sourced by /etc/init.d/isc-dhcp-server)
