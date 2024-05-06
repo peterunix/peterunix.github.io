@@ -1,0 +1,141 @@
+---
+title: "Self Host Pastebin Service With Tempbin"
+date: 2024-05-05T19:38:04-07:00
+draft: false
+---
+
+* Objective
+I write this site using Hugo and wanted a way to quickly upload files and link
+them in my pages. Adding them to a subfolder and manually linking them would
+take far too much work, so how about using a webserver that i can copy paste
+images/text into and then add a direct link to the image!
+
+I found a github project that does just that: [[https://github.com/hizkifw/tempbin][hizkifw\tempbin]]. By default its
+designed to allow file uploads and to automatically delete them after so many
+hours. I made some tweaks to the source code to do the following
+
+- Allow the service to return a link with a custom domain
+- Removed the file expiration time
+- Increased the URL length
+- Used the Fixed Sys font
+
+This is [[https://github.com/peterunix/tempbin][my fork]] that will be used for this blog post.
+
+Here's how it looks!
+
+[[https://paste.fe00.xyz/cWiV/image.png]]
+
+For the webserver, I needed it to do the following
+
+1. Require HTTP basic auth to password protect the upload page
+2. Require **zero** authentication for the uploaded pastes
+
+I'm going to show you how I set this up.
+**Note that I have a separate NAT'd server running the tempbin service. Proxy
+Pass is used on the main server**
+
+* Setting up tempbin
+Install Cargo. Tempbin is built with Rust
+
+#+begin_src bash
+  curl https://sh.rustup.rs -sSf | sh
+#+end_src
+
+Clone the repository
+
+#+begin_src bash
+git clone https://github.com/peterunix/tempbin.git /opt/
+#+end_src
+
+Run the service
+
+#+begin_src bash
+LISTEN=0.0.0.0:80 DOMAIN=paste.fe00.xyz /home/USER/.cargo/bin/cargo run
+#+end_src
+
+Terminate the process. We're going to create a systemd unit to automatically
+start it on boot.
+
+#+begin_src bash
+  vim /etc/systemd/system/pastebin.service
+#+end_src
+
+Place this in the contents of that file
+
+#+begin_src 
+[Unit]
+Description=My Service
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/opt/tempbin
+ExecStart=bash -c 'cd /opt/tempbin ; LISTEN=0.0.0.0:80 DOMAIN=paste.fe00.xyz /home/USER/bin/cargo run'
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+#+end_src
+
+Now load the service and check if its running
+
+#+begin_src bash
+  systemctl daemon-reload
+  systemctl enable --now pastebin
+  systemctl status pastebin
+#+end_src
+
+* Adding it to nginx
+As noted earlier, I have nginx running on another server and use Proxy Pass to
+make the pastebin service accessible.
+
+Use htpasswd to generate a credential file for our authentication
+
+#+begin_src bash
+  apt install apache2-utils
+  htpasswd -c /etc/nginx/.htpasswd USERNAME
+#+end_src
+
+Now add a server block for our proxied tempbin service
+
+#+begin_src bash
+  vim /etc/nginx/sites-enabled/YOUR_WEBSITE
+#+end_src
+
+This will require authentication for the root folder. The second location block
+is a regex that will find any subfolder that contains between 4-15 characters. I
+since reduced the size of the automatically generated url for my server; that's
+why there's a range.
+
+#+begin_src bash
+  server {
+	  listen 443 ssl http2;
+	  listen [::]:443 ssl http2;
+	  server_name paste.fe00.xyz;
+	  # ...
+	  location / {
+		  auth_basic "Restricted Access"; # Authentication realm
+		  auth_basic_user_file /etc/nginx/.htpasswd; # Path to the .htpasswd file
+		  proxy_pass http://10.10.10.3;
+	  }
+
+	  # Allow the subfolders access without authentication
+	  location ~ "^/([0-9a-zA-Z]{4,15})" {
+		  auth_basic off;
+		  proxy_pass http://10.10.10.3;
+	  }
+	  #...
+  }
+
+#+end_src
+
+Check your nginx config and then restart the service.
+
+#+begin_src bash
+      nginx -t
+      nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+      nginx: configuration file /etc/nginx/nginx.conf test is successful
+
+      systemctl restart nginx
+#+end_src

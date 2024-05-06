@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Peters Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Apr 2024 20:47:38 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 May 2024 19:38:04 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Self Host Pastebin Service With Tempbin</title>
+      <link>https://peterunix.github.io/posts/self-host-pastebin-service-with-tempbin/</link>
+      <pubDate>Sun, 05 May 2024 19:38:04 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/self-host-pastebin-service-with-tempbin/</guid>
+      <description>Objective  I write this site using Hugo and wanted a way to quickly upload files and link them in my pages. Adding them to a subfolder and manually linking them would take far too much work, so how about using a webserver that i can copy paste images/text into and then add a direct link to the image!
+ I found a github project that does just that: hizkifw\tempbin.</description>
+    </item>
+    
     <item>
       <title>Setup Iventoy With Isc Dhcp Server for Pxe Boot</title>
       <link>https://peterunix.github.io/posts/setup-iventoy-with-isc-dhcp-server-for-pxe-boot/</link>
