@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Peters Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 May 2024 19:38:04 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 May 2024 08:32:07 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Emacs Eww Useful Tips and Tricks</title>
+      <link>https://peterunix.github.io/posts/emacs-eww-useful-hacks/</link>
+      <pubDate>Tue, 14 May 2024 08:32:07 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/emacs-eww-useful-hacks/</guid>
+      <description>Introduction  These are some of the tweaks I&amp;#39;ve made that improved the quality of life in EWW. I use evil mode.
+Simple Styling  I ripped this from the wiki and increased the indentation value
+(setq browse-url-browser-function &amp;#39;eww-browse-url) ; Use eww as the default browser (setq shr-use-fonts nil) ; No special fonts (setq shr-use-colors nil) ; No colours (setq shr-indentation 4) ; Left-side margin (setq shr-width 70) ; Fold text to 70 columns (setq eww-search-prefix &amp;#34;https://google.</description>
+    </item>
+    
     <item>
       <title>Self Host Pastebin Service With Tempbin</title>
       <link>https://peterunix.github.io/posts/self-host-pastebin-service-with-tempbin/</link>
