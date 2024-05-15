@@ -6,13 +6,24 @@
     <description>Recent content in Home on Peters Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 May 2024 08:32:07 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 May 2024 21:20:29 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add Bitwarden to Pinephone Pro Using Firefox Extension</title>
+      <link>https://peterunix.github.io/posts/add-bitwarden-to-pinephone-pro-using-firefox-extension/</link>
+      <pubDate>Tue, 14 May 2024 21:20:29 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/add-bitwarden-to-pinephone-pro-using-firefox-extension/</guid>
+      <description>Introduction  Here&amp;#39;s how to get the Bitwarden firefox extension to appear as an application on your PinePhone Pro. Make sure your display scaling is set to 100% for this guide
+ I&amp;#39;m doing this on PMOS Phosh
+  Install Bitwarden  Install the extension then press &amp;#34;C-b&amp;#34; to open the sidebar. Use the dropdown button to switch from the bookmarks view to Bitwarden. This is a workaround to the Bitwarden pop-up window being glitchy.</description>
+    </item>
+    
     <item>
       <title>Emacs Eww Useful Tips and Tricks</title>
-      <link>https://peterunix.github.io/posts/emacs-eww-useful-hacks/</link>
+      <link>https://peterunix.github.io/posts/emacs-eww-useful-tips-and-tricks/</link>
       <pubDate>Tue, 14 May 2024 08:32:07 -0700</pubDate>
       
-      <guid>https://peterunix.github.io/posts/emacs-eww-useful-hacks/</guid>
+      <guid>https://peterunix.github.io/posts/emacs-eww-useful-tips-and-tricks/</guid>
       <description>Introduction  These are some of the tweaks I&amp;#39;ve made that improved the quality of life in EWW. I use evil mode.
 Simple Styling  I ripped this from the wiki and increased the indentation value
 (setq browse-url-browser-function &amp;#39;eww-browse-url) ; Use eww as the default browser (setq shr-use-fonts nil) ; No special fonts (setq shr-use-colors nil) ; No colours (setq shr-indentation 4) ; Left-side margin (setq shr-width 70) ; Fold text to 70 columns (setq eww-search-prefix &amp;#34;https://google.</description>
