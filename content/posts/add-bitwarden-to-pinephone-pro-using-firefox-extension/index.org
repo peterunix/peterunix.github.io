@@ -23,7 +23,7 @@ Navigate to about:debugging#/runtime/this-firefox
 Scroll down until you see the extension ID and copy it to a text file. We'll
 need it later.
 
-https://paste.fe00.xyz/I293/image.png
+[[https://paste.fe00.xyz/I293/image.png]]
 
 * Creating the .desktop file
 This is the meat of it all. Create the following desktop file and paste in these contente
