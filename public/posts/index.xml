@@ -6,7 +6,27 @@
     <description>Recent content in Posts on Peters Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 14 May 2024 21:20:29 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 22 Aug 2024 20:44:38 -0700</lastBuildDate><atom:link href="https://peterunix.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automating Chkdsk Scans Using Powershell With Email Alerts for Rmm</title>
+      <link>https://peterunix.github.io/posts/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</link>
+      <pubDate>Thu, 22 Aug 2024 20:44:38 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</guid>
+      <description>What this does  Automatically schedules windows filesystem checks if the drive is detected to have corruption. If corruption occurs more than once per week, an email is sent out to your desired address. SFC &amp;amp; DISM scans are scheduled for 10PM. CHKDSKs on the corrupt drive are scheduled for 12AM
+ This can be run standalone, although ideally you set it up as an automatic response in your RMM software.</description>
+    </item>
+    
+    <item>
+      <title>Automatic Mariadb Backups With Powershell</title>
+      <link>https://peterunix.github.io/posts/automatic-mariadb-backups-with-powershell/</link>
+      <pubDate>Thu, 22 Aug 2024 20:24:31 -0700</pubDate>
+      
+      <guid>https://peterunix.github.io/posts/automatic-mariadb-backups-with-powershell/</guid>
+      <description>Usage  Edit the script and modify the variables DBUSER and DBPASS to be your database credentials. You can either run the script standalone or schedule it using the Windows Task Manager to have your incremental backups run
+./PS-MariaDBBackupTool.ps1    Important Note  Only use this with InnoDB. If you have MyISAM the database wont backup incrementally properly. It’ll work, but each incremental would be the same size as the initial backup.</description>
+    </item>
+    
     <item>
       <title>Add Bitwarden to Pinephone Pro Using Firefox Extension</title>
       <link>https://peterunix.github.io/posts/add-bitwarden-to-pinephone-pro-using-firefox-extension/</link>

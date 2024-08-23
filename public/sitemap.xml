@@ -3,17 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://peterunix.github.io/posts/add-bitwarden-to-pinephone-pro-using-firefox-extension/</loc>
-    <lastmod>2024-05-14T21:20:29-07:00</lastmod>
+    <loc>https://peterunix.github.io/posts/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</loc>
+    <lastmod>2024-08-22T20:44:38-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://peterunix.github.io/</loc>
-    <lastmod>2024-05-14T21:20:29-07:00</lastmod>
+    <lastmod>2024-08-22T20:44:38-07:00</lastmod>
   </url>
   
   <url>
     <loc>https://peterunix.github.io/posts/</loc>
+    <lastmod>2024-08-22T20:44:38-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://peterunix.github.io/posts/automatic-mariadb-backups-with-powershell/</loc>
+    <lastmod>2024-08-22T20:24:31-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://peterunix.github.io/posts/add-bitwarden-to-pinephone-pro-using-firefox-extension/</loc>
     <lastmod>2024-05-14T21:20:29-07:00</lastmod>
   </url>
   
