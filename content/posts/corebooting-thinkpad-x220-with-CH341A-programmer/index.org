@@ -53,7 +53,10 @@ BIOS. Check your hardware connections and even
 * Step 4 - Installing Coreboot
 I followed Bryce's guide for the rest. The only important thing I did was
 install "flashrom" from the Ubuntu Repos. I didn't bother figuring out how to
-compile flashrom with support for the CH341A. It worked great.
+compile flashrom with support for the CH341A. It worked great. I did see that I
+had two different chips to flash from. I chose the one with the longer name
+("w25q64bv-w25q64cv-w25q64fv"). I don't think it would have made a difference
+since reading both flash chips had the same filehash.
 
 I used the github repo from nenadstoisavljevic and copied the bootsplash image
 and any settings in the configuration of coreboot. The only thing I didn't copy
@@ -68,3 +71,8 @@ My flashing failed once because the virtual machine was freaking out. I reset
 the system and reseated the USB (leaving the clip untouched). It worked after : )
 
 [[https://paste.fe00.xyz/VWip/x220-4.jpg]]
+
+* Image of original BIOS 
+View my github below with the original BIOS images I took prior to corebooting.
+
+https://github.com/peterunix/ThinkpadX220BIOS
