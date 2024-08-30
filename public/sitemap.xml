@@ -1,256 +1,166 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>https://peterunix.github.io/posts/corebooting-thinkpad-x220-with-ch341a-programmer/</loc>
+    <lastmod>2024-08-30T09:35:19-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/</loc>
+    <lastmod>2024-08-30T09:35:19-07:00</lastmod>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/</loc>
+    <lastmod>2024-08-30T09:35:19-07:00</lastmod>
+  </url><url>
     <loc>https://peterunix.github.io/posts/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</loc>
     <lastmod>2024-08-22T20:44:38-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://peterunix.github.io/</loc>
-    <lastmod>2024-08-22T20:44:38-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://peterunix.github.io/posts/</loc>
-    <lastmod>2024-08-22T20:44:38-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/automatic-mariadb-backups-with-powershell/</loc>
     <lastmod>2024-08-22T20:24:31-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/add-bitwarden-to-pinephone-pro-using-firefox-extension/</loc>
     <lastmod>2024-05-14T21:20:29-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/emacs-eww-useful-tips-and-tricks/</loc>
     <lastmod>2024-05-14T08:32:07-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/self-host-pastebin-service-with-tempbin/</loc>
     <lastmod>2024-05-05T19:38:04-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/setup-iventoy-with-isc-dhcp-server-for-pxe-boot/</loc>
     <lastmod>2024-04-29T20:47:38-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/self-hosting-frog-find-on-debian/</loc>
     <lastmod>2024-04-12T14:02:52-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/termux-chroot-into-arch-linux/</loc>
     <lastmod>2024-01-24T16:52:22+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/mounting-dropbox-in-termux-using-dbxfs/</loc>
     <lastmod>2023-12-24T14:21:12-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/getting-the-default-wireless-password-to-tg1672g-routers/</loc>
     <lastmod>2023-12-16T14:09:06-06:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/how-to-trigger-or-simulate-bad-blocks-on-ntfs-drive/</loc>
+    <lastmod>2023-12-03T19:02:59-08:00</lastmod>
+  </url><url>
     <loc>https://peterunix.github.io/posts/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</loc>
     <lastmod>2023-11-25T17:43:45-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/</loc>
     <lastmod>2023-11-15T13:17:46-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/creating-an-irc-bouncer-with-docker-and-znc/</loc>
     <lastmod>2023-11-11T22:53:50-08:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/dell-r720xd-idrac7-lower-fan-speeds/</loc>
     <lastmod>2023-10-15T11:40:39-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</loc>
     <lastmod>2023-09-13T15:51:09-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/victus-15-fa0xxx-freezing-after-suspend-fix/</loc>
     <lastmod>2023-09-03T19:19:40-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/performing-email-migrations-from-one-host-to-another/</loc>
+    <lastmod>2023-09-01T07:41:49-07:00</lastmod>
+  </url><url>
     <loc>https://peterunix.github.io/posts/how-to-merge-hyperv-snapshots-with-powershell/</loc>
     <lastmod>2023-08-25T13:40:41-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</loc>
     <lastmod>2023-08-24T07:59:21-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/email-alerts-with-fail2ban-and-gmail/</loc>
     <lastmod>2023-08-18T14:20:39-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/outlook-fix-godaddy-email-server-not-being-found/</loc>
     <lastmod>2023-08-17T10:05:46-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</loc>
     <lastmod>2023-07-28T13:00:51-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/mikrotik-securing-router-with-firewall/</loc>
     <lastmod>2023-07-28T12:55:34-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</loc>
     <lastmod>2023-07-28T12:51:42-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/windows-server-setup-ssh-server/</loc>
     <lastmod>2023-07-22T16:32:15-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/windows-server-creating-and-viewing-a-storport-trace/</loc>
     <lastmod>2023-07-22T16:24:55-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/ffmpeg-convert-flac-to-320kbs-mp3/</loc>
     <lastmod>2023-07-22T16:23:15-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/ffmpeg-record-selection-of-screen/</loc>
     <lastmod>2023-07-22T16:22:37-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/ffmpeg-use-a-dummy-webcam/</loc>
     <lastmod>2023-07-22T16:22:07-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/debian-set-custom-font-in-tty/</loc>
     <lastmod>2023-07-22T16:21:13-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/bspwm-dynamic-borders-when-toggling-fullscreen/</loc>
     <lastmod>2023-07-22T16:20:35-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/bspwm-with-lembar-panel/</loc>
     <lastmod>2023-07-22T16:18:10-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/bspwm-better-scratchpad/</loc>
     <lastmod>2023-07-22T16:17:38-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/raspberry-pi-compile-neovim-from-source/</loc>
     <lastmod>2023-07-22T16:15:28-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/qemu-windows-xp-fix-smb-not-working/</loc>
     <lastmod>2023-07-22T16:14:46-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/qemu-windows-xp-installation/</loc>
     <lastmod>2023-07-22T16:13:48-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/qemu-mount-virtual-images/</loc>
     <lastmod>2023-07-22T16:11:57-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/qemu-chroot-into-an-img-file/</loc>
     <lastmod>2023-07-22T16:11:08-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/qemu-chroot-into-a-different-architecture/</loc>
     <lastmod>2023-07-22T16:10:34-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/pinebook-pro-troubleshooting-common-issues/</loc>
     <lastmod>2023-07-22T16:06:56-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/pinebook-pro-setting-up-zram/</loc>
     <lastmod>2023-07-22T16:06:08-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/pinebook-pro-write-to-spi-flash/</loc>
     <lastmod>2023-07-22T16:03:38-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/pinebook-pro-use-nvme-as-root/</loc>
     <lastmod>2023-07-22T16:02:57-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/pinebook-pro-netbsd-installation/</loc>
     <lastmod>2023-07-22T16:00:37-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/pinebook-pro-keyboard-firmware-update/</loc>
     <lastmod>2023-07-22T15:59:12-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/posts/pinebook-pro-custom-kernel/</loc>
     <lastmod>2023-07-22T15:57:39-07:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://peterunix.github.io/posts/workout-routine/</loc>
+    <lastmod>2023-07-22T00:48:35-07:00</lastmod>
+  </url><url>
     <loc>https://peterunix.github.io/pages/about/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/pages/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://peterunix.github.io/tags/</loc>
   </url>
-  
 </urlset>
