@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>index on Write-Only Hugo</title>
-    <link>https://www.example.com/tags/index/</link>
-    <description>Recent content in index on Write-Only Hugo</description>
+    <title>index on Peter&#39;s blog</title>
+    <link>https://www.fe00.xyz/tags/index/</link>
+    <description>Recent content in index on Peter&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://www.example.com/tags/index/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://www.fe00.xyz/tags/index/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Posts</title>
-      <link>https://www.example.com/post/</link>
+      <link>https://www.fe00.xyz/post/</link>
       <pubDate>Wed, 18 Sep 2024 07:54:32 -0700</pubDate>
       
-      <guid>https://www.example.com/post/</guid>
+      <guid>https://www.fe00.xyz/post/</guid>
       <description></description>
     </item>
     

@@ -1,16 +1,16 @@
-baseURL: "https://www.example.com/"
+baseURL: "https://www.fe00.xyz/"
 theme: "writeonlyhugo-theme"
 languageCode: "en-us"
 
-title: "Write-Only Hugo"
+title: "Peter's blog"
 
 # googleAnalytics: ""
 
 summaryLength: 20
 
 params:
-  title: "Write-Only Hugo"
-  description: "A simple, clean and straightforward blog theme."
+  title: "FE00.xyz"
+  description: "Peter's blog"
 
   favicons:
     themeColor: "#FFFFFF"

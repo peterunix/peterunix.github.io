@@ -3,274 +3,274 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://www.example.com/</loc>
+    <loc>https://www.fe00.xyz/about/</loc>
+    <lastmod>2025-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.fe00.xyz/</loc>
     <lastmod>2024-09-18T07:54:32-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/migrate-wiki.js-to-another-server/</loc>
+    <loc>https://www.fe00.xyz/post/migrate-wiki.js-to-another-server/</loc>
     <lastmod>2024-09-18T07:54:32-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/</loc>
+    <loc>https://www.fe00.xyz/post/</loc>
     <lastmod>2024-09-18T07:54:32-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/corebooting-thinkpad-x220-with-ch341a-programmer/</loc>
+    <loc>https://www.fe00.xyz/post/corebooting-thinkpad-x220-with-ch341a-programmer/</loc>
     <lastmod>2024-08-30T09:35:19-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</loc>
+    <loc>https://www.fe00.xyz/post/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</loc>
     <lastmod>2024-08-22T20:44:38-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/automatic-mariadb-backups-with-powershell/</loc>
+    <loc>https://www.fe00.xyz/post/automatic-mariadb-backups-with-powershell/</loc>
     <lastmod>2024-08-22T20:24:31-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/add-bitwarden-to-pinephone-pro-using-firefox-extension/</loc>
+    <loc>https://www.fe00.xyz/post/add-bitwarden-to-pinephone-pro-using-firefox-extension/</loc>
     <lastmod>2024-05-14T21:20:29-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/emacs-eww-useful-tips-and-tricks/</loc>
+    <loc>https://www.fe00.xyz/post/emacs-eww-useful-tips-and-tricks/</loc>
     <lastmod>2024-05-14T08:32:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/self-host-pastebin-service-with-tempbin/</loc>
+    <loc>https://www.fe00.xyz/post/self-host-pastebin-service-with-tempbin/</loc>
     <lastmod>2024-05-05T19:38:04-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/setup-iventoy-with-isc-dhcp-server-for-pxe-boot/</loc>
+    <loc>https://www.fe00.xyz/post/setup-iventoy-with-isc-dhcp-server-for-pxe-boot/</loc>
     <lastmod>2024-04-29T20:47:38-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/self-hosting-frog-find-on-debian/</loc>
+    <loc>https://www.fe00.xyz/post/self-hosting-frog-find-on-debian/</loc>
     <lastmod>2024-04-12T14:02:52-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/termux-chroot-into-arch-linux/</loc>
+    <loc>https://www.fe00.xyz/post/termux-chroot-into-arch-linux/</loc>
     <lastmod>2024-01-24T16:52:22+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/mounting-dropbox-in-termux-using-dbxfs/</loc>
+    <loc>https://www.fe00.xyz/post/mounting-dropbox-in-termux-using-dbxfs/</loc>
     <lastmod>2023-12-24T14:21:12-06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/getting-the-default-wireless-password-to-tg1672g-routers/</loc>
+    <loc>https://www.fe00.xyz/post/getting-the-default-wireless-password-to-tg1672g-routers/</loc>
     <lastmod>2023-12-16T14:09:06-06:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</loc>
+    <loc>https://www.fe00.xyz/post/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</loc>
     <lastmod>2023-11-25T17:43:45-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/</loc>
+    <loc>https://www.fe00.xyz/post/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/</loc>
     <lastmod>2023-11-15T13:17:46-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/creating-an-irc-bouncer-with-docker-and-znc/</loc>
+    <loc>https://www.fe00.xyz/post/creating-an-irc-bouncer-with-docker-and-znc/</loc>
     <lastmod>2023-11-11T22:53:50-08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/dell-r720xd-idrac7-lower-fan-speeds/</loc>
+    <loc>https://www.fe00.xyz/post/dell-r720xd-idrac7-lower-fan-speeds/</loc>
     <lastmod>2023-10-15T11:40:39-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</loc>
+    <loc>https://www.fe00.xyz/post/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</loc>
     <lastmod>2023-09-13T15:51:09-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/victus-15-fa0xxx-freezing-after-suspend-fix/</loc>
+    <loc>https://www.fe00.xyz/post/victus-15-fa0xxx-freezing-after-suspend-fix/</loc>
     <lastmod>2023-09-03T19:19:40-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/how-to-merge-hyperv-snapshots-with-powershell/</loc>
+    <loc>https://www.fe00.xyz/post/how-to-merge-hyperv-snapshots-with-powershell/</loc>
     <lastmod>2023-08-25T13:40:41-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</loc>
+    <loc>https://www.fe00.xyz/post/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</loc>
     <lastmod>2023-08-24T07:59:21-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/email-alerts-with-fail2ban-and-gmail/</loc>
+    <loc>https://www.fe00.xyz/post/email-alerts-with-fail2ban-and-gmail/</loc>
     <lastmod>2023-08-18T14:20:39-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/outlook-fix-godaddy-email-server-not-being-found/</loc>
+    <loc>https://www.fe00.xyz/post/outlook-fix-godaddy-email-server-not-being-found/</loc>
     <lastmod>2023-08-17T10:05:46-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</loc>
+    <loc>https://www.fe00.xyz/post/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</loc>
     <lastmod>2023-07-28T13:00:51-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/mikrotik-securing-router-with-firewall/</loc>
+    <loc>https://www.fe00.xyz/post/mikrotik-securing-router-with-firewall/</loc>
     <lastmod>2023-07-28T12:55:34-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</loc>
+    <loc>https://www.fe00.xyz/post/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</loc>
     <lastmod>2023-07-28T12:51:42-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/windows-server-setup-ssh-server/</loc>
+    <loc>https://www.fe00.xyz/post/windows-server-setup-ssh-server/</loc>
     <lastmod>2023-07-22T16:32:15-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/windows-server-creating-and-viewing-a-storport-trace/</loc>
+    <loc>https://www.fe00.xyz/post/windows-server-creating-and-viewing-a-storport-trace/</loc>
     <lastmod>2023-07-22T16:24:55-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/ffmpeg-convert-flac-to-320kbs-mp3/</loc>
+    <loc>https://www.fe00.xyz/post/ffmpeg-convert-flac-to-320kbs-mp3/</loc>
     <lastmod>2023-07-22T16:23:15-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/ffmpeg-record-selection-of-screen/</loc>
+    <loc>https://www.fe00.xyz/post/ffmpeg-record-selection-of-screen/</loc>
     <lastmod>2023-07-22T16:22:37-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/ffmpeg-use-a-dummy-webcam/</loc>
+    <loc>https://www.fe00.xyz/post/ffmpeg-use-a-dummy-webcam/</loc>
     <lastmod>2023-07-22T16:22:07-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/debian-set-custom-font-in-tty/</loc>
+    <loc>https://www.fe00.xyz/post/debian-set-custom-font-in-tty/</loc>
     <lastmod>2023-07-22T16:21:13-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/bspwm-dynamic-borders-when-toggling-fullscreen/</loc>
+    <loc>https://www.fe00.xyz/post/bspwm-dynamic-borders-when-toggling-fullscreen/</loc>
     <lastmod>2023-07-22T16:20:35-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/bspwm-with-lembar-panel/</loc>
+    <loc>https://www.fe00.xyz/post/bspwm-with-lembar-panel/</loc>
     <lastmod>2023-07-22T16:18:10-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/bspwm-better-scratchpad/</loc>
+    <loc>https://www.fe00.xyz/post/bspwm-better-scratchpad/</loc>
     <lastmod>2023-07-22T16:17:38-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/raspberry-pi-compile-neovim-from-source/</loc>
+    <loc>https://www.fe00.xyz/post/raspberry-pi-compile-neovim-from-source/</loc>
     <lastmod>2023-07-22T16:15:28-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/qemu-windows-xp-fix-smb-not-working/</loc>
+    <loc>https://www.fe00.xyz/post/qemu-windows-xp-fix-smb-not-working/</loc>
     <lastmod>2023-07-22T16:14:46-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/qemu-windows-xp-installation/</loc>
+    <loc>https://www.fe00.xyz/post/qemu-windows-xp-installation/</loc>
     <lastmod>2023-07-22T16:13:48-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/qemu-mount-virtual-images/</loc>
+    <loc>https://www.fe00.xyz/post/qemu-mount-virtual-images/</loc>
     <lastmod>2023-07-22T16:11:57-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/qemu-chroot-into-an-img-file/</loc>
+    <loc>https://www.fe00.xyz/post/qemu-chroot-into-an-img-file/</loc>
     <lastmod>2023-07-22T16:11:08-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/qemu-chroot-into-a-different-architecture/</loc>
+    <loc>https://www.fe00.xyz/post/qemu-chroot-into-a-different-architecture/</loc>
     <lastmod>2023-07-22T16:10:34-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/pinebook-pro-troubleshooting-common-issues/</loc>
+    <loc>https://www.fe00.xyz/post/pinebook-pro-troubleshooting-common-issues/</loc>
     <lastmod>2023-07-22T16:06:56-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/pinebook-pro-setting-up-zram/</loc>
+    <loc>https://www.fe00.xyz/post/pinebook-pro-setting-up-zram/</loc>
     <lastmod>2023-07-22T16:06:08-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/pinebook-pro-write-to-spi-flash/</loc>
+    <loc>https://www.fe00.xyz/post/pinebook-pro-write-to-spi-flash/</loc>
     <lastmod>2023-07-22T16:03:38-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/pinebook-pro-use-nvme-as-root/</loc>
+    <loc>https://www.fe00.xyz/post/pinebook-pro-use-nvme-as-root/</loc>
     <lastmod>2023-07-22T16:02:57-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/pinebook-pro-netbsd-installation/</loc>
+    <loc>https://www.fe00.xyz/post/pinebook-pro-netbsd-installation/</loc>
     <lastmod>2023-07-22T16:00:37-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/pinebook-pro-keyboard-firmware-update/</loc>
+    <loc>https://www.fe00.xyz/post/pinebook-pro-keyboard-firmware-update/</loc>
     <lastmod>2023-07-22T15:59:12-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/post/pinebook-pro-custom-kernel/</loc>
+    <loc>https://www.fe00.xyz/post/pinebook-pro-custom-kernel/</loc>
     <lastmod>2023-07-22T15:57:39-07:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/archives/</loc>
+    <loc>https://www.fe00.xyz/archives/</loc>
     <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://www.example.com/about/</loc>
-    <lastmod>2019-02-28T00:00:00+00:00</lastmod>
+    <loc>https://www.fe00.xyz/categories/</loc>
   </url>
   
   <url>
-    <loc>https://www.example.com/categories/</loc>
+    <loc>https://www.fe00.xyz/tags/index/</loc>
   </url>
   
   <url>
-    <loc>https://www.example.com/tags/index/</loc>
+    <loc>https://www.fe00.xyz/series/</loc>
   </url>
   
   <url>
-    <loc>https://www.example.com/series/</loc>
-  </url>
-  
-  <url>
-    <loc>https://www.example.com/tags/</loc>
+    <loc>https://www.fe00.xyz/tags/</loc>
   </url>
   
 </urlset>
