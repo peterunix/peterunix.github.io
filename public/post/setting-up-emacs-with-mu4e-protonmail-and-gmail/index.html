@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
   
-  <title>Peter&#39;s blog  | Posts </title>
+  <title>Peter&#39;s blog  | Setting up Emacs with Mu4e, Protonmail, and Gmail </title>
 
   
   <meta charset="UTF-8" />
@@ -48,11 +48,20 @@
   
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="Peter&#39;s blog"/>
+<meta name="twitter:title" content="Setting up Emacs with Mu4e, Protonmail, and Gmail"/>
+<meta name="twitter:description" content="Overview  This will guide you through configuring MU4e to work with Protonmail and Gmail
+  Setting up the ProtonMail bridge  I&#39;m going to compile the bridge from source and then create a systemd unit to run it as a service."/>
 
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content="Peter&#39;s blog">
+<meta itemprop="name" content="Setting up Emacs with Mu4e, Protonmail, and Gmail">
+<meta itemprop="description" content="Overview  This will guide you through configuring MU4e to work with Protonmail and Gmail
+  Setting up the ProtonMail bridge  I&#39;m going to compile the bridge from source and then create a systemd unit to run it as a service.">
+<meta itemprop="datePublished" content="2024-04-29T20:47:38-07:00" />
+<meta itemprop="dateModified" content="2024-04-29T20:47:38-07:00" />
+<meta itemprop="wordCount" content="1527">
+
+
+
+<meta itemprop="keywords" content="" />
 
 
 
@@ -5234,7 +5243,6 @@
 
 
   
-  <link rel="alternate" type="application/rss+xml" href="https://www.fe00.xyz/post/index.xml" title="Peter's blog" />
   </head>
 
   <body class="d-flex flex-column min-vh-100 dark"><nav class="navbar navbar-expand-lg navbar-light py-3">
@@ -5271,383 +5279,509 @@
 <main class="container py-5 flex-grow-1">
   <div class="row justify-content-center">
     <div class="col-12 mw-md mh-100">
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/termux-chroot-into-arch-linux/">Termux Chroot Into Arch Linux</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  January 24, 2024
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  3 min read
-                </span>
-              
-              
-                <span class="small me-2">490 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Preface  Here&#39;s how to chroot into an Arch Linux Arm installation from Termux. This will require a rooted android and a little bit of time
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/mounting-dropbox-in-termux-using-dbxfs/">Mounting Dropbox in Termux Using Dbxfs...almost</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  December 24, 2023
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  2 min read
-                </span>
-              
-              
-                <span class="small me-2">355 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Preface  Here&#39;s how to install and run DBXFS to mount Dropbox. I&#39;m using a rooted Samsung Galaxy A035M with Termux installed via FDroid.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/getting-the-default-wireless-password-to-tg1672g-routers/">Getting the Default Wireless Password to TG1672G Routers</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  December 16, 2023
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  2 min read
-                </span>
-              
-              
-                <span class="small me-2">242 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Preface  Here in El Salvador, most houses that use TIGO as their ISP have the same ARRIS TG1672G router.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/">Upgrade Windows11 Home to Windows11 Enterprise Without Reinstalling</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  November 25, 2023
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  1 min read
-                </span>
-              
-              
-                <span class="small me-2">121 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Preface  I didn&#39;t want to pay for a Windows 11 Pro product key and niether did I want to wipe windows to re-install Windows 11 Pro.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/">Upgrade a Generation 1 Windows10 Hyperv Vm to Windows11</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  November 15, 2023
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  3 min read
-                </span>
-              
-              
-                <span class="small me-2">441 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Overview  You have a bunch of Gen1 VMs running Windows 10 using Legacy Bios. Your goal&#39;s to move upgrade them to Gen2 VMs and upgrade them to windows 11.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/creating-an-irc-bouncer-with-docker-and-znc/">Creating an Irc Bouncer With Docker and Znc</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  November 11, 2023
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  3 min read
-                </span>
-              
-              
-                <span class="small me-2">502 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Preface  This is a half ass post on setting up ZNC to be your IRC bouncer and enable automatic login for nickserv required servers.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/dell-r720xd-idrac7-lower-fan-speeds/">Dell R720XD Lower Idrac7 Fan Speeds</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  October 15, 2023
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  1 min read
-                </span>
-              
-              
-                <span class="small me-2">65 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Preface  My rack server was destroying my eardrums with the fan speeds being too high. I plan to replace the fans with Noctua&#39;s, but in the meantime this fix works great.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/">How to Clone a Drive to Disimilar Hardware From Bios to Uefi</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  September 13, 2023
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  3 min read
-                </span>
-              
-              
-                <span class="small me-2">572 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            FYI  Use this as an overview for how to clone a drive. The methods I used for some of the steps can be simplified by using the right tools.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/victus-15-fa0xxx-freezing-after-suspend-fix/">Victus 15 Fa0xxx Freezing After Suspend Fix</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  September 3, 2023
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  4 min read
-                </span>
-              
-              
-                <span class="small me-2">743 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Preface  THIS DIDN&#39;T ACTUALLY FIX IT FOR ME
- I have a Victus 15 fa0xxx laptop that fails to wake up from suspend.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/how-to-merge-hyperv-snapshots-with-powershell/">How to Merge Hyper-V Snapshots With Powershell</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  August 25, 2023
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  1 min read
-                </span>
-              
-              
-                <span class="small me-2">158 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Identify your child avhdx file  Get-VM | Get-VMHardDiskDrive | Select VMName,Path VMName Path ------ ---- Domain Controller D:\VMs\Domain Controller_1023082130.
-          </div>
-        </article>
-      
-    </div>
-  </div>
-  <div class="row">
     
-<ul class="pagination">
-  <li class="page-item">
-    <a href="/post/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/post/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/post/">1</a>
-  </li>
-  <li class="page-item active">
-    <a class="page-link" href="/post/page/2/">2</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/post/page/3/">3</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/post/page/4/">4</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/post/page/5/">5</a>
-  </li>
-  <li class="page-item">
-    <a href="/post/page/3/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/post/page/5/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-  </li>
-</ul>
+      <div class="py-4">
+        <div class="py-2">
+          <h2 class="display-1 text-center text-uppercase fw-bold text-primary my-0 py-0">Setting up Emacs with Mu4e, Protonmail, and Gmail</h2>
+          <div class="text-center text-muted mb-1">
+            
+            
+              <span class="small mx-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
+                  <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
+                </svg>
+                8 min read
+              </span>
+            
+            
+              <span class="small mx-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
+                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+                April 29, 2024
+              </span>
+            
+            
+              <span class="small me-2">1527 words</span>
+            
+          </div>
+          <div class="text-center">
+            
+          </div>
+        <div class="">
+          
+          <div class="markdown-content">
+            
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Overview
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>This will guide you through configuring MU4e to work with Protonmail and Gmail</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Setting up the ProtonMail bridge
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>I&#39;m going to compile the bridge from source and then create a systemd unit to
+run it as a service. The Proton Bridge will look for a password storing application, such
+as gnome-keyring. I&#39;m in a TTY and will have to use GPG + PASS to store my login
+credentials. This simplest, albeit least secure way, is to create a GPG keypair
+without a password.</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install gpg pass
+
+<span style="color:#75715e"># Creating the GPG keypair</span>
+gpg --batch --passphrase <span style="color:#e6db74">&#39;&#39;</span> --quick-gen-key proton@proton.local default default
+<span style="color:#75715e"># Listing the public key ID</span>
+gpg --list-keys
+<span style="color:#75715e"># Using pass to initialize a password store for my public key</span>
+pass init &lt;GPGID&gt;</code></pre></div>
+</div>
+<p>
+Now its time to compile the proton bridge. GoLang 1.22.1 is the minimum required
+version to get the application to compile. The Debian repositories have builds
+that are too old for this.</p>
+<p>
+Download and install GoLang using the commands below. Add the variable exports to
+your shell startup file.</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://go.dev/dl/go1.22.1.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzvf go1.22.1.linux-amd64.tar.gz
+export GOROOT<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/go&#34;</span>
+export GOHOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.go&#34;</span>
+export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/go/bin:</span>$PATH<span style="color:#e6db74">&#34;</span></code></pre></div>
+</div>
+<p>
+Now compile the bridge from source. I may be missing some dependencies</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install build-essenital libsecret-1-dev
+git clone https://github.com/ProtonMail/proton-bridge
+cd proton-bridge
+make build-nogui
+sudo chown $USER:$USER /opt -R
+cd ../
+mv proton-bridge /opt
+/opt/proton-bridge/bridge --cli</code></pre></div>
+</div>
+<p>
+Create a systemd unit named <code>~/etc/systemd/system/proton-bridge.service</code></p>
+<div class="src src-text">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[Unit]
+Description=ProtonMail Bridge
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/proton-bridge/bridge -n
+User=USERNAME
+Group=USERNAME
+Restart=always
+
+[Install]
+WantedBy=multi-user.target</code></pre></div>
+</div>
+<p>
+Lastly its time to log into the bridge and export the self signed certificate
+files. The certificate files will be needed for mbsync to work.</p>
+<p>
+<strong>Place your certificate files in <code>$HOME/.config/protonmail/bridge/</code></strong></p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /opt/proton-bridge/
+./bridge --cli
+
+<span style="color:#75715e"># Signing into the account</span>
+login
+<span style="color:#75715e"># Previewing and saving the password</span>
+info 
+<span style="color:#75715e"># Disabling telemetry</span>
+telemetry disable
+<span style="color:#75715e"># Exporting the certificate</span>
+cert export</code></pre></div>
+</div>
+<p>
+After closing out of the bridge from the interactive interface, start your
+systemd service</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl enable --now proton-bridge</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Compiling Mu4e
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>
+Emacs is required during the compilation of Mu4e. I included this as an
+installation dependency.</p>
+<div class="src src-text">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">sudo apt-get install -y git meson libgmime-3.0-dev libxapian-dev gnutls-bin texinfo emacs libcld2-dev cmake guile-3.0
+git clone https://github.com/djcb/mu.git
+cd mu
+./autogen.sh
+make
+sudo make install</code></pre></div>
+</div>
+<p>
+After this compiles, you can load Mu4e in Emacs by running <code>require &#39;mu4e</code>.</p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Downloading Emails
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>
+Create the following configuration file for mbsync. Officially its suggested
+that you use PASSCMD rather than hard coding credentials.</p>
+<p>
+This configuration file is complete for one protonmail account and one gmail
+account. Note that I&#39;m using App Passwords from Gmail. As of January of 2025,
+it&#39;s still possible to generate them by googling the direct link to the app
+passwords page. 2FA has to be enabled on your account.</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install openssl isync
+vim .mbsyncrc
 
 
+IMAPStore gmail-remote
+Host imap.gmail.com
+SSLType IMAPS
+AuthMechs LOGIN
+User email@gmail.com
+Pass <span style="color:#e6db74">&#34;password&#34;</span>
+
+MaildirStore gmail-local
+Path ~/Mail/email@gmail.com/
+Inbox ~/Mail/email@gmail.com/INBOX
+Subfolders Verbatim
+
+Channel gmail
+Master :gmail-remote:
+Slave :gmail-local:
+Create Both
+Expunge Both
+Patterns * !<span style="color:#e6db74">&#34;[Gmail]/All Mail&#34;</span> !<span style="color:#e6db74">&#34;[Gmail]/Important&#34;</span> !<span style="color:#e6db74">&#34;[Gmail]/Starred&#34;</span> !<span style="color:#e6db74">&#34;[Gmail]/Bin&#34;</span>
+SyncState *
+
+IMAPAccount protonmail
+Host 127.0.0.1
+Port <span style="color:#ae81ff">1143</span>
+User email@protonmail.com
+Pass <span style="color:#e6db74">&#34;password&#34;</span>
+SSLType STARTTLS
+SSLVersions TLSv1.2
+CertificateFile ~/.config/protonmail/bridge/cert.pem
+ 
+IMAPStore pm-remote
+Account protonmail
+ 
+MaildirStore pm-local
+Path ~/Mail/email@protonmail.com/
+Inbox ~/Mail/email@protonmail.com/INBOX/
+ 
+Channel pm-inbox
+Master :pm-remote:
+Slave :pm-local:
+Patterns <span style="color:#e6db74">&#34;INBOX&#34;</span>
+Create Both
+Expunge Both
+SyncState *
+ 
+Channel pm-sent
+Master :pm-remote:<span style="color:#e6db74">&#34;Sent&#34;</span>
+Slave :pm-local:<span style="color:#e6db74">&#34;sent&#34;</span>
+Create Both
+Expunge Both
+SyncState *
+ 
+Channel pm-trash
+Master :pm-remote:<span style="color:#e6db74">&#34;Trash&#34;</span>
+Slave :pm-local:<span style="color:#e6db74">&#34;trash&#34;</span>
+Create Both
+Expunge Both
+SyncState *
+ 
+Channel pm-spam
+Master :pm-remote:<span style="color:#e6db74">&#34;Spam&#34;</span>
+Slave :pm-local:<span style="color:#e6db74">&#34;spam&#34;</span>
+Create Both
+Expunge Both
+SyncState *
+ 
+Group protonmail
+Channel pm-inbox
+Channel pm-sent
+Channel pm-trash
+Channel pm-spam</code></pre></div>
+</div>
+<p>
+Now its time to download all the email</p>
+<div class="src src-text">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir -p ~/Mail/email@gmail.com ~/Mail/email@protonmail.com
+mbsync -a</code></pre></div>
+</div>
+<p>
+Lastly, let&#39;s initialize the folder with mu and index it.</p>
+<div class="src src-text">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mu init --maildir=~/Mail \
+    --my-address=email@gmail.com \
+    --my-address=email@protonmail.com
+mu index</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Configuring Mu4e
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>
+First create a ~/.authinfo file to store your SMTP credentials. Read the docs to
+encrypt this file</p>
+<p>
+The contents of ~/.authinfo should look like this:</p>
+<div class="src src-text">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">machine 127.0.0.1 login email@protonmail.com port 1025 password PASSWORDHERE
+machine smtp.gmail.com login email@gmail.com port 587 password PASSWORDHERE</code></pre></div>
+</div>
+<p>
+Add the following to your init.el</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">
+(require <span style="color:#e6db74">&#39;mu4e</span>)
+
+  					<span style="color:#75715e">; Default folder containing email</span>
+(setq mu4e-maildir <span style="color:#e6db74">&#34;~/Mail&#34;</span>)
+<span style="color:#75715e">;; Don&#39;t keep message buffers around</span>
+(setq message-kill-buffer-on-exit <span style="color:#66d9ef">t</span>)
+  					<span style="color:#75715e">; Avoid keeping self in CC</span>
+(setq mu4e-compose-keep-self-cc <span style="color:#66d9ef">nil</span>)
+  					<span style="color:#75715e">; Function to send mail (via SMTP)</span>
+(setq send-mail-function <span style="color:#e6db74">&#39;smtpmail-send-it</span>)
+  					<span style="color:#75715e">; Specify the type of SMTP connections to use</span>
+(setq smtpmail-stream-type <span style="color:#e6db74">&#39;starttls</span>)
+  					<span style="color:#75715e">; Command to convert HTML emails to plain text</span>
+(setq mu4e-html2text-command <span style="color:#e6db74">&#34;w3m -T text/html&#34;</span>)
+  					<span style="color:#75715e">; Interval to automatically update email (in seconds)</span>
+(setq mu4e-update-interval <span style="color:#ae81ff">60</span>)
+  					<span style="color:#75715e">; Automatically update headers</span>
+(setq mu4e-headers-auto-update  <span style="color:#66d9ef">t</span>)
+  					<span style="color:#75715e">; Enable inline images in emails</span>
+(setq mu4e-view-show-images  <span style="color:#66d9ef">t</span>)
+  					<span style="color:#75715e">; Disable automatic inclusion of signatures in new emails</span>
+(setq mu4e-compose-signature-auto-include  <span style="color:#66d9ef">nil</span>)
+  					<span style="color:#75715e">; Use fancy characters in the interface</span>
+(setq mu4e-use-fancy-chars  <span style="color:#66d9ef">t</span>)
+  					<span style="color:#75715e">; Set mu4e as the default email agent</span>
+(setq mail-user-agent <span style="color:#e6db74">&#39;mu4e-user-agent</span>)
+  					<span style="color:#75715e">; Use Ivy for completing read prompts</span>
+(setq mu4e-completing-read-function <span style="color:#e6db74">&#39;ivy-completing-read</span>
+      mu4e-confirm-quit <span style="color:#66d9ef">nil</span>)
+  					<span style="color:#75715e">; Disable threading in the headers view (can toggle with &#34;P&#34;)</span>
+(setq mu4e-headers-show-threads <span style="color:#66d9ef">nil</span>)
+  					<span style="color:#75715e">; Enable visual-line-mode in the email view mode</span>
+(add-hook <span style="color:#e6db74">&#39;mu4e-view-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>visual-line-mode) 
+<span style="color:#75715e">; Show threads</span>
+  (setq mu4e-headers-show-threads <span style="color:#66d9ef">t</span>)
+
+<span style="color:#75715e">; Custom header emojies</span>
+ (setq
+   mu4e-headers-draft-mark     <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;💈&#34;</span>)
+   mu4e-headers-flagged-mark   <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;📍&#34;</span>)
+   mu4e-headers-new-mark       <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;🔥&#34;</span>)
+   mu4e-headers-passed-mark    <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;❯&#34;</span>)
+   mu4e-headers-replied-mark   <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;❮&#34;</span>)
+   mu4e-headers-seen-mark      <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;☑&#34;</span>)
+   mu4e-headers-trashed-mark   <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;💀&#34;</span>)
+   mu4e-headers-attach-mark    <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;📎&#34;</span>)
+   mu4e-headers-encrypted-mark <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;🔒&#34;</span>)
+   mu4e-headers-signed-mark    <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;🔑&#34;</span>)
+   mu4e-headers-unread-mark    <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;🔥&#34;</span>)
+   mu4e-headers-calendar-mark  <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;📅&#34;</span>))
+
+      					<span style="color:#75715e">; Prompt to reply all</span>
+
+      (defun compose-reply-wide-or-not-please-ask ()
+        <span style="color:#e6db74">&#34;Ask whether to reply-to-all or not.&#34;</span>
+        (interactive)
+        (mu4e-compose-reply (<span style="color:#a6e22e">yes-or-no-p</span> <span style="color:#e6db74">&#34;Reply to all?&#34;</span>)))
+
+      (<span style="color:#a6e22e">define-key</span> mu4e-compose-minor-mode-map (kbd <span style="color:#e6db74">&#34;R&#34;</span>)
+        	    <span style="color:#a6e22e">#&#39;</span>compose-reply-wide-or-not-please-ask)
+      (<span style="color:#a6e22e">define-key</span> mu4e-headers-mode-map (kbd <span style="color:#e6db74">&#34;R&#34;</span>) <span style="color:#e6db74">&#39;compose-reply-wide-or-not-please-ask</span>)
+      (<span style="color:#a6e22e">define-key</span> mu4e-view-mode-map (kbd <span style="color:#e6db74">&#34;R&#34;</span>) <span style="color:#e6db74">&#39;compose-reply-wide-or-not-please-ask</span>)
+      					<span style="color:#75715e">; Email sync command</span>
+      (setq mu4e-get-mail-command <span style="color:#e6db74">&#34;mbsync -a&#34;</span>
+            mu4e-change-filenames-when-moving <span style="color:#66d9ef">t</span>   <span style="color:#75715e">; needed for mbsync</span>
+            mu4e-update-interval <span style="color:#ae81ff">120</span>)             <span style="color:#75715e">; update every 2 minutes</span>
+
+
+      					<span style="color:#75715e">; Function to add CC and BCC headers automatically</span>
+      (defun my-add-header ()
+        <span style="color:#e6db74">&#34;Add CC: and Bcc: header&#34;</span>
+        (save-excursion (message-add-header
+                         (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;CC: &#34;</span> <span style="color:#e6db74">&#34;\n&#34;</span>)
+                         <span style="color:#75715e">;; pre hook above changes user-mail-address.</span>
+                         (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;Bcc: &#34;</span> <span style="color:#e6db74">&#34;\n&#34;</span>))))
+      (add-hook <span style="color:#e6db74">&#39;mu4e-compose-mode-hook</span> <span style="color:#e6db74">&#39;my-add-header</span>)
+
+      					<span style="color:#75715e">; Define email contexts</span>
+      (setq mu4e-contexts
+            (<span style="color:#a6e22e">list</span>
+             <span style="color:#75715e">;; Work account</span>
+             (make-mu4e-context
+              :name <span style="color:#e6db74">&#34;Work&#34;</span>
+              :match-func
+              (lambda (msg)
+                (when msg
+                  (string-prefix-p <span style="color:#e6db74">&#34;/email@gmail.com&#34;</span> (mu4e-message-field msg :maildir))))
+              :vars <span style="color:#f92672">&#39;</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;email@gmail.com&#34;</span>)
+                      (<span style="color:#a6e22e">user-full-name</span>    <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;First Last&#34;</span>)
+                      (mu4e-drafts-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Drafts&#34;</span>)
+                      (mu4e-sent-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Sent Mail&#34;</span>)
+                      (mu4e-refile-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/All Mail&#34;</span>)
+                      (mu4e-trash-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Trash&#34;</span>)
+            		(smtpmail-smtp-server <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>) <span style="color:#75715e">; host running SMTP server</span>
+            		(smtpmail-smtp-service <span style="color:#f92672">.</span> <span style="color:#ae81ff">587</span>)               <span style="color:#75715e">; SMTP service port number</span>
+          					<span style="color:#75715e">;(mu4e-sent-messages-behavior . &#39;delete) ; Needed for gmail accounts</span>
+                	(mu4e-compose-reply-ignore-address <span style="color:#f92672">.</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;no-?reply&#34;</span> <span style="color:#e6db74">&#34;email@gmail.com&#34;</span>))
+              	(mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((<span style="color:#e6db74">&#34;/email@gmail.com/INBOX&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?i</span>)
+                                                 (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Sent Mail&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?s</span>)
+                                                 (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Trash&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?t</span>)
+                                                 (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Spam&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?j</span>)
+                                                 (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Drafts&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?d</span>)
+                				   ))
+              	))
+
+             <span style="color:#75715e">;; Personal account settings</span>
+             (make-mu4e-context
+              :name <span style="color:#e6db74">&#34;Personal&#34;</span>
+              :match-func
+              (lambda (msg)
+                (when msg
+                  (string-prefix-p <span style="color:#e6db74">&#34;/email@protonmail.com&#34;</span> (mu4e-message-field msg :maildir))))
+              :vars <span style="color:#f92672">&#39;</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;email@protonmail.com&#34;</span>)
+                      (<span style="color:#a6e22e">user-full-name</span>    <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;First Last&#34;</span>)
+                      (mu4e-drafts-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/drafts&#34;</span>)
+                      (mu4e-sent-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/sent&#34;</span>)
+                      (mu4e-refile-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/archive&#34;</span>)
+                      (mu4e-trash-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/trash&#34;</span>)
+                	(mu4e-html2text-command <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;w3m -T text/html&#34;</span>)
+            		<span style="color:#75715e">;; SMTP settings:</span>
+            		(smtpmail-smtp-server <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;127.0.0.1&#34;</span>) <span style="color:#75715e">; host running SMTP server</span>
+            		(smtpmail-smtp-service <span style="color:#f92672">.</span> <span style="color:#ae81ff">1025</span>)               <span style="color:#75715e">; SMTP service port number</span>
+                	(mu4e-compose-reply-ignore-address <span style="color:#f92672">.</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;no-?reply&#34;</span> <span style="color:#e6db74">&#34;email@protonmail.com&#34;</span>))
+              	(mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((<span style="color:#e6db74">&#34;/email@protonmail.com/INBOX&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?i</span>)
+                                                 (<span style="color:#e6db74">&#34;/email@protonmail.com/Archive&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?a</span>)
+                                                 (<span style="color:#e6db74">&#34;/email@protonmail.com/drafts&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?d</span>)
+                                                 (<span style="color:#e6db74">&#34;/email@protonmail.com/sent&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?s</span>)
+                                                 (<span style="color:#e6db74">&#34;/email@protonmail.com/trash&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?t</span>)
+                                                 (<span style="color:#e6db74">&#34;/email@protonmail.com/spam&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?j</span>)
+                				   ))
+                	))))
+      					<span style="color:#75715e">; Bookmarks for quick email search</span>
+      (setq mu4e-bookmarks
+            <span style="color:#f92672">&#39;</span>((:name  <span style="color:#e6db74">&#34;Unread messages&#34;</span>
+                  	:query <span style="color:#e6db74">&#34;flag:unread and maildir:/Inbox&#34;</span>
+                  	:key   <span style="color:#e6db74">?u</span>)
+              (:name  <span style="color:#e6db74">&#34;Today&#39;s messages&#34;</span>
+                  	:query <span style="color:#e6db74">&#34;date:today..now&#34;</span>
+                  	:key <span style="color:#e6db74">?t</span>)
+              (:name  <span style="color:#e6db74">&#34;Last 7 days&#34;</span>
+                  	:query <span style="color:#e6db74">&#34;date:7d..now&#34;</span>
+                  	:key <span style="color:#e6db74">?7</span>)
+              (:name  <span style="color:#e6db74">&#34;Messages with PDF&#34;</span>
+                  	:query <span style="color:#e6db74">&#34;mime:application/pdf&#34;</span>
+                  	:key <span style="color:#e6db74">?p</span>)
+              (:name  <span style="color:#e6db74">&#34;Messages with images&#34;</span>
+                  	:query <span style="color:#e6db74">&#34;mime:image/*&#34;</span>
+                  	:key <span style="color:#e6db74">?i</span>)
+              (:name  <span style="color:#e6db74">&#34;Messages with calendar event&#34;</span>
+                  	:query <span style="color:#e6db74">&#34;mime:text/calendar&#34;</span>
+                  	:key <span style="color:#e6db74">?e</span>)
+              (:name  <span style="color:#e6db74">&#34;Messages with Word docs&#34;</span>
+                  	:query <span style="color:#e6db74">&#34;mime:application/msword OR mime:application/vnd.openxmlformats-officedocument.wordprocessingml.document&#34;</span>
+                  	:key <span style="color:#e6db74">?w</span>)
+              ))
+
+    <span style="color:#75715e">; Prettier column faces</span>
+  (use-package mu4e-column-faces
+    :after mu4e
+    :config (mu4e-column-faces-mode))
+
+
+  (use-package org-msg
+  :straight <span style="color:#66d9ef">t</span>
+  :after mu4e
+  :config
+  (setq mail-user-agent <span style="color:#e6db74">&#39;mu4e-user-agent</span>)
+  (require <span style="color:#e6db74">&#39;org-msg</span>)
+  (setq org-msg-options <span style="color:#e6db74">&#34;html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \\n:t&#34;</span>
+      org-msg-startup <span style="color:#e6db74">&#34;hidestars indent inlineimages&#34;</span>
+      org-msg-default-alternatives <span style="color:#f92672">&#39;</span>((new		<span style="color:#f92672">.</span> (text html))
+                                     (reply-to-html	<span style="color:#f92672">.</span> (text html))
+                                     (reply-to-text	<span style="color:#f92672">.</span> (text)))
+      org-msg-convert-citation <span style="color:#66d9ef">t</span>)
+  (org-msg-mode))</code></pre></div>
+</div>
+<p>
+There are a lot of cool settings in the configuration file . The most
+important is the context switching. If you press the semicolon key, you will be
+prompted to select either the work or personal profile. This will automatically
+update the keybindings to quickly jump into the inbox, spam folder, etc.</p>
+<p>
+Email delivery should work as well. I&#39;m using the evil collection bindings for
+Mu4e. I am able to press &#34;C&#34; to compose an email, then i choose the context I
+want to use. The org-msg plugin allows for creating HTML formatted
+documents. Additionally I included bindings to restore the old &#34;Reply All&#34;
+prompt.</p>
+<p>
+Your setup will look a bit like this. I use modus-operandi-tinted with <a href="https://github.com/rougier/elegant-emacs">the
+Elegant Emacs configs</a>. Note that you may have errors with the Emojies if the
+correct font packs aren&#39;t installed.</p>
+<p>
+I use Roboto Mono with Fira Code. These are
+my font settings</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(when (display-graphic-p)
+  (let* ((variable-tuple
+          (cond ((<span style="color:#a6e22e">x-list-fonts</span> <span style="color:#e6db74">&#34;ETBembo&#34;</span>)         <span style="color:#f92672">&#39;</span>(:font <span style="color:#e6db74">&#34;ETBembo&#34;</span>))
+                ((<span style="color:#a6e22e">x-list-fonts</span> <span style="color:#e6db74">&#34;Source Sans Pro&#34;</span>) <span style="color:#f92672">&#39;</span>(:font <span style="color:#e6db74">&#34;Source Sans Pro&#34;</span>))
+                ((<span style="color:#a6e22e">x-list-fonts</span> <span style="color:#e6db74">&#34;Lucida Grande&#34;</span>)   <span style="color:#f92672">&#39;</span>(:font <span style="color:#e6db74">&#34;Lucida Grande&#34;</span>))
+                ((<span style="color:#a6e22e">x-list-fonts</span> <span style="color:#e6db74">&#34;Verdana&#34;</span>)         <span style="color:#f92672">&#39;</span>(:font <span style="color:#e6db74">&#34;Verdana&#34;</span>))
+                ((<span style="color:#a6e22e">x-family-fonts</span> <span style="color:#e6db74">&#34;Sans Serif&#34;</span>)    <span style="color:#f92672">&#39;</span>(:family <span style="color:#e6db74">&#34;Sans Serif&#34;</span>))
+                (<span style="color:#66d9ef">nil</span> (<span style="color:#a6e22e">warn</span> <span style="color:#e6db74">&#34;Cannot find a Sans Serif Font.  Install Source Sans Pro.&#34;</span>))))
+         (base-font-color     (face-foreground <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;default</span>))
+         (headline           <span style="color:#f92672">`</span>(:inherit default :weight bold :foreground <span style="color:#f92672">,</span>base-font-color)))
+
+    (custom-theme-set-faces
+     <span style="color:#e6db74">&#39;user</span>
+     <span style="color:#f92672">`</span>(org-level-8 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple))))
+     <span style="color:#f92672">`</span>(org-level-7 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple))))
+     <span style="color:#f92672">`</span>(org-level-6 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple))))
+     <span style="color:#f92672">`</span>(org-level-5 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple))))
+     <span style="color:#f92672">`</span>(org-level-4 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple :height <span style="color:#ae81ff">1.0</span>))))
+     <span style="color:#f92672">`</span>(org-level-3 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple :height <span style="color:#ae81ff">1.1</span>))))
+     <span style="color:#f92672">`</span>(org-level-2 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple :height <span style="color:#ae81ff">1.25</span>))))
+     <span style="color:#f92672">`</span>(org-level-1 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple :height <span style="color:#ae81ff">1.5</span>))))
+     <span style="color:#f92672">`</span>(org-document-title ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple :height <span style="color:#ae81ff">2.0</span> :underline <span style="color:#66d9ef">nil</span>)))))))</code></pre></div>
+</div>
+<p>
+<a href="!"><img src="https://paste.fe00.xyz/wtJy/Screenshot%20from%202025-01-12%2000-37-47.png" alt="https://paste.fe00.xyz/wtJy/Screenshot%20from%202025-01-12%2000-37-47.png" /></a></p>
+<p>
+<a href="!"><img src="https://paste.fe00.xyz/26kc/Screenshot%20from%202025-01-12%2000-38-16.png" alt="https://paste.fe00.xyz/26kc/Screenshot%20from%202025-01-12%2000-38-16.png" /></a></p>
+</div>
+</div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </main>
 <footer class="py-5">

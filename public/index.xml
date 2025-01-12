@@ -80,6 +80,16 @@
     </item>
     
     <item>
+      <title>Setting up Emacs with Mu4e, Protonmail, and Gmail</title>
+      <link>https://www.fe00.xyz/post/setting-up-emacs-with-mu4e-protonmail-and-gmail/</link>
+      <pubDate>Mon, 29 Apr 2024 20:47:38 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/post/setting-up-emacs-with-mu4e-protonmail-and-gmail/</guid>
+      <description>Overview  This will guide you through configuring MU4e to work with Protonmail and Gmail
+  Setting up the ProtonMail bridge  I&amp;#39;m going to compile the bridge from source and then create a systemd unit to run it as a service.</description>
+    </item>
+    
+    <item>
       <title>Setup Iventoy With Isc Dhcp Server for Pxe Boot</title>
       <link>https://www.fe00.xyz/post/setup-iventoy-with-isc-dhcp-server-for-pxe-boot/</link>
       <pubDate>Mon, 29 Apr 2024 20:47:38 -0700</pubDate>
