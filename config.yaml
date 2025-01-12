@@ -1,0 +1,22 @@
+baseURL: "https://www.example.com/"
+theme: "writeonlyhugo-theme"
+languageCode: "en-us"
+
+title: "Write-Only Hugo"
+
+# googleAnalytics: ""
+
+summaryLength: 20
+
+params:
+  title: "Write-Only Hugo"
+  description: "A simple, clean and straightforward blog theme."
+
+  favicons:
+    themeColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF"
+
+taxonomies:
+  categories: "categories"
+  series: "series"
+  tags: "tags"
