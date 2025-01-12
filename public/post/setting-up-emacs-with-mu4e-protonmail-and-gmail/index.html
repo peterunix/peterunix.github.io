@@ -49,15 +49,15 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Setting up Emacs with Mu4e, Protonmail, and Gmail"/>
-<meta name="twitter:description" content="Overview  This will guide you through configuring MU4e to work with Protonmail and Gmail
-  Setting up the ProtonMail bridge  I&#39;m going to compile the bridge from source and then create a systemd unit to run it as a service."/>
+<meta name="twitter:description" content="Overview   Here&#39;s how to configure MU4e to work with Protonmail and Gmail simultaneously
+  ProtonMail Bridge  Overview:"/>
 
 <meta itemprop="name" content="Setting up Emacs with Mu4e, Protonmail, and Gmail">
-<meta itemprop="description" content="Overview  This will guide you through configuring MU4e to work with Protonmail and Gmail
-  Setting up the ProtonMail bridge  I&#39;m going to compile the bridge from source and then create a systemd unit to run it as a service.">
-<meta itemprop="datePublished" content="2024-04-29T20:47:38-07:00" />
-<meta itemprop="dateModified" content="2024-04-29T20:47:38-07:00" />
-<meta itemprop="wordCount" content="1527">
+<meta itemprop="description" content="Overview   Here&#39;s how to configure MU4e to work with Protonmail and Gmail simultaneously
+  ProtonMail Bridge  Overview:">
+<meta itemprop="datePublished" content="2025-01-11T00:53:38-07:00" />
+<meta itemprop="dateModified" content="2025-01-11T00:53:38-07:00" />
+<meta itemprop="wordCount" content="1340">
 
 
 
@@ -5290,7 +5290,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
                   <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
                 </svg>
-                8 min read
+                7 min read
               </span>
             
             
@@ -5298,11 +5298,11 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
                   <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
                 </svg>
-                April 29, 2024
+                January 11, 2025
               </span>
             
             
-              <span class="small me-2">1527 words</span>
+              <span class="small me-2">1340 words</span>
             
           </div>
           <div class="text-center">
@@ -5317,19 +5317,39 @@
 Overview
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
-<p>This will guide you through configuring MU4e to work with Protonmail and Gmail</p>
+<p>
+Here&#39;s how to configure MU4e to work with Protonmail and Gmail simultaneously</p>
 </div>
 </div>
 <div id="outline-container-headline-2" class="outline-2">
 <h2 id="headline-2">
-Setting up the ProtonMail bridge
+ProtonMail Bridge
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
-<p>I&#39;m going to compile the bridge from source and then create a systemd unit to
-run it as a service. The Proton Bridge will look for a password storing application, such
-as gnome-keyring. I&#39;m in a TTY and will have to use GPG + PASS to store my login
-credentials. This simplest, albeit least secure way, is to create a GPG keypair
-without a password.</p>
+<p>Overview:</p>
+<ul>
+<li>
+<p>Create a passwordless GPG key</p>
+</li>
+<li>
+<p>Compile the bridge</p>
+</li>
+<li>
+<p>Login and export bridge certificates</p>
+</li>
+<li>
+<p>Start the bridge as a service</p>
+</li>
+</ul>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Password-less GPG
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>
+I don&#39;t have a keyring system installed. Protonmail will fail to log into your
+account unless you have a passwordless GPG key created. I couldn&#39;t get it to
+work with pinentry-tty.</p>
 <div class="src src-bash">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install gpg pass
 
@@ -5340,13 +5360,16 @@ gpg --list-keys
 <span style="color:#75715e"># Using pass to initialize a password store for my public key</span>
 pass init &lt;GPGID&gt;</code></pre></div>
 </div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Compile Bridge
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
 <p>
-Now its time to compile the proton bridge. GoLang 1.22.1 is the minimum required
-version to get the application to compile. The Debian repositories have builds
-that are too old for this.</p>
-<p>
-Download and install GoLang using the commands below. Add the variable exports to
-your shell startup file.</p>
+Install GoLang version 1.22 or later. This is required for the bridge. Add the
+export variables to your shell startup script.</p>
 <div class="src src-bash">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget https://go.dev/dl/go1.22.1.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzvf go1.22.1.linux-amd64.tar.gz
@@ -5355,7 +5378,8 @@ export GOHOME<span style="color:#f92672">=</span><span style="color:#e6db74">&#3
 export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/usr/local/go/bin:</span>$PATH<span style="color:#e6db74">&#34;</span></code></pre></div>
 </div>
 <p>
-Now compile the bridge from source. I may be missing some dependencies</p>
+Compile the bridge without GUI support as seen below. I prefer to place my
+software in /opt. Its not necessary.</p>
 <div class="src src-bash">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install build-essenital libsecret-1-dev
 git clone https://github.com/ProtonMail/proton-bridge
@@ -5366,10 +5390,43 @@ cd ../
 mv proton-bridge /opt
 /opt/proton-bridge/bridge --cli</code></pre></div>
 </div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+Login and export certificates
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
 <p>
-Create a systemd unit named <code>~/etc/systemd/system/proton-bridge.service</code></p>
+Run the bridge using the interactive CLI. Follow the commands to log in.</p>
+<p>
+When running <code>cert export</code>, place the certificate file in ~/.config/protonmail/bridge/{cert,key}.pem</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /opt/proton-bridge/
+./bridge --cli
+
+<span style="color:#75715e"># Signing into the account</span>
+login
+<span style="color:#75715e"># Previewing and saving the password</span>
+info 
+<span style="color:#75715e"># Disabling telemetry</span>
+telemetry disable
+<span style="color:#75715e"># Exporting the certificate</span>
+cert export</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+Systemd Service
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<p>
+Create the following service file</p>
 <div class="src src-text">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[Unit]
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">/etc/systemd/system/proton-bridge.service
+
+[Unit]
 Description=ProtonMail Bridge
 After=network.target
 
@@ -5384,64 +5441,78 @@ Restart=always
 WantedBy=multi-user.target</code></pre></div>
 </div>
 <p>
-Lastly its time to log into the bridge and export the self signed certificate
-files. The certificate files will be needed for mbsync to work.</p>
-<p>
-<strong>Place your certificate files in <code>$HOME/.config/protonmail/bridge/</code></strong></p>
-<div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /opt/proton-bridge/
-./bridge --cli
-
-<span style="color:#75715e"># Signing into the account</span>
-login
-<span style="color:#75715e"># Previewing and saving the password</span>
-info 
-<span style="color:#75715e"># Disabling telemetry</span>
-telemetry disable
-<span style="color:#75715e"># Exporting the certificate</span>
-cert export</code></pre></div>
-</div>
-<p>
-After closing out of the bridge from the interactive interface, start your
-systemd service</p>
+Start the servive</p>
 <div class="src src-bash">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">systemctl enable --now proton-bridge</code></pre></div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-3" class="outline-2">
-<h2 id="headline-3">
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
 Compiling Mu4e
 </h2>
-<div id="outline-text-headline-3" class="outline-text-2">
-<p>
-Emacs is required during the compilation of Mu4e. I included this as an
-installation dependency.</p>
+<div id="outline-text-headline-7" class="outline-text-2">
+<p>Emacs is required as a dependency for the installation. Either install it with
+<code>apt</code> or add it to your $PATH</p>
 <div class="src src-text">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">sudo apt-get install -y git meson libgmime-3.0-dev libxapian-dev gnutls-bin texinfo emacs libcld2-dev cmake guile-3.0
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">sudo apt-get install -y git meson libgmime-3.0-dev libxapian-dev gnutls-bin texinfo libcld2-dev cmake guile-3.0
 git clone https://github.com/djcb/mu.git
 cd mu
 ./autogen.sh
 make
 sudo make install</code></pre></div>
 </div>
-<p>
-After this compiles, you can load Mu4e in Emacs by running <code>require &#39;mu4e</code>.</p>
 </div>
 </div>
-<div id="outline-container-headline-4" class="outline-2">
-<h2 id="headline-4">
+<div id="outline-container-headline-8" class="outline-2">
+<h2 id="headline-8">
 Downloading Emails
 </h2>
-<div id="outline-text-headline-4" class="outline-text-2">
+<div id="outline-text-headline-8" class="outline-text-2">
+<p>Overview:</p>
+<ul>
+<li>
+<p>Encrypt passwords using <code>pass</code></p>
+</li>
+<li>
+<p>Install Isync, create config, &amp; sync email</p>
+</li>
+<li>
+<p>Index maildir</p>
+</li>
+</ul>
+<div id="outline-container-headline-9" class="outline-3">
+<h3 id="headline-9">
+Encrypting passwords
+</h3>
+<div id="outline-text-headline-9" class="outline-text-3">
+<p>I retrieved the protonmail password from the bridge by running <code>info</code>. The Gmail
+account is using an APP Password. To create an app password for Gmail, enable
+2FA on your gmail account then google the direct link to the app password page.</p>
 <p>
-Create the following configuration file for mbsync. Officially its suggested
-that you use PASSCMD rather than hard coding credentials.</p>
+<strong>In the future, ISync will have to be replaced with XOATH2.0 and offline IMAP to
+work</strong>. Embrace the luxury while it lasts.</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pass insert <span style="color:#e6db74">&#34;email/email@gmail.com&#34;</span> 
+pass insert <span style="color:#e6db74">&#34;email/email@protonmail.com&#34;</span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-10" class="outline-3">
+<h3 id="headline-10">
+Installing &amp; Configuring ISync
+</h3>
+<div id="outline-text-headline-10" class="outline-text-3">
 <p>
-This configuration file is complete for one protonmail account and one gmail
-account. Note that I&#39;m using App Passwords from Gmail. As of January of 2025,
-it&#39;s still possible to generate them by googling the direct link to the app
-passwords page. 2FA has to be enabled on your account.</p>
+Create the folders that will store your email</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir -p ~/Mail/email@gmail.com ~/Mail/email@protonmail.com</code></pre></div>
+</div>
+<p>
+Copy the configuration file below. Update the lines for the email address and
+password commands.</p>
 <div class="src src-bash">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install openssl isync
 vim .mbsyncrc
@@ -5452,7 +5523,7 @@ Host imap.gmail.com
 SSLType IMAPS
 AuthMechs LOGIN
 User email@gmail.com
-Pass <span style="color:#e6db74">&#34;password&#34;</span>
+PassCMD <span style="color:#e6db74">&#34;pass email/email@gmail.com&#34;</span>
 
 MaildirStore gmail-local
 Path ~/Mail/email@gmail.com/
@@ -5471,7 +5542,7 @@ IMAPAccount protonmail
 Host 127.0.0.1
 Port <span style="color:#ae81ff">1143</span>
 User email@protonmail.com
-Pass <span style="color:#e6db74">&#34;password&#34;</span>
+PassCMD <span style="color:#e6db74">&#34;pass email/email@protonmail.com&#34;</span>
 SSLType STARTTLS
 SSLVersions TLSv1.2
 CertificateFile ~/.config/protonmail/bridge/cert.pem
@@ -5519,13 +5590,18 @@ Channel pm-trash
 Channel pm-spam</code></pre></div>
 </div>
 <p>
-Now its time to download all the email</p>
+Download all the emails. Gmail&#39;s limit is 2500MB of emails per day.</p>
 <div class="src src-text">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mkdir -p ~/Mail/email@gmail.com ~/Mail/email@protonmail.com
-mbsync -a</code></pre></div>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mbsync -a</code></pre></div>
 </div>
-<p>
-Lastly, let&#39;s initialize the folder with mu and index it.</p>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
+Indexing the maildir
+</h3>
+<div id="outline-text-headline-11" class="outline-text-3">
+<p>Now initialize the folder with mu and index it.</p>
 <div class="src src-text">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">mu init --maildir=~/Mail \
     --my-address=email@gmail.com \
@@ -5534,62 +5610,95 @@ mu index</code></pre></div>
 </div>
 </div>
 </div>
-<div id="outline-container-headline-5" class="outline-2">
-<h2 id="headline-5">
+</div>
+</div>
+<div id="outline-container-headline-12" class="outline-2">
+<h2 id="headline-12">
 Configuring Mu4e
 </h2>
-<div id="outline-text-headline-5" class="outline-text-2">
+<div id="outline-text-headline-12" class="outline-text-2">
+<p>Overview:</p>
+<ul>
+<li>
+<p>Create encrypted .authinfo file</p>
+</li>
+<li>
+<p>Copy my MU4E config</p>
+</li>
+<li>
+<p>Run Mu4e</p>
+</li>
+</ul>
+<div id="outline-container-headline-13" class="outline-3">
+<h3 id="headline-13">
+Creating encrypted authinfo file
+</h3>
+<div id="outline-text-headline-13" class="outline-text-3">
 <p>
-First create a ~/.authinfo file to store your SMTP credentials. Read the docs to
-encrypt this file</p>
+The authinfo file stores the SMTP credentials for sending emails. Add this line
+to your init.el file</p>
+<div class="src src-text">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">(require &#39;auth-source)
+(setq auth-sources &#39;(&#34;~/.authinfo.gpg&#34;))</code></pre></div>
+</div>
 <p>
-The contents of ~/.authinfo should look like this:</p>
+Set the contents of the .authinfo.gpg file to the following. Emacs will
+automatically encrypt it using your GPG key.</p>
 <div class="src src-text">
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">machine 127.0.0.1 login email@protonmail.com port 1025 password PASSWORDHERE
 machine smtp.gmail.com login email@gmail.com port 587 password PASSWORDHERE</code></pre></div>
 </div>
+</div>
+</div>
+<div id="outline-container-headline-14" class="outline-3">
+<h3 id="headline-14">
+Copy Mu4E config
+</h3>
+<div id="outline-text-headline-14" class="outline-text-3">
 <p>
-Add the following to your init.el</p>
+This won&#39;t be a tutorial for how to use Mu4e. The important thing to note is
+this: Use the semicolon key to switch contexts between the personal and work
+accounts. This will update the bookmark keys to jump between inboxes. When
+composing emails you can select the context to send from. W3M is required for
+rendering HTML documents. Fonts are required for displaying Emoji&#39;s.</p>
 <div class="src src-emacs-lisp">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">
-(require <span style="color:#e6db74">&#39;mu4e</span>)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (require <span style="color:#e6db74">&#39;mu4e</span>)
 
-  					<span style="color:#75715e">; Default folder containing email</span>
-(setq mu4e-maildir <span style="color:#e6db74">&#34;~/Mail&#34;</span>)
-<span style="color:#75715e">;; Don&#39;t keep message buffers around</span>
-(setq message-kill-buffer-on-exit <span style="color:#66d9ef">t</span>)
-  					<span style="color:#75715e">; Avoid keeping self in CC</span>
-(setq mu4e-compose-keep-self-cc <span style="color:#66d9ef">nil</span>)
-  					<span style="color:#75715e">; Function to send mail (via SMTP)</span>
-(setq send-mail-function <span style="color:#e6db74">&#39;smtpmail-send-it</span>)
-  					<span style="color:#75715e">; Specify the type of SMTP connections to use</span>
-(setq smtpmail-stream-type <span style="color:#e6db74">&#39;starttls</span>)
-  					<span style="color:#75715e">; Command to convert HTML emails to plain text</span>
-(setq mu4e-html2text-command <span style="color:#e6db74">&#34;w3m -T text/html&#34;</span>)
-  					<span style="color:#75715e">; Interval to automatically update email (in seconds)</span>
-(setq mu4e-update-interval <span style="color:#ae81ff">60</span>)
-  					<span style="color:#75715e">; Automatically update headers</span>
-(setq mu4e-headers-auto-update  <span style="color:#66d9ef">t</span>)
-  					<span style="color:#75715e">; Enable inline images in emails</span>
-(setq mu4e-view-show-images  <span style="color:#66d9ef">t</span>)
-  					<span style="color:#75715e">; Disable automatic inclusion of signatures in new emails</span>
-(setq mu4e-compose-signature-auto-include  <span style="color:#66d9ef">nil</span>)
-  					<span style="color:#75715e">; Use fancy characters in the interface</span>
-(setq mu4e-use-fancy-chars  <span style="color:#66d9ef">t</span>)
-  					<span style="color:#75715e">; Set mu4e as the default email agent</span>
-(setq mail-user-agent <span style="color:#e6db74">&#39;mu4e-user-agent</span>)
-  					<span style="color:#75715e">; Use Ivy for completing read prompts</span>
-(setq mu4e-completing-read-function <span style="color:#e6db74">&#39;ivy-completing-read</span>
-      mu4e-confirm-quit <span style="color:#66d9ef">nil</span>)
-  					<span style="color:#75715e">; Disable threading in the headers view (can toggle with &#34;P&#34;)</span>
-(setq mu4e-headers-show-threads <span style="color:#66d9ef">nil</span>)
-  					<span style="color:#75715e">; Enable visual-line-mode in the email view mode</span>
-(add-hook <span style="color:#e6db74">&#39;mu4e-view-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>visual-line-mode) 
-<span style="color:#75715e">; Show threads</span>
+  <span style="color:#75715e">; Default folder containing email</span>
+  (setq mu4e-maildir <span style="color:#e6db74">&#34;~/Mail&#34;</span>)
+  <span style="color:#75715e">;; Don&#39;t keep message buffers around</span>
+  (setq message-kill-buffer-on-exit <span style="color:#66d9ef">t</span>)
+  <span style="color:#75715e">; Avoid keeping self in CC</span>
+  (setq mu4e-compose-keep-self-cc <span style="color:#66d9ef">nil</span>)
+  <span style="color:#75715e">; Function to send mail (via SMTP)</span>
+  (setq send-mail-function <span style="color:#e6db74">&#39;smtpmail-send-it</span>)
+  <span style="color:#75715e">; Specify the type of SMTP connections to use</span>
+  (setq smtpmail-stream-type <span style="color:#e6db74">&#39;starttls</span>)
+  <span style="color:#75715e">; Command to convert HTML emails to plain text</span>
+  (setq mu4e-html2text-command <span style="color:#e6db74">&#34;w3m -T text/html&#34;</span>)
+  <span style="color:#75715e">; Interval to automatically update email (in seconds)</span>
+  (setq mu4e-update-interval <span style="color:#ae81ff">60</span>)
+  <span style="color:#75715e">; Automatically update headers</span>
+  (setq mu4e-headers-auto-update  <span style="color:#66d9ef">t</span>)
+  <span style="color:#75715e">; Enable inline images in emails</span>
+  (setq mu4e-view-show-images  <span style="color:#66d9ef">t</span>)
+  <span style="color:#75715e">; Disable automatic inclusion of signatures in new emails</span>
+  (setq mu4e-compose-signature-auto-include  <span style="color:#66d9ef">nil</span>)
+  <span style="color:#75715e">; Use fancy characters in the interface</span>
+  (setq mu4e-use-fancy-chars  <span style="color:#66d9ef">t</span>)
+  <span style="color:#75715e">; Set mu4e as the default email agent</span>
+  (setq mail-user-agent <span style="color:#e6db74">&#39;mu4e-user-agent</span>)
+  <span style="color:#75715e">; Use Ivy for completing read prompts</span>
+  (setq mu4e-completing-read-function <span style="color:#e6db74">&#39;ivy-completing-read</span>
+        mu4e-confirm-quit <span style="color:#66d9ef">nil</span>)
+  <span style="color:#75715e">; Disable threading in the headers view (can toggle with &#34;P&#34;)</span>
+  (setq mu4e-headers-show-threads <span style="color:#66d9ef">nil</span>)
+  <span style="color:#75715e">; Enable visual-line-mode in the email view mode</span>
+  (add-hook <span style="color:#e6db74">&#39;mu4e-view-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>visual-line-mode) 
+  <span style="color:#75715e">; Show threads</span>
   (setq mu4e-headers-show-threads <span style="color:#66d9ef">t</span>)
-
-<span style="color:#75715e">; Custom header emojies</span>
- (setq
+  <span style="color:#75715e">; Custom header emojis</span>
+  (setq
    mu4e-headers-draft-mark     <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;💈&#34;</span>)
    mu4e-headers-flagged-mark   <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;📍&#34;</span>)
    mu4e-headers-new-mark       <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;🔥&#34;</span>)
@@ -5603,177 +5712,121 @@ Add the following to your init.el</p>
    mu4e-headers-unread-mark    <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;🔥&#34;</span>)
    mu4e-headers-calendar-mark  <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;📅&#34;</span>))
 
-      					<span style="color:#75715e">; Prompt to reply all</span>
+  <span style="color:#75715e">; Prompt to reply all</span>
+  (defun compose-reply-wide-or-not-please-ask ()
+    <span style="color:#e6db74">&#34;Ask whether to reply-to-all or not.&#34;</span>
+    (interactive)
+    (mu4e-compose-reply (<span style="color:#a6e22e">yes-or-no-p</span> <span style="color:#e6db74">&#34;Reply to all?&#34;</span>)))
 
-      (defun compose-reply-wide-or-not-please-ask ()
-        <span style="color:#e6db74">&#34;Ask whether to reply-to-all or not.&#34;</span>
-        (interactive)
-        (mu4e-compose-reply (<span style="color:#a6e22e">yes-or-no-p</span> <span style="color:#e6db74">&#34;Reply to all?&#34;</span>)))
+  (<span style="color:#a6e22e">define-key</span> mu4e-compose-minor-mode-map (kbd <span style="color:#e6db74">&#34;R&#34;</span>)
+              <span style="color:#a6e22e">#&#39;</span>compose-reply-wide-or-not-please-ask)
+  (<span style="color:#a6e22e">define-key</span> mu4e-headers-mode-map (kbd <span style="color:#e6db74">&#34;R&#34;</span>) <span style="color:#e6db74">&#39;compose-reply-wide-or-not-please-ask</span>)
+  (<span style="color:#a6e22e">define-key</span> mu4e-view-mode-map (kbd <span style="color:#e6db74">&#34;R&#34;</span>) <span style="color:#e6db74">&#39;compose-reply-wide-or-not-please-ask</span>)
 
-      (<span style="color:#a6e22e">define-key</span> mu4e-compose-minor-mode-map (kbd <span style="color:#e6db74">&#34;R&#34;</span>)
-        	    <span style="color:#a6e22e">#&#39;</span>compose-reply-wide-or-not-please-ask)
-      (<span style="color:#a6e22e">define-key</span> mu4e-headers-mode-map (kbd <span style="color:#e6db74">&#34;R&#34;</span>) <span style="color:#e6db74">&#39;compose-reply-wide-or-not-please-ask</span>)
-      (<span style="color:#a6e22e">define-key</span> mu4e-view-mode-map (kbd <span style="color:#e6db74">&#34;R&#34;</span>) <span style="color:#e6db74">&#39;compose-reply-wide-or-not-please-ask</span>)
-      					<span style="color:#75715e">; Email sync command</span>
-      (setq mu4e-get-mail-command <span style="color:#e6db74">&#34;mbsync -a&#34;</span>
-            mu4e-change-filenames-when-moving <span style="color:#66d9ef">t</span>   <span style="color:#75715e">; needed for mbsync</span>
-            mu4e-update-interval <span style="color:#ae81ff">120</span>)             <span style="color:#75715e">; update every 2 minutes</span>
-
-
-      					<span style="color:#75715e">; Function to add CC and BCC headers automatically</span>
-      (defun my-add-header ()
-        <span style="color:#e6db74">&#34;Add CC: and Bcc: header&#34;</span>
-        (save-excursion (message-add-header
-                         (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;CC: &#34;</span> <span style="color:#e6db74">&#34;\n&#34;</span>)
-                         <span style="color:#75715e">;; pre hook above changes user-mail-address.</span>
-                         (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;Bcc: &#34;</span> <span style="color:#e6db74">&#34;\n&#34;</span>))))
-      (add-hook <span style="color:#e6db74">&#39;mu4e-compose-mode-hook</span> <span style="color:#e6db74">&#39;my-add-header</span>)
-
-      					<span style="color:#75715e">; Define email contexts</span>
-      (setq mu4e-contexts
-            (<span style="color:#a6e22e">list</span>
-             <span style="color:#75715e">;; Work account</span>
-             (make-mu4e-context
-              :name <span style="color:#e6db74">&#34;Work&#34;</span>
-              :match-func
-              (lambda (msg)
-                (when msg
-                  (string-prefix-p <span style="color:#e6db74">&#34;/email@gmail.com&#34;</span> (mu4e-message-field msg :maildir))))
-              :vars <span style="color:#f92672">&#39;</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;email@gmail.com&#34;</span>)
-                      (<span style="color:#a6e22e">user-full-name</span>    <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;First Last&#34;</span>)
-                      (mu4e-drafts-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Drafts&#34;</span>)
-                      (mu4e-sent-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Sent Mail&#34;</span>)
-                      (mu4e-refile-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/All Mail&#34;</span>)
-                      (mu4e-trash-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Trash&#34;</span>)
-            		(smtpmail-smtp-server <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>) <span style="color:#75715e">; host running SMTP server</span>
-            		(smtpmail-smtp-service <span style="color:#f92672">.</span> <span style="color:#ae81ff">587</span>)               <span style="color:#75715e">; SMTP service port number</span>
-          					<span style="color:#75715e">;(mu4e-sent-messages-behavior . &#39;delete) ; Needed for gmail accounts</span>
-                	(mu4e-compose-reply-ignore-address <span style="color:#f92672">.</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;no-?reply&#34;</span> <span style="color:#e6db74">&#34;email@gmail.com&#34;</span>))
-              	(mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((<span style="color:#e6db74">&#34;/email@gmail.com/INBOX&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?i</span>)
-                                                 (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Sent Mail&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?s</span>)
-                                                 (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Trash&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?t</span>)
-                                                 (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Spam&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?j</span>)
-                                                 (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Drafts&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?d</span>)
-                				   ))
-              	))
-
-             <span style="color:#75715e">;; Personal account settings</span>
-             (make-mu4e-context
-              :name <span style="color:#e6db74">&#34;Personal&#34;</span>
-              :match-func
-              (lambda (msg)
-                (when msg
-                  (string-prefix-p <span style="color:#e6db74">&#34;/email@protonmail.com&#34;</span> (mu4e-message-field msg :maildir))))
-              :vars <span style="color:#f92672">&#39;</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;email@protonmail.com&#34;</span>)
-                      (<span style="color:#a6e22e">user-full-name</span>    <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;First Last&#34;</span>)
-                      (mu4e-drafts-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/drafts&#34;</span>)
-                      (mu4e-sent-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/sent&#34;</span>)
-                      (mu4e-refile-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/archive&#34;</span>)
-                      (mu4e-trash-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/trash&#34;</span>)
-                	(mu4e-html2text-command <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;w3m -T text/html&#34;</span>)
-            		<span style="color:#75715e">;; SMTP settings:</span>
-            		(smtpmail-smtp-server <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;127.0.0.1&#34;</span>) <span style="color:#75715e">; host running SMTP server</span>
-            		(smtpmail-smtp-service <span style="color:#f92672">.</span> <span style="color:#ae81ff">1025</span>)               <span style="color:#75715e">; SMTP service port number</span>
-                	(mu4e-compose-reply-ignore-address <span style="color:#f92672">.</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;no-?reply&#34;</span> <span style="color:#e6db74">&#34;email@protonmail.com&#34;</span>))
-              	(mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((<span style="color:#e6db74">&#34;/email@protonmail.com/INBOX&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?i</span>)
-                                                 (<span style="color:#e6db74">&#34;/email@protonmail.com/Archive&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?a</span>)
-                                                 (<span style="color:#e6db74">&#34;/email@protonmail.com/drafts&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?d</span>)
-                                                 (<span style="color:#e6db74">&#34;/email@protonmail.com/sent&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?s</span>)
-                                                 (<span style="color:#e6db74">&#34;/email@protonmail.com/trash&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?t</span>)
-                                                 (<span style="color:#e6db74">&#34;/email@protonmail.com/spam&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?j</span>)
-                				   ))
-                	))))
-      					<span style="color:#75715e">; Bookmarks for quick email search</span>
-      (setq mu4e-bookmarks
-            <span style="color:#f92672">&#39;</span>((:name  <span style="color:#e6db74">&#34;Unread messages&#34;</span>
-                  	:query <span style="color:#e6db74">&#34;flag:unread and maildir:/Inbox&#34;</span>
-                  	:key   <span style="color:#e6db74">?u</span>)
-              (:name  <span style="color:#e6db74">&#34;Today&#39;s messages&#34;</span>
-                  	:query <span style="color:#e6db74">&#34;date:today..now&#34;</span>
-                  	:key <span style="color:#e6db74">?t</span>)
-              (:name  <span style="color:#e6db74">&#34;Last 7 days&#34;</span>
-                  	:query <span style="color:#e6db74">&#34;date:7d..now&#34;</span>
-                  	:key <span style="color:#e6db74">?7</span>)
-              (:name  <span style="color:#e6db74">&#34;Messages with PDF&#34;</span>
-                  	:query <span style="color:#e6db74">&#34;mime:application/pdf&#34;</span>
-                  	:key <span style="color:#e6db74">?p</span>)
-              (:name  <span style="color:#e6db74">&#34;Messages with images&#34;</span>
-                  	:query <span style="color:#e6db74">&#34;mime:image/*&#34;</span>
-                  	:key <span style="color:#e6db74">?i</span>)
-              (:name  <span style="color:#e6db74">&#34;Messages with calendar event&#34;</span>
-                  	:query <span style="color:#e6db74">&#34;mime:text/calendar&#34;</span>
-                  	:key <span style="color:#e6db74">?e</span>)
-              (:name  <span style="color:#e6db74">&#34;Messages with Word docs&#34;</span>
-                  	:query <span style="color:#e6db74">&#34;mime:application/msword OR mime:application/vnd.openxmlformats-officedocument.wordprocessingml.document&#34;</span>
-                  	:key <span style="color:#e6db74">?w</span>)
-              ))
-
-    <span style="color:#75715e">; Prettier column faces</span>
-  (use-package mu4e-column-faces
-    :after mu4e
-    :config (mu4e-column-faces-mode))
+  <span style="color:#75715e">; Email sync command</span>
+  (setq mu4e-get-mail-command <span style="color:#e6db74">&#34;mbsync -a&#34;</span>
+        mu4e-change-filenames-when-moving <span style="color:#66d9ef">t</span>   <span style="color:#75715e">; needed for mbsync</span>
+        mu4e-update-interval <span style="color:#ae81ff">120</span>)             <span style="color:#75715e">; update every 2 minutes</span>
 
 
-  (use-package org-msg
-  :straight <span style="color:#66d9ef">t</span>
-  :after mu4e
-  :config
-  (setq mail-user-agent <span style="color:#e6db74">&#39;mu4e-user-agent</span>)
-  (require <span style="color:#e6db74">&#39;org-msg</span>)
-  (setq org-msg-options <span style="color:#e6db74">&#34;html-postamble:nil H:5 num:nil ^:{} toc:nil author:nil email:nil \\n:t&#34;</span>
-      org-msg-startup <span style="color:#e6db74">&#34;hidestars indent inlineimages&#34;</span>
-      org-msg-default-alternatives <span style="color:#f92672">&#39;</span>((new		<span style="color:#f92672">.</span> (text html))
-                                     (reply-to-html	<span style="color:#f92672">.</span> (text html))
-                                     (reply-to-text	<span style="color:#f92672">.</span> (text)))
-      org-msg-convert-citation <span style="color:#66d9ef">t</span>)
-  (org-msg-mode))</code></pre></div>
+  <span style="color:#75715e">; Function to add CC and BCC headers automatically</span>
+  (defun my-add-header ()
+    <span style="color:#e6db74">&#34;Add CC: and Bcc: header&#34;</span>
+    (save-excursion (message-add-header
+                     (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;CC: &#34;</span> <span style="color:#e6db74">&#34;\n&#34;</span>)
+                     <span style="color:#75715e">;; pre hook above changes user-mail-address.</span>
+                     (<span style="color:#a6e22e">concat</span> <span style="color:#e6db74">&#34;Bcc: &#34;</span> <span style="color:#e6db74">&#34;\n&#34;</span>))))
+  (add-hook <span style="color:#e6db74">&#39;mu4e-compose-mode-hook</span> <span style="color:#e6db74">&#39;my-add-header</span>)
+
+  <span style="color:#75715e">; Define email contexts</span>
+  (setq mu4e-contexts
+        (<span style="color:#a6e22e">list</span>
+         <span style="color:#75715e">;; Work account</span>
+         (make-mu4e-context
+          :name <span style="color:#e6db74">&#34;Work&#34;</span>
+          :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p <span style="color:#e6db74">&#34;/email@gmail.com&#34;</span> (mu4e-message-field msg :maildir))))
+          :vars <span style="color:#f92672">&#39;</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;email@gmail.com&#34;</span>)
+                  (<span style="color:#a6e22e">user-full-name</span>    <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;First Last&#34;</span>)
+                  (mu4e-drafts-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Drafts&#34;</span>)
+                  (mu4e-sent-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Sent Mail&#34;</span>)
+                  (mu4e-refile-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/All Mail&#34;</span>)
+                  (mu4e-trash-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Trash&#34;</span>)
+                	(smtpmail-smtp-server <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;smtp.gmail.com&#34;</span>) <span style="color:#75715e">; host running SMTP server</span>
+                	(smtpmail-smtp-service <span style="color:#f92672">.</span> <span style="color:#ae81ff">587</span>)               <span style="color:#75715e">; SMTP service port number</span>
+                                          <span style="color:#75715e">;(mu4e-sent-messages-behavior . &#39;delete) ; Needed for gmail accounts</span>
+                  (mu4e-compose-reply-ignore-address <span style="color:#f92672">.</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;no-?reply&#34;</span> <span style="color:#e6db74">&#34;email@gmail.com&#34;</span>))
+                  (mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((<span style="color:#e6db74">&#34;/email@gmail.com/INBOX&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?i</span>)
+                                             (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Sent Mail&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?s</span>)
+                                             (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Trash&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?t</span>)
+                                             (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Spam&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?j</span>)
+                                             (<span style="color:#e6db74">&#34;/email@gmail.com/[Gmail]/Drafts&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?d</span>)
+                    			   ))
+                  ))
+
+         <span style="color:#75715e">;; Personal account settings</span>
+         (make-mu4e-context
+          :name <span style="color:#e6db74">&#34;Personal&#34;</span>
+          :match-func
+          (lambda (msg)
+            (when msg
+              (string-prefix-p <span style="color:#e6db74">&#34;/email@protonmail.com&#34;</span> (mu4e-message-field msg :maildir))))
+          :vars <span style="color:#f92672">&#39;</span>((user-mail-address <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;email@protonmail.com&#34;</span>)
+                  (<span style="color:#a6e22e">user-full-name</span>    <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;First Last&#34;</span>)
+                  (mu4e-drafts-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/drafts&#34;</span>)
+                  (mu4e-sent-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/sent&#34;</span>)
+                  (mu4e-refile-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/archive&#34;</span>)
+                  (mu4e-trash-folder  <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;/email@protonmail.com/trash&#34;</span>)
+                  (mu4e-html2text-command <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;w3m -T text/html&#34;</span>)
+                	<span style="color:#75715e">;; SMTP settings:</span>
+                	(smtpmail-smtp-server <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;127.0.0.1&#34;</span>) <span style="color:#75715e">; host running SMTP server</span>
+                	(smtpmail-smtp-service <span style="color:#f92672">.</span> <span style="color:#ae81ff">1025</span>)               <span style="color:#75715e">; SMTP service port number</span>
+                  (mu4e-compose-reply-ignore-address <span style="color:#f92672">.</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;no-?reply&#34;</span> <span style="color:#e6db74">&#34;email@protonmail.com&#34;</span>))
+                  (mu4e-maildir-shortcuts <span style="color:#f92672">.</span> ((<span style="color:#e6db74">&#34;/email@protonmail.com/INBOX&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?i</span>)
+                                             (<span style="color:#e6db74">&#34;/email@protonmail.com/Archive&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?a</span>)
+                                             (<span style="color:#e6db74">&#34;/email@protonmail.com/drafts&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?d</span>)
+                                             (<span style="color:#e6db74">&#34;/email@protonmail.com/sent&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?s</span>)
+                                             (<span style="color:#e6db74">&#34;/email@protonmail.com/trash&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?t</span>)
+                                             (<span style="color:#e6db74">&#34;/email@protonmail.com/spam&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">?j</span>)
+                    			   ))
+                  ))))
+                                          <span style="color:#75715e">; Bookmarks for quick email search</span>
+  (setq mu4e-bookmarks
+        <span style="color:#f92672">&#39;</span>((:name  <span style="color:#e6db74">&#34;Unread messages&#34;</span>
+                  :query <span style="color:#e6db74">&#34;flag:unread and maildir:/Inbox&#34;</span>
+                  :key   <span style="color:#e6db74">?u</span>)
+          (:name  <span style="color:#e6db74">&#34;Today&#39;s messages&#34;</span>
+                  :query <span style="color:#e6db74">&#34;date:today..now&#34;</span>
+                  :key <span style="color:#e6db74">?t</span>)
+          (:name  <span style="color:#e6db74">&#34;Last 7 days&#34;</span>
+                  :query <span style="color:#e6db74">&#34;date:7d..now&#34;</span>
+                  :key <span style="color:#e6db74">?7</span>)
+          (:name  <span style="color:#e6db74">&#34;Messages with PDF&#34;</span>
+                  :query <span style="color:#e6db74">&#34;mime:application/pdf&#34;</span>
+                  :key <span style="color:#e6db74">?p</span>)
+          (:name  <span style="color:#e6db74">&#34;Messages with images&#34;</span>
+                  :query <span style="color:#e6db74">&#34;mime:image/*&#34;</span>
+                  :key <span style="color:#e6db74">?i</span>)
+          (:name  <span style="color:#e6db74">&#34;Messages with calendar event&#34;</span>
+                  :query <span style="color:#e6db74">&#34;mime:text/calendar&#34;</span>
+                  :key <span style="color:#e6db74">?e</span>)
+          (:name  <span style="color:#e6db74">&#34;Messages with Word docs&#34;</span>
+                  :query <span style="color:#e6db74">&#34;mime:application/msword OR mime:application/vnd.openxmlformats-officedocument.wordprocessingml.document&#34;</span>
+                  :key <span style="color:#e6db74">?w</span>)
+          ))</code></pre></div>
 </div>
 <p>
-There are a lot of cool settings in the configuration file . The most
-important is the context switching. If you press the semicolon key, you will be
-prompted to select either the work or personal profile. This will automatically
-update the keybindings to quickly jump into the inbox, spam folder, etc.</p>
-<p>
-Email delivery should work as well. I&#39;m using the evil collection bindings for
-Mu4e. I am able to press &#34;C&#34; to compose an email, then i choose the context I
-want to use. The org-msg plugin allows for creating HTML formatted
-documents. Additionally I included bindings to restore the old &#34;Reply All&#34;
-prompt.</p>
-<p>
-Your setup will look a bit like this. I use modus-operandi-tinted with <a href="https://github.com/rougier/elegant-emacs">the
-Elegant Emacs configs</a>. Note that you may have errors with the Emojies if the
-correct font packs aren&#39;t installed.</p>
-<p>
-I use Roboto Mono with Fira Code. These are
-my font settings</p>
-<div class="src src-emacs-lisp">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">(when (display-graphic-p)
-  (let* ((variable-tuple
-          (cond ((<span style="color:#a6e22e">x-list-fonts</span> <span style="color:#e6db74">&#34;ETBembo&#34;</span>)         <span style="color:#f92672">&#39;</span>(:font <span style="color:#e6db74">&#34;ETBembo&#34;</span>))
-                ((<span style="color:#a6e22e">x-list-fonts</span> <span style="color:#e6db74">&#34;Source Sans Pro&#34;</span>) <span style="color:#f92672">&#39;</span>(:font <span style="color:#e6db74">&#34;Source Sans Pro&#34;</span>))
-                ((<span style="color:#a6e22e">x-list-fonts</span> <span style="color:#e6db74">&#34;Lucida Grande&#34;</span>)   <span style="color:#f92672">&#39;</span>(:font <span style="color:#e6db74">&#34;Lucida Grande&#34;</span>))
-                ((<span style="color:#a6e22e">x-list-fonts</span> <span style="color:#e6db74">&#34;Verdana&#34;</span>)         <span style="color:#f92672">&#39;</span>(:font <span style="color:#e6db74">&#34;Verdana&#34;</span>))
-                ((<span style="color:#a6e22e">x-family-fonts</span> <span style="color:#e6db74">&#34;Sans Serif&#34;</span>)    <span style="color:#f92672">&#39;</span>(:family <span style="color:#e6db74">&#34;Sans Serif&#34;</span>))
-                (<span style="color:#66d9ef">nil</span> (<span style="color:#a6e22e">warn</span> <span style="color:#e6db74">&#34;Cannot find a Sans Serif Font.  Install Source Sans Pro.&#34;</span>))))
-         (base-font-color     (face-foreground <span style="color:#e6db74">&#39;default</span> <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;default</span>))
-         (headline           <span style="color:#f92672">`</span>(:inherit default :weight bold :foreground <span style="color:#f92672">,</span>base-font-color)))
-
-    (custom-theme-set-faces
-     <span style="color:#e6db74">&#39;user</span>
-     <span style="color:#f92672">`</span>(org-level-8 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple))))
-     <span style="color:#f92672">`</span>(org-level-7 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple))))
-     <span style="color:#f92672">`</span>(org-level-6 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple))))
-     <span style="color:#f92672">`</span>(org-level-5 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple))))
-     <span style="color:#f92672">`</span>(org-level-4 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple :height <span style="color:#ae81ff">1.0</span>))))
-     <span style="color:#f92672">`</span>(org-level-3 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple :height <span style="color:#ae81ff">1.1</span>))))
-     <span style="color:#f92672">`</span>(org-level-2 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple :height <span style="color:#ae81ff">1.25</span>))))
-     <span style="color:#f92672">`</span>(org-level-1 ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple :height <span style="color:#ae81ff">1.5</span>))))
-     <span style="color:#f92672">`</span>(org-document-title ((<span style="color:#66d9ef">t</span> (<span style="color:#f92672">,@</span>headline <span style="color:#f92672">,@</span>variable-tuple :height <span style="color:#ae81ff">2.0</span> :underline <span style="color:#66d9ef">nil</span>)))))))</code></pre></div>
-</div>
+It should look like this by the end. I&#39;m using org-msg to compose HTML documents
+using org mode. Additionally I used the <code>mu4e-column-faces</code>
+ plugin to have more colors. The colorscheme is modus-operandi-tinted.</p>
 <p>
 <a href="!"><img src="https://paste.fe00.xyz/wtJy/Screenshot%20from%202025-01-12%2000-37-47.png" alt="https://paste.fe00.xyz/wtJy/Screenshot%20from%202025-01-12%2000-37-47.png" /></a></p>
 <p>
 <a href="!"><img src="https://paste.fe00.xyz/26kc/Screenshot%20from%202025-01-12%2000-38-16.png" alt="https://paste.fe00.xyz/26kc/Screenshot%20from%202025-01-12%2000-38-16.png" /></a></p>
+</div>
+</div>
 </div>
 </div>
 
