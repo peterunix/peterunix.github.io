@@ -1,0 +1,295 @@
+---
+title: "Setting Up Emacs With Bi Directional Google Calendar Sync"
+date: 2025-01-17T19:00:38-08:00
+draft: false
+---
+
+* Synopsis
+This guide will use Emacs 30 (optionally) and [[https://github.com/kidd/org-gcal.el/][org-gcal from kidd]] to setup
+bidirectional calendar syncing between your org agenda and google.
+
+I'm using the following Emacs app image: [[https://github.com/blahgeek/emacs-appimage/releases/tag/github-action-build-12425294048][LINK]]
+
+Overview of steps:
+- Create a new app on the Google Developer Console
+- Install org-gcal from straight
+- Add your API keys
+- Sync Calendar
+
+The guide on the Kidd's README is incredibly detailed. I'll be copying most of it and
+including the solutions that left me with a working system.
+
+* Creating the Google App
+
+- Navigate to: https://console.cloud.google.com/cloud-resource-manager
+- Create a new project named "Emacs G-CAL"
+- Click on the top left hamburger menu
+- Select "API & Services>OAuth Consent Screen"
+
+Create an external app
+
+[[https://paste.fe00.xyz/Nb2G/image.png]]
+
+Give it this name such as "Emacs G-CAL". The rest of the settings can be left as
+default. *Add your email address as a test user before completing the setup*.
+
+[[https://paste.fe00.xyz/vsip/image.png]]
+
+[[https://paste.fe00.xyz/c10H/Screenshot%202025-01-17%20195411.png]]
+
+[[https://paste.fe00.xyz/yZgB/image.png]]
+
+[[https://paste.fe00.xyz/pkMF/image.png]]
+
+Next create the API credentials
+
+- Click on Credentials>Create Credentials>Create OAuth Client ID
+
+[[https://paste.fe00.xyz/y8BS/Screenshot%202025-01-17%20195615.png]]
+
+Application type is desktop. Copy your client ID and client secret to a text
+file.after completing this step.
+
+[[https://paste.fe00.xyz/ebd4/Screenshot%202025-01-17%20195644.png]]
+
+
+The last step is to enable the Google Calendar API for the project
+- Click on Enabled API and Services
+- Click on Enable API
+- Scroll down to "Google Calendar" and enable it
+
+* Adding org-gcal to Emacs
+
+I'm using straight.el to install org-gcal. This is my package management code
+block for reference.
+
+#+begin_src emacs-lisp
+;; Package manager setup
+(require 'package)
+(setq package-enable-at-startup nil)
+(setq package-check-signature nil)
+(setq package-archives '(("melpa" . "https://melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")
+                         ("gnu" . "https://elpa.gnu.org/packages/") ))
+(package-initialize)
+(unless package-archive-contents
+    (package-refresh-contents))
+
+;; Package manager. Install Straight.el
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name
+        "straight/repos/straight.el/bootstrap.el"
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version 7))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+;; Package manager. Install use-package with straight.el
+(straight-use-package 'use-package)
+(setq straight-use-package-by-default t)
+(setf use-package-always-ensure t)
+
+;; Package Manager. Install quelpa using use-package
+(use-package quelpa-use-package
+  :ensure t
+  :pin melpa
+  :init
+  (setq quelpa-update-melpa-p nil))
+#+end_src
+
+
+This is the official way of installing org-gcal. For the rest of this guide,
+I'll be using a slightly modified version that provides basic security for
+storing the API Keys. Please acknowledge this code block, but don't use it if
+you're following along.
+
+#+begin_src emacs-lisp
+# THIS IS ONLY A WORKING EXAMPLE. KEEP READING PAGE
+  (use-package org-gcal
+    :ensure t
+    :config
+    (require 'org-gcal)
+    (require 'plstore)
+    (setq plstore-cache-passphrase-for-symmetric-encryption t)
+    (setq org-gcal-client-id "YOUR_CLIENT_ID"
+          org-gcal-client-secret "YOUR_CLIENT_SECRET"
+          org-gcal-fetch-file-alist '(("YOUR_CALENDAR_ID" .  "~/.emacs.d/calendar.org")))
+    (org-gcal-reload-client-id-secret)
+    )
+#+end_src
+
+
+Org-gal relies on using plstore which stores key value pairs in an encrypted
+file using GPG. The purpose of the PLSTORE is to read the ~org-gcal-client-id~ and
+~org-gcal-client-secret~, and then use an oauth2.0 library to request the xoath2.0
+token. The token is then encrypted in a file located in
+~$HOME/.emacs.d/oauth2-auto.plist~. Anytime you sync your calendar, that file will
+be decrypted and used for authentication.
+
+I'll start with creating a passwordless GPG keypair. This is required by my
+email client. You don't strictly need a passwordless key pair. ~Pass~ is used to
+store the client id and secret keys in encrypted files. In my init.el, I'll tell
+emacs to decrypt the files for the variables. Additionally, I'll tell plstore to
+encrypt using my key-pair instead of using symmetric encryption. This avoids
+hard coded API keys and password prompts when syncing.
+
+Start with creating the GPG key pair and then encrypting your Client ID and
+Client Secret ID. These encrypted files will automatically be stored in ~$HOME/.password-store/g-cal/~
+
+#+begin_src bash
+apt install pass
+gpg --batch --passphrase '' --quick-gen-key proton@proton.local default default
+
+pass init proton@proton.local
+
+pass insert g-cal/clientid
+<PASTE Client ID Here>
+
+pass insert g-cal/clientsecret
+<PASTE Client Secret ID Here>
+#+end_src
+
+Now use this code snippet to install GCal.:
+
+#+begin_src emacs-lisp
+  (use-package org-gcal
+    :ensure t
+    :config
+    (require 'org-gcal)
+    (require 'plstore)
+    (setq plstore-cache-passphrase-for-symmetric-encryption t)
+    (setq org-gcal-client-id (string-trim (shell-command-to-string "pass g-cal/clientid"))
+          org-gcal-client-secret (string-trim (shell-command-to-string "pass g-cal/clientsecret"))
+          org-gcal-fetch-file-alist '(("email@gmail.com" . "~/.emacs.d/calendar.org")))
+    (setq plstore-encrypt-to "proton@proton.local")
+    (org-gcal-reload-client-id-secret)
+    )
+#+end_src
+
+* Syncing Your Calendar
+This part can be tedious. I'll include steps for troubleshooting.
+
+Firstly, ensure your org agenda files are set.
+
+#+begin_src 
+(setq org-agenda-files '("~/.emacs.d/calendar.org"))
+(setq org-default-agenda-file "~/.emacs.d/calendar.org")
+#+end_src
+
+Now create the ~$HOME/.emacs.d/oauth2-auto.plist~ file. For a reason I don't know,
+the plstore module will fail to create the encrypted oauth2-auto.plist file
+unless it already exists. Create it:
+
+#+begin_src emacs-lisp
+touch $HOME/.emacs.d/oauth2-auto.plist
+#+end_src
+
+Open Emacs and run the following command
+
+#+begin_src
+# If the sync ever fails, run this before attempting to resync
+M-x org-gcal--sync-unlock
+
+M-x org-gcal-sync
+#+end_src
+
+This will attempt to open your default web browser. Complete the "sign in with
+google" consent screen and close the window. Emacs will retrieve the xoath2.0
+token after closing the window, then encrypt it into that file.
+
+*If you have a prompt requesting to kill the xoauth2.0 buffer, click "Save and
+ kill buffer"*.
+
+Run the sync again. This time it should should download your email events into
+your agenda/calendar file.
+
+#+begin_src 
+M-x org-gcal-sync
+#+end_src
+
+Your calendar should be synced at this point!
+
+* Automatic Calendar Sync
+This code will automatically sync the calendar bi-directionally with Google
+every 30 seconds. Minibuffer dialog will be suppressed
+
+#+begin_src emacs-lisp
+   (defun my-org-gcal-sync-clear-token ()
+     "Sync calendar, clearing tokens first."
+     (interactive)
+     (require 'org-gcal)
+     (when org-gcal--sync-lock
+       (warn "%s" "‘my-org-gcal-sync-clear-token’: ‘org-gcal--sync-lock’ not nil - calling ‘org-gcal--sync-unlock’.")
+       (org-gcal--sync-unlock))
+     (org-gcal-reload-client-id-secret)
+     (org-gcal-sync-tokens-clear)
+     (org-gcal-sync))
+  ; Silence output in minibuffer
+  (setq my-org-gcal-sync-clear-token-output nil)
+  (run-at-time 0 30 #'my-org-gcal-sync-clear-token)
+#+end_src
+
+* Org Capture Template
+
+Per the README, this is the official way to use org capture. I learned its
+easiest to write dates in the format "Jan 1 23:00" when scheduling items. Read
+the documentation for any information on how the application works.
+
+#+begin_src emacs-lisp
+  (setq org-capture-templates
+        `(("a" "Appointment" entry (file ,(concat user-emacs-directory "/calendar.org"))
+           "* %?\n:PROPERTIES:\n:calendar-id:\tpeteruxfdm@gmail.com\n:END:\n:org-gcal:\n%^T--%^T\n:END:\n\n" :jump-to-captured t)
+          ("j" "Journal" entry (file org-default-journal-file)
+           "** %? %U\n\n"
+           :empty-lines 1)
+          ))
+#+end_src
+
+* Troubleshooting
+Scenario: The sync is completing without error though no calendar events are populating.
+
+Solution: Create a new calendar event item first and see if that syncs. My
+calendar took a while to retrieve future and past events. I was under the
+impression that only new calendar event items would appear. All of your events
+will appear, though sometimes it can take a moment.
+
+If the sync fails, run these commands and try again. This is also applicable to
+if you receive an oauth provider error. Running the reload command will fix
+that as well:
+
+#+begin_src 
+M-x (org-gcal-reload-client-id-secret)
+M-x (org-gcal--sync-unlock)
+M-x (org-gcal-sync)
+#+end_src
+
+Scenario: Sync failing in general
+
+Solution: It could be that your API credentials are incorrect Try steps above
+after confirming the credentials are correct. Double check that your
+oauth2-auto.plist file in the emacs-user-directory contains data. This should
+contain encrypted PGP data. If it doesn't, read your emacs error logs and enable
+org-gcal-toggle-debugging. This will indicate whether its an issue creating the
+file or with the API server.
+
+I have tried clicking on "~yes~", "~no~", and "~save then kill~" when first running
+~org-gcal-sync~ and receiving the ~oauth2-auto.plist~ buffer message. I believe if
+you click "save then kill", it will properly save the PGP encrypted file that
+emacs creates.
+
+If the file contains valid PGP data and the message buffer says its getting
+decrypted, its another problem with either the API or the sync being
+delayed. Please try creating new calendar event items specifically when
+troubleshooting.
+
+The steps above should "just work". Additional issues would need individual
+troubleshooting.
