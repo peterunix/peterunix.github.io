@@ -1,11 +1,11 @@
 ---
-title: "Setting Up Emacs With Bi Directional Google Calendar Sync"
+title: "Setting Up Emacs With Bidirectional Google Calendar Sync"
 date: 2025-01-17T19:00:38-08:00
 draft: false
 ---
 
 * Synopsis
-This guide will use Emacs 30 (optionally) and [[https://github.com/kidd/org-gcal.el/][org-gcal from kidd]] to setup
+This guide will use Emacs 30 (optionally) and [[https://github.com/kidd/org-gcal.el/][org-gcal by Kidd]] to setup
 bidirectional calendar syncing between your org agenda and google.
 
 I'm using the following Emacs app image: [[https://github.com/blahgeek/emacs-appimage/releases/tag/github-action-build-12425294048][LINK]]
@@ -30,7 +30,7 @@ Create an external app
 
 [[https://paste.fe00.xyz/Nb2G/image.png]]
 
-Give it this name such as "Emacs G-CAL". The rest of the settings can be left as
+Give it a name such as "Emacs G-CAL". The rest of the settings can be left as
 default. *Add your email address as a test user before completing the setup*.
 
 [[https://paste.fe00.xyz/vsip/image.png]]
@@ -57,6 +57,17 @@ The last step is to enable the Google Calendar API for the project
 - Click on Enabled API and Services
 - Click on Enable API
 - Scroll down to "Google Calendar" and enable it
+
+* Locating Calendar ID
+Your Google calendar ID will be a set in a variable when installing org-gcal in
+Emacs. This is how to find it and please write it down.
+
+Navigate to your google calendar settings and scroll down to the
+integration/sharing settings. There will be links to the ISC calendars for
+sharing, as well as a section that says *Calendar ID*
+
+For Gmail Personal accounts at least, the *Calendar ID* will be your email address
+address. Write down your *Calendar ID*
 
 * Adding org-gcal to Emacs
 
@@ -128,16 +139,16 @@ you're following along.
 #+end_src
 
 
-Org-gal relies on using plstore which stores key value pairs in an encrypted
-file using GPG. The purpose of the PLSTORE is to read the ~org-gcal-client-id~ and
-~org-gcal-client-secret~, and then use an oauth2.0 library to request the xoath2.0
+Org-gcal relies on using plstore which stores key value pairs in an encrypted
+file using GPG. The purpose of the plstore is to read the ~org-gcal-client-id~ and
+~org-gcal-client-secret~, and then use an oauth2.0 library to request the xoauth2.0
 token. The token is then encrypted in a file located in
 ~$HOME/.emacs.d/oauth2-auto.plist~. Anytime you sync your calendar, that file will
 be decrypted and used for authentication.
 
 I'll start with creating a passwordless GPG keypair. This is required by my
 email client. You don't strictly need a passwordless key pair. ~Pass~ is used to
-store the client id and secret keys in encrypted files. In my init.el, I'll tell
+store the client ID and secret keys in encrypted files. In my init.el, I'll tell
 emacs to decrypt the files for the variables. Additionally, I'll tell plstore to
 encrypt using my key-pair instead of using symmetric encryption. This avoids
 hard coded API keys and password prompts when syncing.
@@ -169,7 +180,7 @@ Now use this code snippet to install GCal.:
     (setq plstore-cache-passphrase-for-symmetric-encryption t)
     (setq org-gcal-client-id (string-trim (shell-command-to-string "pass g-cal/clientid"))
           org-gcal-client-secret (string-trim (shell-command-to-string "pass g-cal/clientsecret"))
-          org-gcal-fetch-file-alist '(("email@gmail.com" . "~/.emacs.d/calendar.org")))
+          org-gcal-fetch-file-alist '(("YOUR_CALENDAR_ID" . "~/.emacs.d/calendar.org")))
     (setq plstore-encrypt-to "proton@proton.local")
     (org-gcal-reload-client-id-secret)
     )
@@ -185,9 +196,10 @@ Firstly, ensure your org agenda files are set.
 (setq org-default-agenda-file "~/.emacs.d/calendar.org")
 #+end_src
 
-Now create the ~$HOME/.emacs.d/oauth2-auto.plist~ file. For a reason I don't know,
+Now create the ~$HOME/.emacs.d/oauth2-auto.plist~ file. For an unknown reason,
 the plstore module will fail to create the encrypted oauth2-auto.plist file
-unless it already exists. Create it:
+unless it already exists. Create this file manually before attempting the g-cal
+sync/google sign in window:
 
 #+begin_src emacs-lisp
 touch $HOME/.emacs.d/oauth2-auto.plist
@@ -203,7 +215,7 @@ M-x org-gcal-sync
 #+end_src
 
 This will attempt to open your default web browser. Complete the "sign in with
-google" consent screen and close the window. Emacs will retrieve the xoath2.0
+google" consent screen and close the window. Emacs will retrieve the xoauth2.0
 token after closing the window, then encrypt it into that file.
 
 *If you have a prompt requesting to kill the xoauth2.0 buffer, click "Save and

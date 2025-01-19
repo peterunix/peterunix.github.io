@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<meta name="generator" content="Hugo 0.80.0" />
   
-  <title>Peter&#39;s blog </title>
+  <title>Peter&#39;s blog  | Setting Up Emacs With Bidirectional Google Calendar Sync </title>
 
   
   <meta charset="UTF-8" />
@@ -49,11 +48,18 @@
   
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content=""/>
-<meta name="twitter:description" content="Peter&#39;s blog"/>
+<meta name="twitter:title" content="Setting Up Emacs With Bidirectional Google Calendar Sync"/>
+<meta name="twitter:description" content="Synopsis  This guide will use Emacs 30 (optionally) and org-gcal by Kidd to setup bidirectional calendar syncing between your org agenda and google."/>
 
-<meta itemprop="name" content="">
-<meta itemprop="description" content="Peter&#39;s blog">
+<meta itemprop="name" content="Setting Up Emacs With Bidirectional Google Calendar Sync">
+<meta itemprop="description" content="Synopsis  This guide will use Emacs 30 (optionally) and org-gcal by Kidd to setup bidirectional calendar syncing between your org agenda and google.">
+<meta itemprop="datePublished" content="2025-01-17T19:00:38-08:00" />
+<meta itemprop="dateModified" content="2025-01-17T19:00:38-08:00" />
+<meta itemprop="wordCount" content="1257">
+
+
+
+<meta itemprop="keywords" content="" />
 
 
 
@@ -5235,7 +5241,6 @@
 
 
   
-  <link rel="alternate" type="application/rss+xml" href="https://www.fe00.xyz/index.xml" title="Peter's blog" />
   </head>
 
   <body class="d-flex flex-column min-vh-100 dark"><nav class="navbar navbar-expand-lg navbar-light py-3">
@@ -5272,387 +5277,400 @@
 <main class="container py-5 flex-grow-1">
   <div class="row justify-content-center">
     <div class="col-12 mw-md mh-100">
-      
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/setting-up-emacs-with-bidirectional-google-calendar-sync/">Setting Up Emacs With Bidirectional Google Calendar Sync</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  January 17, 2025
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  6 min read
-                </span>
-              
-              
-                <span class="small me-2">1257 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Synopsis  This guide will use Emacs 30 (optionally) and org-gcal by Kidd to setup bidirectional calendar syncing between your org agenda and google.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/how-to-create-an-offline-debian-mirror-repository/">How to Create an Offline Debian Mirror Repository</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  January 12, 2025
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  4 min read
-                </span>
-              
-              
-                <span class="small me-2">729 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Overview    Install xr09&#39;s mirror script
-  Sync to folder
-  Generate package list
-  Use the offline mirror
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/setting-up-emacs-with-mu4e-protonmail-and-gmail/">Setting up Emacs with Mu4e, Protonmail, and Gmail</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  January 11, 2025
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  7 min read
-                </span>
-              
-              
-                <span class="small me-2">1340 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Overview   Here&#39;s how to configure MU4e to work with Protonmail and Gmail simultaneously
-  ProtonMail Bridge  Overview:
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/migrate-wiki.js-to-another-server/">Migrate Wiki.js to Another Server</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  September 18, 2024
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  2 min read
-                </span>
-              
-              
-                <span class="small me-2">426 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            My migration setup    Original server runs WikiJS through docker. One container contains the PostgresDB and the other contains the node server
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/corebooting-thinkpad-x220-with-ch341a-programmer/">Corebooting Thinkpad X220 With CH341A Programmer</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  August 30, 2024
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  3 min read
-                </span>
-              
-              
-                <span class="small me-2">459 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Summary of page  This isn&#39;t going to be a walkthrough of corebooting your Thinkpad X220. These are the steps you need to get the flasher working and connected to your system
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/">Automating Chkdsk Scans Using Powershell With Email Alerts for Rmm</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  August 22, 2024
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  9 min read
-                </span>
-              
-              
-                <span class="small me-2">1866 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            What this does  Automatically schedules windows filesystem checks if the drive is detected to have corruption. If corruption occurs more than once per week, an email is sent out to your desired address.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/automatic-mariadb-backups-with-powershell/">Automatic Mariadb Backups With Powershell</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  August 22, 2024
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  2 min read
-                </span>
-              
-              
-                <span class="small me-2">362 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Usage  Edit the script and modify the variables DBUSER and DBPASS to be your database credentials. You can either run the script standalone or schedule it using the Windows Task Manager to have your incremental backups run
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/add-bitwarden-to-pinephone-pro-using-firefox-extension/">Add Bitwarden to Pinephone Pro Using Firefox Extension</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  May 14, 2024
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  1 min read
-                </span>
-              
-              
-                <span class="small me-2">180 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Introduction  Here&#39;s how to get the Bitwarden firefox extension to appear as an application on your PinePhone Pro. Make sure your display scaling is set to 100% for this guide
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/emacs-eww-useful-tips-and-tricks/">Emacs Eww Useful Tips and Tricks</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  May 14, 2024
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  2 min read
-                </span>
-              
-              
-                <span class="small me-2">422 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Introduction  These are some of the tweaks I&#39;ve made that improved the quality of life in EWW. I use evil mode.
-          </div>
-        </article>
-      
-        <article class="py-4">
-          <div class="py-2">
-            <h2 class="display-1 text-center text-uppercase my-0 py-0"><a class="text-decoration-none fw-bold" href="https://www.fe00.xyz/post/self-host-pastebin-service-with-tempbin/">Self Host Pastebin Service With Tempbin</a></h2>
-            <div class="text-center text-muted mb-1">
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
-                    <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
-                  </svg>
-                  May 5, 2024
-                </span>
-              
-              
-                <span class="small mx-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
-                    <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                  </svg>
-                  3 min read
-                </span>
-              
-              
-                <span class="small me-2">465 words</span>
-              
-            </div>
-            <div class="text-center">
-              
-            </div>
-          </div>
-          <div class="text-center py-2">
-            Objective  I write this site using Hugo and wanted a way to quickly upload files and link them in my pages.
-          </div>
-        </article>
-      
-    </div>
-  </div>
-  <div class="row">
     
-<ul class="pagination">
-  <li class="page-item">
-    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-  </li>
-  <li class="page-item disabled">
-    <a  class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-  </li>
-  <li class="page-item active">
-    <a class="page-link" href="/">1</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/2/">2</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/3/">3</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/4/">4</a>
-  </li>
-  <li class="page-item">
-    <a class="page-link" href="/page/5/">5</a>
-  </li>
-  <li class="page-item">
-    <a href="/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-  </li>
-  <li class="page-item">
-    <a href="/page/5/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-  </li>
+      <div class="py-4">
+        <div class="py-2">
+          <h2 class="display-1 text-center text-uppercase fw-bold text-primary my-0 py-0">Setting Up Emacs With Bidirectional Google Calendar Sync</h2>
+          <div class="text-center text-muted mb-1">
+            
+            
+              <span class="small mx-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16">
+                  <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
+                </svg>
+                6 min read
+              </span>
+            
+            
+              <span class="small mx-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-calendar-fill" viewBox="0 0 16 16">
+                  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5h16V4H0V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+                January 17, 2025
+              </span>
+            
+            
+              <span class="small me-2">1257 words</span>
+            
+          </div>
+          <div class="text-center">
+            
+          </div>
+        <div class="">
+          
+          <div class="markdown-content">
+            
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Synopsis
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>This guide will use Emacs 30 (optionally) and <a href="https://github.com/kidd/org-gcal.el/">org-gcal by Kidd</a> to setup
+bidirectional calendar syncing between your org agenda and google.</p>
+<p>
+I&#39;m using the following Emacs app image: <a href="https://github.com/blahgeek/emacs-appimage/releases/tag/github-action-build-12425294048">LINK</a></p>
+<p>
+Overview of steps:</p>
+<ul>
+<li>
+<p>Create a new app on the Google Developer Console</p>
+</li>
+<li>
+<p>Install org-gcal from straight</p>
+</li>
+<li>
+<p>Add your API keys</p>
+</li>
+<li>
+<p>Sync Calendar</p>
+</li>
 </ul>
+<p>The guide on the Kidd&#39;s README is incredibly detailed. I&#39;ll be copying most of it and
+including the solutions that left me with a working system.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Creating the Google App
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<ul>
+<li>
+<p>Navigate to: <a href="https://console.cloud.google.com/cloud-resource-manager">https://console.cloud.google.com/cloud-resource-manager</a></p>
+</li>
+<li>
+<p>Create a new project named &#34;Emacs G-CAL&#34;</p>
+</li>
+<li>
+<p>Click on the top left hamburger menu</p>
+</li>
+<li>
+<p>Select &#34;API &amp; Services&gt;OAuth Consent Screen&#34;</p>
+</li>
+</ul>
+<p>Create an external app</p>
+<p>
+<img src="https://paste.fe00.xyz/Nb2G/image.png" alt="https://paste.fe00.xyz/Nb2G/image.png" title="https://paste.fe00.xyz/Nb2G/image.png" /></p>
+<p>
+Give it a name such as &#34;Emacs G-CAL&#34;. The rest of the settings can be left as
+default. <strong>Add your email address as a test user before completing the setup</strong>.</p>
+<p>
+<img src="https://paste.fe00.xyz/vsip/image.png" alt="https://paste.fe00.xyz/vsip/image.png" title="https://paste.fe00.xyz/vsip/image.png" /></p>
+<p>
+<img src="https://paste.fe00.xyz/c10H/Screenshot%202025-01-17%20195411.png" alt="https://paste.fe00.xyz/c10H/Screenshot%202025-01-17%20195411.png" title="https://paste.fe00.xyz/c10H/Screenshot%202025-01-17%20195411.png" /></p>
+<p>
+<img src="https://paste.fe00.xyz/yZgB/image.png" alt="https://paste.fe00.xyz/yZgB/image.png" title="https://paste.fe00.xyz/yZgB/image.png" /></p>
+<p>
+<img src="https://paste.fe00.xyz/pkMF/image.png" alt="https://paste.fe00.xyz/pkMF/image.png" title="https://paste.fe00.xyz/pkMF/image.png" /></p>
+<p>
+Next create the API credentials</p>
+<ul>
+<li>
+<p>Click on Credentials&gt;Create Credentials&gt;Create OAuth Client ID</p>
+</li>
+</ul>
+<p><img src="https://paste.fe00.xyz/y8BS/Screenshot%202025-01-17%20195615.png" alt="https://paste.fe00.xyz/y8BS/Screenshot%202025-01-17%20195615.png" title="https://paste.fe00.xyz/y8BS/Screenshot%202025-01-17%20195615.png" /></p>
+<p>
+Application type is desktop. Copy your client ID and client secret to a text
+file.after completing this step.</p>
+<p>
+<img src="https://paste.fe00.xyz/ebd4/Screenshot%202025-01-17%20195644.png" alt="https://paste.fe00.xyz/ebd4/Screenshot%202025-01-17%20195644.png" title="https://paste.fe00.xyz/ebd4/Screenshot%202025-01-17%20195644.png" /></p>
+<p>
+The last step is to enable the Google Calendar API for the project</p>
+<ul>
+<li>
+<p>Click on Enabled API and Services</p>
+</li>
+<li>
+<p>Click on Enable API</p>
+</li>
+<li>
+<p>Scroll down to &#34;Google Calendar&#34; and enable it</p>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Locating Calendar ID
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>Your Google calendar ID will be a set in a variable when installing org-gcal in
+Emacs. This is how to find it and please write it down.</p>
+<p>
+Navigate to your google calendar settings and scroll down to the
+integration/sharing settings. There will be links to the ISC calendars for
+sharing, as well as a section that says <strong>Calendar ID</strong></p>
+<p>
+For Gmail Personal accounts at least, the <strong>Calendar ID</strong> will be your email address
+address. Write down your <strong>Calendar ID</strong></p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Adding org-gcal to Emacs
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>
+I&#39;m using straight.el to install org-gcal. This is my package management code
+block for reference.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#75715e">;; Package manager setup</span>
+(require <span style="color:#e6db74">&#39;package</span>)
+(setq package-enable-at-startup <span style="color:#66d9ef">nil</span>)
+(setq package-check-signature <span style="color:#66d9ef">nil</span>)
+(setq package-archives <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;melpa&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;https://melpa.org/packages/&#34;</span>)
+                         (<span style="color:#e6db74">&#34;org&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;https://orgmode.org/elpa/&#34;</span>)
+                         (<span style="color:#e6db74">&#34;elpa&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;https://elpa.gnu.org/packages/&#34;</span>)
+                         (<span style="color:#e6db74">&#34;gnu&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;https://elpa.gnu.org/packages/&#34;</span>) ))
+(package-initialize)
+(unless package-archive-contents
+    (package-refresh-contents))
 
+<span style="color:#75715e">;; Package manager. Install Straight.el</span>
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (<span style="color:#a6e22e">expand-file-name</span>
+        <span style="color:#e6db74">&#34;straight/repos/straight.el/bootstrap.el&#34;</span>
+        (or (bound-and-true-p straight-base-dir)
+            user-emacs-directory)))
+      (bootstrap-version <span style="color:#ae81ff">7</span>))
+  (unless (<span style="color:#a6e22e">file-exists-p</span> bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el&#34;</span>
+         <span style="color:#e6db74">&#39;silent</span> <span style="color:#e6db74">&#39;inhibit-cookies</span>)
+      (<span style="color:#a6e22e">goto-char</span> (<span style="color:#a6e22e">point-max</span>))
+      (eval-print-last-sexp)))
+  (<span style="color:#a6e22e">load</span> bootstrap-file <span style="color:#66d9ef">nil</span> <span style="color:#e6db74">&#39;nomessage</span>))
 
+<span style="color:#75715e">;; Package manager. Install use-package with straight.el</span>
+(straight-use-package <span style="color:#e6db74">&#39;use-package</span>)
+(setq straight-use-package-by-default <span style="color:#66d9ef">t</span>)
+(setf use-package-always-ensure <span style="color:#66d9ef">t</span>)
+
+<span style="color:#75715e">;; Package Manager. Install quelpa using use-package</span>
+(use-package quelpa-use-package
+  :ensure <span style="color:#66d9ef">t</span>
+  :pin melpa
+  :init
+  (setq quelpa-update-melpa-p <span style="color:#66d9ef">nil</span>))</code></pre></div>
+</div>
+<p>
+This is the official way of installing org-gcal. For the rest of this guide,
+I&#39;ll be using a slightly modified version that provides basic security for
+storing the API Keys. Please acknowledge this code block, but don&#39;t use it if
+you&#39;re following along.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="color:#960050;background-color:#1e0010">#</span> THIS IS ONLY A WORKING EXAMPLE. KEEP READING PAGE
+  (use-package org-gcal
+    :ensure <span style="color:#66d9ef">t</span>
+    :config
+    (require <span style="color:#e6db74">&#39;org-gcal</span>)
+    (require <span style="color:#e6db74">&#39;plstore</span>)
+    (setq plstore-cache-passphrase-for-symmetric-encryption <span style="color:#66d9ef">t</span>)
+    (setq org-gcal-client-id <span style="color:#e6db74">&#34;YOUR_CLIENT_ID&#34;</span>
+          org-gcal-client-secret <span style="color:#e6db74">&#34;YOUR_CLIENT_SECRET&#34;</span>
+          org-gcal-fetch-file-alist <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;YOUR_CALENDAR_ID&#34;</span> <span style="color:#f92672">.</span>  <span style="color:#e6db74">&#34;~/.emacs.d/calendar.org&#34;</span>)))
+    (org-gcal-reload-client-id-secret)
+    )</code></pre></div>
+</div>
+<p>
+Org-gcal relies on using plstore which stores key value pairs in an encrypted
+file using GPG. The purpose of the plstore is to read the <code>org-gcal-client-id</code> and
+<code>org-gcal-client-secret</code>, and then use an oauth2.0 library to request the xoauth2.0
+token. The token is then encrypted in a file located in
+<code>$HOME/.emacs.d/oauth2-auto.plist</code>. Anytime you sync your calendar, that file will
+be decrypted and used for authentication.</p>
+<p>
+I&#39;ll start with creating a passwordless GPG keypair. This is required by my
+email client. You don&#39;t strictly need a passwordless key pair. <code>Pass</code> is used to
+store the client ID and secret keys in encrypted files. In my init.el, I&#39;ll tell
+emacs to decrypt the files for the variables. Additionally, I&#39;ll tell plstore to
+encrypt using my key-pair instead of using symmetric encryption. This avoids
+hard coded API keys and password prompts when syncing.</p>
+<p>
+Start with creating the GPG key pair and then encrypting your Client ID and
+Client Secret ID. These encrypted files will automatically be stored in <code>$HOME/.password-store/g-cal/</code></p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt install pass
+gpg --batch --passphrase <span style="color:#e6db74">&#39;&#39;</span> --quick-gen-key proton@proton.local default default
+
+pass init proton@proton.local
+
+pass insert g-cal/clientid
+&lt;PASTE Client ID Here&gt;
+
+pass insert g-cal/clientsecret
+&lt;PASTE Client Secret ID Here&gt;</code></pre></div>
+</div>
+<p>
+Now use this code snippet to install GCal.:</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (use-package org-gcal
+    :ensure <span style="color:#66d9ef">t</span>
+    :config
+    (require <span style="color:#e6db74">&#39;org-gcal</span>)
+    (require <span style="color:#e6db74">&#39;plstore</span>)
+    (setq plstore-cache-passphrase-for-symmetric-encryption <span style="color:#66d9ef">t</span>)
+    (setq org-gcal-client-id (string-trim (shell-command-to-string <span style="color:#e6db74">&#34;pass g-cal/clientid&#34;</span>))
+          org-gcal-client-secret (string-trim (shell-command-to-string <span style="color:#e6db74">&#34;pass g-cal/clientsecret&#34;</span>))
+          org-gcal-fetch-file-alist <span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;YOUR_CALENDAR_ID&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;~/.emacs.d/calendar.org&#34;</span>)))
+    (setq plstore-encrypt-to <span style="color:#e6db74">&#34;proton@proton.local&#34;</span>)
+    (org-gcal-reload-client-id-secret)
+    )</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Syncing Your Calendar
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>This part can be tedious. I&#39;ll include steps for troubleshooting.</p>
+<p>
+Firstly, ensure your org agenda files are set.</p>
+<div class="src src-text">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">(setq org-agenda-files &#39;(&#34;~/.emacs.d/calendar.org&#34;))
+(setq org-default-agenda-file &#34;~/.emacs.d/calendar.org&#34;)</code></pre></div>
+</div>
+<p>
+Now create the <code>$HOME/.emacs.d/oauth2-auto.plist</code> file. For an unknown reason,
+the plstore module will fail to create the encrypted oauth2-auto.plist file
+unless it already exists. Create this file manually before attempting the g-cal
+sync/google sign in window:</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">touch $HOME/.emacs.d/oauth2-auto.plist</code></pre></div>
+</div>
+<p>
+Open Emacs and run the following command</p>
+<div class="src src-text">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"># If the sync ever fails, run this before attempting to resync
+M-x org-gcal--sync-unlock
+
+M-x org-gcal-sync</code></pre></div>
+</div>
+<p>
+This will attempt to open your default web browser. Complete the &#34;sign in with
+google&#34; consent screen and close the window. Emacs will retrieve the xoauth2.0
+token after closing the window, then encrypt it into that file.</p>
+<p>
+<strong>If you have a prompt requesting to kill the xoauth2.0 buffer, click &#34;Save and
+ kill buffer&#34;</strong>.</p>
+<p>
+Run the sync again. This time it should should download your email events into
+your agenda/calendar file.</p>
+<div class="src src-text">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">M-x org-gcal-sync</code></pre></div>
+</div>
+<p>
+Your calendar should be synced at this point!</p>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+Automatic Calendar Sync
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<p>This code will automatically sync the calendar bi-directionally with Google
+every 30 seconds. Minibuffer dialog will be suppressed</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">   (defun my-org-gcal-sync-clear-token ()
+     <span style="color:#e6db74">&#34;Sync calendar, clearing tokens first.&#34;</span>
+     (interactive)
+     (require <span style="color:#e6db74">&#39;org-gcal</span>)
+     (when org-gcal--sync-lock
+       (<span style="color:#a6e22e">warn</span> <span style="color:#e6db74">&#34;%s&#34;</span> <span style="color:#e6db74">&#34;‘my-org-gcal-sync-clear-token’: ‘org-gcal--sync-lock’ not nil - calling ‘org-gcal--sync-unlock’.&#34;</span>)
+       (org-gcal--sync-unlock))
+     (org-gcal-reload-client-id-secret)
+     (org-gcal-sync-tokens-clear)
+     (org-gcal-sync))
+  <span style="color:#75715e">; Silence output in minibuffer</span>
+  (setq my-org-gcal-sync-clear-token-output <span style="color:#66d9ef">nil</span>)
+  (run-at-time <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">30</span> <span style="color:#a6e22e">#&#39;</span>my-org-gcal-sync-clear-token)</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-7" class="outline-2">
+<h2 id="headline-7">
+Org Capture Template
+</h2>
+<div id="outline-text-headline-7" class="outline-text-2">
+<p>
+Per the README, this is the official way to use org capture. I learned its
+easiest to write dates in the format &#34;Jan 1 23:00&#34; when scheduling items. Read
+the documentation for any information on how the application works.</p>
+<div class="src src-emacs-lisp">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-emacs-lisp" data-lang="emacs-lisp">  (setq org-capture-templates
+        <span style="color:#f92672">`</span>((<span style="color:#e6db74">&#34;a&#34;</span> <span style="color:#e6db74">&#34;Appointment&#34;</span> entry (file <span style="color:#f92672">,</span>(<span style="color:#a6e22e">concat</span> user-emacs-directory <span style="color:#e6db74">&#34;/calendar.org&#34;</span>))
+           <span style="color:#e6db74">&#34;* %?\n:PROPERTIES:\n:calendar-id:\tpeteruxfdm@gmail.com\n:END:\n:org-gcal:\n%^T--%^T\n:END:\n\n&#34;</span> :jump-to-captured <span style="color:#66d9ef">t</span>)
+          (<span style="color:#e6db74">&#34;j&#34;</span> <span style="color:#e6db74">&#34;Journal&#34;</span> entry (file org-default-journal-file)
+           <span style="color:#e6db74">&#34;** %? %U\n\n&#34;</span>
+           :empty-lines <span style="color:#ae81ff">1</span>)
+          ))</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-8" class="outline-2">
+<h2 id="headline-8">
+Troubleshooting
+</h2>
+<div id="outline-text-headline-8" class="outline-text-2">
+<p>Scenario: The sync is completing without error though no calendar events are populating.</p>
+<p>
+Solution: Create a new calendar event item first and see if that syncs. My
+calendar took a while to retrieve future and past events. I was under the
+impression that only new calendar event items would appear. All of your events
+will appear, though sometimes it can take a moment.</p>
+<p>
+If the sync fails, run these commands and try again. This is also applicable to
+if you receive an oauth provider error. Running the reload command will fix
+that as well:</p>
+<div class="src src-text">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">M-x (org-gcal-reload-client-id-secret)
+M-x (org-gcal--sync-unlock)
+M-x (org-gcal-sync)</code></pre></div>
+</div>
+<p>
+Scenario: Sync failing in general</p>
+<p>
+Solution: It could be that your API credentials are incorrect Try steps above
+after confirming the credentials are correct. Double check that your
+oauth2-auto.plist file in the emacs-user-directory contains data. This should
+contain encrypted PGP data. If it doesn&#39;t, read your emacs error logs and enable
+org-gcal-toggle-debugging. This will indicate whether its an issue creating the
+file or with the API server.</p>
+<p>
+I have tried clicking on &#34;<code>yes</code>&#34;, &#34;<code>no</code>&#34;, and &#34;<code>save then kill</code>&#34; when first running
+<code>org-gcal-sync</code> and receiving the <code>oauth2-auto.plist</code> buffer message. I believe if
+you click &#34;save then kill&#34;, it will properly save the PGP encrypted file that
+emacs creates.</p>
+<p>
+If the file contains valid PGP data and the message buffer says its getting
+decrypted, its another problem with either the API or the sync being
+delayed. Please try creating new calendar event items specifically when
+troubleshooting.</p>
+<p>
+The steps above should &#34;just work&#34;. Additional issues would need individual
+troubleshooting.</p>
+</div>
+</div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </main>
 <footer class="py-5">
