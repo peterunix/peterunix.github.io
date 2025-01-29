@@ -1,7 +1,6 @@
 baseURL: "https://www.fe00.xyz/"
 theme: "writeonlyhugo-theme"
 languageCode: "en-us"
-
 title: "Peter's blog"
 
 # googleAnalytics: ""

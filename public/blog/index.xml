@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Peter&#39;s blog</title>
+    <link>https://www.fe00.xyz/blog/</link>
+    <description>Recent content in Posts on Peter&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Jan 2025 19:00:38 -0800</lastBuildDate><atom:link href="https://www.fe00.xyz/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting Up Emacs With Bidirectional Google Calendar Sync</title>
+      <link>https://www.fe00.xyz/blog/setting-up-emacs-with-bidirectional-google-calendar-sync/</link>
+      <pubDate>Fri, 17 Jan 2025 19:00:38 -0800</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/setting-up-emacs-with-bidirectional-google-calendar-sync/</guid>
+      <description>Synopsis  This guide will use Emacs 30 (optionally) and org-gcal by Kidd to setup bidirectional calendar syncing between your org agenda and google.</description>
+    </item>
+    
+    <item>
+      <title>How to Create an Offline Debian Mirror Repository</title>
+      <link>https://www.fe00.xyz/blog/how-to-create-an-offline-debian-mirror-repository/</link>
+      <pubDate>Sun, 12 Jan 2025 22:54:06 -0800</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/how-to-create-an-offline-debian-mirror-repository/</guid>
+      <description>Overview    Install xr09&amp;#39;s mirror script
+  Sync to folder
+  Generate package list
+  Use the offline mirror</description>
+    </item>
+    
+    <item>
+      <title>Setting up Emacs with Mu4e, Protonmail, and Gmail</title>
+      <link>https://www.fe00.xyz/blog/setting-up-emacs-with-mu4e-protonmail-and-gmail/</link>
+      <pubDate>Sat, 11 Jan 2025 00:53:38 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/setting-up-emacs-with-mu4e-protonmail-and-gmail/</guid>
+      <description>Overview   Here&amp;#39;s how to configure MU4e to work with Protonmail and Gmail simultaneously
+  ProtonMail Bridge  Overview:</description>
+    </item>
+    
+    <item>
+      <title>Migrate Wiki.js to Another Server</title>
+      <link>https://www.fe00.xyz/blog/migrate-wiki.js-to-another-server/</link>
+      <pubDate>Wed, 18 Sep 2024 07:54:32 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/migrate-wiki.js-to-another-server/</guid>
+      <description>My migration setup    Original server runs WikiJS through docker. One container contains the PostgresDB and the other contains the node server</description>
+    </item>
+    
+    <item>
+      <title>Corebooting Thinkpad X220 With CH341A Programmer</title>
+      <link>https://www.fe00.xyz/blog/corebooting-thinkpad-x220-with-ch341a-programmer/</link>
+      <pubDate>Fri, 30 Aug 2024 09:35:19 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/corebooting-thinkpad-x220-with-ch341a-programmer/</guid>
+      <description>Summary of page  This isn&amp;#39;t going to be a walkthrough of corebooting your Thinkpad X220. These are the steps you need to get the flasher working and connected to your system</description>
+    </item>
+    
+    <item>
+      <title>Automating Chkdsk Scans Using Powershell With Email Alerts for Rmm</title>
+      <link>https://www.fe00.xyz/blog/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</link>
+      <pubDate>Thu, 22 Aug 2024 20:44:38 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</guid>
+      <description>What this does  Automatically schedules windows filesystem checks if the drive is detected to have corruption. If corruption occurs more than once per week, an email is sent out to your desired address.</description>
+    </item>
+    
+    <item>
+      <title>Automatic Mariadb Backups With Powershell</title>
+      <link>https://www.fe00.xyz/blog/automatic-mariadb-backups-with-powershell/</link>
+      <pubDate>Thu, 22 Aug 2024 20:24:31 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/automatic-mariadb-backups-with-powershell/</guid>
+      <description>Usage  Edit the script and modify the variables DBUSER and DBPASS to be your database credentials. You can either run the script standalone or schedule it using the Windows Task Manager to have your incremental backups run</description>
+    </item>
+    
+    <item>
+      <title>Add Bitwarden to Pinephone Pro Using Firefox Extension</title>
+      <link>https://www.fe00.xyz/blog/add-bitwarden-to-pinephone-pro-using-firefox-extension/</link>
+      <pubDate>Tue, 14 May 2024 21:20:29 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/add-bitwarden-to-pinephone-pro-using-firefox-extension/</guid>
+      <description>Introduction  Here&amp;#39;s how to get the Bitwarden firefox extension to appear as an application on your PinePhone Pro. Make sure your display scaling is set to 100% for this guide</description>
+    </item>
+    
+    <item>
+      <title>Emacs Eww Useful Tips and Tricks</title>
+      <link>https://www.fe00.xyz/blog/emacs-eww-useful-tips-and-tricks/</link>
+      <pubDate>Tue, 14 May 2024 08:32:07 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/emacs-eww-useful-tips-and-tricks/</guid>
+      <description>Introduction  These are some of the tweaks I&amp;#39;ve made that improved the quality of life in EWW. I use evil mode.</description>
+    </item>
+    
+    <item>
+      <title>Self Host Pastebin Service With Tempbin</title>
+      <link>https://www.fe00.xyz/blog/self-host-pastebin-service-with-tempbin/</link>
+      <pubDate>Sun, 05 May 2024 19:38:04 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/self-host-pastebin-service-with-tempbin/</guid>
+      <description>Objective  I write this site using Hugo and wanted a way to quickly upload files and link them in my pages.</description>
+    </item>
+    
+    <item>
+      <title>Setup Iventoy With Isc Dhcp Server for Pxe Boot</title>
+      <link>https://www.fe00.xyz/blog/setup-iventoy-with-isc-dhcp-server-for-pxe-boot/</link>
+      <pubDate>Mon, 29 Apr 2024 20:47:38 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/setup-iventoy-with-isc-dhcp-server-for-pxe-boot/</guid>
+      <description>Overview    Setup the IVentoy server
+  Setup DHCP server to handle DHCP and PXE boot options</description>
+    </item>
+    
+    <item>
+      <title>Self Hosting Frog Find on Debian</title>
+      <link>https://www.fe00.xyz/blog/self-hosting-frog-find-on-debian/</link>
+      <pubDate>Fri, 12 Apr 2024 14:02:52 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/self-hosting-frog-find-on-debian/</guid>
+      <description>Frog Find  Frog find is a search engine used for old computers. Anything you search and any link you click gets converted into HTML.</description>
+    </item>
+    
+    <item>
+      <title>Termux Chroot Into Arch Linux</title>
+      <link>https://www.fe00.xyz/blog/termux-chroot-into-arch-linux/</link>
+      <pubDate>Wed, 24 Jan 2024 16:52:22 +0000</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/termux-chroot-into-arch-linux/</guid>
+      <description>Preface  Here&amp;#39;s how to chroot into an Arch Linux Arm installation from Termux. This will require a rooted android and a little bit of time</description>
+    </item>
+    
+    <item>
+      <title>Mounting Dropbox in Termux Using Dbxfs...almost</title>
+      <link>https://www.fe00.xyz/blog/mounting-dropbox-in-termux-using-dbxfs/</link>
+      <pubDate>Sun, 24 Dec 2023 14:21:12 -0600</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/mounting-dropbox-in-termux-using-dbxfs/</guid>
+      <description>Preface  Here&amp;#39;s how to install and run DBXFS to mount Dropbox. I&amp;#39;m using a rooted Samsung Galaxy A035M with Termux installed via FDroid.</description>
+    </item>
+    
+    <item>
+      <title>Getting the Default Wireless Password to TG1672G Routers</title>
+      <link>https://www.fe00.xyz/blog/getting-the-default-wireless-password-to-tg1672g-routers/</link>
+      <pubDate>Sat, 16 Dec 2023 14:09:06 -0600</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/getting-the-default-wireless-password-to-tg1672g-routers/</guid>
+      <description>Preface  Here in El Salvador, most houses that use TIGO as their ISP have the same ARRIS TG1672G router.</description>
+    </item>
+    
+    <item>
+      <title>Upgrade Windows11 Home to Windows11 Enterprise Without Reinstalling</title>
+      <link>https://www.fe00.xyz/blog/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</link>
+      <pubDate>Sat, 25 Nov 2023 17:43:45 -0800</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</guid>
+      <description>Preface  I didn&amp;#39;t want to pay for a Windows 11 Pro product key and niether did I want to wipe windows to re-install Windows 11 Pro.</description>
+    </item>
+    
+    <item>
+      <title>Upgrade a Generation 1 Windows10 Hyperv Vm to Windows11</title>
+      <link>https://www.fe00.xyz/blog/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/</link>
+      <pubDate>Wed, 15 Nov 2023 13:17:46 -0800</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/</guid>
+      <description>Overview  You have a bunch of Gen1 VMs running Windows 10 using Legacy Bios. Your goal&amp;#39;s to move upgrade them to Gen2 VMs and upgrade them to windows 11.</description>
+    </item>
+    
+    <item>
+      <title>Creating an Irc Bouncer With Docker and Znc</title>
+      <link>https://www.fe00.xyz/blog/creating-an-irc-bouncer-with-docker-and-znc/</link>
+      <pubDate>Sat, 11 Nov 2023 22:53:50 -0800</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/creating-an-irc-bouncer-with-docker-and-znc/</guid>
+      <description>Preface  This is a half ass post on setting up ZNC to be your IRC bouncer and enable automatic login for nickserv required servers.</description>
+    </item>
+    
+    <item>
+      <title>Dell R720XD Lower Idrac7 Fan Speeds</title>
+      <link>https://www.fe00.xyz/blog/dell-r720xd-idrac7-lower-fan-speeds/</link>
+      <pubDate>Sun, 15 Oct 2023 11:40:39 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/dell-r720xd-idrac7-lower-fan-speeds/</guid>
+      <description>Preface  My rack server was destroying my eardrums with the fan speeds being too high. I plan to replace the fans with Noctua&amp;#39;s, but in the meantime this fix works great.</description>
+    </item>
+    
+    <item>
+      <title>How to Clone a Drive to Disimilar Hardware From Bios to Uefi</title>
+      <link>https://www.fe00.xyz/blog/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</link>
+      <pubDate>Wed, 13 Sep 2023 15:51:09 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</guid>
+      <description>FYI  Use this as an overview for how to clone a drive. The methods I used for some of the steps can be simplified by using the right tools.</description>
+    </item>
+    
+    <item>
+      <title>Victus 15 Fa0xxx Freezing After Suspend Fix</title>
+      <link>https://www.fe00.xyz/blog/victus-15-fa0xxx-freezing-after-suspend-fix/</link>
+      <pubDate>Sun, 03 Sep 2023 19:19:40 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/victus-15-fa0xxx-freezing-after-suspend-fix/</guid>
+      <description>Preface  THIS DIDN&amp;#39;T ACTUALLY FIX IT FOR ME
+ I have a Victus 15 fa0xxx laptop that fails to wake up from suspend.</description>
+    </item>
+    
+    <item>
+      <title>How to Merge Hyper-V Snapshots With Powershell</title>
+      <link>https://www.fe00.xyz/blog/how-to-merge-hyperv-snapshots-with-powershell/</link>
+      <pubDate>Fri, 25 Aug 2023 13:40:41 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/how-to-merge-hyperv-snapshots-with-powershell/</guid>
+      <description>Identify your child avhdx file  Get-VM | Get-VMHardDiskDrive | Select VMName,Path VMName Path ------ ---- Domain Controller D:\VMs\Domain Controller_1023082130.</description>
+    </item>
+    
+    <item>
+      <title>How to Migrate a Windows Server Domain From One Server to Another</title>
+      <link>https://www.fe00.xyz/blog/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</link>
+      <pubDate>Thu, 24 Aug 2023 07:59:21 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</guid>
+      <description>Preface  This guide assumes you&amp;#39;re migrating a domain controller to a new server then demoting the old DC.</description>
+    </item>
+    
+    <item>
+      <title>Email Alerts With Fail2ban and Gmail</title>
+      <link>https://www.fe00.xyz/blog/email-alerts-with-fail2ban-and-gmail/</link>
+      <pubDate>Fri, 18 Aug 2023 14:20:39 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/email-alerts-with-fail2ban-and-gmail/</guid>
+      <description>Preface  Here&amp;#39;s how to setup Fail2ban to send email alerts through GMAIL when failed SSH authentications are made. I&amp;#39;m not going to be too detailed on this but I&amp;#39;ll provide the link to setting up Exim4 along with my jail.</description>
+    </item>
+    
+    <item>
+      <title>Outlook Fix Godaddy Email Server Not Being Found</title>
+      <link>https://www.fe00.xyz/blog/outlook-fix-godaddy-email-server-not-being-found/</link>
+      <pubDate>Thu, 17 Aug 2023 10:05:46 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/outlook-fix-godaddy-email-server-not-being-found/</guid>
+      <description>The Issue  When adding a GoDaddy or Exchange account to outlook, sometimes you&amp;#39;ll get this error when outlook attempts to automatically add the email: &amp;#34;Something went wrong and outlook couldn&amp;#39;t setup your account&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Mikrotik Creating a Client to Site Vpn With Wireguard</title>
+      <link>https://www.fe00.xyz/blog/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</link>
+      <pubDate>Fri, 28 Jul 2023 13:00:51 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</guid>
+      <description>Server Setup  Let&amp;#39;s add a new wireguard interface and give it the name &amp;#34;Wireguard1&amp;#34; The listening port is set to the default port number that the wireguard devs intended.</description>
+    </item>
+    
+    <item>
+      <title>Mikrotik Securing Router With Firewall</title>
+      <link>https://www.fe00.xyz/blog/mikrotik-securing-router-with-firewall/</link>
+      <pubDate>Fri, 28 Jul 2023 12:55:34 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/mikrotik-securing-router-with-firewall/</guid>
+      <description>Fresh Start  Incase you mess up or want a fresh start, run these two commands to clear all firewall rules and address lists.</description>
+    </item>
+    
+    <item>
+      <title>Mikrotik Setup Dynamically Changing IP With No-IP Api</title>
+      <link>https://www.fe00.xyz/blog/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</link>
+      <pubDate>Fri, 28 Jul 2023 12:51:42 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</guid>
+      <description>Code  Use the System&amp;gt;Scripts page and create a new script with this code. Change the variables under the Script Settings block.</description>
+    </item>
+    
+    <item>
+      <title>Windows Server Setup Ssh Server</title>
+      <link>https://www.fe00.xyz/blog/windows-server-setup-ssh-server/</link>
+      <pubDate>Sat, 22 Jul 2023 16:32:15 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/windows-server-setup-ssh-server/</guid>
+      <description>Sources    https://docs.microsoft.com/en-us/windows/terminal/tutorials/ssh
+  https://superuser.com/questions/1501402/how-to-change-ssh-port-on-windows-10
+  https://www.concurrency.com/blog/may-2019/key-based-authentication-for-openssh-on-windows
+    Installing the Server  This will install the SSH server, start the service, and then whitelist the SSH port.</description>
+    </item>
+    
+    <item>
+      <title>Windows Server Creating and Viewing a Storport Trace</title>
+      <link>https://www.fe00.xyz/blog/windows-server-creating-and-viewing-a-storport-trace/</link>
+      <pubDate>Sat, 22 Jul 2023 16:24:55 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/windows-server-creating-and-viewing-a-storport-trace/</guid>
+      <description>Creating a StorPort trace using logman.exe  LOGMAN.EXE is CLI utility for creating data collector sets. A data collector set can be thought of as a container for choosing which performance counters or trace events to log.</description>
+    </item>
+    
+    <item>
+      <title>Ffmpeg Convert Flac to 320kbs Mp3</title>
+      <link>https://www.fe00.xyz/blog/ffmpeg-convert-flac-to-320kbs-mp3/</link>
+      <pubDate>Sat, 22 Jul 2023 16:23:15 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/ffmpeg-convert-flac-to-320kbs-mp3/</guid>
+      <description>Preface  The goal is to convert a flac file into a 320kb/s MP3 file whilst retaining all metadata. The only dependencies you need are &amp;#34;ffmpeg&amp;#34; and &amp;#34;id3v2&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Ffmpeg Record Selection of Screen</title>
+      <link>https://www.fe00.xyz/blog/ffmpeg-record-selection-of-screen/</link>
+      <pubDate>Sat, 22 Jul 2023 16:22:37 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/ffmpeg-record-selection-of-screen/</guid>
+      <description>Preface  Depends: slop ffmpeg
+ Here&amp;#39;s a script I wrote that lets you select a window or portion of the screen and record it.</description>
+    </item>
+    
+    <item>
+      <title>Ffmpeg Use a Dummy Webcam</title>
+      <link>https://www.fe00.xyz/blog/ffmpeg-use-a-dummy-webcam/</link>
+      <pubDate>Sat, 22 Jul 2023 16:22:07 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/ffmpeg-use-a-dummy-webcam/</guid>
+      <description>Preface  I experienced my first proctored exam today. Being that I&amp;#39;m a technologist, I thought it&amp;#39;d be pretty fun to pre-record myself and have that recording output to a virtual webcam.</description>
+    </item>
+    
+    <item>
+      <title>Debian Set Custom Font in Tty</title>
+      <link>https://www.fe00.xyz/blog/debian-set-custom-font-in-tty/</link>
+      <pubDate>Sat, 22 Jul 2023 16:21:13 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/debian-set-custom-font-in-tty/</guid>
+      <description>Preface  Here&amp;#39;s how to setup a custom keymap for your TTY, as well as rebinding the caps key to CTRL.</description>
+    </item>
+    
+    <item>
+      <title>Bspwm Dynamic Borders When Toggling Fullscreen</title>
+      <link>https://www.fe00.xyz/blog/bspwm-dynamic-borders-when-toggling-fullscreen/</link>
+      <pubDate>Sat, 22 Jul 2023 16:20:35 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/bspwm-dynamic-borders-when-toggling-fullscreen/</guid>
+      <description>Preface  Dynamically change the border size when there is either a single node or multiple nodes on the focused desktop</description>
+    </item>
+    
+    <item>
+      <title>Bspwm With Lembar Panel</title>
+      <link>https://www.fe00.xyz/blog/bspwm-with-lembar-panel/</link>
+      <pubDate>Sat, 22 Jul 2023 16:18:10 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/bspwm-with-lembar-panel/</guid>
+      <description>Preface  The Arch Wiki doesn&amp;#39;t provide any information on how to get lemonbar setup with workspace switching, window titles, etc.</description>
+    </item>
+    
+    <item>
+      <title>Bspwm Better Scratchpad</title>
+      <link>https://www.fe00.xyz/blog/bspwm-better-scratchpad/</link>
+      <pubDate>Sat, 22 Jul 2023 16:17:38 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/bspwm-better-scratchpad/</guid>
+      <description>Better scratchpad bspwm  Preface  The scratchpad scripts I found for bspwm SUCK. Some either stop working if you kill the terminal or bug out when you manage your window states.</description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi Compile Neovim From Source</title>
+      <link>https://www.fe00.xyz/blog/raspberry-pi-compile-neovim-from-source/</link>
+      <pubDate>Sat, 22 Jul 2023 16:15:28 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/raspberry-pi-compile-neovim-from-source/</guid>
+      <description>Preface  The debian repositories that ship with raspbian come with an outdated version of neovim. Your best option is to compile neovim from github</description>
+    </item>
+    
+    <item>
+      <title>Qemu Windows Xp Fix Smb Not Working</title>
+      <link>https://www.fe00.xyz/blog/qemu-windows-xp-fix-smb-not-working/</link>
+      <pubDate>Sat, 22 Jul 2023 16:14:46 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/qemu-windows-xp-fix-smb-not-working/</guid>
+      <description>Preface  SMB 1.0 has to be enabled if you try to pass a local folder as an smb share to a WinXP Qemu VM.</description>
+    </item>
+    
+    <item>
+      <title>Qemu Windows Xp Installation</title>
+      <link>https://www.fe00.xyz/blog/qemu-windows-xp-installation/</link>
+      <pubDate>Sat, 22 Jul 2023 16:13:48 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/qemu-windows-xp-installation/</guid>
+      <description>Dependencies    Windows XP ISO (archive.org)
+  Virtio Floppy Image (fedorapeople.org)
+  qemu
+  spice-gtk</description>
+    </item>
+    
+    <item>
+      <title>Qemu Mount Virtual Images</title>
+      <link>https://www.fe00.xyz/blog/qemu-mount-virtual-images/</link>
+      <pubDate>Sat, 22 Jul 2023 16:11:57 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/qemu-mount-virtual-images/</guid>
+      <description>Mounting the image  apt-get install -y libguestfs-tools # Mounting guestmount -a windows.qcow2 /mnt/ # Mounting read-only mode guestmount -a windows.</description>
+    </item>
+    
+    <item>
+      <title>Qemu Chroot Into an Img File</title>
+      <link>https://www.fe00.xyz/blog/qemu-chroot-into-an-img-file/</link>
+      <pubDate>Sat, 22 Jul 2023 16:11:08 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/qemu-chroot-into-an-img-file/</guid>
+      <description>Preface  Full disk images contain the bootloader and partition table. To mount an image file, view the contents of the file, then specify a byte offset that points to the beginning of our linux root partition.</description>
+    </item>
+    
+    <item>
+      <title>Qemu Chroot Into a Different Architecture</title>
+      <link>https://www.fe00.xyz/blog/qemu-chroot-into-a-different-architecture/</link>
+      <pubDate>Sat, 22 Jul 2023 16:10:34 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/qemu-chroot-into-a-different-architecture/</guid>
+      <description>Chrooting into systems with different architectures
+Preface  The qemu-user-static package provides several usermode emulation binaries. We can copy these over to our chroot environment to emulate programs from a different architecture.</description>
+    </item>
+    
+    <item>
+      <title>Pinebook Pro Troubleshooting Common Issues</title>
+      <link>https://www.fe00.xyz/blog/pinebook-pro-troubleshooting-common-issues/</link>
+      <pubDate>Sat, 22 Jul 2023 16:06:56 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/pinebook-pro-troubleshooting-common-issues/</guid>
+      <description>Preface  I&amp;#39;m addressing common problem with the pbp more than anything. Go down the list until you find something that&amp;#39;s relevant to you.</description>
+    </item>
+    
+    <item>
+      <title>Pinebook Pro Setting Up Zram</title>
+      <link>https://www.fe00.xyz/blog/pinebook-pro-setting-up-zram/</link>
+      <pubDate>Sat, 22 Jul 2023 16:06:08 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/pinebook-pro-setting-up-zram/</guid>
+      <description>Preface  ZRAM is essentially compressed memory. Your system uses some of it&amp;#39;s CPU cycles to compress redundant data into a reserved area of your ram.</description>
+    </item>
+    
+    <item>
+      <title>Pinebook Pro Write to Spi Flash</title>
+      <link>https://www.fe00.xyz/blog/pinebook-pro-write-to-spi-flash/</link>
+      <pubDate>Sat, 22 Jul 2023 16:03:38 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/pinebook-pro-write-to-spi-flash/</guid>
+      <description>WARNING   Be prepared to recover your broken SPI flash if an error occurs. When a binary is written to the SPI flash, the SPI flash will be what chooses which drives to boot from.</description>
+    </item>
+    
+    <item>
+      <title>Pinebook Pro Use Nvme as Root</title>
+      <link>https://www.fe00.xyz/blog/pinebook-pro-use-nvme-as-root/</link>
+      <pubDate>Sat, 22 Jul 2023 16:02:57 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/pinebook-pro-use-nvme-as-root/</guid>
+      <description>Preface  I assume that you have an nvme drive with a formatted ext4 partition present. I&amp;#39;m using Manjaro Arm.</description>
+    </item>
+    
+    <item>
+      <title>Pinebook Pro Netbsd Installation</title>
+      <link>https://www.fe00.xyz/blog/pinebook-pro-netbsd-installation/</link>
+      <pubDate>Sat, 22 Jul 2023 16:00:37 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/pinebook-pro-netbsd-installation/</guid>
+      <description>Preface  I&amp;#39;m going to assume that you&amp;#39;ve already copied the netbsd image to your device and have booted into your system.</description>
+    </item>
+    
+    <item>
+      <title>Pinebook Pro Keyboard Firmware Update</title>
+      <link>https://www.fe00.xyz/blog/pinebook-pro-keyboard-firmware-update/</link>
+      <pubDate>Sat, 22 Jul 2023 15:59:12 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/pinebook-pro-keyboard-firmware-update/</guid>
+      <description>Preface  This is a verbatim copy of the directions written on jackhumbert&amp;#39;s git.
+  Installtion  # compile git clone https://github.</description>
+    </item>
+    
+    <item>
+      <title>Pinebook Pro Custom Kernel</title>
+      <link>https://www.fe00.xyz/blog/pinebook-pro-custom-kernel/</link>
+      <pubDate>Sat, 22 Jul 2023 15:57:39 -0700</pubDate>
+      
+      <guid>https://www.fe00.xyz/blog/pinebook-pro-custom-kernel/</guid>
+      <description>Preface  Here&amp;#39;s how to compile tsys&amp;#39; mainline linux kernel for the Pinebook Pro. I&amp;#39;m using the &amp;#34;debian way&amp;#34; of installing the kernel.</description>
+    </item>
+    
+  </channel>
+</rss>
