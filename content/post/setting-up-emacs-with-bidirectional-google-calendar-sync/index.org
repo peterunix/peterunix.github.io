@@ -230,24 +230,43 @@ M-x org-gcal-sync
 
 Your calendar should be synced at this point!
 
-* Automatic Calendar Sync
+* Automatically Sync Calendar
+
 This code will automatically sync the calendar bi-directionally with Google
 every 30 seconds. Minibuffer dialog will be suppressed
 
 #+begin_src emacs-lisp
-   (defun my-org-gcal-sync-clear-token ()
-     "Sync calendar, clearing tokens first."
-     (interactive)
-     (require 'org-gcal)
-     (when org-gcal--sync-lock
-       (warn "%s" "‘my-org-gcal-sync-clear-token’: ‘org-gcal--sync-lock’ not nil - calling ‘org-gcal--sync-unlock’.")
-       (org-gcal--sync-unlock))
-     (org-gcal-reload-client-id-secret)
-     (org-gcal-sync-tokens-clear)
-     (org-gcal-sync))
-  ; Silence output in minibuffer
-  (setq my-org-gcal-sync-clear-token-output nil)
-  (run-at-time 0 30 #'my-org-gcal-sync-clear-token)
+(defun make-silent (func &rest args) (cl-letf (((symbol-function 'message) (lambda (&rest args) nil))) (apply func args))) ; Silently run other functions.
+
+(use-package org-gcal ; Installing org-gcal and configuring
+  :ensure t
+  :config
+  (setq plstore-cache-passphrase-for-symmetric-encryption t)
+  (setq org-gcal-client-id (string-trim (shell-command-to-string "pass g-cal/clientid")))
+  (setq org-gcal-client-secret (string-trim (shell-command-to-string "pass g-cal/clientsecret")))
+  (setq org-gcal-fetch-file-alist `(("email@gmail.com" . ,(expand-file-name "calendar.org" user-emacs-directory))))
+  (setq plstore-encrypt-to "proton@proton.local")
+  )
+
+(defun my-org-gcal-sync-clear-token ()
+  "Sync calendar, clearing tokens first."
+  (interactive)
+  (require 'org-gcal)
+  (when org-gcal--sync-lock
+    ;; Avoids displaying the org-sync-lock error
+    (org-gcal--sync-unlock))
+  (org-gcal-reload-client-id-secret)
+  (org-gcal-sync-tokens-clear)
+  (org-gcal-sync))
+
+; Make the g-cal sync function silent
+(advice-add 'my-org-gcal-sync-clear-token :around #'make-silent)
+
+; Only attempt automatic sync if the OATH2 credential file exists.
+(when (file-exists-p (expand-file-name "oauth2-auto.plist" user-emacs-directory))
+  (org-gcal-reload-client-id-secret) ; Reload the client and secret ID variables
+  (run-at-time 0 30 #'my-org-gcal-sync-clear-token) ; Run the sync
+  )
 #+end_src
 
 * Org Capture Template
