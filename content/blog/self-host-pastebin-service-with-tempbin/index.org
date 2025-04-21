@@ -23,7 +23,7 @@ This is [[https://github.com/peterunix/tempbin][my fork]] that will be used for 
 
 Here's how it looks!
 
-[[https://paste.fe00.xyz/cWiV/image.png]]
+[[cWiV.png]]
 
 For the webserver, I needed it to do the following
 

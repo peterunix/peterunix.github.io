@@ -20,6 +20,12 @@ I ripped this from the wiki and increased the indentation value
 (setq eww-search-prefix "https://google.com/search?q=") ; Use another engine for searching
 #+end_src
 
+*** Automatically rename buffers
+
+#+begin_src emacs-lisp
+(setq eww-auto-rename-buffer t)
+#+end_src
+
 
 ** Force EWW to open new buffers by default
 Normally EWW only runs as a single buffer, similar to Eshell. This function will
@@ -56,10 +62,8 @@ search engine. If the string is a url it'll open it up.
     (interactive "sSearch Query: ")
     (switch-to-buffer (generate-new-buffer "eww"))
     (eww-mode)
-    (if (my/is-url x)
-	(eww-browse-url x)
-      (eww (concat "https://www.google.com/search?q=" (replace-regexp-in-string " " "+" x)))
-      ))
+    (eww (concat "https://lite.duckduckgo.com/lite/?q=" (replace-regexp-in-string " " "+" x)))
+    )
 
   ; Binding it using evil mode
   (evil-define-key 'normal eww-mode-map "ss" 'my/eww-search)
@@ -115,3 +119,17 @@ Have EWW act as a default web browser [[https://old.reddit.com/r/emacs/comments/
 
   (setq browse-url-browser-function #'gk-browse-url) 
 #+end_src
+
+* Open EWW at startup
+
+#+begin_src emacs-lisp
+(defun my/open-eww-in-background()
+  (switch-to-buffer (generate-new-buffer "eww"))
+  (eww-mode)
+  (eww "https://lite.duckduckgo.com/lite/")
+  (switch-to-buffer "*scratch*")
+  )
+
+(my/open-eww-in-background)
+#+end_src
+

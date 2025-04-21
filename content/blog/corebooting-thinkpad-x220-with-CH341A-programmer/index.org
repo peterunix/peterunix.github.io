@@ -44,11 +44,11 @@ the red cable matches below. This will be the exact setup you need to flash the
 BIOS. Check your hardware connections and even 
 
 
-[[https://paste.fe00.xyz/12Fz/x220.jpg]]
+[[./12Fz.gpg]]
 
-[[https://paste.fe00.xyz/6PIP/x220-2.jpg]]
+[[./6PIP.jpg]]
 
-[[https://paste.fe00.xyz/3vEa/x220-3.jpg]]
+[[3vEa.jpg]]
 
 * Step 4 - Installing Coreboot
 I followed Bryce's guide for the rest. The only important thing I did was
@@ -70,7 +70,7 @@ https://github.com/nenadstoisavljevic/x220-coreboot-guide
 My flashing failed once because the virtual machine was freaking out. I reset
 the system and reseated the USB (leaving the clip untouched). It worked after : )
 
-[[https://paste.fe00.xyz/VWip/x220-4.jpg]]
+[[./VWip.jpg]]
 
 * Image of original BIOS 
 View my github below with the original BIOS images I took prior to corebooting.

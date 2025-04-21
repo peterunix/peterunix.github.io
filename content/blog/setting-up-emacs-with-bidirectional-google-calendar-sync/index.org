@@ -28,29 +28,29 @@ including the solutions that left me with a working system.
 
 Create an external app
 
-[[https://paste.fe00.xyz/Nb2G/image.png]]
+[[./Nb2G.png]]
 
 Give it a name such as "Emacs G-CAL". The rest of the settings can be left as
 default. *Add your email address as a test user before completing the setup*.
 
-[[https://paste.fe00.xyz/vsip/image.png]]
+[[./vsip.png]]
 
-[[https://paste.fe00.xyz/c10H/Screenshot%202025-01-17%20195411.png]]
+[[./c10H.png]]
 
-[[https://paste.fe00.xyz/yZgB/image.png]]
+[[./yZgB.png]]
 
-[[https://paste.fe00.xyz/pkMF/image.png]]
+[[./pkMF.png]]
 
 Next create the API credentials
 
 - Click on Credentials>Create Credentials>Create OAuth Client ID
 
-[[https://paste.fe00.xyz/y8BS/Screenshot%202025-01-17%20195615.png]]
+[[./y8BS.png]]
 
 Application type is desktop. Copy your client ID and client secret to a text
 file.after completing this step.
 
-[[https://paste.fe00.xyz/ebd4/Screenshot%202025-01-17%20195644.png]]
+[[./ebd4.png]]
 
 
 The last step is to enable the Google Calendar API for the project
