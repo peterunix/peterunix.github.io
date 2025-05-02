@@ -8,435 +8,375 @@ draft: false
 
 Here's how to configure MU4e to work with Protonmail and Gmail simultaneously
 
-* ProtonMail Bridge
-Overview:
-- Create a passwordless GPG key
-- Compile the bridge
-- Login and export bridge certificates
-- Start the bridge as a service
+* App password/XOauth
+I'm using app passwords while they still last. Eventually this section will
+contain information on setting up XOAUTH 2.0 when app passwords are fully phased
+out.
 
-** Password-less GPG
+Create your app password for your gmail account by doing the following:
+- Open your gmail account settings
+- Enable two factor authentication
+- Create your app password using https://myaccount.google.com/apppasswords
 
-I don't have a keyring system installed. Protonmail will fail to log into your
-account unless you have a passwordless GPG key created. I couldn't get it to
-work with pinentry-tty.
+The app password will be used by offlineimap to sign into your Gmail account.
 
+* Mu4e Installation/Configuration
 
-#+begin_src bash
-sudo apt install gpg pass
-
-# Creating the GPG keypair
-gpg --batch --passphrase '' --quick-gen-key proton@proton.local default default
-# Listing the public key ID
-gpg --list-keys
-# Using pass to initialize a password store for my public key
-pass init <GPGID>
-#+end_src
-
-** Compile Bridge
-
-Install GoLang version 1.22 or later. This is required for the bridge. Add the
-export variables to your shell startup script.
+** Dependencies
+First install the mu4e dependencies. We're building the application from source
 
 #+begin_src bash
-wget https://go.dev/dl/go1.22.1.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzvf go1.22.1.linux-amd64.tar.gz
-export GOROOT="/usr/local/go"
-export GOHOME="$HOME/.go"
-export PATH="/usr/local/go/bin:$PATH"
+sudo apt install -y git meson libgmime-3.0-dev libxapian-dev gnutls-bin texinfo libcld2-dev cmake guile-3.0
 #+end_src
 
-Compile the bridge without GUI support as seen below. I prefer to place my
-software in /opt. Its not necessary.
+** Compiling Mu4e
+Run the following commands to compile MU4E.
 
 #+begin_src bash
-sudo apt install build-essenital libsecret-1-dev
-git clone https://github.com/ProtonMail/proton-bridge
-cd proton-bridge
-make build-nogui
-sudo chown $USER:$USER /opt -R
-cd ../
-mv proton-bridge /opt
-/opt/proton-bridge/bridge --cli
-#+end_src
-
-** Login and export certificates
-
-Run the bridge using the interactive CLI. Follow the commands to log in.
-
-When running ~cert export~, place the certificate file in ~/.config/protonmail/bridge/{cert,key}.pem
-
-#+begin_src bash
-cd /opt/proton-bridge/
-./bridge --cli
-
-# Signing into the account
-login
-# Previewing and saving the password
-info 
-# Disabling telemetry
-telemetry disable
-# Exporting the certificate
-cert export
-#+end_src
-
-** Systemd Service
-
-Create the following service file
-
-#+begin_src 
-/etc/systemd/system/proton-bridge.service
-
-[Unit]
-Description=ProtonMail Bridge
-After=network.target
-
-[Service]
-Type=simple
-ExecStart=/opt/proton-bridge/bridge -n
-User=USERNAME
-Group=USERNAME
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-#+end_src
-
-Start the servive
-
-#+begin_src bash
-systemctl enable --now proton-bridge
-#+end_src
-
-* Compiling Mu4e
-Emacs is required as a dependency for the installation. Either install it with
-~apt~ or add it to your $PATH
-
-#+begin_src 
-sudo apt-get install -y git meson libgmime-3.0-dev libxapian-dev gnutls-bin texinfo libcld2-dev cmake guile-3.0
-git clone https://github.com/djcb/mu.git
-cd mu
+mkdir -p ~/Sources
+git clone https://github.com/emacsmirror/mu4e ~/Sources/mu4e
+cd ~/Sources/mu4e
 ./autogen.sh
 make
 sudo make install
 #+end_src
 
-* Downloading Emails
-Overview:
-- Encrypt passwords using ~pass~
-- Install Isync, create config, & sync email
-- Index maildir
+* GPG Keys (Encrypting Password)
 
-** Encrypting passwords
-I retrieved the protonmail password from the bridge by running ~info~. The Gmail
-account is using an APP Password. To create an app password for Gmail, enable
-2FA on your gmail account then google the direct link to the app password page.
-
-*In the future, ISync will have to be replaced with XOATH2.0 and offline IMAP to
-work*. Embrace the luxury while it lasts.
+Generate your own GPG pair. This will be used to decrypt your password by
+offlineimap. Please use the full-key-gen flag instead of following the example
+below. I'm creating a passwordless GPG pair. Its absolutely not secure. This
+avoids having to type a passphrase to decrypt your password files
 
 #+begin_src bash
-pass insert "email/email@gmail.com" 
-pass insert "email/email@protonmail.com" 
+gpg --batch --passphrase '' --quick-gen-key proton@proton.local default default
+gpg --list-keys
+pass init <GPGID>
 #+end_src
 
-** Installing & Configuring ISync
+* Offline Imap (Downloading Emails) 
+OfflineImap will be used to download the emails. Emacs will be used to send the
+emails using its SMTP functionality
 
-Create the folders that will store your email
+** Setup
+
+Create a folder to store your emails
 
 #+begin_src bash
-mkdir -p ~/Mail/email@gmail.com ~/Mail/email@protonmail.com
+mkdir -p ~/Mail/email@gmail.com
 #+end_src
 
-Copy the configuration file below. Update the lines for the email address and
-password commands.
+Create the following .offlineimap.py script. This will be used in the
+.offlineimaprc to decrypt our password file
 
 #+begin_src bash
-sudo apt install openssl isync
-vim .mbsyncrc
+cat <<OEM > ~/.offlineimap.py
+#! /usr/bin/env python
+from subprocess import check_output
 
-
-IMAPStore gmail-remote
-Host imap.gmail.com
-SSLType IMAPS
-AuthMechs LOGIN
-User email@gmail.com
-PassCMD "pass email/email@gmail.com"
-
-MaildirStore gmail-local
-Path ~/Mail/email@gmail.com/
-Inbox ~/Mail/email@gmail.com/INBOX
-Subfolders Verbatim
-
-Channel gmail
-Master :gmail-remote:
-Slave :gmail-local:
-Create Both
-Expunge Both
-Patterns * !"[Gmail]/All Mail" !"[Gmail]/Important" !"[Gmail]/Starred" !"[Gmail]/Bin"
-SyncState *
-
-IMAPAccount protonmail
-Host 127.0.0.1
-Port 1143
-User email@protonmail.com
-PassCMD "pass email/email@protonmail.com"
-SSLType STARTTLS
-SSLVersions TLSv1.2
-CertificateFile ~/.config/protonmail/bridge/cert.pem
- 
-IMAPStore pm-remote
-Account protonmail
- 
-MaildirStore pm-local
-Path ~/Mail/email@protonmail.com/
-Inbox ~/Mail/email@protonmail.com/INBOX/
- 
-Channel pm-inbox
-Master :pm-remote:
-Slave :pm-local:
-Patterns "INBOX"
-Create Both
-Expunge Both
-SyncState *
- 
-Channel pm-sent
-Master :pm-remote:"Sent"
-Slave :pm-local:"sent"
-Create Both
-Expunge Both
-SyncState *
- 
-Channel pm-trash
-Master :pm-remote:"Trash"
-Slave :pm-local:"trash"
-Create Both
-Expunge Both
-SyncState *
- 
-Channel pm-spam
-Master :pm-remote:"Spam"
-Slave :pm-local:"spam"
-Create Both
-Expunge Both
-SyncState *
- 
-Group protonmail
-Channel pm-inbox
-Channel pm-sent
-Channel pm-trash
-Channel pm-spam
+def get_pass(account):
+    return check_output("pass email/" + account, bash=True).splitlines()[0]
+OEM
 #+end_src
 
-Download all the emails. Gmail's limit is 2500MB of emails per day.
+Now create the main configuration used to download the emails. The only thing
+you need to replace is any reference to email@gmail.com
 
-#+begin_src 
-mbsync -a
+#+begin_src bash
+cat <<OEM > ~/.offlineimaprc
+[general]
+accounts = main
+maxsyncaccounts = 3
+socktimeout = 60
+pythonfile = ~/.offlineimap.py
+
+ui = TTY.TTYUI
+
+[Account main]
+# identifier for local repository i.e. /user/dericbytes/mail
+localrepository = main-local
+# identifier for remote repository i.e. imap.google.com
+remoterepository = gmail-remote
+
+[Repository main-local]
+# Sync with a mail directory (Maildir) or another IMAP mail server (IMAP)
+type = Maildir
+# Where to store synced mail
+localfolders = /home/peter/Mail/email@gmail.com
+nametrans = lambda folder: re.sub ('important', '^\[Gmail\].Important',
+                           re.sub('all', '[Gmail].All Mail'       ,
+                           re.sub('sent'    , '[Gmail].Sent Mail' ,
+                           re.sub('drafts'  , '[Gmail].Drafts'    ,
+                           folder))))
+folderfilter = lambda folder: folder not in ['important']
+
+
+
+[Repository gmail-remote]
+type = Gmail
+remoteuser = email@gmail.com
+remotepasseval = get_pass("email@gmail.com")
+
+nametrans = lambda folder: re.sub ('^\[Gmail\].Important', 'important',
+                           re.sub('.*All Mail$'  , 'all',
+                           re.sub('.*Sent Mail$' , 'sent',
+                           re.sub('.*Drafts$'    , 'drafts',
+                           folder))))
+folderfilter = lambda folder: folder not in ['[Gmail]/All Mail',
+                                             '[Gmail]/Important',
+                                             '[Gmail]/Starred',
+                                             ]
+
+# Necessary as of OfflineIMAP 6.5.4
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+# Necessary to work around https://github.com/OfflineIMAP/offlineimap/issues/573 (versions 7.0.12, 7.2.1)
+ssl_version = tls1_2
+OEM
 #+end_src
 
-** Indexing the maildir
-Now initialize the folder with mu and index it.
+Run the following to commands. ~offlineimap~ is used to start the email
+download. Mu will index the downloaded emails.
 
-#+begin_src 
+
+#+begin_src bash
+offlineimap
+
 mu init --maildir=~/Mail \
     --my-address=email@gmail.com \
-    --my-address=email@protonmail.com
-mu index
 #+end_src
 
-* Configuring Mu4e
-Overview:
-- Create encrypted .authinfo file
-- Copy my MU4E config
-- Run Mu4e
+* Configuring Emacs
+At this point you would have installed the emacs mu4e package from source,
+downloaded your emails to a folder, and lastly indexed it with Mu4e.
 
-** Creating encrypted authinfo file
+Now its time to configure Emacs to show you emails in that folder. I won't
+explain this configuration file. I'll leave this up to your responsibility.
 
-The authinfo file stores the SMTP credentials for sending emails. Add this line
-to your init.el file
+This configuration file will work with your email. I stripped out the
+mu4e-folding and mu4e-thread packages from the config. They provide UI
+improvements to Mu4e and the installation of these plugins are out of the scope
+of this guide.
 
-#+begin_src 
+
+** Basic Config
+#+begin_src emacs-lisp
 (require 'auth-source)
 (setq auth-sources '("~/.authinfo.gpg"))
+(setf epg-pinentry-mode 'loopback)
+(setq auth-source-debug nil)
+(defun pinentry-emacs (desc prompt ok error)
+  (let ((str (read-passwd
+              (concat (replace-regexp-in-string "%22" "\""
+                                                (replace-regexp-in-string "%0A" "\n" desc)) prompt ": "))))
+    str))
+
+(when (file-directory-p "/usr/local/share/emacs/site-lisp/mu4e")
+  (require 'mu4e)
+  (require 'mu4e-contrib)
+  (setq mu4e-maildir "~/Mail") ; Default folder containing email
+  (setq mu4e-attachment-dir "~/Downloads") ; Default folder for downloaded items
+  (setq message-kill-buffer-on-exit t) ; Don't keep message buffers around
+  (setq mu4e-compose-keep-self-cc nil) ; Avoid keeping self in CC
+  (setq send-mail-function 'smtpmail-send-it) ; Function to send mail (via SMTP)
+  (setq smtpmail-stream-type 'starttls) ; Specify the type of SMTP connections to use
+  (setq mu4e-html2text-command "w3m -T text/html") ; Command to convert HTML emails to plain text
+  (setq mu4e-headers-auto-update  t) ; Automatically update headers
+  (setq mu4e-view-show-images  t) ; Enable inline images in emails
+  (setq mu4e-compose-signature-auto-include  nil); Disables automatic inclusion of signatures in new emails
+  (setq mu4e-search-full t) ; Search for all results rather than up to 'mu4e-search-results-limit'
+  (setq mu4e-use-fancy-chars  t) ; Use fancy characters in the interface
+  (setq mail-user-agent 'mu4e-user-agent) ; Set mu4e as the default email agent
+  (setq mu4e-completing-read-function 'ivy-completing-read) ; Use Ivy for completing read prompts
+  (setq mu4e-confirm-quit nil)
+  (setq mu4e-headers-show-threads t) ; Show threads
+  (setq mu4e-compose-in-new-frame t) ; Allows reading other emails while composing
+  (setq mu4e-compose-dont-reply-to-self t) ; Dont include self when replying
+  (setq message-citation-line-function 'message-insert-formatted-citation-line) ;; Citation
+  (setq mu4e-sent-messages-behavior 'delete) ; Don't save message to Sent Messages, IMAP takes care of this
+  (setq mu4e-get-mail-command "offlineimap")
+  (setq mu4e-change-filenames-when-moving t) ; needed for mbsync
+  (setq mu4e-update-interval 60) ; Update 30 seconds
+  (add-hook 'mu4e-view-mode-hook #'visual-line-mode) ; Enable visual-line-mode in the email view mode
+  (add-hook 'mu4e-compose-mode-hook #'(lambda () (auto-save-mode 1)))
+  (add-hook 'message-send-hook ; Confirmation before sending
+	    (lambda ()
+	      (unless (yes-or-no-p "Sure you want to send this?")
+		(signal 'quit nil))))
+  (add-hook 'mu4e-compose-mode-hook ; Spell Check
+	    (defun my-do-compose-stuff ()
+	      "My settings for message composition."
+	      (set-fill-column 80)
+	      (jinx-mode 1)))
+  (add-hook 'minibuffer-setup-hook (lambda () (setq mu4e-hide-index-messages t))) ; Hide Mu4E update log from minibuffer
+  (add-hook 'minibuffer-exit-hook (lambda () (setq mu4e-hide-index-messages nil)))
+  (setq ; Custom header glyphs
+   mu4e-headers-draft-mark     '("D"  . "✎")
+   mu4e-headers-flagged-mark   '("F"  . "⚑")
+   mu4e-headers-new-mark       '("N"  . "🔥")
+   mu4e-headers-passed-mark    '(">"  . "➜")
+   mu4e-headers-replied-mark   '("<"  . "↶")
+   mu4e-headers-seen-mark      '("✓"  . "✔")
+   mu4e-headers-trashed-mark   '("X"  . "☠")
+   mu4e-headers-attach-mark    '("A"  . "⎘")
+   mu4e-headers-encrypted-mark '("E"  . "🔒")
+   mu4e-headers-signed-mark    '("S"  . "✍")
+   mu4e-headers-unread-mark    '("U"  . "⬢")
+   mu4e-headers-calendar-mark  '("C"  . "⏳"))
+  )
+(setq mu4e-headers-thread-child-prefix '(" L  " . " │  ") ; Custom thread icons
+      mu4e-headers-thread-connection-prefix '(" |  " . " │  ")
+      mu4e-headers-thread-duplicate-prefix '(" =  " . " ≡  ")
+      mu4e-headers-thread-first-child-prefix '(" L  " . " ⚬  ")
+      mu4e-headers-thread-last-child-prefix '(" └─ " . " └─ "))
+
+(defun compose-reply-wide-or-not-please-ask ()
+  "Ask whether to reply-to-all or not."
+  (interactive)
+  (mu4e-compose-reply (yes-or-no-p "Reply to all?")))
+(define-key mu4e-compose-minor-mode-map (kbd "R") #'compose-reply-wide-or-not-please-ask)
+(define-key mu4e-headers-mode-map (kbd "R") 'compose-reply-wide-or-not-please-ask)
+(define-key mu4e-view-mode-map (kbd "R") 'compose-reply-wide-or-not-please-ask)
+
+
+(defun my-add-header ()
+  "Add CC and BCC headers automatically"
+  (save-excursion (message-add-header
+                   (concat "CC: " "\n")
+                   ;; pre hook above changes user-mail-address.
+                   (concat "Bcc: " "\n"))))
+(add-hook 'mu4e-compose-mode-hook 'my-add-header)
+
+(setq mu4e-view-fields '(:from :to :subject :date :maildir :tags))
+(setq mu4e-view-hide-cited t)
+
+(defun mu4e-set-all-as-read ()
+  "Make all emails read."
+  (interactive)
+  (require 'mu4e-contrib)
+  (with-temp-buffer
+    (mu4e-headers-search-bookmark "flag:unread AND NOT flag:trashed")
+    (sleep-for 0.15)
+    (mu4e-headers-mark-all-unread-read)
+    (mu4e-mark-execute-all 'no-confirmation)))
+
+(setq user-mail-address "email@gmail.com"
+      user-full-name "First Last"
+      mu4e-drafts-folder "/email@gmail.com/[Gmail]/Drafts"
+      mu4e-sent-folder "/email@gmail.com/[Gmail]/Sent Mail"
+      mu4e-refile-folder "/email@gmail.com/[Gmail]/All Mail"
+      mu4e-trash-folder "/email@gmail.com/[Gmail]/Trash"
+      smtpmail-smtp-server "smtp.gmail.com"
+      smtpmail-smtp-service 587
+      mu4e-compose-reply-ignore-address '("no-?reply" "email@gmail.com")
+      mu4e-maildir-shortcuts '(("/email@gmail.com/INBOX" . ?i)
+                               ("/email@gmail.com/sent" . ?s)
+                               ("/email@gmail.com/[Gmail].Trash" . ?t)
+                               ("/email@gmail.com/[Gmail].Spam" . ?j)
+                               ("/email@gmail.com[Gmail]/Drafts" . ?d)))
+(setq mu4e-bookmarks ; Bookmarks for quick email search
+      '((:name  "Unread messages"
+                :query "flag:unread and maildir:/email@gmail.com/INBOX"
+                :key   ?u)
+        (:name  "Today's messages"
+                :query "date:today..now"
+                :key ?t)
+        (:name  "Last 7 days"
+                :query "date:7d..now"
+                :key ?7)
+        (:name  "Messages with PDF"
+                :query "mime:application/pdf"
+                :key ?p)
+        (:name  "Messages with images"
+                :query "mime:image/*"
+                :key ?I)
+        (:name  "Messages with calendar event"
+                :query "mime:text/calendar"
+                :key ?e)
+        (:name  "Messages with Word docs"
+                :query "mime:application/msword OR mime:application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                :key ?w)
+	(:name  "Inbox"
+                :query "maildir:/email@gmail.com/INBOX"
+                :key   ?i)
+        (:name  "Sent"
+                :query "maildir:/email@gmail.com/sent"
+                :key   ?s)
+        (:name  "Trash"
+                :query "maildir:/email@gmail.com/[Gmail].Trash"
+                :key   ?T)
+        (:name  "Spam"
+                :query "maildir:/email@gmail.com/[Gmail].Spam"
+                :key   ?J)
+	(:name  "Year 2025"
+                :query "date:20250101..20251231"
+                :key ?5)
+        (:name  "Year 2024"
+                :query "date:20240101..20241231"
+                :key ?4)
+        (:name  "Year 2023"
+                :query "date:20230101..20231231"
+                :key ?3)
+        (:name  "Year 2022"
+                :query "date:20220101..20221231"
+                :key ?2)
+        (:name  "Year 2021"
+                :query "date:20210101..20211231"
+                :key ?1)
+        (:name  "Year 2020"
+                :query "date:20200101..20201231"
+                :key ?0)
+	))
+
+
+(defun message-attachment-present-p () ; Warn if no attachments are present, but if the text talks about attachments:
+  "Return t if an attachment is found in the current message."
+  (save-excursion
+    (save-restriction
+      (widen)
+      (goto-char (point-min))
+      (when (search-forward "<#part" nil t) t))))
+(defcustom message-attachment-intent-re
+  (regexp-opt '("attach"
+                "attached"
+                "joint"
+                "joins"
+                "PDF"
+                "attachment"))
+  "A regex which - if found in the message, and if there is no
+attachment - should launch the no-attachment warning.")
+(defcustom message-attachment-reminder
+  "Are you sure you want to send this message without any attachment? "
+  "The default question asked when trying to send a message
+containing `message-attachment-intent-re' without an
+actual attachment.")
+(defun message-warn-if-no-attachments ()
+  "Ask the user if s?he wants to send the message even though
+there are no attachments."
+  (when (and (save-excursion
+               (save-restriction
+                 (widen)
+                 (goto-char (point-min))
+                 (re-search-forward message-attachment-intent-re nil t)))
+             (not (message-attachment-present-p)))
+    (unless (y-or-n-p message-attachment-reminder)
+      (keyboard-quit))))
+;; add hook to message-send-hook (so also works with gnus)
+(add-hook 'message-send-hook #'message-warn-if-no-attachments)
 #+end_src
 
-Set the contents of the .authinfo.gpg file to the following. Emacs will
-automatically encrypt it using your GPG key.
+** Creating .authinfo.gpg file
+This file will contain your SMTP password used by emacs to send emails.
+
+
+#+begin_src shell
+machine smtp.gmail.com login email@gmail.com password PASSWORDHERE port 587 
+#+end_src
+
+
+** Using Mu4e
+
+Evaluate the code blocks above and launch Mu4e
 
 #+begin_src 
-machine 127.0.0.1 login email@protonmail.com port 1025 password PASSWORDHERE
-machine smtp.gmail.com login email@gmail.com port 587 password PASSWORDHERE
+M-x mu4e
 #+end_src
-
-** Copy Mu4E config
-
-This won't be a tutorial for how to use Mu4e. The important thing to note is
-this: Use the semicolon key to switch contexts between the personal and work
-accounts. This will update the bookmark keys to jump between inboxes. When
-composing emails you can select the context to send from. W3M is required for
-rendering HTML documents. Fonts are required for displaying Emoji's.
-
-#+begin_src emacs-lisp
-  (require 'mu4e)
-
-  ; Default folder containing email
-  (setq mu4e-maildir "~/Mail")
-  ;; Don't keep message buffers around
-  (setq message-kill-buffer-on-exit t)
-  ; Avoid keeping self in CC
-  (setq mu4e-compose-keep-self-cc nil)
-  ; Function to send mail (via SMTP)
-  (setq send-mail-function 'smtpmail-send-it)
-  ; Specify the type of SMTP connections to use
-  (setq smtpmail-stream-type 'starttls)
-  ; Command to convert HTML emails to plain text
-  (setq mu4e-html2text-command "w3m -T text/html")
-  ; Interval to automatically update email (in seconds)
-  (setq mu4e-update-interval 60)
-  ; Automatically update headers
-  (setq mu4e-headers-auto-update  t)
-  ; Enable inline images in emails
-  (setq mu4e-view-show-images  t)
-  ; Disable automatic inclusion of signatures in new emails
-  (setq mu4e-compose-signature-auto-include  nil)
-  ; Use fancy characters in the interface
-  (setq mu4e-use-fancy-chars  t)
-  ; Set mu4e as the default email agent
-  (setq mail-user-agent 'mu4e-user-agent)
-  ; Use Ivy for completing read prompts
-  (setq mu4e-completing-read-function 'ivy-completing-read
-        mu4e-confirm-quit nil)
-  ; Disable threading in the headers view (can toggle with "P")
-  (setq mu4e-headers-show-threads nil)
-  ; Enable visual-line-mode in the email view mode
-  (add-hook 'mu4e-view-mode-hook #'visual-line-mode) 
-  ; Show threads
-  (setq mu4e-headers-show-threads t)
-  ; Custom header emojis
-  (setq
-   mu4e-headers-draft-mark     '("" . "💈")
-   mu4e-headers-flagged-mark   '("" . "📍")
-   mu4e-headers-new-mark       '("" . "🔥")
-   mu4e-headers-passed-mark    '("" . "❯")
-   mu4e-headers-replied-mark   '("" . "❮")
-   mu4e-headers-seen-mark      '("" . "☑")
-   mu4e-headers-trashed-mark   '("" . "💀")
-   mu4e-headers-attach-mark    '("" . "📎")
-   mu4e-headers-encrypted-mark '("" . "🔒")
-   mu4e-headers-signed-mark    '("" . "🔑")
-   mu4e-headers-unread-mark    '("" . "🔥")
-   mu4e-headers-calendar-mark  '("" . "📅"))
-
-  ; Prompt to reply all
-  (defun compose-reply-wide-or-not-please-ask ()
-    "Ask whether to reply-to-all or not."
-    (interactive)
-    (mu4e-compose-reply (yes-or-no-p "Reply to all?")))
-
-  (define-key mu4e-compose-minor-mode-map (kbd "R")
-              #'compose-reply-wide-or-not-please-ask)
-  (define-key mu4e-headers-mode-map (kbd "R") 'compose-reply-wide-or-not-please-ask)
-  (define-key mu4e-view-mode-map (kbd "R") 'compose-reply-wide-or-not-please-ask)
-
-  ; Email sync command
-  (setq mu4e-get-mail-command "mbsync -a"
-        mu4e-change-filenames-when-moving t   ; needed for mbsync
-        mu4e-update-interval 120)             ; update every 2 minutes
-
-
-  ; Function to add CC and BCC headers automatically
-  (defun my-add-header ()
-    "Add CC: and Bcc: header"
-    (save-excursion (message-add-header
-                     (concat "CC: " "\n")
-                     ;; pre hook above changes user-mail-address.
-                     (concat "Bcc: " "\n"))))
-  (add-hook 'mu4e-compose-mode-hook 'my-add-header)
-
-  ; Define email contexts
-  (setq mu4e-contexts
-        (list
-         ;; Work account
-         (make-mu4e-context
-          :name "Work"
-          :match-func
-          (lambda (msg)
-            (when msg
-              (string-prefix-p "/email@gmail.com" (mu4e-message-field msg :maildir))))
-          :vars '((user-mail-address . "email@gmail.com")
-                  (user-full-name    . "First Last")
-                  (mu4e-drafts-folder  . "/email@gmail.com/[Gmail]/Drafts")
-                  (mu4e-sent-folder  . "/email@gmail.com/[Gmail]/Sent Mail")
-                  (mu4e-refile-folder  . "/email@gmail.com/[Gmail]/All Mail")
-                  (mu4e-trash-folder  . "/email@gmail.com/[Gmail]/Trash")
-                	(smtpmail-smtp-server . "smtp.gmail.com") ; host running SMTP server
-                	(smtpmail-smtp-service . 587)               ; SMTP service port number
-                                          ;(mu4e-sent-messages-behavior . 'delete) ; Needed for gmail accounts
-                  (mu4e-compose-reply-ignore-address . '("no-?reply" "email@gmail.com"))
-                  (mu4e-maildir-shortcuts . (("/email@gmail.com/INBOX" . ?i)
-                                             ("/email@gmail.com/[Gmail]/Sent Mail" . ?s)
-                                             ("/email@gmail.com/[Gmail]/Trash" . ?t)
-                                             ("/email@gmail.com/[Gmail]/Spam" . ?j)
-                                             ("/email@gmail.com/[Gmail]/Drafts" . ?d)
-                    			   ))
-                  ))
-
-         ;; Personal account settings
-         (make-mu4e-context
-          :name "Personal"
-          :match-func
-          (lambda (msg)
-            (when msg
-              (string-prefix-p "/email@protonmail.com" (mu4e-message-field msg :maildir))))
-          :vars '((user-mail-address . "email@protonmail.com")
-                  (user-full-name    . "First Last")
-                  (mu4e-drafts-folder  . "/email@protonmail.com/drafts")
-                  (mu4e-sent-folder  . "/email@protonmail.com/sent")
-                  (mu4e-refile-folder  . "/email@protonmail.com/archive")
-                  (mu4e-trash-folder  . "/email@protonmail.com/trash")
-                  (mu4e-html2text-command . "w3m -T text/html")
-                	;; SMTP settings:
-                	(smtpmail-smtp-server . "127.0.0.1") ; host running SMTP server
-                	(smtpmail-smtp-service . 1025)               ; SMTP service port number
-                  (mu4e-compose-reply-ignore-address . '("no-?reply" "email@protonmail.com"))
-                  (mu4e-maildir-shortcuts . (("/email@protonmail.com/INBOX" . ?i)
-                                             ("/email@protonmail.com/Archive" . ?a)
-                                             ("/email@protonmail.com/drafts" . ?d)
-                                             ("/email@protonmail.com/sent" . ?s)
-                                             ("/email@protonmail.com/trash" . ?t)
-                                             ("/email@protonmail.com/spam" . ?j)
-                    			   ))
-                  ))))
-                                          ; Bookmarks for quick email search
-  (setq mu4e-bookmarks
-        '((:name  "Unread messages"
-                  :query "flag:unread and maildir:/Inbox"
-                  :key   ?u)
-          (:name  "Today's messages"
-                  :query "date:today..now"
-                  :key ?t)
-          (:name  "Last 7 days"
-                  :query "date:7d..now"
-                  :key ?7)
-          (:name  "Messages with PDF"
-                  :query "mime:application/pdf"
-                  :key ?p)
-          (:name  "Messages with images"
-                  :query "mime:image/*"
-                  :key ?i)
-          (:name  "Messages with calendar event"
-                  :query "mime:text/calendar"
-                  :key ?e)
-          (:name  "Messages with Word docs"
-                  :query "mime:application/msword OR mime:application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                  :key ?w)
-          ))
-#+end_src
-
-It should look like this by the end. I'm using org-msg to compose HTML documents
-using org mode. Additionally I used the ~mu4e-column-faces~
- plugin to have more colors. The colorscheme is modus-operandi-tinted.
-
-[[!][https://paste.fe00.xyz/wtJy/Screenshot%20from%202025-01-12%2000-37-47.png]]
-
-[[!][https://paste.fe00.xyz/26kc/Screenshot%20from%202025-01-12%2000-38-16.png]]
