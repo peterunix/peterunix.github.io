@@ -102,7 +102,7 @@ remoterepository = gmail-remote
 # Sync with a mail directory (Maildir) or another IMAP mail server (IMAP)
 type = Maildir
 # Where to store synced mail
-localfolders = /home/peter/Mail/email@gmail.com
+localfolders = /home/user/Mail/email@gmail.com
 nametrans = lambda folder: re.sub ('important', '^\[Gmail\].Important',
                            re.sub('all', '[Gmail].All Mail'       ,
                            re.sub('sent'    , '[Gmail].Sent Mail' ,
