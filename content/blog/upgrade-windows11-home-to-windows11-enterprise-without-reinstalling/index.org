@@ -1,8 +1,6 @@
----
-title: "Upgrade Windows11 Home to Windows11 Enterprise Without Reinstalling"
-date: 2023-11-25T17:43:45-08:00
-draft: false
----
+#+title: Upgrade Windows11 Home to Windows11 Enterprise Without Reinstalling
+#+date: 2023-11-25T17:43:45-08:00
+#+draft: false
 
 * Preface
 I didn't want to pay for a Windows 11 Pro product key and niether did

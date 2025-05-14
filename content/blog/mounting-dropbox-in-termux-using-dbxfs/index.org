@@ -1,8 +1,6 @@
----
-title: "Mounting Dropbox in Termux Using Dbxfs...almost"
-date: 2023-12-24T14:21:12-06:00
-draft: false
----
+#+title: Mounting Dropbox in Termux Using Dbxfs...almost
+#+date: 2023-12-24T14:21:12-06:00
+#+draft: false
 
 * Preface
 Here's how to install and run DBXFS to mount Dropbox. I'm using a rooted Samsung

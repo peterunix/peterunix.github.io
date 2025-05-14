@@ -1,8 +1,6 @@
----
-title: "Getting the Default Wireless Password to TG1672G Routers"
-date: 2023-12-16T14:09:06-06:00
-draft: false
----
+#+title: Getting the Default Wireless Password to TG1672G Routers
+#+date: 2023-12-16T14:09:06-06:00
+#+draft: false
 
 
 * Preface

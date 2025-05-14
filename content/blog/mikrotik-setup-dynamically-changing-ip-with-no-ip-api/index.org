@@ -1,8 +1,6 @@
----
-title: "Mikrotik Setup Dynamically Changing IP With No-IP Api"
-date: 2023-07-28T12:51:42-07:00
-draft: false
----
+#+title: Mikrotik Setup Dynamically Changing IP With No-IP Api
+#+date: 2023-07-28T12:51:42-07:00
+#+draft: false
 
 * Code
 Use the *System>Scripts* page and create a new script with this code. Change the variables under the *Script Settings* block. Also, to make things easier, set the name of the script to "NoIP"

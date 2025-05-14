@@ -1,8 +1,6 @@
----
-title: "How to Trigger or Simulate Bad Blocks on Ntfs Drive"
-date: 2023-12-03T19:02:59-08:00
-draft: true
----
+#+title: How to Trigger or Simulate Bad Blocks on Ntfs Drive
+#+date: 2023-12-03T19:02:59-08:00
+#+draft: true
 * Why you'd want this
 https://github.com/jamersonpro/ntfsmarkbad
 

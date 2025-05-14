@@ -1,8 +1,6 @@
----
-title: "Automating Chkdsk Scans Using Powershell With Email Alerts for Rmm"
-date: 2024-08-22T20:44:38-07:00
-draft: false
----
+#+title: Automating Chkdsk Scans Using Powershell With Email Alerts for Rmm
+#+date: 2024-08-22T20:44:38-07:00
+#+draft: false
 
 * What this does
 Automatically schedules windows filesystem checks if the drive is detected to

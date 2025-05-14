@@ -1,8 +1,6 @@
----
-title: "Setup Iventoy With Isc Dhcp Server for Pxe Boot"
-date: 2024-04-29T20:47:38-07:00
-draft: false
----
+#+title: Setup Iventoy With Isc Dhcp Server for Pxe Boot
+#+date: 2024-04-29T20:47:38-07:00
+#+draft: false
 
 * Overview
 1. Setup the IVentoy server

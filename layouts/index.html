@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main>
+  <h1>📂 All Posts</h1>
+  <ul>
+    {{ range (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
+    <li>
+      <span style="font-size: small;">{{ .Date.Format "2006-01-02" }}</span><br>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</main>
+{{ end }}
+

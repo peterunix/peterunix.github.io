@@ -1,0 +1,29 @@
+{{ define "main" }}
+<main>
+  <div style="margin: 1rem;">
+    <a href="/" style="
+      display: inline-block;
+      background-color: #eee;
+      color: #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    ">
+      ← Homepage
+    </a>
+
+  <h1>{{ .Title }}</h1>
+
+  </div>
+  <nav class="toc">
+    {{ .TableOfContents }}
+  </nav> 
+
+  <article>
+    {{ .Content }}
+  </article>
+</main>
+{{ end }}

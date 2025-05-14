@@ -1,8 +1,6 @@
----
-title: "Automatic Mariadb Backups With Powershell"
-date: 2024-08-22T20:24:31-07:00
-draft: false
----
+#+title: Automatic Mariadb Backups With Powershell
+#+date: 2024-08-22T20:24:31-07:00
+#+draft: false
 
 * Usage
 Edit the script and modify the variables DBUSER and DBPASS to be your database

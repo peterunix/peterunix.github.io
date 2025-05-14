@@ -1,8 +1,6 @@
----
-title: "How to Migrate a Windows Server Domain From One Server to Another"
-date: 2023-08-24T07:59:21-07:00
-draft: false 
----
+#+title: How to Migrate a Windows Server Domain From One Server to Another
+#+date: 2023-08-24T07:59:21-07:00
+#+draft: false
 
 * Preface
 This guide assumes you're migrating a domain controller to a new

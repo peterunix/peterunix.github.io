@@ -1,8 +1,6 @@
----
-title: "Setting up Emacs with Mu4e, Protonmail, and Gmail"
-date: 2025-01-11T00:53:38-07:00
-draft: false
----
+#+title: Setting up Emacs with Mu4e, Protonmail, and Gmail
+#+date: 2025-01-11T00:53:38-07:00
+#+draft: false
 
 * Overview
 

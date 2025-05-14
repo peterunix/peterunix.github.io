@@ -1,8 +1,6 @@
----
-title: "How to Merge Hyper-V Snapshots With Powershell"
-date: 2023-08-25T13:40:41-07:00
-draft: false
----
+#+title: How to Merge Hyper-V Snapshots With Powershell
+#+date: 2023-08-25T13:40:41-07:00
+#+draft: false
 
 * Identify your child avhdx file
 #+begin_src powershell

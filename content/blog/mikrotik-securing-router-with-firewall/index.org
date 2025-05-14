@@ -1,8 +1,6 @@
----
-title: "Mikrotik Securing Router With Firewall"
-date: 2023-07-28T12:55:34-07:00
-draft: false
----
+#+title: Mikrotik Securing Router With Firewall
+#+date: 2023-07-28T12:55:34-07:00
+#+draft: false
 * Fresh Start
 Incase you mess up or want a fresh start, run these two commands to clear all firewall rules and address lists. Note that if you re-run the command to add a filter, it'll either error out or duplicate if it already exists.
 

@@ -1,8 +1,6 @@
----
-title: "Performing Email Migrations From One Host to Another"
-date: 2023-09-01T07:41:49-07:00
-draft: true
----
+#+title: Performing Email Migrations From One Host to Another
+#+date: 2023-09-01T07:41:49-07:00
+#+draft: true
 
 * Scenario
 Say you're moving all the emails, contacts, calenders, autocompletes

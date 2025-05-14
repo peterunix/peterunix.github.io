@@ -1,8 +1,6 @@
----
-title: "How to Clone a Drive to Disimilar Hardware From Bios to Uefi"
-date: 2023-09-13T15:51:09-07:00
-draft: false
----
+#+title: How to Clone a Drive to Disimilar Hardware From Bios to Uefi
+#+date: 2023-09-13T15:51:09-07:00
+#+draft: false
 
 * FYI
 Use this as an overview for how to clone a drive. The methods I used

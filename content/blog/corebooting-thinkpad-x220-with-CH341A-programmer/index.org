@@ -1,8 +1,6 @@
----
-title: "Corebooting Thinkpad X220 With CH341A Programmer"
-date: 2024-08-30T09:35:19-07:00
-draft: false
----
+#+title: Corebooting Thinkpad X220 With CH341A Programmer
+#+date: 2024-08-30T09:35:19-07:00
+#+draft: false
 
 * Summary of page
 This isn't going to be a walkthrough of corebooting your Thinkpad X220. These

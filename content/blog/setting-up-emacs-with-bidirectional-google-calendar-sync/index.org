@@ -1,8 +1,6 @@
----
-title: "Setting Up Emacs With Bidirectional Google Calendar Sync"
-date: 2025-01-17T19:00:38-08:00
-draft: false
----
+#+title: Setting Up Emacs With Bidirectional Google Calendar Sync
+#+date: 2025-01-17T19:00:38-08:00
+#+draft: false
 
 * Synopsis
 This guide will use Emacs 30 (optionally) and [[https://github.com/kidd/org-gcal.el/][org-gcal by Kidd]] to setup

@@ -1,8 +1,6 @@
----
-title: "Add Bitwarden to Pinephone Pro Using Firefox Extension"
-date: 2024-05-14T21:20:29-07:00
-draft: false
----
+#+title: Add Bitwarden to Pinephone Pro Using Firefox Extension
+#+date: 2024-05-14T21:20:29-07:00
+#+draft: false
 
 * Introduction
 Here's how to get the Bitwarden firefox extension to appear as an application on

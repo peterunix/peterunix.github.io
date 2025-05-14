@@ -1,8 +1,6 @@
----
-title: "Termux Chroot Into Arch Linux"
-date: 2024-01-24T16:52:22Z
-draft: false
----
+#+title: Termux Chroot Into Arch Linux
+#+date: 2024-01-24T16:52:22Z
+#+draft: false
 
 * Preface
 Here's how to chroot into an Arch Linux Arm installation from Termux. This will

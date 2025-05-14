@@ -1,0 +1,9 @@
+baseURL = 'http://127.0.0.1/'
+languageCode = 'en-us'
+title = 'Queztaz Site'
+theme = ''  # no theme
+[params]
+mainSections = ["blog"]
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 3

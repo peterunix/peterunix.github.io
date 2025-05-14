@@ -1,8 +1,6 @@
----
-title: "Outlook Fix Godaddy Email Server Not Being Found"
-date: 2023-08-17T10:05:46-07:00
-draft: false
----
+#+title: Outlook Fix Godaddy Email Server Not Being Found
+#+date: 2023-08-17T10:05:46-07:00
+#+draft: false
 
 * The Issue
 When adding a GoDaddy or Exchange account to outlook, sometimes you'll

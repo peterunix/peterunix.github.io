@@ -1,8 +1,6 @@
----
-title: "Self Host Pastebin Service With Tempbin"
-date: 2024-05-05T19:38:04-07:00
-draft: false
----
+#+title: Self Host Pastebin Service With Tempbin
+#+date: 2024-05-05T19:38:04-07:00
+#+draft: false
 
 * Objective
 I write this site using Hugo and wanted a way to quickly upload files and link

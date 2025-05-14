@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/tags/index/</loc>
     <lastmod>2025-01-17T19:00:38-08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/index/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-01-17T19:00:38-08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/</loc>
@@ -23,17 +23,11 @@
     <loc>http://localhost:1313/blog/setting-up-emacs-with-mu4e-protonmail-and-gmail/</loc>
     <lastmod>2025-01-11T00:53:38-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/about/</loc>
-    <lastmod>2025-01-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/blog/migrate-wiki.js-to-another-server/</loc>
     <lastmod>2024-09-18T07:54:32-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/corebooting-thinkpad-x220-with-ch341a-programmer/</loc>
     <lastmod>2024-08-30T09:35:19-07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/corebooting-thinkpad-x220-with-ch341a-programmer-general-tips/</loc>
-    <lastmod>2024-08-30T09:30:09-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</loc>
     <lastmod>2024-08-22T20:44:38-07:00</lastmod>
@@ -65,9 +59,6 @@
     <loc>http://localhost:1313/blog/getting-the-default-wireless-password-to-tg1672g-routers/</loc>
     <lastmod>2023-12-16T14:09:06-06:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/how-to-trigger-or-simulate-bad-blocks-on-ntfs-drive/</loc>
-    <lastmod>2023-12-03T19:02:59-08:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/blog/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</loc>
     <lastmod>2023-11-25T17:43:45-08:00</lastmod>
   </url><url>
@@ -85,9 +76,6 @@
   </url><url>
     <loc>http://localhost:1313/blog/victus-15-fa0xxx-freezing-after-suspend-fix/</loc>
     <lastmod>2023-09-03T19:19:40-07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/performing-email-migrations-from-one-host-to-another/</loc>
-    <lastmod>2023-09-01T07:41:49-07:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/how-to-merge-hyperv-snapshots-with-powershell/</loc>
     <lastmod>2023-08-25T13:40:41-07:00</lastmod>
@@ -176,14 +164,6 @@
     <loc>http://localhost:1313/blog/pinebook-pro-custom-kernel/</loc>
     <lastmod>2023-07-22T15:57:39-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/blog/workout-routine/</loc>
-    <lastmod>2023-07-22T00:48:35-07:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/archives/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/categories/</loc>
-  </url><url>
-    <loc>http://localhost:1313/series/</loc>
   </url>
 </urlset>

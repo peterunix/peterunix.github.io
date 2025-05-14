@@ -1,8 +1,6 @@
----
-title: "How to Create an Offline Debian Mirror Repository"
-date: 2025-01-12T22:54:06-08:00
-draft: false
----
+#+title: How to Create an Offline Debian Mirror Repository
+#+date: 2025-01-12T22:54:06-08:00
+#+draft: false
 
 * Overview
 - Install [[https://github.com/xr09/debian-mini-repo/blob/master/cron-debmirror][xr09's mirror script]]

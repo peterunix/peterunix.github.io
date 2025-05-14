@@ -1,8 +1,6 @@
----
-title: "Migrate Wiki.js to Another Server"
-date: 2024-09-18T07:54:32-07:00
-draft: false
----
+#+title: Migrate Wiki.js to Another Server
+#+date: 2024-09-18T07:54:32-07:00
+#+draft: false
 
 * My migration setup
 - Original server runs WikiJS through docker. One container contains the

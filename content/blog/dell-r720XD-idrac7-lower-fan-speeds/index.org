@@ -1,8 +1,6 @@
----
-title: "Dell R720XD Lower Idrac7 Fan Speeds"
-date: 2023-10-15T11:40:39-07:00
-draft: false
----
+#+title: Dell R720XD Lower Idrac7 Fan Speeds
+#+date: 2023-10-15T11:40:39-07:00
+#+draft: false
 
 * Preface
 My rack server was destroying my eardrums with the fan speeds being

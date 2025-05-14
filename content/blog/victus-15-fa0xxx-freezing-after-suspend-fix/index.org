@@ -1,8 +1,6 @@
----
-title: "Victus 15 Fa0xxx Freezing After Suspend Fix"
-date: 2023-09-03T19:19:40-07:00
-draft: false
----
+#+title: Victus 15 Fa0xxx Freezing After Suspend Fix
+#+date: 2023-09-03T19:19:40-07:00
+#+draft: false
 
 * Preface
 *THIS DIDN'T ACTUALLY FIX IT FOR ME*
