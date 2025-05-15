@@ -1,12 +1,15 @@
-#+title: How to Clone a Drive to Disimilar Hardware From Bios to Uefi
+#+title: Cloning a Bios Boot Drive to Disimilar Hardware with UEFI 
 #+date: 2023-09-13T15:51:09-07:00
 #+draft: false
 
-* FYI
-Use this as an overview for how to clone a drive. The methods I used
-for some of the steps can be simplified by using the right tools.
+* Cloning a Bios Boot Drive to Disimilar Hardware with UEFI 
+** Preamble 
+Documented steps for cloning a drive to another computer. The source computer is
+running an MBR partition table. The target computer is of completely different
+hardware and runs UEFI 
 
-* Overview
+* *Cloning the drive
+** Overview
 I had a clone an old Dell Machine to a new Dell Optiplex SFF 7010. The
 problem was the new computer had an NVME drive with storage controller
 drivers that weren't even in the Windows 11 installation media. On top
@@ -24,7 +27,7 @@ These are the steps it took to clone the drive to a new machine.
 5. Still in the recovery prompt, load the drivers into the windows
    installation using the command prompt and an external flash drive
 
-* Cloning the Drive
+** Starting the disk clone
 Use Clonezilla to do a Disk to Disk clone with the source drive
 plugged into a hard drive bay. If you have a 2.5" drive you can get
 away with a straight USB to SATA adapter.
@@ -32,7 +35,7 @@ away with a straight USB to SATA adapter.
 - [[https://clonezilla.org/downloads/download.php?branch=stable][Download Page]]
 - [[https://sourceforge.net/projects/clonezilla/files/clonezilla_live_stable/3.1.0-22/clonezilla-live-3.1.0-22-amd64.iso/download?use_mirror=gigenet][Direct Link (source forge)]]
 
-* Downloading the Drivers
+** Downloading the Drivers
 Download the drivers from the manufaturer support website. Dell
 distributes them as exe files, so you'll have to run the exe files and
 then select the option to extract the files to a directory. For other
@@ -45,7 +48,7 @@ controller. Click on "Custom Installation" and "Load Driver" to load
 the storage driver from your flash drive.
 
 
-* Converting the drive to GPT
+** Converting the drive to GPT
 After the drive is cloned you can either use the MBR2GPT.exe command
 line utility to convert the partition table type or use a third party
 tool like [[https://www.diskpart.com/download-home.html][Aoemi (proprietary freeware)]].
@@ -58,7 +61,7 @@ then plug it into my workstation using another NVME to USB
 adapter. After that, I opened Aoemi, right clicked the drive, then
 clicked "Convert to GPT".
 
-* Creating the EFI Partition
+** Creating the EFI Partition
 Either through Aoemi or GPARTED, create a 1GB FAT32 partition on the first sector
 of the drive. It should be your first partition.
 
@@ -79,7 +82,7 @@ exit
 bcdboot E:\Windows /s Z: /f ALL  (restoring efi files)
 #+end_src
 
-* Loading the drivers
+** Loading the drivers
 While still booted into the recovery disk, I loaded the drivers from
 the USB flash drive to the windows image
 

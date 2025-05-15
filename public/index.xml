@@ -86,11 +86,11 @@
       <description>Simulating Bad Blocks on NTFS Filesystems Preamble Directions for simulating a file system corruption error on an NTFS drive on a Windows host system. This is useful when you are testing tools that require this error exist.&#xA;Simulating Corruption https://github.com/jamersonpro/ntfsmarkbad&#xA;Creating the test environment Create the folder for our demo environment&#xA;mkdir BadBlocktest cd BadBlockTest Download the NtfsMarkBad tool&#xA;Invoke-WebRequest -Uri &amp;#34;https://github.com/jamersonpro/ntfsmarkbad/releases/download/v0.0.2/NtfsMarkBad.exe&amp;#34; -Outfile &amp;#34;NtfsMarkBad.exe&amp;#34; -UseBasicParsing Create a virtual hard disk file</description>
     </item>
     <item>
-      <title>How to Clone a Drive to Disimilar Hardware From Bios to Uefi</title>
-      <link>http://89.147.111.130:1313/blog/windows/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</link>
+      <title>Cloning a Bios Boot Drive to Disimilar Hardware with UEFI</title>
+      <link>http://89.147.111.130:1313/blog/windows/cloning-a-bios-boot-drive-to-disimilar-hardware-with-uefi/</link>
       <pubDate>Wed, 13 Sep 2023 15:51:09 -0700</pubDate>
-      <guid>http://89.147.111.130:1313/blog/windows/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</guid>
-      <description>FYI Use this as an overview for how to clone a drive. The methods I used for some of the steps can be simplified by using the right tools.&#xA;Overview I had a clone an old Dell Machine to a new Dell Optiplex SFF 7010. The problem was the new computer had an NVME drive with storage controller drivers that weren&amp;#39;t even in the Windows 11 installation media. On top of that, the original computer was Windows 10 but was BIOS only, meaning it wouldn&amp;#39;t boot at all on the UEFI only machine.</description>
+      <guid>http://89.147.111.130:1313/blog/windows/cloning-a-bios-boot-drive-to-disimilar-hardware-with-uefi/</guid>
+      <description>Cloning a Bios Boot Drive to Disimilar Hardware with UEFI Preamble Documented steps for cloning a drive to another computer. The source computer is running an MBR partition table. The target computer is of completely different hardware and runs UEFI *Cloning the drive Overview I had a clone an old Dell Machine to a new Dell Optiplex SFF 7010. The problem was the new computer had an NVME drive with storage controller drivers that weren&amp;#39;t even in the Windows 11 installation media.</description>
     </item>
     <item>
       <title>Merging HyperV Snapshots With Powershell</title>
