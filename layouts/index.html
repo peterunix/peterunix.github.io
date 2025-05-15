@@ -1,5 +1,7 @@
 {{ define "main" }}
+
   <main>
+  <title>Queztaz/</title>
     <style>
       .toggle-content {
         display: visible; /* Show by default */
@@ -39,7 +41,6 @@
 	const isVisible = getComputedStyle(content).display === "block";
         content.style.display = isVisible ? "none" : "block";
         header.innerHTML = isVisible ? "📂 Queztaz ▼" : "📂 Queztaz ▲";
-      
 }
     </script>
   </main>

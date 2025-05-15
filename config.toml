@@ -1,7 +1,11 @@
-baseURL = 'http://127.0.0.1/'
-languageCode = 'en-us'
-title = 'Queztaz Site'
-theme = ''  # no theme
+relativeURLs = true
+baseURL = "/"
+title = "Queztaz"
+author = "Queztaz"
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+
 [params]
 mainSections = ["blog"]
 [markup.tableOfContents]
