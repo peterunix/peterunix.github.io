@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Self Host Pastebin Service With Tempbin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/gtd.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</head>
+<body>
+  
+<main>
+  <div style="margin: 1rem;">
+    <a href="/" style="
+      display: inline-block;
+      background-color: #eee;
+      color: #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    ">
+      ← Homepage
+    </a>
+
+  <h1>Self Host Pastebin Service With Tempbin</h1>
+
+  </div>
+  <nav class="toc">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Objective</a>
+</li>
+<li><a href="#headline-2">Setting up tempbin</a>
+</li>
+<li><a href="#headline-3">Adding it to nginx</a>
+</li>
+</ul>
+</nav>
+  </nav> 
+
+  <article>
+    
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Objective
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>I write this site using Hugo and wanted a way to quickly upload files and link
+them in my pages. Adding them to a subfolder and manually linking them would
+take far too much work, so how about using a webserver that i can copy paste
+images/text into and then add a direct link to the image!</p>
+<p>
+I found a github project that does just that: <a href="https://github.com/hizkifw/tempbin">hizkifw\tempbin</a>. By default its
+designed to allow file uploads and to automatically delete them after so many
+hours. I made some tweaks to the source code to do the following</p>
+<ul>
+<li>Allow the service to return a link with a custom domain</li>
+<li>Removed the file expiration time</li>
+<li>Increased the URL length</li>
+<li>Used the Fixed Sys font</li>
+</ul>
+<p>This is <a href="https://github.com/peterunix/tempbin">my fork</a> that will be used for this blog post.</p>
+<p>
+Here&#39;s how it looks!</p>
+<p>
+<img src="cWiV.png" alt="cWiV.png" title="cWiV.png" /></p>
+<p>
+For the webserver, I needed it to do the following</p>
+<ol>
+<li>Require HTTP basic auth to password protect the upload page</li>
+<li>Require <strong><strong>zero</strong></strong> authentication for the uploaded pastes</li>
+</ol>
+<p>I&#39;m going to show you how I set this up.
+<strong><strong>Note that I have a separate NAT&#39;d server running the tempbin service. Proxy
+Pass is used on the main server</strong></strong></p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Setting up tempbin
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>Install Cargo. Tempbin is built with Rust</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  curl https://sh.rustup.rs -sSf | sh</span></span></code></pre></div>
+</div>
+<p>
+Clone the repository</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/peterunix/tempbin.git /opt/</span></span></code></pre></div>
+</div>
+<p>
+Run the service</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>LISTEN<span style="color:#f92672">=</span>0.0.0.0:80 DOMAIN<span style="color:#f92672">=</span>paste.fe00.xyz /home/USER/.cargo/bin/cargo run</span></span></code></pre></div>
+</div>
+<p>
+Terminate the process. We&#39;re going to create a systemd unit to automatically
+start it on boot.</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  vim /etc/systemd/system/pastebin.service</span></span></code></pre></div>
+</div>
+<p>
+Place this in the contents of that file</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>[Unit]
+</span></span><span style="display:flex;"><span>Description=My Service
+</span></span><span style="display:flex;"><span>After=network.target
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Service]
+</span></span><span style="display:flex;"><span>User=root
+</span></span><span style="display:flex;"><span>WorkingDirectory=/opt/tempbin
+</span></span><span style="display:flex;"><span>ExecStart=bash -c &#39;cd /opt/tempbin ; LISTEN=0.0.0.0:80 DOMAIN=paste.fe00.xyz /home/USER/bin/cargo run&#39;
+</span></span><span style="display:flex;"><span>Restart=always
+</span></span><span style="display:flex;"><span>RestartSec=5
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[Install]
+</span></span><span style="display:flex;"><span>WantedBy=multi-user.target</span></span></code></pre></div>
+</div>
+<p>
+Now load the service and check if its running</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  systemctl daemon-reload
+</span></span><span style="display:flex;"><span>  systemctl enable --now pastebin
+</span></span><span style="display:flex;"><span>  systemctl status pastebin</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Adding it to nginx
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>As noted earlier, I have nginx running on another server and use Proxy Pass to
+make the pastebin service accessible.</p>
+<p>
+Use htpasswd to generate a credential file for our authentication</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  apt install apache2-utils
+</span></span><span style="display:flex;"><span>  htpasswd -c /etc/nginx/.htpasswd USERNAME</span></span></code></pre></div>
+</div>
+<p>
+Now add a server block for our proxied tempbin service</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  vim /etc/nginx/sites-enabled/YOUR_WEBSITE</span></span></code></pre></div>
+</div>
+<p>
+This will require authentication for the root folder. The second location block
+is a regex that will find any subfolder that contains between 4-15 characters. I
+since reduced the size of the automatically generated url for my server; that&#39;s
+why there&#39;s a range.</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>  server <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>	  listen <span style="color:#ae81ff">443</span> ssl http2;
+</span></span><span style="display:flex;"><span>	  listen <span style="color:#f92672">[</span>::<span style="color:#f92672">]</span>:443 ssl http2;
+</span></span><span style="display:flex;"><span>	  server_name paste.fe00.xyz;
+</span></span><span style="display:flex;"><span>	  <span style="color:#75715e"># ...</span>
+</span></span><span style="display:flex;"><span>	  location / <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		  auth_basic <span style="color:#e6db74">&#34;Restricted Access&#34;</span>; <span style="color:#75715e"># Authentication realm</span>
+</span></span><span style="display:flex;"><span>		  auth_basic_user_file /etc/nginx/.htpasswd; <span style="color:#75715e"># Path to the .htpasswd file</span>
+</span></span><span style="display:flex;"><span>		  proxy_pass http://10.10.10.3;
+</span></span><span style="display:flex;"><span>	  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	  <span style="color:#75715e"># Allow the subfolders access without authentication</span>
+</span></span><span style="display:flex;"><span>	  location ~ <span style="color:#e6db74">&#34;^/([0-9a-zA-Z]{4,15})&#34;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>		  auth_basic off;
+</span></span><span style="display:flex;"><span>		  proxy_pass http://10.10.10.3;
+</span></span><span style="display:flex;"><span>	  <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>	  <span style="color:#75715e">#...</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">}</span></span></span></code></pre></div>
+</div>
+<p>
+Check your nginx config and then restart the service.</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>      nginx -t
+</span></span><span style="display:flex;"><span>      nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+</span></span><span style="display:flex;"><span>      nginx: configuration file /etc/nginx/nginx.conf test is successful
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      systemctl restart nginx</span></span></code></pre></div>
+</div>
+</div>
+</div>
+
+  </article>
+</main>
+
+</body>
+</html>

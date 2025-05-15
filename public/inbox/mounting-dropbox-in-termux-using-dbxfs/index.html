@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Mounting Dropbox in Termux Using Dbxfs...almost</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/gtd.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</head>
+<body>
+  
+<main>
+  <div style="margin: 1rem;">
+    <a href="/" style="
+      display: inline-block;
+      background-color: #eee;
+      color: #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    ">
+      ← Homepage
+    </a>
+
+  <h1>Mounting Dropbox in Termux Using Dbxfs...almost</h1>
+
+  </div>
+  <nav class="toc">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Preface</a>
+</li>
+<li><a href="#headline-2">Creating the DBXFS virtual env</a>
+</li>
+<li><a href="#headline-3">Importing the Virtual Env to Termux</a>
+</li>
+<li><a href="#headline-4">Mounting Dropbox</a>
+</li>
+</ul>
+</nav>
+  </nav> 
+
+  <article>
+    
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Preface
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>Here&#39;s how to install and run DBXFS to mount Dropbox. I&#39;m using a rooted Samsung
+Galaxy A035M with Termux installed via FDroid. <strong><strong>This is only how to install
+DBXFS – NOT having it mount your dropbox</strong></strong>. DBXFS will fail to automatically to
+mount Dropbox with the following error: <em>&#34;Don&#39;t know how to automatically mount
+the file system on this platform. Run with –smb-no-mount&#34;</em>.</p>
+<p>
+The –smb-no-mount flag will create a cifs share running on 127.0.0.1:PORT. I&#39;m
+still figuring out how to get this to mount in Termux properly. This guide will
+get you to that point</p>
+<p>
+I had problems getting DBXFS to install/compile on Termux so I used Docker on my
+Windows 10 machine to emulate ARM64 and install DBXFS in a python virtual
+environment. The venv was then copied to Termux</p>
+<p>
+<strong>This assumes you know a little about docker and read the DBXFS usage guide</strong></p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Creating the DBXFS virtual env
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>Make sure you have docker installed already.</p>
+<p>
+Create a file named <code>Dockerfile</code> with the following content</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>FROM arm64v8/python:3.8-buster
+</span></span><span style="display:flex;"><span>CMD [&#34;/bin/bash&#34;]</span></span></code></pre></div>
+</div>
+<p>
+Using the command prompt opened in the same folder as the Dockerfile, run this
+command to run the docker image.</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -v .:/apps -it -w /apps arm64-python</span></span></code></pre></div>
+</div>
+<p>
+Now your shell should have changed to bash. We&#39;re now running on ARM64! Run the
+following commands to create a virtual environment with DBXFS installed</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m venv venv
+</span></span><span style="display:flex;"><span>source venv/bin/activate
+</span></span><span style="display:flex;"><span>pip3 install cryptography argon2-cffi stone requests more-itertools zipp
+</span></span><span style="display:flex;"><span>pip3 install dbxfs</span></span></code></pre></div>
+</div>
+<p>
+Test that its working</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dbxfs --help</span></span></code></pre></div>
+</div>
+<p>
+If that looks good, tar up the virtual env and then copy the file to your
+Android device.</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>tar -cvf venv.tar venv
+</span></span><span style="display:flex;"><span>exit</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Importing the Virtual Env to Termux
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>Copy the venv.tar file to your Androids download folder then copy them to
+termux. I ran <code>termux-setup-storage</code> which lets me access my android files from
+the Termux session</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>cp ~/storage/downloads/venv.tar ~
+</span></span><span style="display:flex;"><span>tar -xvf venv.tar</span></span></code></pre></div>
+</div>
+<p>
+Now install the following dependencies before sourcing the environment</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>pkg install python-cryptography mount-utils samba
+</span></span><span style="display:flex;"><span>source venv/bin/activate</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Mounting Dropbox
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>This is where I&#39;m leaving off. Running <code>dbxfs --smb-no-mount</code> will create a CIFS
+share on localhost. It&#39;s up to you to learn how to mount it :0</p>
+</div>
+</div>
+
+  </article>
+</main>
+
+</body>
+</html>

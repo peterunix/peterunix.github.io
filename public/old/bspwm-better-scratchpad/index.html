@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Bspwm Better Scratchpad</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/gtd.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</head>
+<body>
+  
+<main>
+  <div style="margin: 1rem;">
+    <a href="/" style="
+      display: inline-block;
+      background-color: #eee;
+      color: #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    ">
+      ← Homepage
+    </a>
+
+  <h1>Bspwm Better Scratchpad</h1>
+
+  </div>
+  <nav class="toc">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Better scratchpad bspwm</a>
+<ul>
+<li><a href="#headline-2">Preface</a>
+</li>
+<li><a href="#headline-3">Setup stuff</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+  </nav> 
+
+  <article>
+    
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Better scratchpad bspwm
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+Preface
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<p>The scratchpad scripts I found for bspwm SUCK.
+Some either stop working if you kill the terminal or bug out when you manage your window states.
+Here&#39;s a script I wrote that get&#39;s the job done RIGHT!</p>
+<p>
+bspwm-scratch.png</p>
+<p>
+I&#39;m running tmux if you were wondering.</p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Setup stuff
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<p>The &#34;scratchy&#34; script checks to see if a terminal with the classname &#34;scratchy&#34; exists.
+If it doesn&#39;t exist, it creates it. If it does exist, it hides it.</p>
+<div class="src src-shell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt;&gt; /path/to/scratchy
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>id<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>xdotool search --class scratchy<span style="color:#66d9ef">)</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -z <span style="color:#e6db74">&#34;</span>$id<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        st -c scratchy;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -f /tmp/hide_scratch <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                touch /tmp/hide_scratch <span style="color:#f92672">&amp;&amp;</span> xdo hide <span style="color:#e6db74">&#34;</span>$id<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> <span style="color:#f92672">[</span> -f /tmp/hide_scratch <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                rm /tmp/hide_scratch <span style="color:#f92672">&amp;&amp;</span> xdo show <span style="color:#e6db74">&#34;</span>$id<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span></span></span></code></pre></div>
+</div>
+<p>
+Next we&#39;ll assign special attributes for the window with the classname
+scratchy in our bspwmrc.
+I have it configured to automatically adjust the window position based
+on the size of the monitor.
+To get the window to be exactly centered, just do (1/2 monitor width)-(1/2 window width) as the X offset</p>
+<div class="src src-shell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt;&gt; /path/to/bspwmrc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Calculate the center of the screen for a 600x400 scratchpad</span>
+</span></span><span style="display:flex;"><span>scratchpad_xy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;600x400&#34;</span>
+</span></span><span style="display:flex;"><span>display_xy<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>xdpyinfo | grep -i dimensions | awk <span style="color:#e6db74">&#39;{ print $2 }&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>half_display<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo $display_xy | tr <span style="color:#e6db74">&#39;x&#39;</span> <span style="color:#e6db74">&#39; &#39;</span> | cut -f1 -d<span style="color:#e6db74">&#39; &#39;</span> | xargs -I _ echo _/2 | bc<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>half_scratchpad<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo $scratchpad_xy | tr <span style="color:#e6db74">&#39;x&#39;</span> <span style="color:#e6db74">&#39; &#39;</span> | cut -f1 -d<span style="color:#e6db74">&#39; &#39;</span> | xargs -I _ echo _/2 | bc<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>offset<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">${</span>half_display<span style="color:#e6db74">}</span>-<span style="color:#e6db74">${</span>half_scratchpad<span style="color:#e6db74">}</span> | bc<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># rectangle=WidthxHeight+Xoffset+Yoffset</span>
+</span></span><span style="display:flex;"><span>bspc rule -a scratchy sticky<span style="color:#f92672">=</span>on state<span style="color:#f92672">=</span>floating rectangle<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>scratchpad_xy<span style="color:#e6db74">}</span>+<span style="color:#e6db74">${</span>offs et<span style="color:#e6db74">}</span>+0</span></span></code></pre></div>
+</div>
+<div class="src src-shell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>&gt;&gt; /path/to/sxhkdrc
+</span></span><span style="display:flex;"><span>super + semicolon
+</span></span><span style="display:flex;"><span>        scratchy</span></span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+  </article>
+</main>
+
+</body>
+</html>

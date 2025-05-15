@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Raspberry Pi Compile Neovim From Source</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/gtd.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</head>
+<body>
+  
+<main>
+  <div style="margin: 1rem;">
+    <a href="/" style="
+      display: inline-block;
+      background-color: #eee;
+      color: #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    ">
+      ← Homepage
+    </a>
+
+  <h1>Raspberry Pi Compile Neovim From Source</h1>
+
+  </div>
+  <nav class="toc">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Preface</a>
+</li>
+<li><a href="#headline-2">Compiling Neovim</a>
+</li>
+</ul>
+</nav>
+  </nav> 
+
+  <article>
+    
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Preface
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>The debian repositories that ship with raspbian come with an outdated version of neovim.
+Your best option is to compile neovim from github</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Compiling Neovim
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>Don&#39;t forget to uninstall neovim if you installed it through your package manager previously.</p>
+<div class="src src-shell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl git wget
+</span></span><span style="display:flex;"><span>git clone https://github.com/neovim/neovim
+</span></span><span style="display:flex;"><span>cd neovim
+</span></span><span style="display:flex;"><span>make CMAKE_BUILD_TYPE<span style="color:#f92672">=</span>Release
+</span></span><span style="display:flex;"><span>sudo make install</span></span></code></pre></div>
+</div>
+</div>
+</div>
+
+  </article>
+</main>
+
+</body>
+</html>

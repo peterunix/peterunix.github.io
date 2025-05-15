@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Automatic Mariadb Backups With Powershell</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/gtd.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</head>
+<body>
+  
+<main>
+  <div style="margin: 1rem;">
+    <a href="/" style="
+      display: inline-block;
+      background-color: #eee;
+      color: #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    ">
+      ← Homepage
+    </a>
+
+  <h1>Automatic Mariadb Backups With Powershell</h1>
+
+  </div>
+  <nav class="toc">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Usage</a>
+</li>
+<li><a href="#headline-2">Important Note</a>
+</li>
+<li><a href="#headline-3">Source Code</a>
+</li>
+</ul>
+</nav>
+  </nav> 
+
+  <article>
+    
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Usage
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>Edit the script and modify the variables DBUSER and DBPASS to be your database
+credentials. You can either run the script standalone or schedule it using the
+Windows Task Manager to have your incremental backups run</p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>./PS-MariaDBBackupTool.ps1</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Important Note
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>Only use this with InnoDB. If you have MyISAM the database wont
+backup incrementally properly. It’ll work, but each incremental would be the
+same size as the initial backup. If you migrated from MyISAM to InnoDB, make
+sure to remove the MyISAM backups of the database from the mysql folder. The
+reason is the same as listed above.</p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Source Code
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p><a href="https://github.com/peterunix/mariadb-powershell-backup-tool/tree/main">Github: <a href="https://github.com/peterunix/mariadb-powershell-backup-tool/">https://github.com/peterunix/mariadb-powershell-backup-tool/</a></a></p>
+<div class="src src-powershell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-powershell" data-lang="powershell"><span style="display:flex;"><span>$DBUSER = <span style="color:#e6db74">&#34;username&#34;</span>
+</span></span><span style="display:flex;"><span>$DBPASS= <span style="color:#e6db74">&#34;password&#34;</span>
+</span></span><span style="display:flex;"><span>$MAX_INCREMENTALS = <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>$BACKUP_FOLDER = <span style="color:#e6db74">&#34;C:\MariaDBBackups\&#34;</span>
+</span></span><span style="display:flex;"><span>$BASE_DIR = Join-Path $BACKUP_FOLDER <span style="color:#e6db74">&#34;Base&#34;</span>
+</span></span><span style="display:flex;"><span>$LOG_FOLDER = <span style="color:#e6db74">&#34;C:\Windows\MariaDBBackupLogs\&#34;</span>
+</span></span><span style="display:flex;"><span>$MARIABACKUPEXE = <span style="color:#e6db74">&#34;C:\Program Files\MariaDB 10.5\bin\mariabackup.exe&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get the list of incremental backup folders</span>
+</span></span><span style="display:flex;"><span>$IncFolders = Get-ChildItem $BACKUP_FOLDER -Directory | Where-Object { $_.Name <span style="color:#f92672">-match</span> <span style="color:#e6db74">&#34;^Inc\d+$&#34;</span> }
+</span></span><span style="display:flex;"><span>$IncFolderCount = $IncFolders.Count
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create the log folder and start the transcript</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> (Test-Path $LOG_FOLDER)) {
+</span></span><span style="display:flex;"><span>    New-Item -ItemType Directory -Path $LOG_FOLDER
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$TIMESTAMP = Get-Date -Format <span style="color:#e6db74">&#34;yyyyMMdd_HHmmss&#34;</span>
+</span></span><span style="display:flex;"><span>$LOGFILE = Join-Path $LOG_FOLDER <span style="color:#e6db74">&#34;backup_</span>$timestamp<span style="color:#e6db74">.log&#34;</span>
+</span></span><span style="display:flex;"><span>Start-Transcript -Path $LOGFILE
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Create first backup if the base directory doesn&#39;t exist</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> (Test-Path $BASE_DIR)) {
+</span></span><span style="display:flex;"><span>    Write-Output <span style="color:#e6db74">&#34;Creating initial backup&#34;</span>
+</span></span><span style="display:flex;"><span>    New-Item -ItemType Directory -Path $BASE_DIR
+</span></span><span style="display:flex;"><span>    &amp; $MARIABACKUPEXE --backup --target-dir=$BASE_DIR --user=<span style="color:#e6db74">&#34;</span>$DBUSER<span style="color:#e6db74">&#34;</span> --password=<span style="color:#e6db74">&#34;</span>$DBPASS<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ($IncFolderCount <span style="color:#f92672">-ge</span> $MAX_INCREMENTALS <span style="color:#f92672">-or</span> <span style="color:#f92672">-not</span> (Get-ChildItem $BASE_DIR)) {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Delete backups and recreate if incrementals exceed max or base directory is empty</span>
+</span></span><span style="display:flex;"><span>        Write-Output <span style="color:#e6db74">&#34;Max incrementals reached or base directory is empty. Creating a new full backup.&#34;</span>
+</span></span><span style="display:flex;"><span>        Remove-Item -Recurse -Force <span style="color:#e6db74">&#34;</span>$BACKUP_FOLDER<span style="color:#e6db74">\*&#34;</span>
+</span></span><span style="display:flex;"><span>        New-Item -ItemType Directory -Path $BASE_DIR
+</span></span><span style="display:flex;"><span>        &amp; $MARIABACKUPEXE --backup --target-dir=$BASE_DIR --user=<span style="color:#e6db74">&#34;</span>$DBUSER<span style="color:#e6db74">&#34;</span> --password=<span style="color:#e6db74">&#34;</span>$DBPASS<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Create an incremental backup</span>
+</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;Creating incremental backup&#34;</span>
+</span></span><span style="display:flex;"><span>        $num1 = $IncFolderCount
+</span></span><span style="display:flex;"><span>        $num2 = $IncFolderCount + <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        $targetDir = Join-Path $BACKUP_FOLDER <span style="color:#e6db74">&#34;Inc</span>$num2<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        $baseDir = <span style="color:#66d9ef">if</span> ($num1 <span style="color:#f92672">-eq</span> <span style="color:#ae81ff">0</span>) { $BASE_DIR } <span style="color:#66d9ef">else</span> { Join-Path $BACKUP_FOLDER <span style="color:#e6db74">&#34;Inc</span>$num1<span style="color:#e6db74">&#34;</span> }
+</span></span><span style="display:flex;"><span>        $baseDir
+</span></span><span style="display:flex;"><span>		$targetDir
+</span></span><span style="display:flex;"><span>        Write-Output <span style="color:#e6db74">&#34;Creating incremental backup number </span>$num2<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>        &amp; $MARIABACKUPEXE --backup --target-dir=$targetDir --incremental-basedir=$baseDir --user=<span style="color:#e6db74">&#34;</span>$DBUSER<span style="color:#e6db74">&#34;</span> --password=<span style="color:#e6db74">&#34;</span>$DBPASS<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Delete all but most recent 12 logs</span>
+</span></span><span style="display:flex;"><span>$files = Get-ChildItem -Path $LOG_FOLDER <span style="color:#e6db74">&#34;*.log&#34;</span> | Sort-Object LastWriteTime -Descending
+</span></span><span style="display:flex;"><span>$filesToKeep = $files | Select-Object -First <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>$filesToDelete = $files | Where-Object { $_ -notin $filesToKeep }
+</span></span><span style="display:flex;"><span>$filesToDelete | Remove-Item
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Stop-Transcript</span></span></code></pre></div>
+</div>
+</div>
+</div>
+
+  </article>
+</main>
+
+</body>
+</html>

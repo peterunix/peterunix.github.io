@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Qemu Windows Xp Fix Smb Not Working</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/gtd.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</head>
+<body>
+  
+<main>
+  <div style="margin: 1rem;">
+    <a href="/" style="
+      display: inline-block;
+      background-color: #eee;
+      color: #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    ">
+      ← Homepage
+    </a>
+
+  <h1>Qemu Windows Xp Fix Smb Not Working</h1>
+
+  </div>
+  <nav class="toc">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Preface</a>
+</li>
+<li><a href="#headline-2">Enabling NT1 support</a>
+</li>
+<li><a href="#headline-3">Conclusion</a>
+</li>
+</ul>
+</nav>
+  </nav> 
+
+  <article>
+    
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Preface
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>SMB 1.0 has to be enabled if you try to pass a local folder as an smb share to a WinXP Qemu VM.
+Qemu creates the temporary file /tmp/smb.conf that holds the configurations for samba.
+The values of this are hard coded and can only be modified after it&#39;s automatically created by Qemu.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Enabling NT1 support
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>Add the &#34;<em>min protocol = NT1</em>&#34; line to the global section of <em>tmp/smb.conf.
+You can either edit that file after the VM boots up then restart, or you can use &#34;/sed</em>&#34; to replace the &#34;<em>min protocol</em>&#34; line while the VM is in a pre-boot state.</p>
+<p>
+Here&#39;s a template for a shell script that makes this change:</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>qemu-system-x86_64 [...] &amp;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Editing the configuration file while the VM is booting
+</span></span><span style="display:flex;"><span>sed -e &#39;s/\[qemu\]/min protocol = NT1\n\[qemu\]/&#39; -i /tmp/qemu-smb.*/smb.conf</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Conclusion
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>Depending on how fast Windows boots up, you might have to restart if you don&#39;t see SMB working right away.
+You should be good to go.</p>
+</div>
+</div>
+
+  </article>
+</main>
+
+</body>
+</html>

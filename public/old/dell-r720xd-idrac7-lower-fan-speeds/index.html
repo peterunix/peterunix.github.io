@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Dell R720XD Lower Idrac7 Fan Speeds</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/gtd.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</head>
+<body>
+  
+<main>
+  <div style="margin: 1rem;">
+    <a href="/" style="
+      display: inline-block;
+      background-color: #eee;
+      color: #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    ">
+      ← Homepage
+    </a>
+
+  <h1>Dell R720XD Lower Idrac7 Fan Speeds</h1>
+
+  </div>
+  <nav class="toc">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Preface</a>
+</li>
+<li><a href="#headline-2">Commands</a>
+</li>
+</ul>
+</nav>
+  </nav> 
+
+  <article>
+    
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Preface
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>My rack server was destroying my eardrums with the fan speeds being
+too high. I plan to replace the fans with Noctua&#39;s, but in the
+meantime <a href="https://angrysysadmins.tech/index.php/2022/01/grassyloki/idrac-7-8-lower-fan-noise-on-dell-servers/">this fix works great.</a> It&#39;s not silent, but much quieter.</p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Commands
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>Run these commands inside of IDrac SSH</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>racadm set system.thermalsettings.FanSpeedOffset 255
+</span></span><span style="display:flex;"><span>racadm set system.thermalsettings.ThirdPartyPCIFanResponse 0
+</span></span><span style="display:flex;"><span>racadm set system.thermalsettings.ThermalProfile 2</span></span></code></pre></div>
+</div>
+<p>
+That&#39;s it! Still a little noisy but tolerable.</p>
+</div>
+</div>
+
+  </article>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Bspwm With Lembar Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/gtd.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</head>
+<body>
+  
+<main>
+  <div style="margin: 1rem;">
+    <a href="/" style="
+      display: inline-block;
+      background-color: #eee;
+      color: #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    ">
+      ← Homepage
+    </a>
+
+  <h1>Bspwm With Lembar Panel</h1>
+
+  </div>
+  <nav class="toc">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Preface</a>
+</li>
+<li><a href="#headline-2">Adding XFT support</a>
+</li>
+<li><a href="#headline-3">The lemonconfig script</a>
+</li>
+<li><a href="#headline-4">How does it work?</a>
+<ul>
+<li><a href="#headline-5">Modules</a>
+</li>
+</ul>
+</li>
+<li><a href="#headline-6">Image</a>
+</li>
+</ul>
+</nav>
+  </nav> 
+
+  <article>
+    
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Preface
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<p>The Arch Wiki doesn&#39;t provide any information on how to get lemonbar
+setup with workspace switching, window titles, etc.
+Most people have their custom bars run on a timer.
+We&#39;re going to do them one better and have our script only update PARTS of our bar when necessary.
+This is going make things run much more efficiently and make displaying workspaces possible.
+I&#39;m citing these two pages:</p>
+<p>
+<a href="https://gitlab.com/protesilaos/dotfiles/-/blob/v2.2.0/bin/bin/melonpanel">Protesilaos MelonPanel Config</a></p>
+<p>
+<a href="https://raw.githubusercontent.com/BrodieRobertson/scripts/master/lemonbar/lemonconfig">Brodie Robertsons Lemonbar Config</a></p>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Adding XFT support
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>Lemonbar doesn&#39;t work with glyph fonts, such as the NerdFonts.
+Compile this fork of lemonbar to get your fonts working.
+This is optional.</p>
+<div class="src src-shell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>git clone https://github.com/drscream/lemonbar-xft.git
+</span></span><span style="display:flex;"><span>cd lemonbar-xft
+</span></span><span style="display:flex;"><span>sudo make install</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+The lemonconfig script
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<p>This is my fork of BrodieRobertson&#39;s lemonbar script.
+I&#39;ll explain the nitty gritty of the script at the end of this page</p>
+<div class="src src-shell">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#A fork of Brodie Robertsons lemonbar script with ideas taken from Protesilaos&#39; &#34;melonpanel&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#https://gitlab.com/protesilaos/dotfiles/-/blob/v2.2.0/bin/bin/melonpanel</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#https://raw.githubusercontent.com/BrodieRobertson/scripts/master/lemonbar/lemonconfig</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#https://gitlab.com/protesilaos/lemonbar-xft.git</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#background=&#34;#efefef&#34;</span>
+</span></span><span style="display:flex;"><span>_Format<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;%{+u}%{B</span>$background<span style="color:#e6db74">} &#34;</span>$@<span style="color:#e6db74">&#34; %{B}%{-u}&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>_Workspaces<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        desktops<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>bspc query -D --names<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>        focused<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>bspc query -D --names -d focused<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> desktop in $desktops; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>                nodes<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>bspc query -N -d $desktop<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> ! -z <span style="color:#e6db74">&#34;</span>$nodes<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>                        desktops<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo $desktops | sed <span style="color:#e6db74">&#34;s/</span>$desktop<span style="color:#e6db74">/%{F#f48888}</span>$desktop<span style="color:#e6db74">%{F-}/&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        desktops<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo $desktops | sed <span style="color:#e6db74">&#34;s/</span>$focused<span style="color:#e6db74">/%{B</span>$background<span style="color:#e6db74">}%{+u}_</span>$focused<span style="color:#e6db74">\_%{-u}%{B-}/&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>        echo $desktops | sed <span style="color:#e6db74">&#34;s/_/ /g&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>_WindowName<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        xdotool getwindowfocus getwindowname
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>_CurrentWorkspace<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        bspc query -D --names -d
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>_Clock<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        TIME<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#34;+%H:%M&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#_Format &#34;${TIME}&#34;</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">${</span>TIME<span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>_Battery<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#_Format $(bat)</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#66d9ef">$(</span>bat<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>_Modules<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> true; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;B: </span><span style="color:#66d9ef">$(</span>_Battery<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                echo <span style="color:#e6db74">&#34;C: </span><span style="color:#66d9ef">$(</span>_Clock<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>                sleep 5s
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>lemonbar_fifo<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/tmp/lemonbar.fifo&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">[</span> -e <span style="color:#e6db74">&#34;</span>$lemonbar_fifo<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]</span> <span style="color:#f92672">&amp;&amp;</span> rm <span style="color:#e6db74">&#34;</span>$lemonbar_fifo<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>mkfifo <span style="color:#e6db74">&#34;</span>$lemonbar_fifo<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>_Modules &gt; <span style="color:#e6db74">&#34;</span>$lemonbar_fifo<span style="color:#e6db74">&#34;</span> &amp;
+</span></span><span style="display:flex;"><span>bspc subscribe desktop&gt; <span style="color:#e6db74">&#34;</span>$lemonbar_fifo<span style="color:#e6db74">&#34;</span> &amp;
+</span></span><span style="display:flex;"><span>bspc subscribe node&gt; <span style="color:#e6db74">&#34;</span>$lemonbar_fifo<span style="color:#e6db74">&#34;</span> &amp;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This function takes stdin from the fifo file.</span>
+</span></span><span style="display:flex;"><span>_Main<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>        wm<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>_CurrentWorkspace<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> read -r report; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">case</span> $report in
+</span></span><span style="display:flex;"><span>                        B*<span style="color:#f92672">)</span> batt<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>echo $report | cut -d<span style="color:#e6db74">&#39;:&#39;</span> -f2-<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>;;
+</span></span><span style="display:flex;"><span>                        C*<span style="color:#f92672">)</span> clock<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">$(</span>echo $report | cut -d<span style="color:#e6db74">&#39;:&#39;</span> -f2-<span style="color:#66d9ef">)</span><span style="color:#e6db74">&#34;</span>;;
+</span></span><span style="display:flex;"><span>                        node*<span style="color:#f92672">)</span> window_name<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>_WindowName<span style="color:#66d9ef">)</span>;;
+</span></span><span style="display:flex;"><span>                        desktop*<span style="color:#f92672">)</span> wm<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>_CurrentWorkspace<span style="color:#66d9ef">)</span> window_name<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>_WindowName<span style="color:#66d9ef">)</span>;;
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">esac</span>
+</span></span><span style="display:flex;"><span>                echo -e <span style="color:#e6db74">&#34;%{l} </span>$wm<span style="color:#e6db74"> %{c} </span>$window_name<span style="color:#e6db74"> %{r} </span>$batt<span style="color:#e6db74"> </span>$clock<span style="color:#e6db74"> &#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>_Main &lt; <span style="color:#e6db74">&#34;</span>$lemonbar_fifo<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#end_src</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>* Usage
+</span></span><span style="display:flex;"><span>Here<span style="color:#e6db74">&#39;s a launcher script that I have run with bspwm.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">#+begin_src shell
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">killall -q lemonbar
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">lemonconfig | lemonbar -p \
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">       -f &#39;</span>TerminessTTF Nerd Font Mono:size<span style="color:#f92672">=</span>13<span style="color:#960050;background-color:#1e0010">&#39;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>       -g x27</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+How does it work?
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+Modules
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<p>Each of your modules is just a function that ends outputting plain text.</p>
+<p>
+The &#34;_Format&#34; module was written by Brodie, and it adds some lemonbar syntax to arguments passed to, allowing for some more stylish modules.</p>
+<p>
+The &#34;_Format&#34; function isn&#39;t used in my fork, but it&#39;s still included.</p>
+<p>
+You&#39;ll notice the &#34;_Modules&#34; function echoes out a character and then the output of a module.</p>
+<p>
+The reason for this is that our loop in &#34;_Main&#34; uses a simple regex to run a particular command if a line contains a specific pattern.</p>
+<p>
+Adding a letter to the beginning of each line makes parsing the line A LOT simpler.</p>
+<p>
+**# Fifo file (named pipe)
+A named pipe acts the same a traditional pipe, except it stores the stdout into a file which can be used as stdin.</p>
+<p>
+Every time one of our modules updates, it outputs the content to the named pipe.</p>
+<p>
+The same goes for bspwm. We output data to the same named pipe whenever we select different nodes or switch desktops.</p>
+<p>
+The &#34;_Main&#34; function uses a &#34;read&#34; prompt to run a case statement on each line that is sent to the named pipe.</p>
+<p>
+If the line contains text with the pattern &#34;node*&#34;, the case statement updates the variable &#34;window_name&#34; and echoes out the string to lemonbar</p>
+<p>
+So if our &#34;_Modules&#34; function hasn&#39;t automatically looped yet, but our current desktop has changed, then the script updates the workspace module and displays the output to the bar. The stored variable data for the other modules remains unchanged.</p>
+<p>
+**# FYI
+The &#34;_Workspaces&#34; function was from BrodieRobertson and it really sucks (no offense).</p>
+<p>
+I only use &#34;_CurrentWorkspace&#34;. You have to tweak these to match your needs.</p>
+<p>
+The battery module sources an external script to show my battery
+status.</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>#!/bin/sh
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>batteries=$(find -P /sys/class/power_supply/ | grep -iE &#34;*bat*&#34;)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>for battery in $batteries; do
+</span></span><span style="display:flex;"><span>       status=$(cat $battery/status)
+</span></span><span style="display:flex;"><span>       capacity=$(cat &#34;$battery&#34;/capacity 2&gt;/dev/null || break)
+</span></span><span style="display:flex;"><span>       case &#34;$status&#34; in
+</span></span><span style="display:flex;"><span>               Discharging) echo &#34;: ${capacity}%&#34; ;;
+</span></span><span style="display:flex;"><span>               Full) echo &#34;: ${capacity}%&#34; ;;
+</span></span><span style="display:flex;"><span>               Charging) echo &#34;: ${capacity}%&#34; ;;
+</span></span><span style="display:flex;"><span>               Unknown) echo &#34;: ${capacity}%&#34;;;
+</span></span><span style="display:flex;"><span>       esac
+</span></span><span style="display:flex;"><span>done</span></span></code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-2">
+<h2 id="headline-6">
+Image
+</h2>
+<div id="outline-text-headline-6" class="outline-text-2">
+<p>Recreated my website from old source and lost my images :p</p>
+</div>
+</div>
+
+  </article>
+</main>
+
+</body>
+</html>

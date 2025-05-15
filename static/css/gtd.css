@@ -252,24 +252,11 @@ h3::before {
 
 
 
-code {
-	background-color: #f1f1f1;
-	padding: 0.2rem 0.4rem;
-	border-radius: 4px;
-}
-
-pre::before {
-    color: #cccccc;
-    float: left;
-    text-align: right;
-    font-weight: 300;
-    width: 3.0em;
-    margin-left: -4.25em;
-    font-variant: small-caps;
-    content: "";
-}
-pre.src-lisp::before { content: "lisp"; }
-pre.src-org::before { content: "org"; }
+/* code { */
+	/* background-color: #f1f1f1; */
+	/* padding: 0.2rem 0.4rem; */
+	/* border-radius: 4px; */
+/* } */
 
 pre {
   font-family: 'Fira Code', monospace;
@@ -279,21 +266,6 @@ pre {
   padding: 1rem;
   border-radius: 4px;
   overflow-x: auto; /* Allow horizontal scrolling if necessary */
-}
-pre.src {
-    position: relative;
-    overflow: visible;
-}
-
-pre[class*="language-"] {
-  padding: 1.5rem;
-  background-color: #2d2d2d; /* Dark background for syntax highlighting */
-  border-radius: 5px;
-  overflow-x: auto;
-}
-
-code[class*="language-"] {
-  font-family: 'Fira Code', monospace;
 }
 
 /* --- Code folding --- */

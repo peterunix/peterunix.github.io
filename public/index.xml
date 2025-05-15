@@ -2,361 +2,158 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My New Hugo Site</title>
-    <link>http://localhost:1313/</link>
+    <link>http://89.147.111.130:1313/</link>
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 17 Jan 2025 19:00:38 -0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://89.147.111.130:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Setting Up Emacs With Bidirectional Google Calendar Sync</title>
-      <link>http://localhost:1313/blog/setting-up-emacs-with-bidirectional-google-calendar-sync/</link>
+      <title>Emacs With Directional Google Calendar Sync</title>
+      <link>http://89.147.111.130:1313/blog/emacs/emacs-with-bidirectional-google-calendar-sync/</link>
       <pubDate>Fri, 17 Jan 2025 19:00:38 -0800</pubDate>
-      <guid>http://localhost:1313/blog/setting-up-emacs-with-bidirectional-google-calendar-sync/</guid>
-      <description>Synopsis This guide will use Emacs 30 (optionally) and org-gcal by Kidd to setup bidirectional calendar syncing between your org agenda and google.&#xA;I&amp;#39;m using the following Emacs app image: LINK&#xA;Overview of steps:&#xA;Create a new app on the Google Developer Console Install org-gcal from straight Add your API keys Sync Calendar The guide on the Kidd&amp;#39;s README is incredibly detailed. I&amp;#39;ll be copying most of it and including the solutions that left me with a working system.</description>
+      <guid>http://89.147.111.130:1313/blog/emacs/emacs-with-bidirectional-google-calendar-sync/</guid>
+      <description>Emacs With Directional Google Calendar Sync Preamble Directions to setup the org-gcal package for bidirectional Google Calendar Sync. Emacs 30 was used. The AppImage can be located here: LINK&#xA;Calendar Sync Create a new app on the Google Developer Console Install org-gcal Add your API keys Sync Calendar The guide on the Kidd&amp;#39;s README is incredibly detailed. I&amp;#39;ll be copying most of it and including the solutions that left me with a working system.</description>
     </item>
     <item>
-      <title>How to Create an Offline Debian Mirror Repository</title>
-      <link>http://localhost:1313/blog/how-to-create-an-offline-debian-mirror-repository/</link>
+      <title>Creating an Offline Debian Mirror Repository</title>
+      <link>http://89.147.111.130:1313/blog/linux/creating-an-offline-debian-mirror-repository/</link>
       <pubDate>Sun, 12 Jan 2025 22:54:06 -0800</pubDate>
-      <guid>http://localhost:1313/blog/how-to-create-an-offline-debian-mirror-repository/</guid>
-      <description>Overview Install xr09&amp;#39;s mirror script Sync to folder Generate package list Use the offline mirror Mirror Script Official page: https://github.com/xr09/debian-mini-repo/blob/master/cron-debmirror&#xA;Edit the script and change the REPOS_DIR variable in the mirror.sh file. This should be the local path that will store the packages.&#xA;Edit the debmirror.conf file and set the host to a Debian mirror (i.e &amp;#34;ftp.debian.org&amp;#34;). I&amp;#39;d suggest using a third party mirror to mindful of Debian&amp;#39;s bandwidth costs.</description>
+      <guid>http://89.147.111.130:1313/blog/linux/creating-an-offline-debian-mirror-repository/</guid>
+      <description>Creating an Offline Debian Mirror Repository Preamble Directions for creating a fully functional offline Debian mirror with most, but not all, packages available.&#xA;Creating the offline mirror Overview Install xr09&amp;#39;s mirror script Download Packages to folder Generate package index list Use the mirror Mirror Script Clone this repo: https://github.com/xr09/debian-mini-repo/blob/master/cron-debmirror&#xA;Edit the script and change the REPOS_DIR variable in the mirror.sh file. This should be the local path that will store the packages.</description>
     </item>
     <item>
-      <title>Setting up Emacs with Mu4e, Protonmail, and Gmail</title>
-      <link>http://localhost:1313/blog/setting-up-emacs-with-mu4e-protonmail-and-gmail/</link>
+      <title>Emacs with Mu4e and Multiple Gmail Accounts</title>
+      <link>http://89.147.111.130:1313/blog/emacs/emacs-with-mu4e-and-multiple-gmail-accounts/</link>
       <pubDate>Sat, 11 Jan 2025 00:53:38 -0700</pubDate>
-      <guid>http://localhost:1313/blog/setting-up-emacs-with-mu4e-protonmail-and-gmail/</guid>
-      <description>Overview Here&amp;#39;s how to configure MU4e to work with Protonmail and Gmail simultaneously&#xA;App password/XOauth I&amp;#39;m using app passwords while they still last. Eventually this section will contain information on setting up XOAUTH 2.0 when app passwords are fully phased out.&#xA;Create your app password for your gmail account by doing the following:&#xA;Open your gmail account settings Enable two factor authentication Create your app password using https://myaccount.google.com/apppasswords The app password will be used by offlineimap to sign into your Gmail account.</description>
+      <guid>http://89.147.111.130:1313/blog/emacs/emacs-with-mu4e-and-multiple-gmail-accounts/</guid>
+      <description>Emacs with Mu4e and Multiple Gmail Accounts Preamble Documented steps I take to setup Mu4e with two Gmail accounts. This page will contain the directions for using app password authentication. It will be updated when XOAUTH2.0 is required.&#xA;Installation Gmail I&amp;#39;m using app passwords while they still last. Eventually this section will contain information on setting up XOAUTH 2.0 when app passwords are fully phased out.&#xA;Two email accounts will be added to Mu4e.</description>
     </item>
     <item>
       <title>Migrate Wiki.js to Another Server</title>
-      <link>http://localhost:1313/blog/migrate-wiki.js-to-another-server/</link>
+      <link>http://89.147.111.130:1313/blog/linux/migrate-wiki.js-to-another-server/</link>
       <pubDate>Wed, 18 Sep 2024 07:54:32 -0700</pubDate>
-      <guid>http://localhost:1313/blog/migrate-wiki.js-to-another-server/</guid>
-      <description>My migration setup Original server runs WikiJS through docker. One container contains the PostgresDB and the other contains the node server New server will be running WikiJS natively Exporting the database on old server From the old server, run the following command to dump the database to a file.&#xA;pg_dump wiki -U wiki -F c &amp;gt; wikibackup.dump I&amp;#39;m using podman to host my containers. My command is a little different.</description>
+      <guid>http://89.147.111.130:1313/blog/linux/migrate-wiki.js-to-another-server/</guid>
+      <description>Migrate Wiki.js to Another Server Preamble Documented steps I took to migrate Wiki.JS from one server to another. The original instance was running on docker. The new instance is on an LXC container.&#xA;Migrating Steps Overview The original server runs WikiJS through docker. One container contains the PostgresDB and the other contains the node server&#xA;New server will be running WikiJS natively&#xA;Exporting the database on old server From the old server, run the following command to dump the database to a file.</description>
     </item>
     <item>
-      <title>Corebooting Thinkpad X220 With CH341A Programmer</title>
-      <link>http://localhost:1313/blog/corebooting-thinkpad-x220-with-ch341a-programmer/</link>
-      <pubDate>Fri, 30 Aug 2024 09:35:19 -0700</pubDate>
-      <guid>http://localhost:1313/blog/corebooting-thinkpad-x220-with-ch341a-programmer/</guid>
-      <description>Summary of page This isn&amp;#39;t going to be a walkthrough of corebooting your Thinkpad X220. These are the steps you need to get the flasher working and connected to your system&#xA;Fyi: My host system is Windows 11 and a virtual machine with USB redirection was used to flash the system&#xA;I exported the factory default ROMS to my PC&#xA;Step 1 - Buy the flasher I purchased the following CH341A programmer with the clip from Amazon.</description>
-    </item>
-    <item>
-      <title>Automating Chkdsk Scans Using Powershell With Email Alerts for Rmm</title>
-      <link>http://localhost:1313/blog/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</link>
-      <pubDate>Thu, 22 Aug 2024 20:44:38 -0700</pubDate>
-      <guid>http://localhost:1313/blog/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</guid>
-      <description>What this does Automatically schedules windows filesystem checks if the drive is detected to have corruption. If corruption occurs more than once per week, an email is sent out to your desired address. SFC &amp;amp; DISM scans are scheduled for 10PM. CHKDSKs on the corrupt drive are scheduled for 12AM&#xA;This can be run standalone, although ideally you set it up as an automatic response in your RMM software. There are failsafes in place to prevent the script from running multiple times due to alert spam.</description>
-    </item>
-    <item>
-      <title>Automatic Mariadb Backups With Powershell</title>
-      <link>http://localhost:1313/blog/automatic-mariadb-backups-with-powershell/</link>
-      <pubDate>Thu, 22 Aug 2024 20:24:31 -0700</pubDate>
-      <guid>http://localhost:1313/blog/automatic-mariadb-backups-with-powershell/</guid>
-      <description>Usage Edit the script and modify the variables DBUSER and DBPASS to be your database credentials. You can either run the script standalone or schedule it using the Windows Task Manager to have your incremental backups run&#xA;./PS-MariaDBBackupTool.ps1 Important Note Only use this with InnoDB. If you have MyISAM the database wont backup incrementally properly. It’ll work, but each incremental would be the same size as the initial backup. If you migrated from MyISAM to InnoDB, make sure to remove the MyISAM backups of the database from the mysql folder.</description>
-    </item>
-    <item>
-      <title>Add Bitwarden to Pinephone Pro Using Firefox Extension</title>
-      <link>http://localhost:1313/blog/add-bitwarden-to-pinephone-pro-using-firefox-extension/</link>
-      <pubDate>Tue, 14 May 2024 21:20:29 -0700</pubDate>
-      <guid>http://localhost:1313/blog/add-bitwarden-to-pinephone-pro-using-firefox-extension/</guid>
-      <description>Introduction Here&amp;#39;s how to get the Bitwarden firefox extension to appear as an application on your PinePhone Pro. Make sure your display scaling is set to 100% for this guide&#xA;I&amp;#39;m doing this on PMOS Phosh&#xA;Install Bitwarden Install the extension then press &amp;#34;C-b&amp;#34; to open the sidebar. Use the dropdown button to switch from the bookmarks view to Bitwarden. This is a workaround to the Bitwarden pop-up window being glitchy.</description>
-    </item>
-    <item>
-      <title>Emacs Eww Useful Tips and Tricks</title>
-      <link>http://localhost:1313/blog/emacs-eww-useful-tips-and-tricks/</link>
+      <title>Emacs EWW Hacks</title>
+      <link>http://89.147.111.130:1313/blog/emacs/emacs-eww-hacks/</link>
       <pubDate>Tue, 14 May 2024 08:32:07 -0700</pubDate>
-      <guid>http://localhost:1313/blog/emacs-eww-useful-tips-and-tricks/</guid>
-      <description>Introduction These are some of the tweaks I&amp;#39;ve made that improved the quality of life in EWW. I use evil mode.&#xA;Simple Styling I ripped this from the wiki and increased the indentation value&#xA;(setq browse-url-browser-function &amp;#39;eww-browse-url) ; Use eww as the default browser (setq shr-use-fonts nil) ; No special fonts (setq shr-use-colors nil) ; No colours (setq shr-indentation 4) ; Left-side margin (setq shr-width 70) ; Fold text to 70 columns (setq eww-search-prefix &amp;#34;https://google.</description>
+      <guid>http://89.147.111.130:1313/blog/emacs/emacs-eww-hacks/</guid>
+      <description>Emacs EWW Hacks Preamble Collection of emacs snippets to enhance the eww experience.&#xA;Hack list Simple Styling (setq browse-url-browser-function &amp;#39;eww-browse-url) ; Use eww as the default browser (setq shr-use-fonts nil) ; No special fonts (setq shr-use-colors nil) ; No colours (setq shr-indentation 4) ; Left-side margin (setq shr-width 70) ; Fold text to 70 columns (setq eww-search-prefix &amp;#34;https://google.com/search?q=&amp;#34;) ; Use another engine for searching Rename EWW Buffers to Website Names (setq eww-auto-rename-buffer t) Force EWW to open new buffers by default Normally EWW only runs as a single buffer, similar to Eshell.</description>
     </item>
     <item>
-      <title>Self Host Pastebin Service With Tempbin</title>
-      <link>http://localhost:1313/blog/self-host-pastebin-service-with-tempbin/</link>
-      <pubDate>Sun, 05 May 2024 19:38:04 -0700</pubDate>
-      <guid>http://localhost:1313/blog/self-host-pastebin-service-with-tempbin/</guid>
-      <description>Objective I write this site using Hugo and wanted a way to quickly upload files and link them in my pages. Adding them to a subfolder and manually linking them would take far too much work, so how about using a webserver that i can copy paste images/text into and then add a direct link to the image!&#xA;I found a github project that does just that: hizkifw\tempbin. By default its designed to allow file uploads and to automatically delete them after so many hours.</description>
+      <title>Simulating Bad Blocks NTFS Filesystems</title>
+      <link>http://89.147.111.130:1313/blog/windows/simulating-bad-blocks-on-ntfs-filesystems/</link>
+      <pubDate>Sun, 03 Dec 2023 19:02:59 -0800</pubDate>
+      <guid>http://89.147.111.130:1313/blog/windows/simulating-bad-blocks-on-ntfs-filesystems/</guid>
+      <description>Simulating Bad Blocks on NTFS Filesystems Preamble Directions for simulating a file system corruption error on an NTFS drive on a Windows host system. This is useful when you are testing tools that require this error exist.&#xA;Simulating Corruption https://github.com/jamersonpro/ntfsmarkbad&#xA;Creating the test environment Create the folder for our demo environment&#xA;mkdir BadBlocktest cd BadBlockTest Download the NtfsMarkBad tool&#xA;Invoke-WebRequest -Uri &amp;#34;https://github.com/jamersonpro/ntfsmarkbad/releases/download/v0.0.2/NtfsMarkBad.exe&amp;#34; -Outfile &amp;#34;NtfsMarkBad.exe&amp;#34; -UseBasicParsing Create a virtual hard disk file</description>
     </item>
     <item>
-      <title>Setup Iventoy With Isc Dhcp Server for Pxe Boot</title>
-      <link>http://localhost:1313/blog/setup-iventoy-with-isc-dhcp-server-for-pxe-boot/</link>
-      <pubDate>Mon, 29 Apr 2024 20:47:38 -0700</pubDate>
-      <guid>http://localhost:1313/blog/setup-iventoy-with-isc-dhcp-server-for-pxe-boot/</guid>
-      <description>Overview Setup the IVentoy server Setup DHCP server to handle DHCP and PXE boot options This guide assumes that these are two different servers with static IP addresses. By the end, you&amp;#39;ll be able to PXE boot any files placed in the ISO folder of Ventoy.&#xA;Setting up IVentoy PXE server Download and extract the latest iventoy from the IVentoy Github Releases. I placed the files in /opt/ventoy/&#xA;Start the Ventoy server and load the web interface.</description>
-    </item>
-    <item>
-      <title>Self Hosting Frog Find on Debian</title>
-      <link>http://localhost:1313/blog/self-hosting-frog-find-on-debian/</link>
-      <pubDate>Fri, 12 Apr 2024 14:02:52 -0700</pubDate>
-      <guid>http://localhost:1313/blog/self-hosting-frog-find-on-debian/</guid>
-      <description> Frog Find Frog find is a search engine used for old computers. Anything you search and any link you click gets converted into HTML. A demo can be found on https://search.unixfandom.com.&#xA;Installation Here&amp;#39;s how to install it. I&amp;#39;ll show both the orginal link and my fork that includes some custom CSS for margins.&#xA;apt install php php-xml composer git git clone https://github.com/peterunix/FrogFind.git cd FrogFind composer update php -S localhost:8000 </description>
-    </item>
-    <item>
-      <title>Termux Chroot Into Arch Linux</title>
-      <link>http://localhost:1313/blog/termux-chroot-into-arch-linux/</link>
-      <pubDate>Wed, 24 Jan 2024 16:52:22 +0000</pubDate>
-      <guid>http://localhost:1313/blog/termux-chroot-into-arch-linux/</guid>
-      <description>Preface Here&amp;#39;s how to chroot into an Arch Linux Arm installation from Termux. This will require a rooted android and a little bit of time&#xA;Why should I use chroot/proot instead of Termux natively Chrooting into an offical linux image will give you the same package support as any other distribution. You can install packages like qemu, not deal with broken termux dependencies, and properly follow guides on compiling software.</description>
-    </item>
-    <item>
-      <title>Mounting Dropbox in Termux Using Dbxfs...almost</title>
-      <link>http://localhost:1313/blog/mounting-dropbox-in-termux-using-dbxfs/</link>
-      <pubDate>Sun, 24 Dec 2023 14:21:12 -0600</pubDate>
-      <guid>http://localhost:1313/blog/mounting-dropbox-in-termux-using-dbxfs/</guid>
-      <description>Preface Here&amp;#39;s how to install and run DBXFS to mount Dropbox. I&amp;#39;m using a rooted Samsung Galaxy A035M with Termux installed via FDroid. This is only how to install DBXFS – NOT having it mount your dropbox. DBXFS will fail to automatically to mount Dropbox with the following error: &amp;#34;Don&amp;#39;t know how to automatically mount the file system on this platform. Run with –smb-no-mount&amp;#34;.&#xA;The –smb-no-mount flag will create a cifs share running on 127.</description>
-    </item>
-    <item>
-      <title>Getting the Default Wireless Password to TG1672G Routers</title>
-      <link>http://localhost:1313/blog/getting-the-default-wireless-password-to-tg1672g-routers/</link>
-      <pubDate>Sat, 16 Dec 2023 14:09:06 -0600</pubDate>
-      <guid>http://localhost:1313/blog/getting-the-default-wireless-password-to-tg1672g-routers/</guid>
-      <description>Preface Here in El Salvador, most houses that use TIGO as their ISP have the same ARRIS TG1672G router. This router has a seemingly random password, but it actually follows a pattern thats really easy to guess&#xA;The Pattern TG1672G&amp;lt;FIRST BYTE OF BSSID NIC SPECIFIC&amp;gt;&amp;lt;LAST FOUR OF SSID&amp;gt; Getting the password All we need is the BSSID of the WAP and the SSID. In my experience, its been the case that every home has the same model modem.</description>
-    </item>
-    <item>
-      <title>Upgrade Windows11 Home to Windows11 Enterprise Without Reinstalling</title>
-      <link>http://localhost:1313/blog/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</link>
-      <pubDate>Sat, 25 Nov 2023 17:43:45 -0800</pubDate>
-      <guid>http://localhost:1313/blog/upgrade-windows11-home-to-windows11-enterprise-without-reinstalling/</guid>
-      <description>Preface I didn&amp;#39;t want to pay for a Windows 11 Pro product key and niether did I want to wipe windows to re-install Windows 11 Pro. The KMS activation keys I tried weren&amp;#39;t working . After about 30 minutes googling, I found a guide that worked. Here it is!&#xA;Applying the generic license key Open CMD.exe as an administrator and run the following commands.&#xA;# Source https://superuser.com/questions/1734956/how-can-i-upgrade-a-brand-new-windows-11-home-to-pro-without-leaving-the-out-o slui.exe /upk changepk.</description>
-    </item>
-    <item>
-      <title>Upgrade a Generation 1 Windows10 Hyperv Vm to Windows11</title>
-      <link>http://localhost:1313/blog/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/</link>
-      <pubDate>Wed, 15 Nov 2023 13:17:46 -0800</pubDate>
-      <guid>http://localhost:1313/blog/upgrade-a-generation-1-windows10-hyperv-vm-to-windows11/</guid>
-      <description>Overview You have a bunch of Gen1 VMs running Windows 10 using Legacy Bios. Your goal&amp;#39;s to move upgrade them to Gen2 VMs and upgrade them to windows 11. How do you do that? It&amp;#39;s simple&#xA;Mount each VHD to the host OS Free some unallocated space on the drive Convert the drive to GPT. This creates the EFI partition Cool thing to note With UEFI you can either create a FAT32 partition with EFI files or explicitly create an EFI partition (aka ESP - EFI System Partition) to store the EFI Files.</description>
-    </item>
-    <item>
-      <title>Creating an Irc Bouncer With Docker and Znc</title>
-      <link>http://localhost:1313/blog/creating-an-irc-bouncer-with-docker-and-znc/</link>
-      <pubDate>Sat, 11 Nov 2023 22:53:50 -0800</pubDate>
-      <guid>http://localhost:1313/blog/creating-an-irc-bouncer-with-docker-and-znc/</guid>
-      <description>Preface This is a half ass post on setting up ZNC to be your IRC bouncer and enable automatic login for nickserv required servers. Everything is going to be done through docker.&#xA;You&amp;#39;ll need a public facing server and about 15 minutes of time.&#xA;Dependencies sudo apt install docker docker-io sudo systemctl enable --now docker Creating the container The first command creates an interactive ZNC container that&amp;#39;s used to generate the configuration files.</description>
-    </item>
-    <item>
-      <title>Dell R720XD Lower Idrac7 Fan Speeds</title>
-      <link>http://localhost:1313/blog/dell-r720xd-idrac7-lower-fan-speeds/</link>
-      <pubDate>Sun, 15 Oct 2023 11:40:39 -0700</pubDate>
-      <guid>http://localhost:1313/blog/dell-r720xd-idrac7-lower-fan-speeds/</guid>
-      <description>Preface My rack server was destroying my eardrums with the fan speeds being too high. I plan to replace the fans with Noctua&amp;#39;s, but in the meantime this fix works great. It&amp;#39;s not silent, but much quieter.&#xA;Commands Run these commands inside of IDrac SSH&#xA;racadm set system.thermalsettings.FanSpeedOffset 255 racadm set system.thermalsettings.ThirdPartyPCIFanResponse 0 racadm set system.thermalsettings.ThermalProfile 2 That&amp;#39;s it! Still a little noisy but tolerable.</description>
-    </item>
-    <item>
-      <title>How to Clone a Drive to Disimilar Hardware From Bios to Uefi</title>
-      <link>http://localhost:1313/blog/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</link>
-      <pubDate>Wed, 13 Sep 2023 15:51:09 -0700</pubDate>
-      <guid>http://localhost:1313/blog/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</guid>
-      <description>FYI Use this as an overview for how to clone a drive. The methods I used for some of the steps can be simplified by using the right tools.&#xA;Overview I had a clone an old Dell Machine to a new Dell Optiplex SFF 7010. The problem was the new computer had an NVME drive with storage controller drivers that weren&amp;#39;t even in the Windows 11 installation media. On top of that, the original computer was Windows 10 but was BIOS only, meaning it wouldn&amp;#39;t boot at all on the UEFI only machine.</description>
-    </item>
-    <item>
-      <title>Victus 15 Fa0xxx Freezing After Suspend Fix</title>
-      <link>http://localhost:1313/blog/victus-15-fa0xxx-freezing-after-suspend-fix/</link>
-      <pubDate>Sun, 03 Sep 2023 19:19:40 -0700</pubDate>
-      <guid>http://localhost:1313/blog/victus-15-fa0xxx-freezing-after-suspend-fix/</guid>
-      <description>Preface THIS DIDN&amp;#39;T ACTUALLY FIX IT FOR ME&#xA;I have a Victus 15 fa0xxx laptop that fails to wake up from suspend. When waking up, something happens with the Alder Lake Integrated GPU that causes the screen to flicker on and off and ALL graphics to be incredibly laggy.&#xA;The DMESG log is flooded with these errors while the post-suspend lags happens:&#xA;[ 340.318790] i915 0000:00:02.0: [drm] *ERROR* [ENCODER:235:DDI A/PHY A][DPRX] Failed to enable link training [ 343.</description>
-    </item>
-    <item>
-      <title>How to Merge Hyper-V Snapshots With Powershell</title>
-      <link>http://localhost:1313/blog/how-to-merge-hyperv-snapshots-with-powershell/</link>
+      <title>Merging HyperV Snapshots With Powershell</title>
+      <link>http://89.147.111.130:1313/blog/windows/merging-hyperv-snapshots-with-powershell/</link>
       <pubDate>Fri, 25 Aug 2023 13:40:41 -0700</pubDate>
-      <guid>http://localhost:1313/blog/how-to-merge-hyperv-snapshots-with-powershell/</guid>
-      <description>Identify your child avhdx file Get-VM | Get-VMHardDiskDrive | Select VMName,Path VMName Path ------ ---- Domain Controller D:\VMs\Domain Controller_1023082130.avhdx Installing the Hyper-V Powershell CMDLETS Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Management-PowerShell Merge the AVHDX Make sure your VM is turned off. The Merge-VHD operation requires the avhdx file be offline.&#xA;The destination path will be the snapshot or VHDX file that you want to merge into. This will automatically merge any of the parent snapshots in between the one you&amp;#39;re using and the one you&amp;#39;re merging into.</description>
+      <guid>http://89.147.111.130:1313/blog/windows/merging-hyperv-snapshots-with-powershell/</guid>
+      <description>Merging HyperV Snapshots With Powershell Preamble Directions for how to merge multiple HyperV snapshot differencing files.&#xA;Merging the snapshot Identify your child avhdx file Get-VM | Get-VMHardDiskDrive | Select VMName,Path VMName Path ------ ---- Domain Controller D:\VMs\Domain Controller_1023082130.avhdx Installing the Hyper-V Powershell CMDLETS Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Management-PowerShell Merge the AVHDX Make sure your VM is turned off. The Merge-VHD operation requires the avhdx file be offline.&#xA;The destination path will be the snapshot or VHDX file that you want to merge into.</description>
     </item>
     <item>
-      <title>How to Migrate a Windows Server Domain From One Server to Another</title>
-      <link>http://localhost:1313/blog/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</link>
-      <pubDate>Thu, 24 Aug 2023 07:59:21 -0700</pubDate>
-      <guid>http://localhost:1313/blog/how-to-migrate-a-windows-server-domain-from-one-server-to-another/</guid>
-      <description>Preface This guide assumes you&amp;#39;re migrating a domain controller to a new server then demoting the old DC.&#xA;Check the DC Health On the old server, run a few reports and make sure the health of the domain controller is good. Fix any errors that arise prior to migrating anything.&#xA;dcdiag.exe /v dcdiag.exe /test:dns repadmin.exe /replsummary Join New Server to Domain Make sure your DNS is pointing to the old DC before doing this.</description>
-    </item>
-    <item>
-      <title>Email Alerts With Fail2ban and Gmail</title>
-      <link>http://localhost:1313/blog/email-alerts-with-fail2ban-and-gmail/</link>
-      <pubDate>Fri, 18 Aug 2023 14:20:39 -0700</pubDate>
-      <guid>http://localhost:1313/blog/email-alerts-with-fail2ban-and-gmail/</guid>
-      <description>Preface Here&amp;#39;s how to setup Fail2ban to send email alerts through GMAIL when failed SSH authentications are made. I&amp;#39;m not going to be too detailed on this but I&amp;#39;ll provide the link to setting up Exim4 along with my jail.local config for SSH. Exim4 doesn&amp;#39;t have OAUTH2.0 support so you&amp;#39;ll have to use app passwords. You can probably write your own python program that can handle OATH2.0&#xA;There are two parts to this:</description>
-    </item>
-    <item>
-      <title>Outlook Fix Godaddy Email Server Not Being Found</title>
-      <link>http://localhost:1313/blog/outlook-fix-godaddy-email-server-not-being-found/</link>
-      <pubDate>Thu, 17 Aug 2023 10:05:46 -0700</pubDate>
-      <guid>http://localhost:1313/blog/outlook-fix-godaddy-email-server-not-being-found/</guid>
-      <description>The Issue When adding a GoDaddy or Exchange account to outlook, sometimes you&amp;#39;ll get this error when outlook attempts to automatically add the email: &amp;#34;Something went wrong and outlook couldn&amp;#39;t setup your account&amp;#34;.&#xA;Possible Cause Exchange uses an auto discover service to download configuration settings for setting up the email. Outlook grabs the domain from your email and constructs a URL that looks a little something like this.&#xA;https://autodiscover.example.com/autodiscover/autodiscover.xml The server should respond back with email configuration data in that XML file.</description>
-    </item>
-    <item>
-      <title>Mikrotik Creating a Client to Site Vpn With Wireguard</title>
-      <link>http://localhost:1313/blog/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</link>
+      <title>Mikrotik Creating a Client to Site VPN With Wireguard</title>
+      <link>http://89.147.111.130:1313/blog/mikrotik/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</link>
       <pubDate>Fri, 28 Jul 2023 13:00:51 -0700</pubDate>
-      <guid>http://localhost:1313/blog/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</guid>
-      <description>Server Setup Let&amp;#39;s add a new wireguard interface and give it the name &amp;#34;Wireguard1&amp;#34; The listening port is set to the default port number that the wireguard devs intended. The MTU value is default to what Mikrotik auto-fills&#xA;/interface/wireguard/add listen-port=51820 mtu=1420 name=wireguard1 Now let&amp;#39;s print out the servers private and public keys. This will be used when creating the client configuration files.&#xA;/interface/wireguard/print =====OUTPUT===== name=&amp;#34;wireguard1&amp;#34; mtu=1420 listen-port=51820 private-key=&amp;#34;AUTO-GENERATED-PRIV-KEY&amp;#34; public-key=&amp;#34;AUTO-GENERATED-PUB-KEY&amp;#34; We have our Wireguard interface setup.</description>
+      <guid>http://89.147.111.130:1313/blog/mikrotik/mikrotik-creating-a-client-to-site-vpn-with-wireguard/</guid>
+      <description>Mikrotik Creating a Client to Site VPN With Wireguard Preamble Directions for setting up a Wireguard client-to-site server on a Mikrotik. This is done using the command line from SSH or Winbox.&#xA;Server Configuration Create Wireguard interface Add a new wireguard interface and give it the name &amp;#34;Wireguard1&amp;#34; The listening port is set to the default port number that the wireguard devs intended. The MTU value is default to what Mikrotik auto-fills</description>
     </item>
     <item>
       <title>Mikrotik Securing Router With Firewall</title>
-      <link>http://localhost:1313/blog/mikrotik-securing-router-with-firewall/</link>
+      <link>http://89.147.111.130:1313/blog/mikrotik/mikrotik-securing-router-with-firewall/</link>
       <pubDate>Fri, 28 Jul 2023 12:55:34 -0700</pubDate>
-      <guid>http://localhost:1313/blog/mikrotik-securing-router-with-firewall/</guid>
-      <description>Fresh Start Incase you mess up or want a fresh start, run these two commands to clear all firewall rules and address lists. Note that if you re-run the command to add a filter, it&amp;#39;ll either error out or duplicate if it already exists.&#xA;/ip/firewall/filter remove [find dynamic=no] /ip/firewall/address-list remove [find dynamic=no] Default Firewall Rules These are the default IPv4 firewall filters suggested by Mikrotik. They work very well and prevent unwanted connections from the WAN interface.</description>
+      <guid>http://89.147.111.130:1313/blog/mikrotik/mikrotik-securing-router-with-firewall/</guid>
+      <description>Mikrotik Securing Router With Firewall Preamble Documented are firewall rules to enable after resetting your Mikrotik firewall. It will provide good baseline security.&#xA;Securing the firewall Fresh Start Incase you mess up or want a fresh start, run these two commands to clear all firewall rules and address lists. Note that if you re-run the command to add a filter, it&amp;#39;ll either error out or duplicate if it already exists.</description>
     </item>
     <item>
       <title>Mikrotik Setup Dynamically Changing IP With No-IP Api</title>
-      <link>http://localhost:1313/blog/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</link>
+      <link>http://89.147.111.130:1313/blog/mikrotik/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</link>
       <pubDate>Fri, 28 Jul 2023 12:51:42 -0700</pubDate>
-      <guid>http://localhost:1313/blog/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</guid>
-      <description>Code Use the System&amp;gt;Scripts page and create a new script with this code. Change the variables under the Script Settings block. Also, to make things easier, set the name of the script to &amp;#34;NoIP&amp;#34;&#xA;Source Page&#xA;##############Script Settings################## :local NOIPUser &amp;#34;USERNAME&amp;#34; :local NOIPPass &amp;#34;PASSWORD&amp;#34; :local WANInter &amp;#34;ether1&amp;#34; :local NOIPDomain &amp;#34;NO-IP.DDNS.NET&amp;#34; ############################################### # Get the current IP on the interface :local currentIP [/ip address get [find interface=&amp;#34;$WANInter&amp;#34; disabled=no] address] # Strip the net mask off the IP address :for i from=( [:len $currentIP] - 1) to=0 do={ :if ( [:pick $currentIP $i] = &amp;#34;/&amp;#34;) do={ :set currentIP [:pick $currentIP 0 $i] } } :if ([:resolve $NOIPDomain] !</description>
-    </item>
-    <item>
-      <title>Windows Server Setup Ssh Server</title>
-      <link>http://localhost:1313/blog/windows-server-setup-ssh-server/</link>
-      <pubDate>Sat, 22 Jul 2023 16:32:15 -0700</pubDate>
-      <guid>http://localhost:1313/blog/windows-server-setup-ssh-server/</guid>
-      <description>Sources https://docs.microsoft.com/en-us/windows/terminal/tutorials/ssh https://superuser.com/questions/1501402/how-to-change-ssh-port-on-windows-10 https://www.concurrency.com/blog/may-2019/key-based-authentication-for-openssh-on-windows Installing the Server This will install the SSH server, start the service, and then whitelist the SSH port. Starting the service will automatically create all the SSH files in %ProgramData%/ssh.&#xA;Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0 # Start the sshd service Start-Service sshd # OPTIONAL but recommended: Set-Service -Name sshd -StartupType &amp;#39;Automatic&amp;#39; # Confirm the Firewall rule is configured. It should be created automatically by setup. Run the following to verify if (!</description>
-    </item>
-    <item>
-      <title>Windows Server Creating and Viewing a Storport Trace</title>
-      <link>http://localhost:1313/blog/windows-server-creating-and-viewing-a-storport-trace/</link>
-      <pubDate>Sat, 22 Jul 2023 16:24:55 -0700</pubDate>
-      <guid>http://localhost:1313/blog/windows-server-creating-and-viewing-a-storport-trace/</guid>
-      <description>Creating a StorPort trace using logman.exe LOGMAN.EXE is CLI utility for creating data collector sets. A data collector set can be thought of as a container for choosing which performance counters or trace events to log. All the logged data from the data collector will be stored in a single file.&#xA;A performance counter provides high-level, numeric, metrics for system behavior. There are performance counters for CPU utilization, search indexing, disk utilization, processes, etc.</description>
-    </item>
-    <item>
-      <title>Ffmpeg Convert Flac to 320kbs Mp3</title>
-      <link>http://localhost:1313/blog/ffmpeg-convert-flac-to-320kbs-mp3/</link>
-      <pubDate>Sat, 22 Jul 2023 16:23:15 -0700</pubDate>
-      <guid>http://localhost:1313/blog/ffmpeg-convert-flac-to-320kbs-mp3/</guid>
-      <description>Preface The goal is to convert a flac file into a 320kb/s MP3 file whilst retaining all metadata. The only dependencies you need are &amp;#34;ffmpeg&amp;#34; and &amp;#34;id3v2&amp;#34;. The ladder is used for embeding metadata.&#xA;Actually doing it Description of the commands listed below&#xA;ffmpeg -i &amp;#34;input.flac&amp;#34; -codec:a libmp3lame -map_metadata 0 -id3v2_version 3 -write_id3v1 1 -map a:0 -b:a 320k &amp;#34;output.mp3&amp;#34; &amp;#34;-i&amp;#34; Pass our input file&#xA;&amp;#34;-codec:a&amp;#34; Passing our preffered audio codec</description>
-    </item>
-    <item>
-      <title>Ffmpeg Record Selection of Screen</title>
-      <link>http://localhost:1313/blog/ffmpeg-record-selection-of-screen/</link>
-      <pubDate>Sat, 22 Jul 2023 16:22:37 -0700</pubDate>
-      <guid>http://localhost:1313/blog/ffmpeg-record-selection-of-screen/</guid>
-      <description>Preface Depends: slop ffmpeg&#xA;Here&amp;#39;s a script I wrote that lets you select a window or portion of the screen and record it. It uses the ultrafast libx264 video codec to reduce resource consumption. Audio bitrate is capped at 128kb/s and the video is scaled to 720p to further conserve resourse usage.&#xA;#!/bin/sh # Depends: slop ffmpeg # Records the selected part of the screen output=&amp;#34;$1&amp;#34; dimensions=$(slop 2&amp;gt;/dev/null) size=$(echo &amp;#34;$dimensions&amp;#34; | sed &amp;#39;s/+.</description>
-    </item>
-    <item>
-      <title>Ffmpeg Use a Dummy Webcam</title>
-      <link>http://localhost:1313/blog/ffmpeg-use-a-dummy-webcam/</link>
-      <pubDate>Sat, 22 Jul 2023 16:22:07 -0700</pubDate>
-      <guid>http://localhost:1313/blog/ffmpeg-use-a-dummy-webcam/</guid>
-      <description>Preface I experienced my first proctored exam today. Being that I&amp;#39;m a technologist, I thought it&amp;#39;d be pretty fun to pre-record myself and have that recording output to a virtual webcam. Here&amp;#39;s a not so descriptive guide on using ffmpeg with the v4l2loopback kernel module to create a virtual dummy webcam.&#xA;Installing v4l2loopback kernel module This module allows for the creation of virtual video devices.&#xA;# Dependencies sudo apt install -y build-essential linux-headers-$(uname -r) v4l-utils help2man # Installation git clone https://github.</description>
-    </item>
-    <item>
-      <title>Debian Set Custom Font in Tty</title>
-      <link>http://localhost:1313/blog/debian-set-custom-font-in-tty/</link>
-      <pubDate>Sat, 22 Jul 2023 16:21:13 -0700</pubDate>
-      <guid>http://localhost:1313/blog/debian-set-custom-font-in-tty/</guid>
-      <description>Preface Here&amp;#39;s how to setup a custom keymap for your TTY, as well as rebinding the caps key to CTRL.&#xA;Custom keymap TTY The ConsoleData package contains a dozens of different keymaps. I&amp;#39;m copying the US Qwery kmap to a plain text file. From there we can modify which keycodes do which things.&#xA;sudo apt install -y console-common console-data zcat /usr/share/keymaps/i386/qwerty/us.kmap.gz &amp;gt; us.kmap I used the showkey command to display the keycode for each key I press.</description>
-    </item>
-    <item>
-      <title>Bspwm Dynamic Borders When Toggling Fullscreen</title>
-      <link>http://localhost:1313/blog/bspwm-dynamic-borders-when-toggling-fullscreen/</link>
-      <pubDate>Sat, 22 Jul 2023 16:20:35 -0700</pubDate>
-      <guid>http://localhost:1313/blog/bspwm-dynamic-borders-when-toggling-fullscreen/</guid>
-      <description> Preface Dynamically change the border size when there is either a single node or multiple nodes on the focused desktop&#xA;Add &amp;#34;/path/to/script &amp;amp;&amp;#34; to your BSPWMRC to make use of this script&#xA;#!/bin/sh # Border size when there is one node on desktop and when there are multiple node s single_node=&amp;#34;0&amp;#34; multi_node=&amp;#34;3&amp;#34; # Create named pipe dynamicborder_fifo=&amp;#39;/tmp/dynamic-border.fifo&amp;#39; [ -e &amp;#34;$dynamicborder_fifo&amp;#34; ] &amp;amp;&amp;amp; rm &amp;#34;$dynamicborder_fifo&amp;#34; mkfifo &amp;#34;$dynamicborder_fifo&amp;#34; # Subscribe to bspc events bspc subscribe desktop &amp;gt; &amp;#34;$dynamicborder_fifo&amp;#34; &amp;amp; bspc subscribe node &amp;gt; &amp;#34;$dynamicborder_fifo&amp;#34; &amp;amp; # Change border size if there is one node or multiple nodes on focused desktop _DynamicBorder(){ focused=$(bspc query -D --names -d focused) node=$(bspc query -N -d $focused | wc -l) [ $node -eq 1 ] &amp;amp;&amp;amp; bspc config border_width $single_node || bspc config border_width $multi_node } # Reading stdin from named pipe _Main(){ while read -r report; do case $report in *) _DynamicBorder;; esac done } _Main &amp;lt; &amp;#34;$dynamicborder_fifo&amp;#34; </description>
-    </item>
-    <item>
-      <title>Bspwm With Lembar Panel</title>
-      <link>http://localhost:1313/blog/bspwm-with-lembar-panel/</link>
-      <pubDate>Sat, 22 Jul 2023 16:18:10 -0700</pubDate>
-      <guid>http://localhost:1313/blog/bspwm-with-lembar-panel/</guid>
-      <description>Preface The Arch Wiki doesn&amp;#39;t provide any information on how to get lemonbar setup with workspace switching, window titles, etc. Most people have their custom bars run on a timer. We&amp;#39;re going to do them one better and have our script only update PARTS of our bar when necessary. This is going make things run much more efficiently and make displaying workspaces possible. I&amp;#39;m citing these two pages:&#xA;Protesilaos MelonPanel Config</description>
-    </item>
-    <item>
-      <title>Bspwm Better Scratchpad</title>
-      <link>http://localhost:1313/blog/bspwm-better-scratchpad/</link>
-      <pubDate>Sat, 22 Jul 2023 16:17:38 -0700</pubDate>
-      <guid>http://localhost:1313/blog/bspwm-better-scratchpad/</guid>
-      <description>Better scratchpad bspwm Preface The scratchpad scripts I found for bspwm SUCK. Some either stop working if you kill the terminal or bug out when you manage your window states. Here&amp;#39;s a script I wrote that get&amp;#39;s the job done RIGHT!&#xA;bspwm-scratch.png&#xA;I&amp;#39;m running tmux if you were wondering.&#xA;Setup stuff The &amp;#34;scratchy&amp;#34; script checks to see if a terminal with the classname &amp;#34;scratchy&amp;#34; exists. If it doesn&amp;#39;t exist, it creates it.</description>
-    </item>
-    <item>
-      <title>Raspberry Pi Compile Neovim From Source</title>
-      <link>http://localhost:1313/blog/raspberry-pi-compile-neovim-from-source/</link>
-      <pubDate>Sat, 22 Jul 2023 16:15:28 -0700</pubDate>
-      <guid>http://localhost:1313/blog/raspberry-pi-compile-neovim-from-source/</guid>
-      <description> Preface The debian repositories that ship with raspbian come with an outdated version of neovim. Your best option is to compile neovim from github&#xA;Compiling Neovim Don&amp;#39;t forget to uninstall neovim if you installed it through your package manager previously.&#xA;sudo apt-get install -y ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl git wget git clone https://github.com/neovim/neovim cd neovim make CMAKE_BUILD_TYPE=Release sudo make install </description>
+      <guid>http://89.147.111.130:1313/blog/mikrotik/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/</guid>
+      <description>Mikrotik Setup Dynamically Changing IP With No-IP Api Preamble Directions for how to configure dynamic DNS on a mikrotik. It leverages the No-IP REST API and the mikrotik&amp;#39;s built-in scripting environment.&#xA;Dynamically Updating the IP Code Use the System&amp;gt;Scripts page and create a new script with this code. Change the variables under the Script Settings block. Set the name of the script to &amp;#34;NoIP&amp;#34;&#xA;Source Page&#xA;##############Script Settings################## :local NOIPUser &amp;#34;USERNAME&amp;#34; :local NOIPPass &amp;#34;PASSWORD&amp;#34; :local WANInter &amp;#34;ether1&amp;#34; :local NOIPDomain &amp;#34;NO-IP.</description>
     </item>
     <item>
       <title>Qemu Windows Xp Fix Smb Not Working</title>
-      <link>http://localhost:1313/blog/qemu-windows-xp-fix-smb-not-working/</link>
+      <link>http://89.147.111.130:1313/blog/qemu/qemu-windows-xp-fix-smb-not-working/</link>
       <pubDate>Sat, 22 Jul 2023 16:14:46 -0700</pubDate>
-      <guid>http://localhost:1313/blog/qemu-windows-xp-fix-smb-not-working/</guid>
-      <description>Preface SMB 1.0 has to be enabled if you try to pass a local folder as an smb share to a WinXP Qemu VM. Qemu creates the temporary file /tmp/smb.conf that holds the configurations for samba. The values of this are hard coded and can only be modified after it&amp;#39;s automatically created by Qemu.&#xA;Enabling NT1 support Add the &amp;#34;min protocol = NT1&amp;#34; line to the global section of tmp/smb.</description>
+      <guid>http://89.147.111.130:1313/blog/qemu/qemu-windows-xp-fix-smb-not-working/</guid>
+      <description>Qemu Windows Xp Fix Smb Not Working Preamble Directions on fixing SMB on Windows XP system. The environment is running under Debian + Qemu&#xA;Resolution Explanation of fix SMB 1.0 has to be enabled if you try to pass a local folder as an smb share to a WinXP Qemu VM. Qemu creates the temporary file /tmp/smb.conf that holds the configurations for samba. The values of this are hard coded and can only be modified after it&amp;#39;s automatically created by Qemu.</description>
     </item>
     <item>
       <title>Qemu Windows Xp Installation</title>
-      <link>http://localhost:1313/blog/qemu-windows-xp-installation/</link>
+      <link>http://89.147.111.130:1313/blog/qemu/qemu-windows-xp-installation/</link>
       <pubDate>Sat, 22 Jul 2023 16:13:48 -0700</pubDate>
-      <guid>http://localhost:1313/blog/qemu-windows-xp-installation/</guid>
-      <description>Dependencies Windows XP ISO (archive.org) Virtio Floppy Image (fedorapeople.org) qemu spice-gtk Installing Windows XP Product Key: MRX3F-47B9T-2487J-KWKMF-RPWBY&#xA;Here&amp;#39;s the shell script to start the installation. Windows XP will automatically search through the virtio.vfd floppy image when locating the storage drivers. That floppy image has all the drivers your networking, virtual display, virtio, etc. Mouse input and networking won&amp;#39;t work until after you&amp;#39;re logged in.&#xA;qemu-system-x86_64 \ -enable-kvm \ -cpu host -smp 4 \ -m 3G \ -boot d \ -cdrom &amp;#34;WINDOWSXP.</description>
+      <guid>http://89.147.111.130:1313/blog/qemu/qemu-windows-xp-installation/</guid>
+      <description>Qemu Windows Xp Installation Preamble Installation Dependencies Windows XP ISO (archive.org) Virtio Floppy Image (fedorapeople.org) qemu &amp;amp; spice-gtk (installed via apt-get) Installing Windows XP Product Key: MRX3F-47B9T-2487J-KWKMF-RPWBY&#xA;Here&amp;#39;s the shell script to start the installation. Windows XP will automatically search through the virtio.vfd floppy image when locating the storage drivers. That floppy image has all the drivers your networking, virtual display, virtio, etc. Mouse input and networking won&amp;#39;t work until after you&amp;#39;re logged in.</description>
     </item>
     <item>
       <title>Qemu Mount Virtual Images</title>
-      <link>http://localhost:1313/blog/qemu-mount-virtual-images/</link>
+      <link>http://89.147.111.130:1313/blog/qemu/qemu-mount-virtual-images/</link>
       <pubDate>Sat, 22 Jul 2023 16:11:57 -0700</pubDate>
-      <guid>http://localhost:1313/blog/qemu-mount-virtual-images/</guid>
+      <guid>http://89.147.111.130:1313/blog/qemu/qemu-mount-virtual-images/</guid>
       <description> Mounting the image apt-get install -y libguestfs-tools # Mounting guestmount -a windows.qcow2 /mnt/ # Mounting read-only mode guestmount -a windows.qcow2 /mnt/ --ro # Unmount guestunmount /mnt </description>
     </item>
     <item>
-      <title>Qemu Chroot Into an Img File</title>
-      <link>http://localhost:1313/blog/qemu-chroot-into-an-img-file/</link>
-      <pubDate>Sat, 22 Jul 2023 16:11:08 -0700</pubDate>
-      <guid>http://localhost:1313/blog/qemu-chroot-into-an-img-file/</guid>
-      <description>Preface Full disk images contain the bootloader and partition table. To mount an image file, view the contents of the file, then specify a byte offset that points to the beginning of our linux root partition. We&amp;#39;re essentially telling our mount command start reading the IMG file from somanybytes from the start.&#xA;Mounting the image Run fdisk -l file.img.&#xA;Here, you want to make note of the value under the &amp;#34;START&amp;#34; column.</description>
-    </item>
-    <item>
       <title>Qemu Chroot Into a Different Architecture</title>
-      <link>http://localhost:1313/blog/qemu-chroot-into-a-different-architecture/</link>
+      <link>http://89.147.111.130:1313/blog/qemu/qemu-chroot-into-a-different-architecture/</link>
       <pubDate>Sat, 22 Jul 2023 16:10:34 -0700</pubDate>
-      <guid>http://localhost:1313/blog/qemu-chroot-into-a-different-architecture/</guid>
-      <description>Chrooting into systems with different architectures&#xA;Preface The qemu-user-static package provides several usermode emulation binaries. We can copy these over to our chroot environment to emulate programs from a different architecture.&#xA;Dependencies The emulation binaries will be placed in /usr/bin/qemu-*-static. These are standalone applications don&amp;#39;t require dependencies. The arch-install-scripts provide the &amp;#34;arch-chroot&amp;#34; wrapper script. It handles mounting the psuedo filesystems (dev,proc,sys) so we don&amp;#39;t have to.&#xA;apt install qemu-user-static arch-install-scripts Chrooting Here&amp;#39;s me chrooting into Raspbian ARM.</description>
+      <guid>http://89.147.111.130:1313/blog/qemu/qemu-chroot-into-a-different-architecture/</guid>
+      <description>Qemu Chroot Into a Different Architecture Preamble Directions on using the qemu-user-static package to chroot into a system using emulation. This uses the qemu binaries on the host system to emulate the chroot system.&#xA;Setting up the chroot Preparing the chroot environment Mount the system you&amp;#39;re going to chroot into.&#xA;mount /dev/sdb2 /mnt mount /dev/sdb1 /mnt/boot Package Installation Install the following packages on the host&#xA;The emulation binaries will be placed in /usr/bin/qemu-*-static.</description>
     </item>
     <item>
       <title>Pinebook Pro Troubleshooting Common Issues</title>
-      <link>http://localhost:1313/blog/pinebook-pro-troubleshooting-common-issues/</link>
+      <link>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-troubleshooting-common-issues/</link>
       <pubDate>Sat, 22 Jul 2023 16:06:56 -0700</pubDate>
-      <guid>http://localhost:1313/blog/pinebook-pro-troubleshooting-common-issues/</guid>
-      <description>Preface I&amp;#39;m addressing common problem with the pbp more than anything. Go down the list until you find something that&amp;#39;s relevant to you.&#xA;Powerkey shuts off machine The powerkey is not in the most ideal locations. Edit /etc/systemd/logind.conf and change &amp;#34;HandlePowerKey=poweroff&amp;#34; to &amp;#34;HandlePowerKey=ignore&amp;#34;&#xA;Can&amp;#39;t boot at all after flashing EMMC You could either use an emmc to usb adapter to reflash your EMMC (LAME). You could use your official pine64 UART cable to see if you could fix the problem that way (EH).</description>
+      <guid>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-troubleshooting-common-issues/</guid>
+      <description>Pinebook Pro Troubleshooting Common Issues Preamble A list of issues I&amp;#39;ve experienced first hand with the Pinebook Pro and resolutions.&#xA;Break/Fix Powerkey shuts off machine The powerkey is not in the most ideal locations. Edit /etc/systemd/logind.conf and change &amp;#34;HandlePowerKey=poweroff&amp;#34; to &amp;#34;HandlePowerKey=ignore&amp;#34;&#xA;Can&amp;#39;t boot at all after flashing EMMC You could either use an emmc to usb adapter to reflash your EMMC (LAME). You could use your official pine64 UART cable to see if you could fix the problem that way (EH).</description>
     </item>
     <item>
       <title>Pinebook Pro Setting Up Zram</title>
-      <link>http://localhost:1313/blog/pinebook-pro-setting-up-zram/</link>
+      <link>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-setting-up-zram/</link>
       <pubDate>Sat, 22 Jul 2023 16:06:08 -0700</pubDate>
-      <guid>http://localhost:1313/blog/pinebook-pro-setting-up-zram/</guid>
-      <description>Preface ZRAM is essentially compressed memory. Your system uses some of it&amp;#39;s CPU cycles to compress redundant data into a reserved area of your ram. Think of it as swap space, but without writing to your drive. I&amp;#39;ve tested this on both Manjaro Arm and Archlinux Arm.&#xA;Checking if ZRAM is supported $ insmod | grep zram Output: zram ????? ? If you get similar results, zram should be supported.</description>
+      <guid>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-setting-up-zram/</guid>
+      <description>Pinebook Pro Setting Up Zram Preamble ZRAM is essentially compressed memory. Your system uses some of it&amp;#39;s CPU cycles to compress redundant data into a reserved area of your ram. Think of it as swap space, but without writing to your drive.&#xA;This is how to enable zram on ALARM/Manjaro ARM&#xA;Enabling ZRAM Checking if ZRAM is supported $ insmod | grep zram Output: zram ????? ? If you get similar results, zram should be supported.</description>
     </item>
     <item>
-      <title>Pinebook Pro Write to Spi Flash</title>
-      <link>http://localhost:1313/blog/pinebook-pro-write-to-spi-flash/</link>
+      <title>Pinebook Pro Write to Spit Flash</title>
+      <link>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-write-to-spi-flash/</link>
       <pubDate>Sat, 22 Jul 2023 16:03:38 -0700</pubDate>
-      <guid>http://localhost:1313/blog/pinebook-pro-write-to-spi-flash/</guid>
-      <description>WARNING Be prepared to recover your broken SPI flash if an error occurs. When a binary is written to the SPI flash, the SPI flash will be what chooses which drives to boot from. Any problems when writing to the SPI can render your machine soft bricked. Learn about the SPI flash and recovery options here:&#xA;https://wiki.pine64.org/index.php/Pinebook_Pro_SPI https://wiki.pine64.org/index.php/Pinebook_Pro#Using_the_SPI_flash_device Preface This guide is a simpler rewrite of pcm72&amp;#39;s forum post. I&amp;#39;d recommend reading that whole thread before proceeding.</description>
+      <guid>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-write-to-spi-flash/</guid>
+      <description>Pinebook Pro Write to Spit Flash Preamble Directions for flashing a custom bootloader to internal Pinebook Pro&amp;#39;s SPI Flash chip. This makes it it unnecessary to have boot code on the emmc or microsd, enabling full NVME boot. NVME boot extremely is hit or miss.&#xA;Be prepared to recover your broken SPI flash if an error occurs. When a binary is written to the SPI flash, the SPI flash will be what chooses which drives to boot from.</description>
     </item>
     <item>
       <title>Pinebook Pro Use Nvme as Root</title>
-      <link>http://localhost:1313/blog/pinebook-pro-use-nvme-as-root/</link>
+      <link>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-use-nvme-as-root/</link>
       <pubDate>Sat, 22 Jul 2023 16:02:57 -0700</pubDate>
-      <guid>http://localhost:1313/blog/pinebook-pro-use-nvme-as-root/</guid>
-      <description>Preface I assume that you have an nvme drive with a formatted ext4 partition present. I&amp;#39;m using Manjaro Arm. I&amp;#39;ve tested this on Alarm and I&amp;#39;d imagine it would work on debian aswell. We take advantage of /boot/extlinux/extlinux.conf to choose our root drive.&#xA;Preparing our nvme mount /dev/nvme0n1p1 /mnt cd /mnt mkdir dev sys proc mnt Copying root files It&amp;#39;s important to exclude the psuedo filesystems and /mnt, when copying your root files.</description>
+      <guid>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-use-nvme-as-root/</guid>
+      <description>Pinebook Pro Use Nvme as Root Preamble Directions on using the Pinebook Pro&amp;#39;s NVME as a root partition and the EMMC as&#xA;Moving root partitions Assumptions You have an NVME drive installed and formatted with a single EXT4 partition Running Manjaro Arm or ALARM. Untested, though Debian may work the same as well. This process relies on the existence of /boot/extlinux/extlinux.conf Mounting the system mount /dev/nvme0n1p1 /mnt cd /mnt mkdir dev sys proc mnt Copying root files Use rsync to transfer the files.</description>
     </item>
     <item>
       <title>Pinebook Pro Netbsd Installation</title>
-      <link>http://localhost:1313/blog/pinebook-pro-netbsd-installation/</link>
+      <link>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-netbsd-installation/</link>
       <pubDate>Sat, 22 Jul 2023 16:00:37 -0700</pubDate>
-      <guid>http://localhost:1313/blog/pinebook-pro-netbsd-installation/</guid>
-      <description>Preface I&amp;#39;m going to assume that you&amp;#39;ve already copied the netbsd image to your device and have booted into your system. If you have problems booting from the microsd card, try disabling the emmc chip. It used to be the case that you were only able to boot from microsd if the chip was disabled. I&amp;#39;m not sure if this was fixed.&#xA;Configuring Network There are two ways of doing this:</description>
+      <guid>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-netbsd-installation/</guid>
+      <description>Pinebook Pro Netbsd Installation Preamble Guide for installing NetBSD on the Pinebook Pro including the installation of packages, setting up networking, and other quality of life changes.&#xA;Setting Up The System Assumptions You&amp;#39;ve wrote the netbsd image to your microsd/emmc You&amp;#39;ve booted into the system If you have problems booting from the microsd card, try disabling the emmc chip. It used to be the case that you were only able to boot from microsd if the chip was disabled.</description>
     </item>
     <item>
       <title>Pinebook Pro Keyboard Firmware Update</title>
-      <link>http://localhost:1313/blog/pinebook-pro-keyboard-firmware-update/</link>
+      <link>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-keyboard-firmware-update/</link>
       <pubDate>Sat, 22 Jul 2023 15:59:12 -0700</pubDate>
-      <guid>http://localhost:1313/blog/pinebook-pro-keyboard-firmware-update/</guid>
-      <description>Preface This is a verbatim copy of the directions written on jackhumbert&amp;#39;s git.&#xA;Installtion # compile git clone https://github.com/jackhumbert/pinebook-pro-keyboard-updater cd pinebook-pro-keyboard-updater sudo apt-get install build-essential libusb-1.0-0-dev xxd make # For ISO keyboard # step-1 sudo ./updater step-1 iso sudo reboot # after reboot, step-2 sudo ./updater step-2 iso sudo reboot # For ANSI keyboard # step-1 sudo ./updater step-1 ansi sudo reboot # after reboot, step-2 sudo ./updater step-2 ansi sudo reboot # updating to the revised ansi firmware after steps 1 and 2 sudo .</description>
+      <guid>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-keyboard-firmware-update/</guid>
+      <description>Pinebook Pro Keyboard Firmware Update Preamble This is a verbatim copy of the directions written on jackhumbert&amp;#39;s git.&#xA;Installtion # compile git clone https://github.com/jackhumbert/pinebook-pro-keyboard-updater cd pinebook-pro-keyboard-updater sudo apt-get install build-essential libusb-1.0-0-dev xxd make # For ISO keyboard # step-1 sudo ./updater step-1 iso sudo reboot # after reboot, step-2 sudo ./updater step-2 iso sudo reboot # For ANSI keyboard # step-1 sudo ./updater step-1 ansi sudo reboot # after reboot, step-2 sudo .</description>
     </item>
     <item>
       <title>Pinebook Pro Custom Kernel</title>
-      <link>http://localhost:1313/blog/pinebook-pro-custom-kernel/</link>
+      <link>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-custom-kernel/</link>
       <pubDate>Sat, 22 Jul 2023 15:57:39 -0700</pubDate>
-      <guid>http://localhost:1313/blog/pinebook-pro-custom-kernel/</guid>
-      <description>Preface Here&amp;#39;s how to compile tsys&amp;#39; mainline linux kernel for the Pinebook Pro. I&amp;#39;m using the &amp;#34;debian way&amp;#34; of installing the kernel. When compiling the kernel, we can tell &amp;#34;make&amp;#34; to package the binaries as multiple debian archive files (.deb). Afterward, we can simple run &amp;#34;dpkg -i .deb&amp;#34; to install it.&#xA;Setting up our enviroment Here we&amp;#39;ll download the dependencies and the linux sources.&#xA;sudo apt-get install linux-headers-$(uname -r) libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf bc fakeroot # Linux sources git clone --depth=1 https://gitlab.</description>
+      <guid>http://89.147.111.130:1313/blog/pinebook-pro/pinebook-pro-custom-kernel/</guid>
+      <description>Pinebook Pro Custom Kernel Preamble Here&amp;#39;s how to compile tsys&amp;#39; mainline linux kernel for the Pinebook Pro. I&amp;#39;m using the &amp;#34;debian way&amp;#34; of installing the kernel. When compiling the kernel, we can tell &amp;#34;make&amp;#34; to package the binaries as multiple debian archive files (.deb). Afterward, we can simple run &amp;#34;dpkg -i .deb&amp;#34; to install it.&#xA;Setting up our enviroment Dependencies Compilation dependencies&#xA;sudo apt-get install linux-headers-$(uname -r) libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf bc fakeroot Linux Source Files</description>
     </item>
   </channel>
 </rss>

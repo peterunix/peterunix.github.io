@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="UTF-8">
+  <title>Upgrade a Generation 1 Windows10 Hyperv Vm to Windows11</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/css/gtd.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+</head>
+<body>
+  
+<main>
+  <div style="margin: 1rem;">
+    <a href="/" style="
+      display: inline-block;
+      background-color: #eee;
+      color: #333;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-family: sans-serif;
+      font-size: 0.9rem;
+    ">
+      ← Homepage
+    </a>
+
+  <h1>Upgrade a Generation 1 Windows10 Hyperv Vm to Windows11</h1>
+
+  </div>
+  <nav class="toc">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#headline-1">Overview</a>
+</li>
+<li><a href="#headline-2">Cool thing to note</a>
+</li>
+<li><a href="#headline-3">Mounting the VHD</a>
+</li>
+<li><a href="#headline-4">Creating an EFI Partition</a>
+</li>
+<li><a href="#headline-5">Converting the drive to GPT</a>
+</li>
+<li><a href="#headline-6">Recreating the VM</a>
+</li>
+</ul>
+</nav>
+  </nav> 
+
+  <article>
+    
+<div id="outline-container-headline-1" class="outline-3">
+<h3 id="headline-1">
+Overview
+</h3>
+<div id="outline-text-headline-1" class="outline-text-3">
+<p>You have a bunch of Gen1 VMs running Windows 10 using Legacy
+Bios. Your goal&#39;s to move upgrade them to Gen2 VMs and upgrade them to
+windows 11. How do you do that? It&#39;s simple</p>
+<ol>
+<li>Mount each VHD to the host OS</li>
+<li>Free some unallocated space on the drive</li>
+<li>Convert the drive to GPT. This creates the EFI partition</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-3">
+<h3 id="headline-2">
+Cool thing to note
+</h3>
+<div id="outline-text-headline-2" class="outline-text-3">
+<p>With UEFI you can either create a FAT32 partition with EFI files or
+explicitly create an EFI partition (aka ESP - EFI System Partition) to
+store the EFI Files. The UEFI firmware is smart enough to see both
+methods of setting up the EFI partition and will boot from
+both. Explicitly creating an ESP is better since it conforms to the
+EFI specifications. More importantly, Windows 11 <strong>wont</strong> upgrade unless
+you have an ESP partition. Creating a normal FAT32 partition for EFI
+will work but the upgrade assistant will fail saying it &#34;Sorry, We’re
+Having Trouble Determining If Your PC can Run Windows 11&#34;</p>
+<p>
+ESP Partitions have a specific UUID</p>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-3">
+<h3 id="headline-3">
+Mounting the VHD
+</h3>
+<div id="outline-text-headline-3" class="outline-text-3">
+<ol>
+<li>Turn off Virtual Machine</li>
+<li>Open diskmgmt.msc</li>
+<li>Click on Action&gt;Attach VHD from the toolbar and mount the VHDX file</li>
+<li>Right-click the drive and click &#34;online&#34;</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-3">
+<h3 id="headline-4">
+Creating an EFI Partition
+</h3>
+<div id="outline-text-headline-4" class="outline-text-3">
+<ol>
+<li>Open command prompt as administrator</li>
+<li>Run <code>diskpart.exe</code> and free up space on the drive with Windows</li>
+</ol>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>DISKPART&gt; list disk 
+</span></span><span style="display:flex;"><span>  Disk ###  Status         Size     Free     Dyn  Gpt
+</span></span><span style="display:flex;"><span>  --------  -------------  -------  -------  ---  ---
+</span></span><span style="display:flex;"><span>  Disk 0    Online          238 GB  1024 KB        *
+</span></span><span style="display:flex;"><span>  Disk 1    Online          465 GB  1024 KB        *
+</span></span><span style="display:flex;"><span>  Disk 2    Online         7452 GB  1024 KB        *
+</span></span><span style="display:flex;"><span>  Disk 3    Online 127 GB  1024 KB (THIS IS THE VHDX)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DISKPART&gt; select disk 3
+</span></span><span style="display:flex;"><span>DISKPART&gt; list partition
+</span></span><span style="display:flex;"><span>Partition ###  Type              Size     Offset
+</span></span><span style="display:flex;"><span>-------------  ----------------  -------  -------
+</span></span><span style="display:flex;"><span>Partition 1    Primary             50 MB  1024 KB
+</span></span><span style="display:flex;"><span>Partition 2    Primary            125 GB    51 MB (THIS IS THE WINDOWS DRIVE)
+</span></span><span style="display:flex;"><span>Partition 3    Recovery           508 MB   126 GB
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DISKPART&gt; select partition 2
+</span></span><span style="display:flex;"><span>DISKPART&gt; shrink desired=100
+</span></span><span style="display:flex;"><span>DISKPART&gt; exit</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-3">
+<h3 id="headline-5">
+Converting the drive to GPT
+</h3>
+<div id="outline-text-headline-5" class="outline-text-3">
+<p>We&#39;ll use mbr-to-gpt which should come with Windows 10 by
+default. This will convert the disk to gpt without wiping the data
+from the computer. When the conversion happens, it&#39;ll also create a
+EFI partition out of the free space we created earlier</p>
+<p>
+https://learn.microsoft.com/en-us/windows/deployment/mbr-to-gpt</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span># Validating that the conversion will work
+</span></span><span style="display:flex;"><span>c:\windows\system32\mbr2gpt.exe /allowFullOS /validate /disk:3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># Converting to GPT
+</span></span><span style="display:flex;"><span>c:\windows\system32\mbr2gpt.exe /allowFullOS /convert /disk:3</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-6" class="outline-3">
+<h3 id="headline-6">
+Recreating the VM
+</h3>
+<div id="outline-text-headline-6" class="outline-text-3">
+<p>Now your VHDX is properly formatted for UEFI and Windows 11. Delete
+your Hyper-V VM and recreated it as Gen2. Make sure Secure Boot and
+TPM is enabled in the Hyper-V VM settings.</p>
+<p>
+Take a minute to bask in your glory. Windows 11 will now be updating.</p>
+</div>
+</div>
+
+  </article>
+</main>
+
+</body>
+</html>
