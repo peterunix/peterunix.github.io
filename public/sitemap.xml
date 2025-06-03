@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://89.147.111.130:1313/blog/</loc>
-    <lastmod>2025-05-15T11:59:52-07:00</lastmod>
+    <lastmod>2025-05-18T16:53:30-07:00</lastmod>
   </url><url>
     <loc>http://89.147.111.130:1313/</loc>
-    <lastmod>2025-05-15T11:59:52-07:00</lastmod>
+    <lastmod>2025-05-18T16:53:30-07:00</lastmod>
+  </url><url>
+    <loc>http://89.147.111.130:1313/blog/peter/organizing-life/</loc>
+    <lastmod>2025-05-18T16:53:30-07:00</lastmod>
   </url><url>
     <loc>http://89.147.111.130:1313/blog/uncategorized/running-ollama-portably/</loc>
     <lastmod>2025-05-15T11:59:52-07:00</lastmod>
@@ -29,7 +32,7 @@
     <loc>http://89.147.111.130:1313/blog/windows/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</loc>
     <lastmod>2024-08-22T20:44:38-07:00</lastmod>
   </url><url>
-    <loc>http://89.147.111.130:1313/blog/linux/add-bitwarden-to-pinephone-pro-using-firefox-extension/</loc>
+    <loc>http://89.147.111.130:1313/blog/linux/adding-bitwarden-to-the-pinephone-pro/</loc>
     <lastmod>2024-05-14T21:20:29-07:00</lastmod>
   </url><url>
     <loc>http://89.147.111.130:1313/blog/emacs/emacs-eww-hacks/</loc>
@@ -41,7 +44,7 @@
     <loc>http://89.147.111.130:1313/blog/windows/simulating-bad-blocks-on-ntfs-filesystems/</loc>
     <lastmod>2023-12-03T19:02:59-08:00</lastmod>
   </url><url>
-    <loc>http://89.147.111.130:1313/blog/windows/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</loc>
+    <loc>http://89.147.111.130:1313/blog/windows/cloning-a-bios-boot-drive-to-disimilar-hardware-with-uefi/</loc>
     <lastmod>2023-09-13T15:51:09-07:00</lastmod>
   </url><url>
     <loc>http://89.147.111.130:1313/blog/windows/merging-hyperv-snapshots-with-powershell/</loc>

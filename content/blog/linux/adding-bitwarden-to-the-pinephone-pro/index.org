@@ -1,21 +1,26 @@
-#+title: Add Bitwarden to Pinephone Pro Using Firefox Extension
+#+title: Adding Bitwarden to the Pinephone Pro
 #+date: 2024-05-14T21:20:29-07:00
 #+draft: false
 
-* Introduction
-Here's how to get the Bitwarden firefox extension to appear as an application on
-your PinePhone Pro. Make sure your display scaling is set to 100% for this guide
+* Adding Bitwarden to the Pinephone Pro
+** Preamble
+Directions on adding Bitwarden on the Pinephone Pro on PMOS PHOSH. It relies the
+Firefox Bitwarden extension and a .desktop file that's used to open it.
 
-I'm doing this on PMOS Phosh
 
-* Install Bitwarden
-Install the extension then press "C-b" to open the sidebar. Use the dropdown
-button to switch from the bookmarks view to Bitwarden. This is a workaround to
-the Bitwarden pop-up window being glitchy.
+* Bitwarden Setup
+** Adding the extension
+Reduce your screen scaling to the lowest available in the PHOSH
+settings. This prevents rendering glitches.
+
+- Open Firefox
+- Install the Bitwarden extension from https://addons.mozilla.org
+- Press "C-b" to open the firefox sidebar. Use the drop down to switch from the
+  bookmarks view to Bitwarden. Login afterward.
 
 [[./QI4X.png]]
 
-* Getting the extension ID
+** Getting the extension ID
 Navigate to about:debugging#/runtime/this-firefox
 
 Scroll down until you see the extension ID and copy it to a text file. We'll
@@ -23,8 +28,8 @@ need it later.
 
 [[./I293.png]]
 
-* Creating the .desktop file
-This is the meat of it all. Create the following desktop file and paste in these contente
+** Creating the .desktop file
+This is the meat of it all. Create the following desktop file and paste in these content
 
 ~~/.local/share/applications/bitwarden.desktop~
 

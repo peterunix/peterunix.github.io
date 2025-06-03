@@ -1,21 +1,29 @@
-#+title: Automating Chkdsk Scans Using Powershell With Email Alerts for Rmm
+#+title: Automatic CHKDSK Scans Using Powershell & Email Alerts
 #+date: 2024-08-22T20:44:38-07:00
 #+draft: false
 
-* What this does
-Automatically schedules windows filesystem checks if the drive is detected to
-have corruption. If corruption occurs more than once per week, an email is sent
-out to your desired address. SFC & DISM scans are scheduled for 10PM. CHKDSKs on
-the corrupt drive are scheduled for 12AM
+* Automatic CHKDSK Scans Using Powershell & Email Alerts
+** Preamble
+Directions for using a Powershell script I wrote to schedule automatic CHKDSK
+scans whenever an NTFS or DISK error appears in the event log.
 
+If corruption occurs more than once per week, an email is sent out to your
+desired address. SFC & DISM scans are scheduled for 10PM. CHKDSKs on the corrupt
+drive are scheduled for 12AM
+
+It can be run through a scheduled task locally or deployed as a response policy
+in remote management software.
+
+* Installation
+** Note
 This can be run standalone, although ideally you set it up as an automatic
-response in your RMM software. There are failsafes in place to prevent the
+response in your RMM software. There are fail-safes in place to prevent the
 script from running multiple times due to alert spam.
 
 **Important**: A python EXE file is used to send the emails out. The source code
 to script is on my github [[https://github.com/peterunix/Python-Sendmail][LINK]]. The build in this project is compiled from that.
 
-* How to implement with RMM
+** How to implement with RMM
 - Edit the script and add your SMTP credentials on the last line.
 - Add this script as a component in your RMM
 - Update your RMM and have the script be a response to the following event
@@ -27,12 +35,14 @@ Get-EventLog -LogName System -EntryType Error -Source Disk -Message "The device,
 Get-EventLog -LogName System -EntryType Error -Source Disk -Message "The driver detected a controller error on*" -ErrorAction 'SilentlyContinue'
 #+end_src
 
-* Running standalone
+** Running standalone
 You can schedule this to run automatically on your PC through the task
 scheduler. My suggestion is have it run daily at some arbitrary hour.
 
-* Source Code
-My Github: [[https://github.com/peterunix/PS-ScheduleCHKDSKandScans][https://github.com/peterunix/PS-ScheduleCHKDSKandScans]]
+Edit or remove the lines for email alerts
+
+** Source Code
+Repository: [[https://github.com/peterunix/PS-ScheduleCHKDSKandScans][https://github.com/peterunix/PS-ScheduleCHKDSKandScans]]
 
 #+begin_src powershell
 

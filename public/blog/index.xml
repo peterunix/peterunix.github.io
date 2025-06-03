@@ -13,7 +13,7 @@
       <link>http://89.147.111.130:1313/blog/uncategorized/running-ollama-portably/</link>
       <pubDate>Thu, 15 May 2025 11:59:52 -0700</pubDate>
       <guid>http://89.147.111.130:1313/blog/uncategorized/running-ollama-portably/</guid>
-      <description>Running Ollama Portably Preamble Directions for creating a portable installation of Ollama. The LLM files will be stored in the same folder as the binaries and sourced automatically&#xA;Creating the portable installation Install Ollama Normally Install Ollama using this link. The default installation folder will be %localappdata%Programs\Ollama&#xA;https://ollama.com/download&#xA;Creating a batch script Create a file named &amp;#34;START_OLLAMA.bat&amp;#34; in %localappdata%\Programs\Ollama&#xA;@echo off title Ollama Portable set OLLAMA_ORIGINS=* set OLLAMA_HOST=127.0.0.1 set userprofile=%cd%\data set localappdata=%cd%\data\AppData\Local start cmd /k &amp;#34;%cd%\ollama.</description>
+      <description>Running Ollama Portably Preamble Directions for creating a portable installation of Ollama. The LLM files will be stored in the same folder as the binaries and sourced automatically&#xA;Creating the portable installation Install Ollama Normally Install Ollama using this link. The default installation folder will be %localappdata%\Programs\Ollama&#xA;https://ollama.com/download&#xA;Creating a batch script Create a file named &amp;#34;START_OLLAMA.bat&amp;#34; in %localappdata%\Programs\Ollama&#xA;@echo off title Ollama Portable set OLLAMA_ORIGINS=* set OLLAMA_HOST=127.0.0.1 set userprofile=%cd%\data set localappdata=%cd%\data\AppData\Local start cmd /k &amp;#34;%cd%\ollama.</description>
     </item>
     <item>
       <title>Emacs With Directional Google Calendar Sync</title>
@@ -51,18 +51,18 @@
       <description>Summary of page This isn&amp;#39;t going to be a walkthrough of corebooting your Thinkpad X220. These are the steps you need to get the flasher working and connected to your system&#xA;Fyi: My host system is Windows 11 and a virtual machine with USB redirection was used to flash the system&#xA;I exported the factory default ROMS to my PC&#xA;Step 1 - Buy the flasher I purchased the following CH341A programmer with the clip from Amazon.</description>
     </item>
     <item>
-      <title>Automating Chkdsk Scans Using Powershell With Email Alerts for Rmm</title>
+      <title>Automatic CHKDSK Scans Using Powershell &amp; Email Alerts</title>
       <link>http://89.147.111.130:1313/blog/windows/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</link>
       <pubDate>Thu, 22 Aug 2024 20:44:38 -0700</pubDate>
       <guid>http://89.147.111.130:1313/blog/windows/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/</guid>
-      <description>What this does Automatically schedules windows filesystem checks if the drive is detected to have corruption. If corruption occurs more than once per week, an email is sent out to your desired address. SFC &amp;amp; DISM scans are scheduled for 10PM. CHKDSKs on the corrupt drive are scheduled for 12AM&#xA;This can be run standalone, although ideally you set it up as an automatic response in your RMM software. There are failsafes in place to prevent the script from running multiple times due to alert spam.</description>
+      <description>Automatic CHKDSK Scans Using Powershell &amp;amp; Email Alerts Preamble Directions for using a Powershell script I wrote to schedule automatic CHKDSK scans whenever an NTFS or DISK error appears in the event log.&#xA;If corruption occurs more than once per week, an email is sent out to your desired address. SFC &amp;amp; DISM scans are scheduled for 10PM. CHKDSKs on the corrupt drive are scheduled for 12AM&#xA;It can be run through a scheduled task locally or deployed as a response policy in remote management software.</description>
     </item>
     <item>
-      <title>Add Bitwarden to Pinephone Pro Using Firefox Extension</title>
-      <link>http://89.147.111.130:1313/blog/linux/add-bitwarden-to-pinephone-pro-using-firefox-extension/</link>
+      <title>Adding Bitwarden to the Pinephone Pro</title>
+      <link>http://89.147.111.130:1313/blog/linux/adding-bitwarden-to-the-pinephone-pro/</link>
       <pubDate>Tue, 14 May 2024 21:20:29 -0700</pubDate>
-      <guid>http://89.147.111.130:1313/blog/linux/add-bitwarden-to-pinephone-pro-using-firefox-extension/</guid>
-      <description>Introduction Here&amp;#39;s how to get the Bitwarden firefox extension to appear as an application on your PinePhone Pro. Make sure your display scaling is set to 100% for this guide&#xA;I&amp;#39;m doing this on PMOS Phosh&#xA;Install Bitwarden Install the extension then press &amp;#34;C-b&amp;#34; to open the sidebar. Use the dropdown button to switch from the bookmarks view to Bitwarden. This is a workaround to the Bitwarden pop-up window being glitchy.</description>
+      <guid>http://89.147.111.130:1313/blog/linux/adding-bitwarden-to-the-pinephone-pro/</guid>
+      <description>Adding Bitwarden to the Pinephone Pro Preamble Directions on adding Bitwarden on the Pinephone Pro on PMOS PHOSH. It relies the Firefox Bitwarden extension and a .desktop file that&amp;#39;s used to open it.&#xA;Bitwarden Setup Adding the extension Reduce your screen scaling to the lowest available in the PHOSH settings. This prevents rendering glitches.&#xA;Open Firefox Install the Bitwarden extension from https://addons.mozilla.org Press &amp;#34;C-b&amp;#34; to open the firefox sidebar. Use the drop down to switch from the bookmarks view to Bitwarden.</description>
     </item>
     <item>
       <title>Emacs EWW Hacks</title>
@@ -86,11 +86,11 @@
       <description>Simulating Bad Blocks on NTFS Filesystems Preamble Directions for simulating a file system corruption error on an NTFS drive on a Windows host system. This is useful when you are testing tools that require this error exist.&#xA;Simulating Corruption https://github.com/jamersonpro/ntfsmarkbad&#xA;Creating the test environment Create the folder for our demo environment&#xA;mkdir BadBlocktest cd BadBlockTest Download the NtfsMarkBad tool&#xA;Invoke-WebRequest -Uri &amp;#34;https://github.com/jamersonpro/ntfsmarkbad/releases/download/v0.0.2/NtfsMarkBad.exe&amp;#34; -Outfile &amp;#34;NtfsMarkBad.exe&amp;#34; -UseBasicParsing Create a virtual hard disk file</description>
     </item>
     <item>
-      <title>How to Clone a Drive to Disimilar Hardware From Bios to Uefi</title>
-      <link>http://89.147.111.130:1313/blog/windows/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</link>
+      <title>Cloning a Bios Boot Drive to Disimilar Hardware with UEFI</title>
+      <link>http://89.147.111.130:1313/blog/windows/cloning-a-bios-boot-drive-to-disimilar-hardware-with-uefi/</link>
       <pubDate>Wed, 13 Sep 2023 15:51:09 -0700</pubDate>
-      <guid>http://89.147.111.130:1313/blog/windows/how-to-clone-a-drive-to-disimilar-hardware-from-bios-to-uefi/</guid>
-      <description>FYI Use this as an overview for how to clone a drive. The methods I used for some of the steps can be simplified by using the right tools.&#xA;Overview I had a clone an old Dell Machine to a new Dell Optiplex SFF 7010. The problem was the new computer had an NVME drive with storage controller drivers that weren&amp;#39;t even in the Windows 11 installation media. On top of that, the original computer was Windows 10 but was BIOS only, meaning it wouldn&amp;#39;t boot at all on the UEFI only machine.</description>
+      <guid>http://89.147.111.130:1313/blog/windows/cloning-a-bios-boot-drive-to-disimilar-hardware-with-uefi/</guid>
+      <description>Cloning a Bios Boot Drive to Disimilar Hardware with UEFI Preamble Documented steps for cloning a drive to another computer. The source computer is running an MBR partition table. The target computer is of completely different hardware and runs UEFI *Cloning the drive Overview I had a clone an old Dell Machine to a new Dell Optiplex SFF 7010. The problem was the new computer had an NVME drive with storage controller drivers that weren&amp;#39;t even in the Windows 11 installation media.</description>
     </item>
     <item>
       <title>Merging HyperV Snapshots With Powershell</title>

@@ -9,7 +9,7 @@ stored in the same folder as the binaries and sourced automatically
 
 * Creating the portable installation
 ** Install Ollama Normally
-Install Ollama using this link. The default installation folder will be %localappdata%\Programs\Ollama
+Install Ollama using this link. The default installation folder will be ~%localappdata%\Programs\Ollama~
 
 https://ollama.com/download
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Peters on My New Hugo Site</title>
+    <link>http://89.147.111.130:1313/peter/</link>
+    <description>Recent content in Peters on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 18 May 2025 16:53:30 -0700</lastBuildDate>
+    <atom:link href="http://89.147.111.130:1313/peter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Operazione: Vita Gentile</title>
+      <link>http://89.147.111.130:1313/peter/vita-gentile/</link>
+      <pubDate>Sun, 18 May 2025 16:53:30 -0700</pubDate>
+      <guid>http://89.147.111.130:1313/peter/vita-gentile/</guid>
+      <description>Operazione: Vita Gentile Preamble General scratch buffer for offloading my brain. The contents do not aim to make sense and they will be dynamically changing as time goes on.&#xA;Life Style Changes Letter Mail Mail sucks. I don&amp;#39;t want or ask for any of it.&#xA;My letter mail is digitized and viewable through my web browser. I no longer receive any physical mail to my address. The service used is US Global Mail.</description>
+    </item>
+  </channel>
+</rss>
