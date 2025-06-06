@@ -4,66 +4,77 @@
 
 * Operazione: Vita Gentile
 ** Preamble
-General scratch buffer for offloading my brain. The contents do not aim to make
-sense and they will be dynamically changing as time goes on.
+This contains bits of my life I would rather not have saved in running memory. I
+hope some of the things in this list can be inspiring or useful to you \()/
 
-** Life Style Changes
-** Letter Mail
-Mail sucks. I don't want or ask for any of it.
+* Heading
+** Phone
+My cell phone number was ported to Google Voice to remove the dependence on my
+phone. There is currently nothing on my device that can't be accessed from my
+computer.
 
-My letter mail is digitized and viewable through my web browser. I no longer
-receive any physical mail to my address. The service used is US Global Mail. It
-costs $30/month. Lettermail is scanned and downloadable as PDF
+This provides the Freedom to have any cellular plan or provider I'd
+like. Currently I pay $10 USD/month on US Mobile. The only thing I require is
+cellular data.
 
-I don't need to worry about being at a particular place to view my mail. I am
-free to go anywhere in the world without concern.
+** Post Mail
+Postal mail is delivered to a Private Mail Box (PMB). All letter mail is
+automatically digitized and viewable from a website.
 
-** Phone Number
-We need phones for everything. I don't want to need a phone for something stupid
-like a 2FA text. I'd rather use my computer for that. This system is pretty
-sleek and saves me money and freedom. I'll articulate later : )
+The service I use is US Global Mail. The service costs $30/month and eliminates
+the stupid letter-mail I receive. All that was required was a change of address
+form be filled out with the US Postal Service.
 
-I ported my phone number to Google Voice. Now I have a reliable VOIP number. The
-only thing my phone relies now is a web browser and internet connection. My
-phone can have any data plan it wants. It could even be a data only sim and I
-wouldn't notice the difference.
+I order packages using a different name to avoid those packages being delivered
+to the remote address. I can use the Chrome "Secure Shell"
 
-I have the freedom to remove phones from my life.
+** Remote Shell Server Daily Driver
+I SSH into a remote server running TMUX and Emacs. All the applications I use
+I've built into Emacs. I love this system and it makes my digital life very
+simplified.
 
-** Portable Computer System
-I don't want to be reliant on having a "personal" computer. I want my computer
-to be accessible everywhere I go.
 
-I use my Android phone as a desktop through DexMode. With my work flow, it
-functions the exact same a computer would. The phone connects via a USB-C dock
-into a portable 1080P monitor. I enjoy the life proof case on it ¯\_(ツ)_/¯
+I can use the Chrome "Secure Shell" extension to access my Emacs session
+through my web browser. Copying to the clipboard is handled by using OSC escape
+sequences via clipetty in Emacs.
 
-I SSH into a remote box to runs my emacs elisp interpreter. This application has
-simplified my entire digital workflow. All of my applications and platforms I
-interface with can be done with emacs. This one application accounts for all the
-software I use.
+** Portable Desktop
+I don't want to be reliant on ANYTHING to be okay. Everything I can get rid of
+or make more intuitive I will.
 
-Instantly I can have the same browsing experience mirrored on any computer I
-touch. I mostly use the Terminal extension for Google Chrome to connect. My
-digital life has no dependencies, both physically and with software. I feel
-really good about it. Zero stress or thought goes into how work.
+I only need SSH and any computer to be /at home/. It doesn't matter what I'm
+wearing, where I am, the devices i have access to.
 
-** Moving to Cloud
-I'm a simple person. I want my data to be easy to access in a way that's smart.
+My phone I utilize as a tool. I have a portable monitor that runs DexMode. From
+there I can access a fully functioning web browser (Brave) and terminal for SSH
+(Terminus). I use a bluetooth portable keyboard. The entire system can be
+powered from my one phone. I can still access my encrypted drives through my
+USB-C doc and file manager.
 
-Google Workspace hosts my custom email and now all my file storage. I really
-like how Gmail labels operate. The philosophy behind it makes sense, which is
-becoming a more frequent of an experience using Google Products.
+** Anonymous Computer
+I used to use a Librebooted FDE Thinkpad X60 as a daily driver. This sucked and
+the only web browser that effectively worked was Tor+NoJS.
 
-My files I can access offline using the Google Drive desktop client for
-Windows. My document processing doesn't require another application be
-installed. All my work is centralized in my web browser OR any remote terminal.
+Now I daily drive a Thinkpad X220 with Coreboot. If I did want to be anonymous I
+would use Tails Linux. Otherwise I would use Whonix or ordinary tor.
 
-* Projects
-** Privacy Computer
-I used to use a Thinkpad X60 with Libreboot and a TTY only system. This was
-painful. Web browsing was only done through TOR, mostly because Javascript would
-peg the CPU.
+** Email Hosting/Cloud
+I like Google! Mail labels are technologically a really nice way to lay my
+emails out. All of my emails get physically stored in the Archive (folder for
+unlabeled items). They then get labeled for the inbox and my other "folders". I
+use filters to automatically label all different types of emails with color
+coding.
 
-I corebooted a Thinkpad X200 with disk encryptino. This can boot into a Tails
-USB. I'd say this is a pretty simple setup with fantastic anonymity.
+I like the idea of my label views being nothing more than tags and queries. It
+makes more sense than moving files between folders on a disk.
+
+I've since moved all my files to Google Drive and integrated the calendar into
+Emacs using the Google Calendar API and org-gcal packages.
+
+** Note taking
+I don't have good memory. My brain is an unsorted library and it performs just
+well enough to recall patterns. All of the things I learn and feel I write down
+into my org agenda. This integrates with my Google Calendar AND my Emacs email client.
+
+Anything I can't risk keeping in RAM will be written to disk. High performance
+brains with low capacities/optimizations need a lot of organizing to be okay : )

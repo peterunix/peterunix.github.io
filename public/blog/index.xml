@@ -6,8 +6,15 @@
     <description>Recent content in Blogs on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 15 May 2025 11:59:52 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 06 Jun 2025 16:03:27 +0000</lastBuildDate>
     <atom:link href="http://89.147.111.130:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating a Decent Portable Terminal Windows</title>
+      <link>http://89.147.111.130:1313/blog/creating-a-decent-portable-terminal-windows/</link>
+      <pubDate>Fri, 06 Jun 2025 16:03:27 +0000</pubDate>
+      <guid>http://89.147.111.130:1313/blog/creating-a-decent-portable-terminal-windows/</guid>
+      <description> Creating a Decent Portable Terminal Windows Preamble **&#xA;Alacritty-v0.15.1-portable.exe alacritty.toml RUNME.bat shims awk.cmd ash.cmd arch.cmd vim.cmd [...] bin curl git lynx midnight-commander psexec python vim91 7zr.exe aria2c.exe busybox.exe pageant.exe plink.exe pscp.exe psftp.exe putty.exe puttygen.exe [...] </description>
+    </item>
     <item>
       <title>Running Ollama Portably</title>
       <link>http://89.147.111.130:1313/blog/uncategorized/running-ollama-portably/</link>
