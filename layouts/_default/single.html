@@ -15,7 +15,8 @@
       ← Homepage
     </a>
 
-  <title>Queztaz/{{ .Title }}</title>
+  {{ $section := .Section }}
+  <title>{{ upper (substr $section 0 1) }}{{ substr $section 1 }}/{{ .Title }}</title>
   <h1>{{ .Title }}</h1>
 
   </div>

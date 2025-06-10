@@ -12,191 +12,208 @@
 <body>
   
 
-  <main>
+<main>
   <title>Queztaz/</title>
-    <style>
-      .toggle-content {
+  <style>
+    .toggle-content {
         display: visible;  
         margin-top: 1em;
-      
-}
-      .toggle-button {
+	
+    }
+    .toggle-button {
         cursor: pointer;
         user-select: none;
+	
+    }
+    img {
+	width:30%;
+    }
+  </style>
+
+  <p style="text-align: center;">
+    "We are not thinking machines. We are feeling machines that think"
+  </p>
+  <img src="/images/homepage.png" alt="homepage.png">
+  <center><p>RÉSUMÉ</a></center>
+
+  
+  <h1 class="toggle-button" onclick="toggleDropdown('dropdown-peter', this)">📂 Peter ▼</h1>
+  <div id="dropdown-peter" class="toggle-content" style="display: block;">
+    <ul>
       
-}
-      img {
-	  width:30%;
-}
-    </style>
+      <li>
+	<span style="font-size: small;">2025-05-18</span>
+	<a href="/peter/vita-gentile/">Operazione: Vita Gentile</a>
+      </li>
+      
+    </ul>
+  </div>
+<br>
+  
+  <h1 class="toggle-button" onclick="toggleDropdown('dropdown-queztaz', this)">📂 Queztaz ▼</h1>
+  <div id="dropdown-queztaz" class="toggle-content" style="display: block;">
+    <ul>
+      
+      <li>
+	<span style="font-size: small;">2025-06-06</span>
+	<a href="/queztaz/creating-a-decent-portable-terminal-windows/">Creating a Decent Portable Terminal Windows</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2025-05-15</span>
+	<a href="/queztaz/uncategorized/running-ollama-portably/">Running Ollama Portably</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2025-01-17</span>
+	<a href="/queztaz/emacs/emacs-with-bidirectional-google-calendar-sync/">Emacs With Directional Google Calendar Sync</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2025-01-12</span>
+	<a href="/queztaz/linux/creating-an-offline-debian-mirror-repository/">Creating an Offline Debian Mirror Repository</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2025-01-11</span>
+	<a href="/queztaz/emacs/emacs-with-mu4e-and-multiple-gmail-accounts/">Emacs with Mu4e and Multiple Gmail Accounts</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2024-09-18</span>
+	<a href="/queztaz/linux/migrate-wiki.js-to-another-server/">Migrate Wiki.js to Another Server</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2024-08-30</span>
+	<a href="/queztaz/linux/corebooting-thinkpad-x220-with-ch341a-programmer/">Corebooting Thinkpad X220 With CH341A Programmer</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2024-08-22</span>
+	<a href="/queztaz/windows/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/">Automatic CHKDSK Scans Using Powershell &amp; Email Alerts</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2024-05-14</span>
+	<a href="/queztaz/linux/adding-bitwarden-to-the-pinephone-pro/">Adding Bitwarden to the Pinephone Pro</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2024-05-14</span>
+	<a href="/queztaz/emacs/emacs-eww-hacks/">Emacs EWW Hacks</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-12-16</span>
+	<a href="/queztaz/uncategorized/getting-the-default-wireless-password-to-tg1672g-routers/">Finding the Default Wireless Password to TG1672G Routers</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-12-03</span>
+	<a href="/queztaz/windows/simulating-bad-blocks-on-ntfs-filesystems/">Simulating Bad Blocks NTFS Filesystems</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-09-13</span>
+	<a href="/queztaz/windows/cloning-a-bios-boot-drive-to-disimilar-hardware-with-uefi/">Cloning a Bios Boot Drive to Disimilar Hardware with UEFI</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-08-25</span>
+	<a href="/queztaz/windows/merging-hyperv-snapshots-with-powershell/">Merging HyperV Snapshots With Powershell</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-28</span>
+	<a href="/queztaz/mikrotik/mikrotik-creating-a-client-to-site-vpn-with-wireguard/">Mikrotik Creating a Client to Site VPN With Wireguard</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-28</span>
+	<a href="/queztaz/mikrotik/mikrotik-securing-router-with-firewall/">Mikrotik Securing Router With Firewall</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-28</span>
+	<a href="/queztaz/mikrotik/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/">Mikrotik Setup Dynamically Changing IP With No-IP Api</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/windows/windows-server-creating-and-viewing-a-storport-trace/">Windows Server Creating and Viewing a Storport Trace</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/qemu/qemu-windows-xp-fix-smb-not-working/">Qemu Windows Xp Fix Smb Not Working</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/qemu/qemu-windows-xp-installation/">Qemu Windows Xp Installation</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/qemu/qemu-mount-virtual-images/">Qemu Mount Virtual Images</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/qemu/qemu-chroot-into-a-different-architecture/">Qemu Chroot Into a Different Architecture</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/pinebook-pro/pinebook-pro-troubleshooting-common-issues/">Pinebook Pro Troubleshooting Common Issues</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/pinebook-pro/pinebook-pro-setting-up-zram/">Pinebook Pro Setting Up Zram</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/pinebook-pro/pinebook-pro-write-to-spi-flash/">Pinebook Pro Write to Spit Flash</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/pinebook-pro/pinebook-pro-use-nvme-as-root/">Pinebook Pro Use Nvme as Root</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/pinebook-pro/pinebook-pro-netbsd-installation/">Pinebook Pro Netbsd Installation</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/pinebook-pro/pinebook-pro-keyboard-firmware-update/">Pinebook Pro Keyboard Firmware Update</a>
+      </li>
+      
+      <li>
+	<span style="font-size: small;">2023-07-22</span>
+	<a href="/queztaz/pinebook-pro/pinebook-pro-custom-kernel/">Pinebook Pro Custom Kernel</a>
+      </li>
+      
+    </ul>
+  </div>
 
-    <center><p>Site under construction. Migrating posts.</p></center>
-    <img src="/images/homepage.png" alt="homepage.png">
-    <center><p><a href="/peter/vita-gentile/">Operazion: Vita Gentile</a></p></center>
-    
-    <h1 class="toggle-button" onclick="toggleDropdown()">📂 Queztaz ▲</h1>
-
-    <div id="dropdown-content" class="toggle-content">
-      <ul>
-        
-        <li>
-          <span style="font-size: small;">2025-06-06</span>
-          <a href="/blog/creating-a-decent-portable-terminal-windows/">Creating a Decent Portable Terminal Windows</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2025-05-15</span>
-          <a href="/blog/uncategorized/running-ollama-portably/">Running Ollama Portably</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2025-01-17</span>
-          <a href="/blog/emacs/emacs-with-bidirectional-google-calendar-sync/">Emacs With Directional Google Calendar Sync</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2025-01-12</span>
-          <a href="/blog/linux/creating-an-offline-debian-mirror-repository/">Creating an Offline Debian Mirror Repository</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2025-01-11</span>
-          <a href="/blog/emacs/emacs-with-mu4e-and-multiple-gmail-accounts/">Emacs with Mu4e and Multiple Gmail Accounts</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2024-09-18</span>
-          <a href="/blog/linux/migrate-wiki.js-to-another-server/">Migrate Wiki.js to Another Server</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2024-08-30</span>
-          <a href="/blog/linux/corebooting-thinkpad-x220-with-ch341a-programmer/">Corebooting Thinkpad X220 With CH341A Programmer</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2024-08-22</span>
-          <a href="/blog/windows/automating-chkdsk-scans-using-powershell-with-email-alerts-for-rmm/">Automatic CHKDSK Scans Using Powershell &amp; Email Alerts</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2024-05-14</span>
-          <a href="/blog/linux/adding-bitwarden-to-the-pinephone-pro/">Adding Bitwarden to the Pinephone Pro</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2024-05-14</span>
-          <a href="/blog/emacs/emacs-eww-hacks/">Emacs EWW Hacks</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-12-16</span>
-          <a href="/blog/uncategorized/getting-the-default-wireless-password-to-tg1672g-routers/">Finding the Default Wireless Password to TG1672G Routers</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-12-03</span>
-          <a href="/blog/windows/simulating-bad-blocks-on-ntfs-filesystems/">Simulating Bad Blocks NTFS Filesystems</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-09-13</span>
-          <a href="/blog/windows/cloning-a-bios-boot-drive-to-disimilar-hardware-with-uefi/">Cloning a Bios Boot Drive to Disimilar Hardware with UEFI</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-08-25</span>
-          <a href="/blog/windows/merging-hyperv-snapshots-with-powershell/">Merging HyperV Snapshots With Powershell</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-28</span>
-          <a href="/blog/mikrotik/mikrotik-creating-a-client-to-site-vpn-with-wireguard/">Mikrotik Creating a Client to Site VPN With Wireguard</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-28</span>
-          <a href="/blog/mikrotik/mikrotik-securing-router-with-firewall/">Mikrotik Securing Router With Firewall</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-28</span>
-          <a href="/blog/mikrotik/mikrotik-setup-dynamically-changing-ip-with-no-ip-api/">Mikrotik Setup Dynamically Changing IP With No-IP Api</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/windows/windows-server-creating-and-viewing-a-storport-trace/">Windows Server Creating and Viewing a Storport Trace</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/qemu/qemu-windows-xp-fix-smb-not-working/">Qemu Windows Xp Fix Smb Not Working</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/qemu/qemu-windows-xp-installation/">Qemu Windows Xp Installation</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/qemu/qemu-mount-virtual-images/">Qemu Mount Virtual Images</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/qemu/qemu-chroot-into-a-different-architecture/">Qemu Chroot Into a Different Architecture</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/pinebook-pro/pinebook-pro-troubleshooting-common-issues/">Pinebook Pro Troubleshooting Common Issues</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/pinebook-pro/pinebook-pro-setting-up-zram/">Pinebook Pro Setting Up Zram</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/pinebook-pro/pinebook-pro-write-to-spi-flash/">Pinebook Pro Write to Spit Flash</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/pinebook-pro/pinebook-pro-use-nvme-as-root/">Pinebook Pro Use Nvme as Root</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/pinebook-pro/pinebook-pro-netbsd-installation/">Pinebook Pro Netbsd Installation</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/pinebook-pro/pinebook-pro-keyboard-firmware-update/">Pinebook Pro Keyboard Firmware Update</a>
-        </li>
-        
-        <li>
-          <span style="font-size: small;">2023-07-22</span>
-          <a href="/blog/pinebook-pro/pinebook-pro-custom-kernel/">Pinebook Pro Custom Kernel</a>
-        </li>
-        
-      </ul>
-    </div>
-
-    <script>
-      function toggleDropdown() {
-        const content = document.getElementById("dropdown-content");
-        const header = document.querySelector(".toggle-button");
+  <script>
+    function toggleDropdown(id, header) {
+	const content = document.getElementById(id);
 	const isVisible = getComputedStyle(content).display === "block";
-        content.style.display = isVisible ? "none" : "block";
-        header.innerHTML = isVisible ? "📂 Queztaz ▼" : "📂 Queztaz ▲";
-}
-    </script>
-  </main>
+	content.style.display = isVisible ? "none" : "block";
+
+	
+	const name = header.textContent.match(/📂 (.*?)(?: ▲| ▼)/)[1];
+	header.innerHTML = `📂 ${name} ${isVisible ? '▼' : '▲'}`;
+    }
+  </script>
+</main>
 
 </body>
 </html>

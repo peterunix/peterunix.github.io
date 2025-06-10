@@ -7,7 +7,7 @@ DefaultContentLanguage = "en"
 enableInlineShortcodes = true
 
 [params]
-mainSections = ["blog"]
+mainSections = ["queztaz"]
 [markup.tableOfContents]
 startLevel = 2
 endLevel = 3
