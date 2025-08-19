@@ -12,7 +12,7 @@ considering how long it takes to complete one.
 Each headline will have the date it was created, with the end goal of having
 them all be complete
 
-* Checklist: <2025-08-19 Tue> [27%]
+* Checklist: <2025-08-19 Tue> [17%]
 ** TODO Operazione/Volunteering [66%]
 /Entered on/ [2025-07-30 Wed 11:33]
 *** DONE Find the volunteering gig
@@ -102,7 +102,7 @@ The appointment is in the midst of scheduling. I'm slightly concerned on the
 financial of things. I felt what needing money is like and I dont want to deal
 with something as stupid as "needing more dollars" again.
 
-** TODO Operazione/Guitar finger fun [%]
+** TODO Operazione/Guitar finger fun [0%]
 /Entered on/ [2025-07-10 Thu 12:41]
 
 *** Goal
