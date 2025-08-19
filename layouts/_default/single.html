@@ -1,5 +1,59 @@
 {{ define "main" }}
 <main>
+  <style>
+    .toc ul {
+	list-style-type: none;
+	padding-left: 1rem;
+    }
+    .toc li {
+	margin: 0.25rem 0;
+	cursor: pointer;
+    }
+    .toc li ul {
+	display: none; /* hide nested lists by default */
+	margin-left: 1rem;
+    }
+    .toc li.open > ul {
+	display: block; /* show when expanded */
+    }
+    .toc li > span {
+	font-weight: bold;
+	display: inline-block;
+    }
+  </style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".toc li").forEach(function (li) {
+    const subList = li.querySelector("ul");
+    if (subList) {
+      // Create toggle button
+      const toggle = document.createElement("span");
+      toggle.textContent = "▸";
+      toggle.style.cursor = "pointer";
+      toggle.style.marginRight = "0.4em";
+
+      // Insert before the anchor
+      const firstChild = li.firstElementChild;
+      li.insertBefore(toggle, firstChild);
+
+      // Hide sublist initially
+      subList.style.display = "none";
+
+      toggle.addEventListener("click", function (e) {
+        e.stopPropagation(); // don’t trigger anchor
+        if (subList.style.display === "none") {
+          subList.style.display = "block";
+          toggle.textContent = "▾";
+        } else {
+          subList.style.display = "none";
+          toggle.textContent = "▸";
+        }
+      });
+    }
+  });
+});
+</script>
+
   <div style="margin: 1rem;">
     <a href="/" style="
       display: inline-block;

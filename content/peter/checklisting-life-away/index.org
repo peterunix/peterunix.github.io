@@ -1,0 +1,115 @@
+#+title: Checklisting Life Away
+#+date: 2025-08-19T11:49:52-07:00
+#+draft: false
+
+* About
+This page is going to get big!
+
+I have ADHD and frequently have list items that either never get completed, or
+even touched! I call these tasks "Operations", which I feel is fitting
+considering how long it takes to complete one.
+
+Each headline will have the date it was created, with the end goal of having
+them all be complete
+
+* Checklist: <2025-08-19 Tue> [27%]
+** TODO Operazione/Volunteering [66%]
+/Entered on/ [2025-07-30 Wed 11:33]
+*** DONE Find the volunteering gig
+CLOSED: [2025-08-05 Tue 19:07]
+*** DONE Apply to the volunteer gig
+CLOSED: [2025-08-05 Tue 19:35]
+*** DONE Waiting for reply
+CLOSED: [2025-08-05 Tue 19:36]
+*** DONE Attend Interview
+CLOSED: [2025-08-19 Tue 13:22]
+
+It went great! I didn't start my first day yet. I am likely to start with
+Delivering food to a couple locations. After that I can assist with other areas.
+
+Chris was a great feeling person. I sat and listened the entire time. He
+reaffirmed that you are taking time out of your day to volunteer -- not
+working. I understood that already and enjoyed hearing it.
+
+He asked me to email when I am able to start working. I have to fit a single day
+in my schedule to complete deliveries.
+
+*** TASK Finding a schedule that works.
+I need to find a day of the week that would be best for this.
+My class starts at 5:30PM on Mondays and Wednesday. The Volunteer gig would be
+from 1-4PM. If I get off work at 12PM, that gives me plenty of time to drive
+home before and after work/volunteering/school.
+
+Wednesday would be a good day.
+
+I sent an email to the bosses about it.
+
+** TODO Operazione/Car checking [0%]
+*** TODO Find Mechanic
+I called Chris's mechanic and I the wait time was too long.
+
+I'm waiting on a call back from Personalized auto care:
+1680 Mendocino Ave, Santa Rosa, CA 95401, US
+
+*** TODO Check oil and transmission fluid
+*** TODO Replace windshield wipers
+*** TODO Clean the interior
+
+*** TODO Replace tires
+** TODO Operazione/Redirect Mail[0%]
+*** TASK Check my address from the mail
+*** TASK Get the form from the Post Office
+*** TASK *TASK Fill out form
+** TODO Operazione/Medicine [50%]
+*** GOAL
+*** DONE Call Medical Center
+CLOSED: [2025-08-19 Tue 13:24]
+
+Called the Medical center for ADHD medication. The psychiatry office said I
+would first need to try a course of antidepressants and anti anxiety medication.
+
+I called the office of my primary care physician to schedule the first appt
+
+*** TASK Attend Phone Appointment
+Scheduled for the 25th of this month at 12PM. I don't know what to expect.
+
+If I'm on anti-anxiety or anti-depressants, I hope it doesn't end my gumption to
+do things.
+
+** TODO Operazione/Gardening [0%]
+*** GOAL
+I have an entire backyard and a life that can potentially be filled to the top
+with plants. I want to know how to grow primarily indoor plants for aesthetics
+and warmth.
+
+*** TASK Where will it be located
+/Entered on/ [2025-07-31 Thu 11:40]
+
+https://shopsprig.com/pages/sprig-garden
+
+*** TASK What I will plant
+*** TASK What I will need
+** TODO Operazione/Tattoo [0%]
+/Entered on/ [2025-08-08 Fri 15:40]
+*** Goal
+Extend the sleeve to my rear Delt. I want it to cover my collar bone a little
+and bleed away. I was thinking it would be nice to have the existing sleeve look
+like its attached to my arm like an organic plant. Adventure time comes to
+mind :)
+
+*** TASK First appointment -- drafting the tattoo
+The appointment is in the midst of scheduling. I'm slightly concerned on the
+financial of things. I felt what needing money is like and I dont want to deal
+with something as stupid as "needing more dollars" again.
+
+** TODO Operazione/Guitar finger fun [%]
+/Entered on/ [2025-07-10 Thu 12:41]
+
+*** Goal
+Learn the Guitar enough to be and find the satisfaction in playing it. I like
+the thought of picking up a Guitar and not only enjoying the sounds, but also
+enjoying seeing my muscle memory develop on my fingers.
+
+*** TASK Clean the Guitar
+*** TASK Restring the Guitar
+*** TASK Pickup the guitar and play with it for 10 minutes
