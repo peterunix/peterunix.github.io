@@ -12,7 +12,7 @@ considering how long it takes to complete one.
 Each headline will have the date it was created, with the end goal of having
 them all be complete
 
-* Checklist: <2025-08-19 Tue> [20%]
+* Checklist: <2025-08-19 Tue> [44%]
 ** TODO Operazione/Volunteering [66%]
 /Entered on/ [2025-07-30 Wed 11:33]
 *** DONE Find the volunteering gig
@@ -44,7 +44,7 @@ Wednesday would be a good day.
 
 I sent an email to the bosses about it.
 
-** TODO Operazione/Car checking [20%]
+** TODO Operazione/Car checking [60%]
 *** DONE Find Mechanic
 CLOSED: [2025-08-20 Wed 09:55]
 I called Chris's mechanic and I the wait time was too long.
@@ -63,32 +63,40 @@ Update:
 ____________________________________________________________
 Sent the tire information. Scheduling now.
 
-*** TODO Check oil and transmission fluid
+*** DONE Check oil and transmission fluid
+CLOSED: [2025-08-24 Sun 15:41]
+Oil filter and transmission fluid purchased. Arriving tomorrow <2025-08-22 Thu>
+
+Update:
+____________________________________________________________
+
+The oil and transmission fluid was replaced! I got to speak with my mom and pops
+again. For the first time, in at least a long time, it felt like the Dad I was
+talking to was a real, reasonable, person. He was chill.
+
+It was a good visit! I had slept for 12 hours that prior day and had some great
+dreams. I woke up at 2PM. After that day, which lasted about 8 hours, I slept
+again and have what I'd say are the best dreams ever. There was not a single
+thing that went wrong in them.
+
+I was alone in my dreams, but there was always someone there to communicate
+with. No crazy dream issues. It was just me driving around, going to the store, etc.
+
 *** TODO Replace windshield wipers
 *** TODO Clean the interior
 
-*** TODO Replace tires
-** TODO Operazione/Redirect Mail[0%]
-*** TASK Check my address from the mail
-*** TASK Get the form from the Post Office
+*** DONE Replace tires
+CLOSED: [2025-08-22 Fri 13:36]
+Done! That wasn't so bad. I pulled up to the shop and had the tires placed
+within the our. My brother drove us back to the house to make snacks and gossip.
+
+** TODO Operazione/Redirect Mail[66%]
+*** DONE Check my address from the mail
+CLOSED: [2025-08-25 Mon 08:35]
+*** DONE Get the form from the Post Office
+CLOSED: [2025-08-25 Mon 08:35]
 *** TASK *TASK Fill out form
-** TODO Operazione/Medicine [50%]
-*** GOAL
-*** DONE Call Medical Center
-CLOSED: [2025-08-19 Tue 13:24]
-
-Called the Medical center for ADHD medication. The psychiatry office said I
-would first need to try a course of antidepressants and anti anxiety medication.
-
-I called the office of my primary care physician to schedule the first appt
-
-*** TASK Pickup Existing Medication
-*** TASK Attend Phone Appointment
-Scheduled for the 25th of this month at 12PM. I don't know what to expect.
-
-If I'm on anti-anxiety or anti-depressants, I hope it doesn't end my gumption to
-do things.
-
+*** TASK Submit form
 ** TODO Operazione/Gardening [0%]
 *** GOAL
 I have an entire backyard and a life that can potentially be filled to the top
@@ -97,11 +105,13 @@ and warmth.
 
 *** TASK Where will it be located
 /Entered on/ [2025-07-31 Thu 11:40]
-
 https://shopsprig.com/pages/sprig-garden
 
 *** TASK What I will plant
+https://www.bramblesbotanicals.com/shop/p/pinguicula-starburst
+
 *** TASK What I will need
+https://www.amazon.com/Dvine-Dev-Watering-Terracotta-Cylinder/dp/B0B3QQ52Y1/ref=sr_1_24?th=1
 ** TODO Operazione/Tattoo [0%]
 /Entered on/ [2025-08-08 Fri 15:40]
 *** Goal
@@ -126,3 +136,28 @@ enjoying seeing my muscle memory develop on my fingers.
 *** TASK Clean the Guitar
 *** TASK Restring the Guitar
 *** TASK Pickup the guitar and play with it for 10 minutes
+*** TASK Install the guitar mount
+Dan gifted me a guitar holder! Install this bad boy.
+
+** DONE Operazione/Medicine [100%]
+CLOSED: [2025-08-20 Wed 22:03]
+*** DONE GOAL
+CLOSED: [2025-08-25 Mon 08:32]
+I cancelled this. I was going to start on antidepressents, antianxiety meds, and
+others before being prescribed for ADHD. I may add more to this eventually. For
+now I'd like to wait. This is listed here so i get my medicine medicine
+
+Update! <2025-08-22 Fri>
+
+I learned I can order this online instead of going through the Amazon
+pharmacy...there is an alternate reality in which I didn't wait 3 weeks to spend
+5 minutes ordering.
+
+** DONE Operazione/Cleanup Dotfiles [100%]
+CLOSED: [2025-08-25 Mon 13:02]
+*** DONE Bashrc
+CLOSED: [2025-08-25 Mon 13:00]
+*** DONE Tmux
+CLOSED: [2025-08-25 Mon 13:00]
+*** DONE XinitRC
+CLOSED: [2025-08-25 Mon 13:02]
